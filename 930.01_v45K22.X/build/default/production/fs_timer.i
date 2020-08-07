@@ -9885,6 +9885,7 @@ typedef enum
     START_MENU,
     PAUSE_MENU,
     EXIT_LINE,
+    SECRET_MENU,
 }tE_menu_selected;
 
 typedef struct

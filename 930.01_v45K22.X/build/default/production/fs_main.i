@@ -9997,6 +9997,7 @@ void PWM2_setDC(int16_t dutycycle);
 # 1 "./fs_speed_controller.h" 1
 # 38 "./fs_speed_controller.h"
 float KP = 0.2;
+float KD = 1.0;
 # 49 "./fs_speed_controller.h"
 void speedControl(float position);
 void driveSafetyCheck(void);
@@ -10056,6 +10057,7 @@ typedef enum
     START_MENU,
     PAUSE_MENU,
     EXIT_LINE,
+    SECRET_MENU,
 }tE_menu_selected;
 
 typedef struct

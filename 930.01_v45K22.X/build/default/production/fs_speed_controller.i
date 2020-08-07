@@ -9759,6 +9759,7 @@ typedef uint32_t uint_fast32_t;
 
 
 float KP = 0.2;
+float KD = 1.0;
 # 49 "./fs_speed_controller.h"
 void speedControl(float position);
 void driveSafetyCheck(void);
@@ -9860,7 +9861,7 @@ void speedControl(float position)
     pos = (float) position;
 
     controller.error = (int16_t)(position - 3400.0);
-    controller.motorSpeed = (int16_t) (KP * controller.error + 1.0 * (controller.error - controller.lastError));
+    controller.motorSpeed = (int16_t) (KP * controller.error + KD * (controller.error - controller.lastError));
     controller.lastError = controller.error;
 
    controller.leftMotorSpeed =(int16_t) (200 + controller.motorSpeed + 70);

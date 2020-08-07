@@ -36,7 +36,7 @@ extern "C" {
     
     
 float KP =  0.2;
-#define KD  1.0
+float KD =  1.0;
     
 #define MAX_SPEED   350
 #define MIN_SPEED   50

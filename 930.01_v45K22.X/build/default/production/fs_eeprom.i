@@ -9759,7 +9759,7 @@ typedef uint32_t uint_fast32_t;
 uint8_t eepromRead(uint8_t address);
 void eepromWrite(uint8_t address, uint8_t data);
 # 25 "fs_eeprom.c" 2
-# 34 "fs_eeprom.c"
+# 36 "fs_eeprom.c"
 uint8_t eepromRead(uint8_t address)
 {
 
@@ -9778,12 +9778,7 @@ uint8_t eepromRead(uint8_t address)
     return EEDATA;
 
 }
-
-
-
-
-
-
+# 62 "fs_eeprom.c"
 void eepromWrite(uint8_t address, uint8_t data)
 {
 

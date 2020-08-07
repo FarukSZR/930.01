@@ -816,6 +816,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _KP
 -> .0.2 `f
 ]
+"39
+[; ;./fs_speed_controller.h: 39: float KD = 1.0;
+[v _KD `f ~T0 @X0 1 e ]
+[i _KD
+-> .1.0 `f
+]
 "67
 [; ;./fs_speed_controller.h: 67: tS_controller controller;
 [v _controller `S853 ~T0 @X0 1 e ]
@@ -855,8 +861,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_speed_controller.c: 41:     controller.error = (int16_t)(position - 3400.0);
 [e = . _controller 0 -> - -> _position `d .3400.0 `s ]
 "42
-[; ;fs_speed_controller.c: 42:     controller.motorSpeed = (int16_t) (KP * controller.error + 1.0 * (controller.error - controller.lastError));
-[e = . _controller 2 -> -> + -> * _KP -> -> . _controller 0 `i `f `d * .1.0 -> - -> . _controller 0 `i -> . _controller 1 `i `d `s `us ]
+[; ;fs_speed_controller.c: 42:     controller.motorSpeed = (int16_t) (KP * controller.error + KD * (controller.error - controller.lastError));
+[e = . _controller 2 -> -> + * _KP -> -> . _controller 0 `i `f * _KD -> - -> . _controller 0 `i -> . _controller 1 `i `f `s `us ]
 "43
 [; ;fs_speed_controller.c: 43:     controller.lastError = controller.error;
 [e = . _controller 1 . _controller 0 ]

@@ -27,7 +27,7 @@
 #include "fs_timer.h"
 #include "fs_lcd.h"
 #include "fs_eeprom.h"
-
+#include "fs_speed_controller.h"
 
 
 /*
@@ -193,6 +193,7 @@ void menuControl(void)
 void stateMachine(void)
 {    
     char textCursor2[16] = {0};   
+    static uint8_t secretMenuCounter = 0;
     
     switch (menu_selected)
     {              
@@ -258,7 +259,7 @@ void stateMachine(void)
                 timer_value.remainingMinute = menu_value.driver_time; // Her menuye giriste remainingMinute resetlemmeyecek. Sadece degisim varsa ilgili deger yazılacak.
             }
 
-            if ((menu_flags.menu_decrease_flag == TRUE) && (menu_value.driver_time > 0))
+            if ((menu_flags.menu_decrease_flag == TRUE) && (menu_value.driver_time > 1))
             {
                  menu_flags.menu_decrease_flag = 0;
                  menu_value.driver_time--;
@@ -442,13 +443,81 @@ void stateMachine(void)
                 timer_value.menu_login_delay = 0;
                 menu_selected = DRIVER_TIME_SETTING;               
             }
+            
+            if ((menu_flags.menu_increase_flag == 1) && (menu_flags.menu_decrease_flag == 1))
+            {
+                menu_selected = SECRET_MENU;
+                secretMenuCounter = 1;
+            }
             //TODO: Rampa ile durma burada olacak.
         
         break;
         
         case EXIT_LINE:
-            //TODO: Rampa ile durma burada olacak.
+            //TODO: Rampa ile durma burada olacak. Çizgiden çıktıgında bu durma islemi gerceklestirilecek.
         break;
        
+        case SECRET_MENU:
+                                              
+            if (menu_flags.menu_input_flag == 1)
+            {
+                menu_flags.menu_input_flag = FALSE;
+                secretMenuCounter++;
+                
+                if (secretMenuCounter >2)
+                {
+                    secretMenuCounter = 1;
+                }
+            }
+            
+            if (secretMenuCounter == 1)
+            {
+                Lcd_Set_Cursor(1,1);
+                Lcd_Write_String("PID PARAM       ");  
+                Lcd_Set_Cursor(2,1);
+                sprintf(textCursor2,"Kp:%5.1f     ",KP);
+                Lcd_Write_String(textCursor2); 
+                
+                if ((menu_flags.menu_increase_flag == TRUE) && (KP < 2.5))
+                {
+                    menu_flags.menu_increase_flag = FALSE;
+                    KP += 0.1;          
+                }
+
+                if ((menu_flags.menu_decrease_flag == TRUE) && (KP >= 0))
+                {
+                    menu_flags.menu_decrease_flag = FALSE;
+                     KP -= 0.1;               
+                }
+            }
+            
+            if (secretMenuCounter == 2)
+            {
+                Lcd_Set_Cursor(1,1);
+                Lcd_Write_String("PID PARAM       ");  
+                Lcd_Set_Cursor(2,1);
+                sprintf(textCursor2,"Kd:%5.1f    ",KD);
+                Lcd_Write_String(textCursor2);
+                               
+                if ((menu_flags.menu_increase_flag == TRUE) && (KD < 2.5))
+                {
+                    menu_flags.menu_increase_flag = FALSE;
+                    KD += 0.1;          
+                }
+
+                if ((menu_flags.menu_decrease_flag == TRUE) && (KD >= 0))
+                {
+                    menu_flags.menu_decrease_flag = FALSE;
+                     KD -= 0.1;               
+                }
+            }          
+            
+            if ( timer_value.menu_login_delay == MENU_TIMEOUT)
+            {
+                timer_value.menu_login_delay = 0;
+                menu_selected = PAUSE_MENU;               
+            }
+            
+        break;
     }                    
 }

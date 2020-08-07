@@ -10019,7 +10019,13 @@ void scanAdcConversion(void)
         break;
     }
 }
-# 155 "fs_adc.c"
+
+
+
+
+
+
+
 void calculatedAverageValue(void)
 {
     driver_limit.pay = 0;
