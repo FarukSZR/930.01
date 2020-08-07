@@ -3,16 +3,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./fs_menu_controller.h: 71: {
 [s S854 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S854 . menu start stop pause decrease increase ]
-"102
-[; ;./fs_menu_controller.h: 102: tE_menu_selected menu_selected = {0};
-[c E6318 0 1 2 3 4 5 6 7 .. ]
-[n E6318 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE  ]
+"103
+[; ;./fs_menu_controller.h: 103: tE_menu_selected menu_selected = {0};
+[c E6318 0 1 2 3 4 5 6 7 8 .. ]
+[n E6318 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
 "61
 [; ;./fs_menu_controller.h: 61: {
 [s S853 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S853 . menu_input_flag menu_start_flag menu_stop_flag menu_pause_flag menu_increase_flag menu_decrease_flag ]
-"94
-[; ;./fs_menu_controller.h: 94: {
+"95
+[; ;./fs_menu_controller.h: 95: {
 [s S855 `uc 1 `uc 1 `uc 1 ]
 [n S855 . driver_time stop_time speed_limit ]
 "42 ./fs_timer.h
@@ -23,6 +23,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./fs_timer.h: 47: {
 [s S857 `us 1 `us 1 `us 1 `s 1 `uc 1 `uc 1 ]
 [n S857 . second minute remainingSecond remainingMinute menu_login_delay timer_0_counter ]
+"53 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 53: {
+[s S858 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
+[n S858 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
 "103 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
 [s S4 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S4 . ANSB0 ANSB1 ANSB2 ANSB3 ANSB4 ANSB5 ]
@@ -153,8 +157,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S326 . . . . . . . . . . . . . . ]
 "6365
 [v _PORTAbits `VS326 ~T0 @X0 0 e@3968 ]
-"108 ./fs_menu_controller.h
-[; ;./fs_menu_controller.h: 108: void stateMachine(void);
+"109 ./fs_menu_controller.h
+[; ;./fs_menu_controller.h: 109: void stateMachine(void);
 [v _stateMachine `(v ~T0 @X0 0 ef ]
 "7678 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
 [s S378 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -800,8 +804,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _stopIsClick
 -> -> 0 `i `uc
 ]
-"101
-[; ;./fs_menu_controller.h: 101: tS_button_bounce_controller button_bounce_controller = {0};
+"102
+[; ;./fs_menu_controller.h: 102: tS_button_bounce_controller button_bounce_controller = {0};
 [v _button_bounce_controller `S854 ~T0 @X0 1 e ]
 [i _button_bounce_controller
 :U ..
@@ -810,14 +814,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"102
-[; ;./fs_menu_controller.h: 102: tE_menu_selected menu_selected = {0};
+"103
+[; ;./fs_menu_controller.h: 103: tE_menu_selected menu_selected = {0};
 [v _menu_selected `E6318 ~T0 @X0 1 e ]
 [i _menu_selected
 -> -> 0 `i `E6318
 ]
-"103
-[; ;./fs_menu_controller.h: 103: tS_menu_flags menu_flags = {0};
+"104
+[; ;./fs_menu_controller.h: 104: tS_menu_flags menu_flags = {0};
 [v _menu_flags `S853 ~T0 @X0 1 e ]
 [i _menu_flags
 :U ..
@@ -826,8 +830,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"104
-[; ;./fs_menu_controller.h: 104: tS_menu_value menu_value = {0};
+"105
+[; ;./fs_menu_controller.h: 105: tS_menu_value menu_value = {0};
 [v _menu_value `S855 ~T0 @X0 1 e ]
 [i _menu_value
 :U ..
@@ -856,6 +860,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
+"38 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 38: float KP = 0.2;
+[v _KP `f ~T0 @X0 1 e ]
+[i _KP
+-> .0.2 `f
+]
+"39
+[; ;./fs_speed_controller.h: 39: float KD = 1.0;
+[v _KD `f ~T0 @X0 1 e ]
+[i _KD
+-> .1.0 `f
+]
+"67
+[; ;./fs_speed_controller.h: 67: tS_controller controller;
+[v _controller `S858 ~T0 @X0 1 e ]
 "38 fs_menu_controller.c
 [; ;fs_menu_controller.c: 38: void menuInitialize(void)
 [v _menuInitialize `(v ~T0 @X0 1 ef ]
@@ -914,7 +933,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _TRISBbits 1 6 -> -> 0 `i `uc ]
 "63
 [; ;fs_menu_controller.c: 63: }
-[e :UE 858 ]
+[e :UE 859 ]
 }
 "72
 [; ;fs_menu_controller.c: 72: void buttonControlFlags(void)
@@ -924,8 +943,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _buttonControlFlags ]
 [f ]
-[v F6381 `uc ~T0 @X0 -> 16 `i s ]
-[i F6381
+[v F6398 `uc ~T0 @X0 -> 16 `i s ]
+[i F6398
 :U ..
 "74
 [; ;fs_menu_controller.c: 74:     char textCursor2[16] = {0};
@@ -933,10 +952,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _textCursor2 `uc ~T0 @X0 -> 16 `i a ]
-[e = _textCursor2 F6381 ]
+[e = _textCursor2 F6398 ]
 "76
 [; ;fs_menu_controller.c: 76:     if ((button_bounce_controller.menu == 0) && (PORTBbits.RB2 == 0))
-[e $ ! && == -> . _button_bounce_controller 0 `i -> 0 `i == -> . . _PORTBbits 0 2 `i -> 0 `i 860  ]
+[e $ ! && == -> . _button_bounce_controller 0 `i -> 0 `i == -> . . _PORTBbits 0 2 `i -> 0 `i 861  ]
 "77
 [; ;fs_menu_controller.c: 77:     {
 {
@@ -949,10 +968,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "80
 [; ;fs_menu_controller.c: 80:     }
 }
-[e :U 860 ]
+[e :U 861 ]
 "82
 [; ;fs_menu_controller.c: 82:     if ((PORTBbits.RB2 == 1) && (button_bounce_controller.menu == 1))
-[e $ ! && == -> . . _PORTBbits 0 2 `i -> 1 `i == -> . _button_bounce_controller 0 `i -> 1 `i 861  ]
+[e $ ! && == -> . . _PORTBbits 0 2 `i -> 1 `i == -> . _button_bounce_controller 0 `i -> 1 `i 862  ]
 "83
 [; ;fs_menu_controller.c: 83:     {
 {
@@ -965,10 +984,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "86
 [; ;fs_menu_controller.c: 86:     }
 }
-[e :U 861 ]
+[e :U 862 ]
 "88
 [; ;fs_menu_controller.c: 88:     if ((button_bounce_controller.pause == 0) && (PORTBbits.RB3 == 0))
-[e $ ! && == -> . _button_bounce_controller 3 `i -> 0 `i == -> . . _PORTBbits 0 3 `i -> 0 `i 862  ]
+[e $ ! && == -> . _button_bounce_controller 3 `i -> 0 `i == -> . . _PORTBbits 0 3 `i -> 0 `i 863  ]
 "89
 [; ;fs_menu_controller.c: 89:     {
 {
@@ -981,10 +1000,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "92
 [; ;fs_menu_controller.c: 92:     }
 }
-[e :U 862 ]
+[e :U 863 ]
 "93
 [; ;fs_menu_controller.c: 93:     if ((PORTBbits.RB3 == 1) && (button_bounce_controller.pause == 1))
-[e $ ! && == -> . . _PORTBbits 0 3 `i -> 1 `i == -> . _button_bounce_controller 3 `i -> 1 `i 863  ]
+[e $ ! && == -> . . _PORTBbits 0 3 `i -> 1 `i == -> . _button_bounce_controller 3 `i -> 1 `i 864  ]
 "94
 [; ;fs_menu_controller.c: 94:     {
 {
@@ -997,10 +1016,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "97
 [; ;fs_menu_controller.c: 97:     }
 }
-[e :U 863 ]
+[e :U 864 ]
 "100
 [; ;fs_menu_controller.c: 100:     if ((button_bounce_controller.start == 0) && (PORTAbits.RA0 == 0))
-[e $ ! && == -> . _button_bounce_controller 1 `i -> 0 `i == -> . . _PORTAbits 0 0 `i -> 0 `i 864  ]
+[e $ ! && == -> . _button_bounce_controller 1 `i -> 0 `i == -> . . _PORTAbits 0 0 `i -> 0 `i 865  ]
 "101
 [; ;fs_menu_controller.c: 101:     {
 {
@@ -1013,10 +1032,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "104
 [; ;fs_menu_controller.c: 104:     }
 }
-[e :U 864 ]
+[e :U 865 ]
 "105
 [; ;fs_menu_controller.c: 105:     if ((PORTAbits.RA0 == 1) && (button_bounce_controller.start == 1))
-[e $ ! && == -> . . _PORTAbits 0 0 `i -> 1 `i == -> . _button_bounce_controller 1 `i -> 1 `i 865  ]
+[e $ ! && == -> . . _PORTAbits 0 0 `i -> 1 `i == -> . _button_bounce_controller 1 `i -> 1 `i 866  ]
 "106
 [; ;fs_menu_controller.c: 106:     {
 {
@@ -1029,10 +1048,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "109
 [; ;fs_menu_controller.c: 109:     }
 }
-[e :U 865 ]
+[e :U 866 ]
 "112
 [; ;fs_menu_controller.c: 112:     if ((button_bounce_controller.stop == 0) && (PORTAbits.RA5 == 0))
-[e $ ! && == -> . _button_bounce_controller 2 `i -> 0 `i == -> . . _PORTAbits 0 5 `i -> 0 `i 866  ]
+[e $ ! && == -> . _button_bounce_controller 2 `i -> 0 `i == -> . . _PORTAbits 0 5 `i -> 0 `i 867  ]
 "113
 [; ;fs_menu_controller.c: 113:     {
 {
@@ -1045,10 +1064,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "116
 [; ;fs_menu_controller.c: 116:     }
 }
-[e :U 866 ]
+[e :U 867 ]
 "117
 [; ;fs_menu_controller.c: 117:     if ((PORTAbits.RA5 == 1) && (button_bounce_controller.stop == 1))
-[e $ ! && == -> . . _PORTAbits 0 5 `i -> 1 `i == -> . _button_bounce_controller 2 `i -> 1 `i 867  ]
+[e $ ! && == -> . . _PORTAbits 0 5 `i -> 1 `i == -> . _button_bounce_controller 2 `i -> 1 `i 868  ]
 "118
 [; ;fs_menu_controller.c: 118:     {
 {
@@ -1061,10 +1080,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "121
 [; ;fs_menu_controller.c: 121:     }
 }
-[e :U 867 ]
+[e :U 868 ]
 "124
 [; ;fs_menu_controller.c: 124:     if ((button_bounce_controller.increase == 0) && (PORTBbits.RB5 == 0))
-[e $ ! && == -> . _button_bounce_controller 5 `i -> 0 `i == -> . . _PORTBbits 0 5 `i -> 0 `i 868  ]
+[e $ ! && == -> . _button_bounce_controller 5 `i -> 0 `i == -> . . _PORTBbits 0 5 `i -> 0 `i 869  ]
 "125
 [; ;fs_menu_controller.c: 125:     {
 {
@@ -1077,10 +1096,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "128
 [; ;fs_menu_controller.c: 128:     }
 }
-[e :U 868 ]
+[e :U 869 ]
 "129
 [; ;fs_menu_controller.c: 129:     if ((PORTBbits.RB5 == 1) && (button_bounce_controller.increase == 1))
-[e $ ! && == -> . . _PORTBbits 0 5 `i -> 1 `i == -> . _button_bounce_controller 5 `i -> 1 `i 869  ]
+[e $ ! && == -> . . _PORTBbits 0 5 `i -> 1 `i == -> . _button_bounce_controller 5 `i -> 1 `i 870  ]
 "130
 [; ;fs_menu_controller.c: 130:     {
 {
@@ -1093,10 +1112,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "133
 [; ;fs_menu_controller.c: 133:     }
 }
-[e :U 869 ]
+[e :U 870 ]
 "136
 [; ;fs_menu_controller.c: 136:     if ((button_bounce_controller.decrease == 0) && (PORTBbits.RB4 == 0))
-[e $ ! && == -> . _button_bounce_controller 4 `i -> 0 `i == -> . . _PORTBbits 0 4 `i -> 0 `i 870  ]
+[e $ ! && == -> . _button_bounce_controller 4 `i -> 0 `i == -> . . _PORTBbits 0 4 `i -> 0 `i 871  ]
 "137
 [; ;fs_menu_controller.c: 137:     {
 {
@@ -1109,10 +1128,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "140
 [; ;fs_menu_controller.c: 140:     }
 }
-[e :U 870 ]
+[e :U 871 ]
 "141
 [; ;fs_menu_controller.c: 141:     if ((PORTBbits.RB4 == 1) && (button_bounce_controller.decrease == 1))
-[e $ ! && == -> . . _PORTBbits 0 4 `i -> 1 `i == -> . _button_bounce_controller 4 `i -> 1 `i 871  ]
+[e $ ! && == -> . . _PORTBbits 0 4 `i -> 1 `i == -> . _button_bounce_controller 4 `i -> 1 `i 872  ]
 "142
 [; ;fs_menu_controller.c: 142:     {
 {
@@ -1125,10 +1144,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "145
 [; ;fs_menu_controller.c: 145:     }
 }
-[e :U 871 ]
+[e :U 872 ]
 "146
 [; ;fs_menu_controller.c: 146: }
-[e :UE 859 ]
+[e :UE 860 ]
 }
 "155
 [; ;fs_menu_controller.c: 155: void menuControl(void)
@@ -1146,7 +1165,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _stateMachine ..  ]
 "160
 [; ;fs_menu_controller.c: 160:     if (menu_flags.menu_start_flag == 1)
-[e $ ! == -> . _menu_flags 1 `i -> 1 `i 873  ]
+[e $ ! == -> . _menu_flags 1 `i -> 1 `i 874  ]
 "161
 [; ;fs_menu_controller.c: 161:     {
 {
@@ -1165,10 +1184,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "166
 [; ;fs_menu_controller.c: 166:     }
 }
-[e :U 873 ]
+[e :U 874 ]
 "169
 [; ;fs_menu_controller.c: 169:     if (menu_flags.menu_pause_flag == 1)
-[e $ ! == -> . _menu_flags 3 `i -> 1 `i 874  ]
+[e $ ! == -> . _menu_flags 3 `i -> 1 `i 875  ]
 "170
 [; ;fs_menu_controller.c: 170:     {
 {
@@ -1187,10 +1206,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "175
 [; ;fs_menu_controller.c: 175:     }
 }
-[e :U 874 ]
+[e :U 875 ]
 "177
 [; ;fs_menu_controller.c: 177:     if (menu_flags.menu_stop_flag == 1)
-[e $ ! == -> . _menu_flags 2 `i -> 1 `i 875  ]
+[e $ ! == -> . _menu_flags 2 `i -> 1 `i 876  ]
 "178
 [; ;fs_menu_controller.c: 178:     {
 {
@@ -1209,10 +1228,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "183
 [; ;fs_menu_controller.c: 183:     }
 }
-[e :U 875 ]
+[e :U 876 ]
 "184
 [; ;fs_menu_controller.c: 184: }
-[e :UE 872 ]
+[e :UE 873 ]
 }
 "193
 [; ;fs_menu_controller.c: 193: void stateMachine(void)
@@ -1222,8 +1241,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _stateMachine ]
 [f ]
-[v F6385 `uc ~T0 @X0 -> 16 `i s ]
-[i F6385
+[v F6402 `uc ~T0 @X0 -> 16 `i s ]
+[i F6402
 :U ..
 "195
 [; ;fs_menu_controller.c: 195:     char textCursor2[16] = {0};
@@ -1231,16 +1250,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _textCursor2 `uc ~T0 @X0 -> 16 `i a ]
-[e = _textCursor2 F6385 ]
+[e = _textCursor2 F6402 ]
 "197
 [; ;fs_menu_controller.c: 197:     switch (menu_selected)
-[e $U 878  ]
+[e $U 879  ]
 "198
 [; ;fs_menu_controller.c: 198:     {
 {
 "199
 [; ;fs_menu_controller.c: 199:         case MAIN_MENU:
-[e :U 879 ]
+[e :U 880 ]
 "201
 [; ;fs_menu_controller.c: 201:             LATBbits.LATB6 = 0;
 [e = . . _LATBbits 0 6 -> -> 0 `i `uc ]
@@ -1267,7 +1286,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Lcd_Write_String (1 &U _textCursor2 ]
 "210
 [; ;fs_menu_controller.c: 210:             if ( timer_value.menu_login_delay == 100)
-[e $ ! == -> . _timer_value 4 `i -> 100 `i 880  ]
+[e $ ! == -> . _timer_value 4 `i -> 100 `i 881  ]
 "211
 [; ;fs_menu_controller.c: 211:             {
 {
@@ -1280,10 +1299,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "214
 [; ;fs_menu_controller.c: 214:             }
 }
-[e :U 880 ]
+[e :U 881 ]
 "216
 [; ;fs_menu_controller.c: 216:             if ((timer_value.remainingMinute <= 0) && (timer_value.remainingSecond == 0) )
-[e $ ! && <= -> . _timer_value 3 `i -> 0 `i == -> . _timer_value 2 `ui -> -> 0 `i `ui 881  ]
+[e $ ! && <= -> . _timer_value 3 `i -> 0 `i == -> . _timer_value 2 `ui -> -> 0 `i `ui 882  ]
 "217
 [; ;fs_menu_controller.c: 217:             {
 {
@@ -1296,10 +1315,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "220
 [; ;fs_menu_controller.c: 220:             }
 }
-[e :U 881 ]
+[e :U 882 ]
 "222
 [; ;fs_menu_controller.c: 222:             if ( (startIsClick == 0) && (pauseIsClick == 1) && (stopIsClick == 0) && (menu_selected == MAIN_MENU))
-[e $ ! && && && == -> _startIsClick `i -> 0 `i == -> _pauseIsClick `i -> 1 `i == -> _stopIsClick `i -> 0 `i == -> _menu_selected `ui -> . `E6318 0 `ui 882  ]
+[e $ ! && && && == -> _startIsClick `i -> 0 `i == -> _pauseIsClick `i -> 1 `i == -> _stopIsClick `i -> 0 `i == -> _menu_selected `ui -> . `E6318 0 `ui 883  ]
 "223
 [; ;fs_menu_controller.c: 223:             {
 {
@@ -1309,10 +1328,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "225
 [; ;fs_menu_controller.c: 225:             }
 }
-[e :U 882 ]
+[e :U 883 ]
 "227
 [; ;fs_menu_controller.c: 227:             if ( (startIsClick == 0) && (pauseIsClick == 0) && (stopIsClick == 1) && (menu_selected == MAIN_MENU) )
-[e $ ! && && && == -> _startIsClick `i -> 0 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 1 `i == -> _menu_selected `ui -> . `E6318 0 `ui 883  ]
+[e $ ! && && && == -> _startIsClick `i -> 0 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 1 `i == -> _menu_selected `ui -> . `E6318 0 `ui 884  ]
 "228
 [; ;fs_menu_controller.c: 228:             {
 {
@@ -1331,13 +1350,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "233
 [; ;fs_menu_controller.c: 233:             }
 }
-[e :U 883 ]
+[e :U 884 ]
 "236
 [; ;fs_menu_controller.c: 236:         break;
-[e $U 877  ]
+[e $U 878  ]
 "238
 [; ;fs_menu_controller.c: 238:         case DRIVER_TIME_SETTING:
-[e :U 884 ]
+[e :U 885 ]
 "240
 [; ;fs_menu_controller.c: 240:             LATBbits.LATB6 = 0;
 [e = . . _LATBbits 0 6 -> -> 0 `i `uc ]
@@ -1349,7 +1368,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LATEbits 0 2 -> -> 1 `i `uc ]
 "244
 [; ;fs_menu_controller.c: 244:             if (menu_flags.menu_input_flag == 1)
-[e $ ! == -> . _menu_flags 0 `i -> 1 `i 885  ]
+[e $ ! == -> . _menu_flags 0 `i -> 1 `i 886  ]
 "245
 [; ;fs_menu_controller.c: 245:             {
 {
@@ -1362,10 +1381,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "248
 [; ;fs_menu_controller.c: 248:             }
 }
-[e :U 885 ]
+[e :U 886 ]
 "250
 [; ;fs_menu_controller.c: 250:             if ((menu_flags.menu_increase_flag == 1) && (menu_value.driver_time < 30))
-[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> . _menu_value 0 `i -> 30 `i 886  ]
+[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> . _menu_value 0 `i -> 30 `i 887  ]
 "251
 [; ;fs_menu_controller.c: 251:             {
 {
@@ -1393,10 +1412,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "259
 [; ;fs_menu_controller.c: 259:             }
 }
-[e :U 886 ]
+[e :U 887 ]
 "261
 [; ;fs_menu_controller.c: 261:             if ((menu_flags.menu_decrease_flag == 1) && (menu_value.driver_time > 0))
-[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 0 `i -> 0 `i 887  ]
+[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 0 `i -> 0 `i 888  ]
 "262
 [; ;fs_menu_controller.c: 262:             {
 {
@@ -1424,7 +1443,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "270
 [; ;fs_menu_controller.c: 270:             }
 }
-[e :U 887 ]
+[e :U 888 ]
 "273
 [; ;fs_menu_controller.c: 273:             Lcd_Set_Cursor(1,1);
 [e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
@@ -1442,7 +1461,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Lcd_Write_String (1 &U _textCursor2 ]
 "279
 [; ;fs_menu_controller.c: 279:             if(timer_value.menu_login_delay == 100)
-[e $ ! == -> . _timer_value 4 `i -> 100 `i 888  ]
+[e $ ! == -> . _timer_value 4 `i -> 100 `i 889  ]
 "280
 [; ;fs_menu_controller.c: 280:             {
 {
@@ -1455,13 +1474,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "283
 [; ;fs_menu_controller.c: 283:             }
 }
-[e :U 888 ]
+[e :U 889 ]
 "285
 [; ;fs_menu_controller.c: 285:         break;
-[e $U 877  ]
+[e $U 878  ]
 "287
 [; ;fs_menu_controller.c: 287:         case STOP_TIME_SETTING:
-[e :U 889 ]
+[e :U 890 ]
 "289
 [; ;fs_menu_controller.c: 289:             LATBbits.LATB6 = 0;
 [e = . . _LATBbits 0 6 -> -> 0 `i `uc ]
@@ -1473,7 +1492,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LATEbits 0 2 -> -> 1 `i `uc ]
 "293
 [; ;fs_menu_controller.c: 293:             if (menu_flags.menu_input_flag == 1)
-[e $ ! == -> . _menu_flags 0 `i -> 1 `i 890  ]
+[e $ ! == -> . _menu_flags 0 `i -> 1 `i 891  ]
 "294
 [; ;fs_menu_controller.c: 294:             {
 {
@@ -1486,10 +1505,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "297
 [; ;fs_menu_controller.c: 297:             }
 }
-[e :U 890 ]
+[e :U 891 ]
 "299
 [; ;fs_menu_controller.c: 299:             if ((menu_flags.menu_increase_flag == 1) && (menu_value.stop_time < 100))
-[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> . _menu_value 1 `i -> 100 `i 891  ]
+[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> . _menu_value 1 `i -> 100 `i 892  ]
 "300
 [; ;fs_menu_controller.c: 300:             {
 {
@@ -1505,10 +1524,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "304
 [; ;fs_menu_controller.c: 304:             }
 }
-[e :U 891 ]
+[e :U 892 ]
 "306
 [; ;fs_menu_controller.c: 306:             if ((menu_flags.menu_decrease_flag == 1) && (menu_value.stop_time > 0))
-[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 1 `i -> 0 `i 892  ]
+[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 1 `i -> 0 `i 893  ]
 "307
 [; ;fs_menu_controller.c: 307:             {
 {
@@ -1524,7 +1543,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "311
 [; ;fs_menu_controller.c: 311:             }
 }
-[e :U 892 ]
+[e :U 893 ]
 "312
 [; ;fs_menu_controller.c: 312:             Lcd_Set_Cursor(1,1);
 [e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
@@ -1542,7 +1561,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Lcd_Write_String (1 &U _textCursor2 ]
 "318
 [; ;fs_menu_controller.c: 318:             if(timer_value.menu_login_delay == 100)
-[e $ ! == -> . _timer_value 4 `i -> 100 `i 893  ]
+[e $ ! == -> . _timer_value 4 `i -> 100 `i 894  ]
 "319
 [; ;fs_menu_controller.c: 319:             {
 {
@@ -1555,13 +1574,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "322
 [; ;fs_menu_controller.c: 322:             }
 }
-[e :U 893 ]
+[e :U 894 ]
 "323
 [; ;fs_menu_controller.c: 323:         break;
-[e $U 877  ]
+[e $U 878  ]
 "325
 [; ;fs_menu_controller.c: 325:         case SPEED_LIMIT_SETTING:
-[e :U 894 ]
+[e :U 895 ]
 "327
 [; ;fs_menu_controller.c: 327:             LATBbits.LATB6 = 0;
 [e = . . _LATBbits 0 6 -> -> 0 `i `uc ]
@@ -1573,7 +1592,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LATEbits 0 2 -> -> 1 `i `uc ]
 "331
 [; ;fs_menu_controller.c: 331:             if (menu_flags.menu_input_flag == 1)
-[e $ ! == -> . _menu_flags 0 `i -> 1 `i 895  ]
+[e $ ! == -> . _menu_flags 0 `i -> 1 `i 896  ]
 "332
 [; ;fs_menu_controller.c: 332:             {
 {
@@ -1586,10 +1605,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "335
 [; ;fs_menu_controller.c: 335:             }
 }
-[e :U 895 ]
+[e :U 896 ]
 "337
 [; ;fs_menu_controller.c: 337:             if ((menu_flags.menu_increase_flag == 1) && (menu_value.speed_limit < 5))
-[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> . _menu_value 2 `i -> 5 `i 896  ]
+[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> . _menu_value 2 `i -> 5 `i 897  ]
 "338
 [; ;fs_menu_controller.c: 338:             {
 {
@@ -1605,10 +1624,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "342
 [; ;fs_menu_controller.c: 342:             }
 }
-[e :U 896 ]
+[e :U 897 ]
 "344
 [; ;fs_menu_controller.c: 344:             if ((menu_flags.menu_decrease_flag == 1) && (menu_value.speed_limit > 0))
-[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 2 `i -> 0 `i 897  ]
+[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 2 `i -> 0 `i 898  ]
 "345
 [; ;fs_menu_controller.c: 345:             {
 {
@@ -1624,7 +1643,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "349
 [; ;fs_menu_controller.c: 349:             }
 }
-[e :U 897 ]
+[e :U 898 ]
 "350
 [; ;fs_menu_controller.c: 350:             Lcd_Set_Cursor(1,1);
 [e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
@@ -1642,7 +1661,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Lcd_Write_String (1 &U _textCursor2 ]
 "356
 [; ;fs_menu_controller.c: 356:             if(timer_value.menu_login_delay == 100)
-[e $ ! == -> . _timer_value 4 `i -> 100 `i 898  ]
+[e $ ! == -> . _timer_value 4 `i -> 100 `i 899  ]
 "357
 [; ;fs_menu_controller.c: 357:             {
 {
@@ -1655,13 +1674,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "360
 [; ;fs_menu_controller.c: 360:             }
 }
-[e :U 898 ]
+[e :U 899 ]
 "361
 [; ;fs_menu_controller.c: 361:         break;
-[e $U 877  ]
+[e $U 878  ]
 "363
 [; ;fs_menu_controller.c: 363:         case STOP_MENU:
-[e :U 899 ]
+[e :U 900 ]
 "364
 [; ;fs_menu_controller.c: 364:             startIsClick = 0;
 [e = _startIsClick -> -> 0 `i `uc ]
@@ -1703,7 +1722,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Lcd_Write_String (1 &U _textCursor2 ]
 "379
 [; ;fs_menu_controller.c: 379:         if (menu_flags.menu_start_flag == 1)
-[e $ ! == -> . _menu_flags 1 `i -> 1 `i 900  ]
+[e $ ! == -> . _menu_flags 1 `i -> 1 `i 901  ]
 "380
 [; ;fs_menu_controller.c: 380:         {
 {
@@ -1731,10 +1750,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "389
 [; ;fs_menu_controller.c: 389:         }
 }
-[e :U 900 ]
+[e :U 901 ]
 "391
 [; ;fs_menu_controller.c: 391:         if ( timer_value.menu_login_delay == 100)
-[e $ ! == -> . _timer_value 4 `i -> 100 `i 901  ]
+[e $ ! == -> . _timer_value 4 `i -> 100 `i 902  ]
 "392
 [; ;fs_menu_controller.c: 392:         {
 {
@@ -1747,13 +1766,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "395
 [; ;fs_menu_controller.c: 395:         }
 }
-[e :U 901 ]
+[e :U 902 ]
 "397
 [; ;fs_menu_controller.c: 397:        break;
-[e $U 877  ]
+[e $U 878  ]
 "399
 [; ;fs_menu_controller.c: 399:         case START_MENU:
-[e :U 902 ]
+[e :U 903 ]
 "400
 [; ;fs_menu_controller.c: 400:             timer_value.remainingMinute = menu_value.driver_time;
 [e = . _timer_value 3 -> . _menu_value 0 `s ]
@@ -1771,10 +1790,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _menu_selected . `E6318 0 ]
 "405
 [; ;fs_menu_controller.c: 405:         break;
-[e $U 877  ]
+[e $U 878  ]
 "407
 [; ;fs_menu_controller.c: 407:         case PAUSE_MENU:
-[e :U 903 ]
+[e :U 904 ]
 "409
 [; ;fs_menu_controller.c: 409:             LATBbits.LATB6 = 1;
 [e = . . _LATBbits 0 6 -> -> 1 `i `uc ]
@@ -1807,7 +1826,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _Lcd_Write_String (1 &U _textCursor2 ]
 "421
 [; ;fs_menu_controller.c: 421:             if (menu_flags.menu_start_flag == 1)
-[e $ ! == -> . _menu_flags 1 `i -> 1 `i 904  ]
+[e $ ! == -> . _menu_flags 1 `i -> 1 `i 905  ]
 "422
 [; ;fs_menu_controller.c: 422:             {
 {
@@ -1829,10 +1848,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "429
 [; ;fs_menu_controller.c: 429:             }
 }
-[e :U 904 ]
+[e :U 905 ]
 "431
 [; ;fs_menu_controller.c: 431:             if ( (startIsClick == 0) && (pauseIsClick == 0) && (stopIsClick == 1) && (menu_selected == PAUSE_MENU))
-[e $ ! && && && == -> _startIsClick `i -> 0 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 1 `i == -> _menu_selected `ui -> . `E6318 6 `ui 905  ]
+[e $ ! && && && == -> _startIsClick `i -> 0 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 1 `i == -> _menu_selected `ui -> . `E6318 6 `ui 906  ]
 "432
 [; ;fs_menu_controller.c: 432:             {
 {
@@ -1851,10 +1870,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "438
 [; ;fs_menu_controller.c: 438:             }
 }
-[e :U 905 ]
+[e :U 906 ]
 "440
 [; ;fs_menu_controller.c: 440:             if ( timer_value.menu_login_delay == 100)
-[e $ ! == -> . _timer_value 4 `i -> 100 `i 906  ]
+[e $ ! == -> . _timer_value 4 `i -> 100 `i 907  ]
 "441
 [; ;fs_menu_controller.c: 441:             {
 {
@@ -1867,45 +1886,130 @@ Version 4.0 HI-TECH Software Intermediate Code
 "444
 [; ;fs_menu_controller.c: 444:             }
 }
-[e :U 906 ]
-"447
-[; ;fs_menu_controller.c: 447:         break;
-[e $U 877  ]
-"449
-[; ;fs_menu_controller.c: 449:         case EXIT_LINE:
 [e :U 907 ]
-"451
-[; ;fs_menu_controller.c: 451:         break;
-[e $U 877  ]
-"453
-[; ;fs_menu_controller.c: 453:     }
+"446
+[; ;fs_menu_controller.c: 446:             if ((menu_flags.menu_increase_flag == 1) && (menu_flags.menu_decrease_flag == 1))
+[e $ ! && == -> . _menu_flags 4 `i -> 1 `i == -> . _menu_flags 5 `i -> 1 `i 908  ]
+"447
+[; ;fs_menu_controller.c: 447:             {
+{
+"448
+[; ;fs_menu_controller.c: 448:                 menu_selected = SECRET_MENU;
+[e = _menu_selected . `E6318 8 ]
+"449
+[; ;fs_menu_controller.c: 449:             }
 }
-[e $U 877  ]
-[e :U 878 ]
-[e [\ -> _menu_selected `ui , $ -> . `E6318 0 `ui 879
- , $ -> . `E6318 1 `ui 884
- , $ -> . `E6318 2 `ui 889
- , $ -> . `E6318 3 `ui 894
- , $ -> . `E6318 4 `ui 899
- , $ -> . `E6318 5 `ui 902
- , $ -> . `E6318 6 `ui 903
- , $ -> . `E6318 7 `ui 907
- 877 ]
-[e :U 877 ]
+[e :U 908 ]
+"452
+[; ;fs_menu_controller.c: 452:         break;
+[e $U 878  ]
 "454
-[; ;fs_menu_controller.c: 454: }
-[e :UE 876 ]
+[; ;fs_menu_controller.c: 454:         case EXIT_LINE:
+[e :U 909 ]
+"456
+[; ;fs_menu_controller.c: 456:         break;
+[e $U 878  ]
+"458
+[; ;fs_menu_controller.c: 458:         case SECRET_MENU:
+[e :U 910 ]
+"460
+[; ;fs_menu_controller.c: 460:             Lcd_Set_Cursor(1,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"461
+[; ;fs_menu_controller.c: 461:             Lcd_Write_String("PID PARAM       ");
+[e ( _Lcd_Write_String (1 :s 13C ]
+"462
+[; ;fs_menu_controller.c: 462:             Lcd_Set_Cursor(2,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"463
+[; ;fs_menu_controller.c: 463:             sprintf(textCursor2,"Kp:%5.1f Kd:5.1f    ",KP,KD);
+[e ( _sprintf (1 , , (. , &U _textCursor2 :s 14C -> _KP `d -> _KD `d ]
+"464
+[; ;fs_menu_controller.c: 464:             Lcd_Write_String(textCursor2);
+[e ( _Lcd_Write_String (1 &U _textCursor2 ]
+"466
+[; ;fs_menu_controller.c: 466:             if ((menu_flags.menu_increase_flag == 1) && (KP < 2.5))
+[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> _KP `d .2.5 911  ]
+"467
+[; ;fs_menu_controller.c: 467:             {
+{
+"468
+[; ;fs_menu_controller.c: 468:                 menu_flags.menu_increase_flag = 0;
+[e = . _menu_flags 4 -> -> 0 `i `uc ]
+"469
+[; ;fs_menu_controller.c: 469:                 KP += 0.1;
+[e =+ _KP -> .0.1 `f ]
+"470
+[; ;fs_menu_controller.c: 470:             }
 }
-[p f _sprintf 8388736 ]
+[e :U 911 ]
+"472
+[; ;fs_menu_controller.c: 472:             if ((menu_flags.menu_decrease_flag == 1) && (menu_value.speed_limit >= 0))
+[e $ ! && == -> . _menu_flags 5 `i -> 1 `i >= -> . _menu_value 2 `i -> 0 `i 912  ]
+"473
+[; ;fs_menu_controller.c: 473:             {
+{
+"474
+[; ;fs_menu_controller.c: 474:                  menu_flags.menu_decrease_flag = 0;
+[e = . _menu_flags 5 -> -> 0 `i `uc ]
+"475
+[; ;fs_menu_controller.c: 475:                  KP -= 0.1;
+[e =- _KP -> .0.1 `f ]
+"476
+[; ;fs_menu_controller.c: 476:             }
+}
+[e :U 912 ]
+"478
+[; ;fs_menu_controller.c: 478:             if ( timer_value.menu_login_delay == 100)
+[e $ ! == -> . _timer_value 4 `i -> 100 `i 913  ]
+"479
+[; ;fs_menu_controller.c: 479:             {
+{
+"480
+[; ;fs_menu_controller.c: 480:                 timer_value.menu_login_delay = 0;
+[e = . _timer_value 4 -> -> 0 `i `uc ]
+"481
+[; ;fs_menu_controller.c: 481:                 menu_selected = PAUSE_MENU;
+[e = _menu_selected . `E6318 6 ]
+"482
+[; ;fs_menu_controller.c: 482:             }
+}
+[e :U 913 ]
+"484
+[; ;fs_menu_controller.c: 484:         break;
+[e $U 878  ]
+"485
+[; ;fs_menu_controller.c: 485:     }
+}
+[e $U 878  ]
+[e :U 879 ]
+[e [\ -> _menu_selected `ui , $ -> . `E6318 0 `ui 880
+ , $ -> . `E6318 1 `ui 885
+ , $ -> . `E6318 2 `ui 890
+ , $ -> . `E6318 3 `ui 895
+ , $ -> . `E6318 4 `ui 900
+ , $ -> . `E6318 5 `ui 903
+ , $ -> . `E6318 6 `ui 904
+ , $ -> . `E6318 7 `ui 909
+ , $ -> . `E6318 8 `ui 910
+ 878 ]
+[e :U 878 ]
+"486
+[; ;fs_menu_controller.c: 486: }
+[e :UE 877 ]
+}
+[p f _sprintf 8495232 ]
 [a 5C 68 85 82 77 65 32 90 65 77 65 78 73 32 32 109 115 0 ]
 [a 3C 72 65 82 69 75 84 32 90 65 77 65 78 73 32 100 107 0 ]
 [a 2C 32 32 32 32 32 32 37 100 58 37 100 32 32 32 0 ]
 [a 11C 72 65 82 69 75 69 84 32 68 85 82 68 85 32 32 32 0 ]
+[a 14C 75 112 58 37 53 46 49 102 32 75 100 58 53 46 49 102 32 32 32 32 0 ]
 [a 10C 32 32 32 32 32 32 37 100 58 37 100 32 32 32 32 0 ]
 [a 12C 32 32 32 32 32 32 37 100 58 37 100 32 32 32 32 0 ]
 [a 9C 90 65 77 65 78 32 68 79 76 68 85 32 32 32 32 32 0 ]
 [a 1C 75 65 76 65 78 32 90 65 77 65 78 32 32 32 32 32 0 ]
 [a 7C 72 73 90 32 76 105 77 105 84 105 32 32 32 32 32 32 0 ]
+[a 13C 80 73 68 32 80 65 82 65 77 32 32 32 32 32 32 32 0 ]
 [a 4C 37 100 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
 [a 6C 37 100 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]
 [a 8C 37 100 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 0 ]

@@ -27,7 +27,7 @@
 #include "fs_timer.h"
 #include "fs_lcd.h"
 #include "fs_eeprom.h"
-
+#include "fs_speed_controller.h"
 
 
 /*
@@ -442,6 +442,11 @@ void stateMachine(void)
                 timer_value.menu_login_delay = 0;
                 menu_selected = DRIVER_TIME_SETTING;               
             }
+            
+            if ((menu_flags.menu_increase_flag == 1) && (menu_flags.menu_decrease_flag == 1))
+            {
+                menu_selected = SECRET_MENU;
+            }
             //TODO: Rampa ile durma burada olacak.
         
         break;
@@ -450,5 +455,32 @@ void stateMachine(void)
             //TODO: Rampa ile durma burada olacak.
         break;
        
+        case SECRET_MENU:
+                        
+            Lcd_Set_Cursor(1,1);
+            Lcd_Write_String("PID PARAM       ");  
+            Lcd_Set_Cursor(2,1);
+            sprintf(textCursor2,"Kp:%5.1f Kd:5.1f    ",KP,KD);
+            Lcd_Write_String(textCursor2); 
+            
+            if ((menu_flags.menu_increase_flag == TRUE) && (KP < 2.5))
+            {
+                menu_flags.menu_increase_flag = FALSE;
+                KP += 0.1;          
+            }
+
+            if ((menu_flags.menu_decrease_flag == TRUE) && (menu_value.speed_limit >= 0))
+            {
+                 menu_flags.menu_decrease_flag = FALSE;
+                 KP -= 0.1;               
+            }
+            
+            if ( timer_value.menu_login_delay == MENU_TIMEOUT)
+            {
+                timer_value.menu_login_delay = 0;
+                menu_selected = PAUSE_MENU;               
+            }
+            
+        break;
     }                    
 }

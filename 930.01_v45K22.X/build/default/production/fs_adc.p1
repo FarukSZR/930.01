@@ -1282,36 +1282,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_adc.c: 146: }
 [e :UE 864 ]
 }
-"155
-[; ;fs_adc.c: 155: void calculatedAverageValue(void)
+"154
+[; ;fs_adc.c: 154: void calculatedAverageValue(void)
 [v _calculatedAverageValue `(v ~T0 @X0 1 ef ]
-"156
-[; ;fs_adc.c: 156: {
+"155
+[; ;fs_adc.c: 155: {
 {
 [e :U _calculatedAverageValue ]
 [f ]
-"157
-[; ;fs_adc.c: 157:     driver_limit.pay = 0;
+"156
+[; ;fs_adc.c: 156:     driver_limit.pay = 0;
 [e = . _driver_limit 0 -> -> -> 0 `i `l `ul ]
-"158
-[; ;fs_adc.c: 158:     driver_limit.payda = 0;
+"157
+[; ;fs_adc.c: 157:     driver_limit.payda = 0;
 [e = . _driver_limit 1 -> -> -> 0 `i `l `ul ]
-"159
-[; ;fs_adc.c: 159:     driver_limit.ortalama = 0;
+"158
+[; ;fs_adc.c: 158:     driver_limit.ortalama = 0;
 [e = . _driver_limit 2 -> -> 0 `i `f ]
-"162
-[; ;fs_adc.c: 162:    driver_limit.pay =(uint32_t) ( (convert_data.convert_channel_0 *1) +
+"161
+[; ;fs_adc.c: 161:    driver_limit.pay =(uint32_t) ( (convert_data.convert_channel_0 *1) +
 [e = . _driver_limit 0 + + + * . _convert_data 0 -> -> -> 1 `i `l `ul * . _convert_data 1 -> -> -> 1000 `i `l `ul * . _convert_data 2 -> -> -> 2000 `i `l `ul * . _convert_data 3 -> -> -> 3000 `i `l `ul ]
-"167
-[; ;fs_adc.c: 167:    driver_limit.pay += (uint32_t)( (convert_data.convert_channel_4 * 4000) +
+"166
+[; ;fs_adc.c: 166:    driver_limit.pay += (uint32_t)( (convert_data.convert_channel_4 * 4000) +
 [e =+ . _driver_limit 0 + + + * . _convert_data 4 -> -> -> 4000 `i `l `ul * . _convert_data 5 -> -> -> 5000 `i `l `ul * . _convert_data 6 -> -> -> 6000 `i `l `ul * . _convert_data 7 -> -> -> 7000 `i `l `ul ]
-"172
-[; ;fs_adc.c: 172:     driver_limit.payda = (uint32_t) (convert_data.convert_channel_0 + convert_data.convert_channel_1 +
+"171
+[; ;fs_adc.c: 171:     driver_limit.payda = (uint32_t) (convert_data.convert_channel_0 + convert_data.convert_channel_1 +
 [e = . _driver_limit 1 + + + + + + + . _convert_data 0 . _convert_data 1 . _convert_data 2 . _convert_data 3 . _convert_data 4 . _convert_data 5 . _convert_data 6 . _convert_data 7 ]
-"177
-[; ;fs_adc.c: 177:     driver_limit.ortalama = (float)(driver_limit.pay/driver_limit.payda);
+"176
+[; ;fs_adc.c: 176:     driver_limit.ortalama = (float)(driver_limit.pay/driver_limit.payda);
 [e = . _driver_limit 2 -> / . _driver_limit 0 . _driver_limit 1 `f ]
-"178
-[; ;fs_adc.c: 178: }
+"177
+[; ;fs_adc.c: 177: }
 [e :UE 875 ]
 }

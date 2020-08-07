@@ -9861,6 +9861,7 @@ typedef enum
     START_MENU,
     PAUSE_MENU,
     EXIT_LINE,
+    SECRET_MENU,
 }tE_menu_selected;
 
 typedef struct
@@ -9927,7 +9928,40 @@ void Lcd_Shift_Left(void);
 uint8_t eepromRead(uint8_t address);
 void eepromWrite(uint8_t address, uint8_t data);
 # 29 "fs_menu_controller.c" 2
-# 38 "fs_menu_controller.c"
+
+# 1 "./fs_speed_controller.h" 1
+# 38 "./fs_speed_controller.h"
+float KP = 0.2;
+float KD = 1.0;
+# 49 "./fs_speed_controller.h"
+void speedControl(float position);
+void driveSafetyCheck(void);
+
+typedef struct
+{
+    int16_t error;
+    int16_t lastError;
+    uint16_t motorSpeed;
+    int16_t leftMotorSpeed;
+    int16_t rightMotorSpeed;
+
+    float left;
+    float right;
+
+    uint8_t driver_safety_check;
+}tS_controller;
+
+
+tS_controller controller;
+# 30 "fs_menu_controller.c" 2
+
+
+
+
+
+
+
+
 void menuInitialize(void)
 {
     ANSELBbits.ANSB5 = 0;
@@ -10315,6 +10349,11 @@ void stateMachine(void)
                 menu_selected = DRIVER_TIME_SETTING;
             }
 
+            if ((menu_flags.menu_increase_flag == 1) && (menu_flags.menu_decrease_flag == 1))
+            {
+                menu_selected = SECRET_MENU;
+            }
+
 
         break;
 
@@ -10322,5 +10361,32 @@ void stateMachine(void)
 
         break;
 
+        case SECRET_MENU:
+
+            Lcd_Set_Cursor(1,1);
+            Lcd_Write_String("PID PARAM       ");
+            Lcd_Set_Cursor(2,1);
+            sprintf(textCursor2,"Kp:%5.1f Kd:5.1f    ",KP,KD);
+            Lcd_Write_String(textCursor2);
+
+            if ((menu_flags.menu_increase_flag == 1) && (KP < 2.5))
+            {
+                menu_flags.menu_increase_flag = 0;
+                KP += 0.1;
+            }
+
+            if ((menu_flags.menu_decrease_flag == 1) && (menu_value.speed_limit >= 0))
+            {
+                 menu_flags.menu_decrease_flag = 0;
+                 KP -= 0.1;
+            }
+
+            if ( timer_value.menu_login_delay == 100)
+            {
+                timer_value.menu_login_delay = 0;
+                menu_selected = PAUSE_MENU;
+            }
+
+        break;
     }
 }
