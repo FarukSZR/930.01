@@ -470,7 +470,7 @@ void stateMachine(void)
                 }
             }
             
-            if (secretMenuCounter == 1)
+            if (secretMenuCounter == 1) // Kp parameter active
             {
                 Lcd_Set_Cursor(1,1);
                 Lcd_Write_String("PID PARAM       ");  
@@ -491,7 +491,7 @@ void stateMachine(void)
                 }
             }
             
-            if (secretMenuCounter == 2)
+            if (secretMenuCounter == 2) // Kd parameter active
             {
                 Lcd_Set_Cursor(1,1);
                 Lcd_Write_String("PID PARAM       ");  
