@@ -454,7 +454,7 @@ void stateMachine(void)
         break;
         
         case EXIT_LINE:
-            //TODO: Rampa ile durma burada olacak.
+            //TODO: Rampa ile durma burada olacak. Çizgiden çıktıgında bu durma islemi gerceklestirilecek.
         break;
        
         case SECRET_MENU:
