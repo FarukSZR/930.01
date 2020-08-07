@@ -297,17 +297,17 @@ void stateMachine(void)
                 menu_selected = SPEED_LIMIT_SETTING;          
             }
 
-            if ((menu_flags.menu_increase_flag == TRUE) && (menu_value.stop_time < 100))
+            if ((menu_flags.menu_increase_flag == TRUE) && (menu_value.stop_time < 250))
             {
                 menu_flags.menu_increase_flag = 0;
-                menu_value.stop_time += 1;
+                menu_value.stop_time += 10;
                 eepromWrite(STOP_TIME_EEPROM_ADDRESS,(uint8_t)menu_value.stop_time);
             }
 
-            if ((menu_flags.menu_decrease_flag == TRUE) && (menu_value.stop_time > 0))
+            if ((menu_flags.menu_decrease_flag == TRUE) && (menu_value.stop_time > 10))
             {
                  menu_flags.menu_decrease_flag = 0;
-                 menu_value.stop_time -= 1;
+                 menu_value.stop_time -= 10;
                  eepromWrite(STOP_TIME_EEPROM_ADDRESS,(uint8_t)menu_value.stop_time);
             }
             Lcd_Set_Cursor(1,1);
@@ -342,7 +342,7 @@ void stateMachine(void)
                 eepromWrite(SPEED_LIMIT_EEPROM_ADDRESS,menu_value.speed_limit);
             }
 
-            if ((menu_flags.menu_decrease_flag == TRUE) && (menu_value.speed_limit > 0))
+            if ((menu_flags.menu_decrease_flag == TRUE) && (menu_value.speed_limit > 1))
             {
                  menu_flags.menu_decrease_flag = FALSE;
                  menu_value.speed_limit -= 1;
