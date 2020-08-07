@@ -1,0 +1,971 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"57 ./fs_adc.h
+[; ;./fs_adc.h: 57: {
+[s S853 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
+[n S853 . channel_0 channel_1 channel_2 channel_3 channel_4 channel_5 channel_6 channel_7 ]
+"69
+[; ;./fs_adc.h: 69: {
+[s S854 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 ]
+[n S854 . channel_0 channel_1 channel_2 channel_3 channel_4 channel_5 channel_6 channel_7 ]
+"81
+[; ;./fs_adc.h: 81: {
+[s S855 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
+[n S855 . convert_channel_0 convert_channel_1 convert_channel_2 convert_channel_3 convert_channel_4 convert_channel_5 convert_channel_6 convert_channel_7 convert_channel_0_f convert_channel_1_f convert_channel_2_f convert_channel_3_f convert_channel_4_f convert_channel_5_f convert_channel_6_f convert_channel_7_f ]
+"102
+[; ;./fs_adc.h: 102: {
+[s S856 `ul 1 `ul 1 `f 1 ]
+[n S856 . pay payda ortalama ]
+"53 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 53: {
+[s S857 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
+[n S857 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
+"42 ./fs_timer.h
+[; ;./fs_timer.h: 42: {
+[s S858 :1 `uc 1 ]
+[n S858 . one_second_flag ]
+"47
+[; ;./fs_timer.h: 47: {
+[s S859 `us 1 `us 1 `us 1 `s 1 `uc 1 `uc 1 ]
+[n S859 . second minute remainingSecond remainingMinute menu_login_delay timer_0_counter ]
+"71 ./fs_menu_controller.h
+[; ;./fs_menu_controller.h: 71: {
+[s S861 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S861 . menu start stop pause decrease increase ]
+"102
+[; ;./fs_menu_controller.h: 102: tE_menu_selected menu_selected = {0};
+[c E6402 0 1 2 3 4 5 6 7 .. ]
+[n E6402 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE  ]
+"61
+[; ;./fs_menu_controller.h: 61: {
+[s S860 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S860 . menu_input_flag menu_start_flag menu_stop_flag menu_pause_flag menu_increase_flag menu_decrease_flag ]
+"94
+[; ;./fs_menu_controller.h: 94: {
+[s S862 `uc 1 `uc 1 `uc 1 ]
+[n S862 . driver_time stop_time speed_limit ]
+"16018 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
+[s S758 :2 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S758 . SCS HFIOFS OSTS IRCF IDLEN ]
+"16025
+[s S759 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S759 . SCS0 SCS1 IOFS . IRCF0 IRCF1 IRCF2 ]
+"16017
+[u S757 `S758 1 `S759 1 ]
+[n S757 . . . ]
+"16035
+[v _OSCCONbits `VS757 ~T0 @X0 0 e@4051 ]
+"9070
+[s S420 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S420 . TUN PLLEN INTSRC ]
+"9075
+[s S421 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S421 . TUN0 TUN1 TUN2 TUN3 TUN4 TUN5 ]
+"9069
+[u S419 `S420 1 `S421 1 ]
+[n S419 . . . ]
+"9084
+[v _OSCTUNEbits `VS419 ~T0 @X0 0 e@3995 ]
+"97
+[v _ANSELB `Vuc ~T0 @X0 0 e@3897 ]
+"8293
+[s S396 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S396 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"8303
+[s S397 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S397 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"8292
+[u S395 `S396 1 `S397 1 ]
+[n S395 . . . ]
+"8314
+[v _TRISBbits `VS395 ~T0 @X0 0 e@3987 ]
+"204
+[s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S8 . ANSD0 ANSD1 ANSD2 ANSD3 ANSD4 ANSD5 ANSD6 ANSD7 ]
+"203
+[u S7 `S8 1 ]
+[n S7 . . ]
+"215
+[v _ANSELDbits `VS7 ~T0 @X0 0 e@3899 ]
+"8737
+[s S408 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S408 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"8747
+[s S409 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S409 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"8736
+[u S407 `S408 1 `S409 1 ]
+[n S407 . . . ]
+"8758
+[v _TRISDbits `VS407 ~T0 @X0 0 e@3989 ]
+"153
+[s S6 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S6 . . ANSC2 ANSC3 ANSC4 ANSC5 ANSC6 ANSC7 ]
+"152
+[u S5 `S6 1 ]
+[n S5 . . ]
+"163
+[v _ANSELCbits `VS5 ~T0 @X0 0 e@3898 ]
+"8515
+[s S402 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S402 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"8525
+[s S403 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S403 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"8514
+[u S401 `S402 1 `S403 1 ]
+[n S401 . . . ]
+"8536
+[v _TRISCbits `VS401 ~T0 @X0 0 e@3988 ]
+"44 ./fs_eeprom.h
+[; ;./fs_eeprom.h: 44: uint8_t eepromRead(uint8_t address);
+[v _eepromRead `(uc ~T0 @X0 0 ef1`uc ]
+[v F5946 `(v ~T0 @X0 1 tf1`ul ]
+"203 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
+[v __delay `JF5946 ~T0 @X0 0 e ]
+[p i __delay ]
+"54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
+[; <" ANSELA equ 0F38h ;# ">
+"99
+[; <" ANSELB equ 0F39h ;# ">
+"149
+[; <" ANSELC equ 0F3Ah ;# ">
+"200
+[; <" ANSELD equ 0F3Bh ;# ">
+"262
+[; <" ANSELE equ 0F3Ch ;# ">
+"294
+[; <" PMD2 equ 0F3Dh ;# ">
+"332
+[; <" PMD1 equ 0F3Eh ;# ">
+"397
+[; <" PMD0 equ 0F3Fh ;# ">
+"474
+[; <" VREFCON2 equ 0F40h ;# ">
+"479
+[; <" DACCON1 equ 0F40h ;# ">
+"576
+[; <" VREFCON1 equ 0F41h ;# ">
+"581
+[; <" DACCON0 equ 0F41h ;# ">
+"696
+[; <" VREFCON0 equ 0F42h ;# ">
+"701
+[; <" FVRCON equ 0F42h ;# ">
+"790
+[; <" CTMUICON equ 0F43h ;# ">
+"795
+[; <" CTMUICONH equ 0F43h ;# ">
+"940
+[; <" CTMUCONL equ 0F44h ;# ">
+"945
+[; <" CTMUCON1 equ 0F44h ;# ">
+"1094
+[; <" CTMUCONH equ 0F45h ;# ">
+"1099
+[; <" CTMUCON0 equ 0F45h ;# ">
+"1206
+[; <" SRCON1 equ 0F46h ;# ">
+"1268
+[; <" SRCON0 equ 0F47h ;# ">
+"1339
+[; <" CCPTMRS1 equ 0F48h ;# ">
+"1391
+[; <" CCPTMRS0 equ 0F49h ;# ">
+"1465
+[; <" T6CON equ 0F4Ah ;# ">
+"1536
+[; <" PR6 equ 0F4Bh ;# ">
+"1556
+[; <" TMR6 equ 0F4Ch ;# ">
+"1576
+[; <" T5GCON equ 0F4Dh ;# ">
+"1671
+[; <" T5CON equ 0F4Eh ;# ">
+"1780
+[; <" TMR5 equ 0F4Fh ;# ">
+"1787
+[; <" TMR5L equ 0F4Fh ;# ">
+"1807
+[; <" TMR5H equ 0F50h ;# ">
+"1827
+[; <" T4CON equ 0F51h ;# ">
+"1898
+[; <" PR4 equ 0F52h ;# ">
+"1918
+[; <" TMR4 equ 0F53h ;# ">
+"1938
+[; <" CCP5CON equ 0F54h ;# ">
+"2002
+[; <" CCPR5 equ 0F55h ;# ">
+"2009
+[; <" CCPR5L equ 0F55h ;# ">
+"2029
+[; <" CCPR5H equ 0F56h ;# ">
+"2049
+[; <" CCP4CON equ 0F57h ;# ">
+"2113
+[; <" CCPR4 equ 0F58h ;# ">
+"2120
+[; <" CCPR4L equ 0F58h ;# ">
+"2140
+[; <" CCPR4H equ 0F59h ;# ">
+"2160
+[; <" PSTR3CON equ 0F5Ah ;# ">
+"2236
+[; <" ECCP3AS equ 0F5Bh ;# ">
+"2241
+[; <" CCP3AS equ 0F5Bh ;# ">
+"2478
+[; <" PWM3CON equ 0F5Ch ;# ">
+"2548
+[; <" CCP3CON equ 0F5Dh ;# ">
+"2630
+[; <" CCPR3 equ 0F5Eh ;# ">
+"2637
+[; <" CCPR3L equ 0F5Eh ;# ">
+"2657
+[; <" CCPR3H equ 0F5Fh ;# ">
+"2677
+[; <" SLRCON equ 0F60h ;# ">
+"2721
+[; <" WPUB equ 0F61h ;# ">
+"2783
+[; <" IOCB equ 0F62h ;# ">
+"2822
+[; <" PSTR2CON equ 0F63h ;# ">
+"2962
+[; <" ECCP2AS equ 0F64h ;# ">
+"2967
+[; <" CCP2AS equ 0F64h ;# ">
+"3204
+[; <" PWM2CON equ 0F65h ;# ">
+"3274
+[; <" CCP2CON equ 0F66h ;# ">
+"3356
+[; <" CCPR2 equ 0F67h ;# ">
+"3363
+[; <" CCPR2L equ 0F67h ;# ">
+"3383
+[; <" CCPR2H equ 0F68h ;# ">
+"3403
+[; <" SSP2CON3 equ 0F69h ;# ">
+"3465
+[; <" SSP2MSK equ 0F6Ah ;# ">
+"3535
+[; <" SSP2CON2 equ 0F6Bh ;# ">
+"3680
+[; <" SSP2CON1 equ 0F6Ch ;# ">
+"3800
+[; <" SSP2STAT equ 0F6Dh ;# ">
+"4200
+[; <" SSP2ADD equ 0F6Eh ;# ">
+"4270
+[; <" SSP2BUF equ 0F6Fh ;# ">
+"4290
+[; <" BAUDCON2 equ 0F70h ;# ">
+"4295
+[; <" BAUD2CON equ 0F70h ;# ">
+"4552
+[; <" RCSTA2 equ 0F71h ;# ">
+"4557
+[; <" RC2STA equ 0F71h ;# ">
+"4840
+[; <" TXSTA2 equ 0F72h ;# ">
+"4845
+[; <" TX2STA equ 0F72h ;# ">
+"5092
+[; <" TXREG2 equ 0F73h ;# ">
+"5097
+[; <" TX2REG equ 0F73h ;# ">
+"5130
+[; <" RCREG2 equ 0F74h ;# ">
+"5135
+[; <" RC2REG equ 0F74h ;# ">
+"5168
+[; <" SPBRG2 equ 0F75h ;# ">
+"5173
+[; <" SP2BRG equ 0F75h ;# ">
+"5206
+[; <" SPBRGH2 equ 0F76h ;# ">
+"5211
+[; <" SP2BRGH equ 0F76h ;# ">
+"5244
+[; <" CM2CON1 equ 0F77h ;# ">
+"5249
+[; <" CM12CON equ 0F77h ;# ">
+"5366
+[; <" CM2CON0 equ 0F78h ;# ">
+"5371
+[; <" CM2CON equ 0F78h ;# ">
+"5646
+[; <" CM1CON0 equ 0F79h ;# ">
+"5651
+[; <" CM1CON equ 0F79h ;# ">
+"6068
+[; <" PIE4 equ 0F7Ah ;# ">
+"6100
+[; <" PIR4 equ 0F7Bh ;# ">
+"6132
+[; <" IPR4 equ 0F7Ch ;# ">
+"6172
+[; <" PIE5 equ 0F7Dh ;# ">
+"6204
+[; <" PIR5 equ 0F7Eh ;# ">
+"6236
+[; <" IPR5 equ 0F7Fh ;# ">
+"6282
+[; <" PORTA equ 0F80h ;# ">
+"6567
+[; <" PORTB equ 0F81h ;# ">
+"6837
+[; <" PORTC equ 0F82h ;# ">
+"7144
+[; <" PORTD equ 0F83h ;# ">
+"7387
+[; <" PORTE equ 0F84h ;# ">
+"7562
+[; <" LATA equ 0F89h ;# ">
+"7674
+[; <" LATB equ 0F8Ah ;# ">
+"7786
+[; <" LATC equ 0F8Bh ;# ">
+"7898
+[; <" LATD equ 0F8Ch ;# ">
+"8010
+[; <" LATE equ 0F8Dh ;# ">
+"8062
+[; <" TRISA equ 0F92h ;# ">
+"8067
+[; <" DDRA equ 0F92h ;# ">
+"8284
+[; <" TRISB equ 0F93h ;# ">
+"8289
+[; <" DDRB equ 0F93h ;# ">
+"8506
+[; <" TRISC equ 0F94h ;# ">
+"8511
+[; <" DDRC equ 0F94h ;# ">
+"8728
+[; <" TRISD equ 0F95h ;# ">
+"8733
+[; <" DDRD equ 0F95h ;# ">
+"8950
+[; <" TRISE equ 0F96h ;# ">
+"8955
+[; <" DDRE equ 0F96h ;# ">
+"9066
+[; <" OSCTUNE equ 0F9Bh ;# ">
+"9136
+[; <" HLVDCON equ 0F9Ch ;# ">
+"9141
+[; <" LVDCON equ 0F9Ch ;# ">
+"9416
+[; <" PIE1 equ 0F9Dh ;# ">
+"9493
+[; <" PIR1 equ 0F9Eh ;# ">
+"9570
+[; <" IPR1 equ 0F9Fh ;# ">
+"9647
+[; <" PIE2 equ 0FA0h ;# ">
+"9733
+[; <" PIR2 equ 0FA1h ;# ">
+"9819
+[; <" IPR2 equ 0FA2h ;# ">
+"9905
+[; <" PIE3 equ 0FA3h ;# ">
+"10015
+[; <" PIR3 equ 0FA4h ;# ">
+"10093
+[; <" IPR3 equ 0FA5h ;# ">
+"10171
+[; <" EECON1 equ 0FA6h ;# ">
+"10237
+[; <" EECON2 equ 0FA7h ;# ">
+"10257
+[; <" EEDATA equ 0FA8h ;# ">
+"10277
+[; <" EEADR equ 0FA9h ;# ">
+"10347
+[; <" RCSTA1 equ 0FABh ;# ">
+"10352
+[; <" RCSTA equ 0FABh ;# ">
+"10356
+[; <" RC1STA equ 0FABh ;# ">
+"10803
+[; <" TXSTA1 equ 0FACh ;# ">
+"10808
+[; <" TXSTA equ 0FACh ;# ">
+"10812
+[; <" TX1STA equ 0FACh ;# ">
+"11178
+[; <" TXREG1 equ 0FADh ;# ">
+"11183
+[; <" TXREG equ 0FADh ;# ">
+"11187
+[; <" TX1REG equ 0FADh ;# ">
+"11256
+[; <" RCREG1 equ 0FAEh ;# ">
+"11261
+[; <" RCREG equ 0FAEh ;# ">
+"11265
+[; <" RC1REG equ 0FAEh ;# ">
+"11334
+[; <" SPBRG1 equ 0FAFh ;# ">
+"11339
+[; <" SPBRG equ 0FAFh ;# ">
+"11343
+[; <" SP1BRG equ 0FAFh ;# ">
+"11412
+[; <" SPBRGH1 equ 0FB0h ;# ">
+"11417
+[; <" SPBRGH equ 0FB0h ;# ">
+"11421
+[; <" SP1BRGH equ 0FB0h ;# ">
+"11490
+[; <" T3CON equ 0FB1h ;# ">
+"11598
+[; <" TMR3 equ 0FB2h ;# ">
+"11605
+[; <" TMR3L equ 0FB2h ;# ">
+"11625
+[; <" TMR3H equ 0FB3h ;# ">
+"11645
+[; <" T3GCON equ 0FB4h ;# ">
+"11740
+[; <" ECCP1AS equ 0FB6h ;# ">
+"11745
+[; <" ECCPAS equ 0FB6h ;# ">
+"12122
+[; <" PWM1CON equ 0FB7h ;# ">
+"12127
+[; <" PWMCON equ 0FB7h ;# ">
+"12376
+[; <" BAUDCON1 equ 0FB8h ;# ">
+"12381
+[; <" BAUDCON equ 0FB8h ;# ">
+"12385
+[; <" BAUDCTL equ 0FB8h ;# ">
+"12389
+[; <" BAUD1CON equ 0FB8h ;# ">
+"13050
+[; <" PSTR1CON equ 0FB9h ;# ">
+"13055
+[; <" PSTRCON equ 0FB9h ;# ">
+"13200
+[; <" T2CON equ 0FBAh ;# ">
+"13271
+[; <" PR2 equ 0FBBh ;# ">
+"13291
+[; <" TMR2 equ 0FBCh ;# ">
+"13311
+[; <" CCP1CON equ 0FBDh ;# ">
+"13393
+[; <" CCPR1 equ 0FBEh ;# ">
+"13400
+[; <" CCPR1L equ 0FBEh ;# ">
+"13420
+[; <" CCPR1H equ 0FBFh ;# ">
+"13440
+[; <" ADCON2 equ 0FC0h ;# ">
+"13511
+[; <" ADCON1 equ 0FC1h ;# ">
+"13579
+[; <" ADCON0 equ 0FC2h ;# ">
+"13704
+[; <" ADRES equ 0FC3h ;# ">
+"13711
+[; <" ADRESL equ 0FC3h ;# ">
+"13731
+[; <" ADRESH equ 0FC4h ;# ">
+"13751
+[; <" SSP1CON2 equ 0FC5h ;# ">
+"13756
+[; <" SSPCON2 equ 0FC5h ;# ">
+"14105
+[; <" SSP1CON1 equ 0FC6h ;# ">
+"14110
+[; <" SSPCON1 equ 0FC6h ;# ">
+"14343
+[; <" SSP1STAT equ 0FC7h ;# ">
+"14348
+[; <" SSPSTAT equ 0FC7h ;# ">
+"14973
+[; <" SSP1ADD equ 0FC8h ;# ">
+"14978
+[; <" SSPADD equ 0FC8h ;# ">
+"15227
+[; <" SSP1BUF equ 0FC9h ;# ">
+"15232
+[; <" SSPBUF equ 0FC9h ;# ">
+"15281
+[; <" SSP1MSK equ 0FCAh ;# ">
+"15286
+[; <" SSPMSK equ 0FCAh ;# ">
+"15419
+[; <" SSP1CON3 equ 0FCBh ;# ">
+"15424
+[; <" SSPCON3 equ 0FCBh ;# ">
+"15541
+[; <" T1GCON equ 0FCCh ;# ">
+"15636
+[; <" T1CON equ 0FCDh ;# ">
+"15749
+[; <" TMR1 equ 0FCEh ;# ">
+"15756
+[; <" TMR1L equ 0FCEh ;# ">
+"15776
+[; <" TMR1H equ 0FCFh ;# ">
+"15796
+[; <" RCON equ 0FD0h ;# ">
+"15929
+[; <" WDTCON equ 0FD1h ;# ">
+"15957
+[; <" OSCCON2 equ 0FD2h ;# ">
+"16014
+[; <" OSCCON equ 0FD3h ;# ">
+"16097
+[; <" T0CON equ 0FD5h ;# ">
+"16167
+[; <" TMR0 equ 0FD6h ;# ">
+"16174
+[; <" TMR0L equ 0FD6h ;# ">
+"16194
+[; <" TMR0H equ 0FD7h ;# ">
+"16214
+[; <" STATUS equ 0FD8h ;# ">
+"16285
+[; <" FSR2 equ 0FD9h ;# ">
+"16292
+[; <" FSR2L equ 0FD9h ;# ">
+"16312
+[; <" FSR2H equ 0FDAh ;# ">
+"16319
+[; <" PLUSW2 equ 0FDBh ;# ">
+"16339
+[; <" PREINC2 equ 0FDCh ;# ">
+"16359
+[; <" POSTDEC2 equ 0FDDh ;# ">
+"16379
+[; <" POSTINC2 equ 0FDEh ;# ">
+"16399
+[; <" INDF2 equ 0FDFh ;# ">
+"16419
+[; <" BSR equ 0FE0h ;# ">
+"16426
+[; <" FSR1 equ 0FE1h ;# ">
+"16433
+[; <" FSR1L equ 0FE1h ;# ">
+"16453
+[; <" FSR1H equ 0FE2h ;# ">
+"16460
+[; <" PLUSW1 equ 0FE3h ;# ">
+"16480
+[; <" PREINC1 equ 0FE4h ;# ">
+"16500
+[; <" POSTDEC1 equ 0FE5h ;# ">
+"16520
+[; <" POSTINC1 equ 0FE6h ;# ">
+"16540
+[; <" INDF1 equ 0FE7h ;# ">
+"16560
+[; <" WREG equ 0FE8h ;# ">
+"16598
+[; <" FSR0 equ 0FE9h ;# ">
+"16605
+[; <" FSR0L equ 0FE9h ;# ">
+"16625
+[; <" FSR0H equ 0FEAh ;# ">
+"16632
+[; <" PLUSW0 equ 0FEBh ;# ">
+"16652
+[; <" PREINC0 equ 0FECh ;# ">
+"16672
+[; <" POSTDEC0 equ 0FEDh ;# ">
+"16692
+[; <" POSTINC0 equ 0FEEh ;# ">
+"16712
+[; <" INDF0 equ 0FEFh ;# ">
+"16732
+[; <" INTCON3 equ 0FF0h ;# ">
+"16824
+[; <" INTCON2 equ 0FF1h ;# ">
+"16894
+[; <" INTCON equ 0FF2h ;# ">
+"17011
+[; <" PROD equ 0FF3h ;# ">
+"17018
+[; <" PRODL equ 0FF3h ;# ">
+"17038
+[; <" PRODH equ 0FF4h ;# ">
+"17058
+[; <" TABLAT equ 0FF5h ;# ">
+"17080
+[; <" TBLPTR equ 0FF6h ;# ">
+"17087
+[; <" TBLPTRL equ 0FF6h ;# ">
+"17107
+[; <" TBLPTRH equ 0FF7h ;# ">
+"17127
+[; <" TBLPTRU equ 0FF8h ;# ">
+"17158
+[; <" PCLAT equ 0FF9h ;# ">
+"17165
+[; <" PC equ 0FF9h ;# ">
+"17172
+[; <" PCL equ 0FF9h ;# ">
+"17192
+[; <" PCLATH equ 0FFAh ;# ">
+"17212
+[; <" PCLATU equ 0FFBh ;# ">
+"17219
+[; <" STKPTR equ 0FFCh ;# ">
+"17325
+[; <" TOS equ 0FFDh ;# ">
+"17332
+[; <" TOSL equ 0FFDh ;# ">
+"17352
+[; <" TOSH equ 0FFEh ;# ">
+"17372
+[; <" TOSU equ 0FFFh ;# ">
+"108 ./fs_adc.h
+[; ;./fs_adc.h: 108: tS_adc_raw_data adc_raw_data;
+[v _adc_raw_data `S853 ~T0 @X0 1 e ]
+"109
+[; ;./fs_adc.h: 109: tS_procces_data procces_data;
+[v _procces_data `S854 ~T0 @X0 1 e ]
+"110
+[; ;./fs_adc.h: 110: tS_convert_data convert_data;
+[v _convert_data `S855 ~T0 @X0 1 e ]
+"111
+[; ;./fs_adc.h: 111: tS_driver_limit driver_limit;
+[v _driver_limit `S856 ~T0 @X0 1 e ]
+"38 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 38: float KP = 0.2;
+[v _KP `f ~T0 @X0 1 e ]
+[i _KP
+-> .0.2 `f
+]
+"67
+[; ;./fs_speed_controller.h: 67: tS_controller controller;
+[v _controller `S857 ~T0 @X0 1 e ]
+"33 ./fs_main.h
+[p n 520 ]
+"38
+[p x FOSC = INTIO67 ]
+"39
+[p x PLLCFG = ON ]
+"40
+[p x PRICLKEN = ON ]
+"41
+[p x FCMEN = OFF ]
+"42
+[p x IESO = ON ]
+"47
+[p x PWRTEN = OFF ]
+"48
+[p x BOREN = SBORDIS ]
+"49
+[p x BORV = 190 ]
+"52
+[p x WDTEN = OFF ]
+"53
+[p x WDTPS = 32768 ]
+"56
+[p x CCP2MX = PORTC1 ]
+"57
+[p x PBADEN = OFF ]
+"58
+[p x CCP3MX = PORTB5 ]
+"59
+[p x HFOFST = ON ]
+"60
+[p x T3CMX = PORTC0 ]
+"61
+[p x P2BMX = PORTD2 ]
+"62
+[p x MCLRE = EXTMCLR ]
+"65
+[p x STVREN = OFF ]
+"66
+[p x LVP = ON ]
+"67
+[p x XINST = OFF ]
+"70
+[p x CP0 = OFF ]
+"71
+[p x CP1 = OFF ]
+"72
+[p x CP2 = OFF ]
+"73
+[p x CP3 = OFF ]
+"76
+[p x CPB = OFF ]
+"77
+[p x CPD = OFF ]
+"80
+[p x WRT0 = OFF ]
+"81
+[p x WRT1 = OFF ]
+"82
+[p x WRT2 = OFF ]
+"83
+[p x WRT3 = OFF ]
+"86
+[p x WRTC = OFF ]
+"87
+[p x WRTB = OFF ]
+"88
+[p x WRTD = OFF ]
+"91
+[p x EBTR0 = OFF ]
+"92
+[p x EBTR1 = OFF ]
+"93
+[p x EBTR2 = OFF ]
+"94
+[p x EBTR3 = OFF ]
+"97
+[p x EBTRB = OFF ]
+"56 ./fs_timer.h
+[; ;./fs_timer.h: 56: tS_timer_counter_flag timer_counter_flag = {0};
+[v _timer_counter_flag `S858 ~T0 @X0 1 e ]
+[i _timer_counter_flag
+:U ..
+:U ..
+-> -> 0 `i `uc
+..
+..
+]
+"57
+[; ;./fs_timer.h: 57: tS_timer_value timer_value = {0};
+[v _timer_value `S859 ~T0 @X0 1 e ]
+[i _timer_value
+:U ..
+:U ..
+-> -> 0 `i `us
+..
+..
+]
+"56 ./fs_menu_controller.h
+[; ;./fs_menu_controller.h: 56: uint8_t pauseIsClick = 0;
+[v _pauseIsClick `uc ~T0 @X0 1 e ]
+[i _pauseIsClick
+-> -> 0 `i `uc
+]
+"57
+[; ;./fs_menu_controller.h: 57: uint8_t startIsClick = 0;
+[v _startIsClick `uc ~T0 @X0 1 e ]
+[i _startIsClick
+-> -> 0 `i `uc
+]
+"58
+[; ;./fs_menu_controller.h: 58: uint8_t stopIsClick = 0;
+[v _stopIsClick `uc ~T0 @X0 1 e ]
+[i _stopIsClick
+-> -> 0 `i `uc
+]
+"101
+[; ;./fs_menu_controller.h: 101: tS_button_bounce_controller button_bounce_controller = {0};
+[v _button_bounce_controller `S861 ~T0 @X0 1 e ]
+[i _button_bounce_controller
+:U ..
+:U ..
+-> -> 0 `i `uc
+..
+..
+]
+"102
+[; ;./fs_menu_controller.h: 102: tE_menu_selected menu_selected = {0};
+[v _menu_selected `E6402 ~T0 @X0 1 e ]
+[i _menu_selected
+-> -> 0 `i `E6402
+]
+"103
+[; ;./fs_menu_controller.h: 103: tS_menu_flags menu_flags = {0};
+[v _menu_flags `S860 ~T0 @X0 1 e ]
+[i _menu_flags
+:U ..
+:U ..
+-> -> 0 `i `uc
+..
+..
+]
+"104
+[; ;./fs_menu_controller.h: 104: tS_menu_value menu_value = {0};
+[v _menu_value `S862 ~T0 @X0 1 e ]
+[i _menu_value
+:U ..
+:U ..
+-> -> 0 `i `uc
+..
+..
+]
+"38 fs_mcu.c
+[; ;fs_mcu.c: 38: void mcu_init(void)
+[v _mcu_init `(v ~T0 @X0 1 ef ]
+"39
+[; ;fs_mcu.c: 39: {
+{
+[e :U _mcu_init ]
+[f ]
+"40
+[; ;fs_mcu.c: 40:    OSCCONbits.IRCF = 0b111;
+[e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
+"42
+[; ;fs_mcu.c: 42:    OSCTUNEbits.PLLEN = 0b1;
+[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
+"44
+[; ;fs_mcu.c: 44:    while(!OSCCONbits.HFIOFS);
+[e $U 864  ]
+[e :U 865 ]
+[e :U 864 ]
+[e $ ! != -> . . _OSCCONbits 0 1 `i -> 0 `i 865  ]
+[e :U 866 ]
+"45
+[; ;fs_mcu.c: 45: }
+[e :UE 863 ]
+}
+"54
+[; ;fs_mcu.c: 54: void gpio_init(void)
+[v _gpio_init `(v ~T0 @X0 1 ef ]
+"55
+[; ;fs_mcu.c: 55: {
+{
+[e :U _gpio_init ]
+[f ]
+"56
+[; ;fs_mcu.c: 56:    ANSELB = 0x00;
+[e = _ANSELB -> -> 0 `i `uc ]
+"57
+[; ;fs_mcu.c: 57:    TRISBbits.RB0 = 0;
+[e = . . _TRISBbits 1 0 -> -> 0 `i `uc ]
+"58
+[; ;fs_mcu.c: 58:    TRISBbits.RB1 = 0;
+[e = . . _TRISBbits 1 1 -> -> 0 `i `uc ]
+"59
+[; ;fs_mcu.c: 59:    TRISBbits.RB2 = 0;
+[e = . . _TRISBbits 1 2 -> -> 0 `i `uc ]
+"60
+[; ;fs_mcu.c: 60:    TRISBbits.RB3 = 0;
+[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
+"61
+[; ;fs_mcu.c: 61:    TRISBbits.RB4 = 0;
+[e = . . _TRISBbits 1 4 -> -> 0 `i `uc ]
+"62
+[; ;fs_mcu.c: 62:    TRISBbits.RB5 = 0;
+[e = . . _TRISBbits 1 5 -> -> 0 `i `uc ]
+"65
+[; ;fs_mcu.c: 65:    ANSELDbits.ANSD2 = 0;
+[e = . . _ANSELDbits 0 2 -> -> 0 `i `uc ]
+"66
+[; ;fs_mcu.c: 66:    ANSELDbits.ANSD3 = 0;
+[e = . . _ANSELDbits 0 3 -> -> 0 `i `uc ]
+"67
+[; ;fs_mcu.c: 67:    TRISDbits.RD2 = 1;
+[e = . . _TRISDbits 1 2 -> -> 1 `i `uc ]
+"68
+[; ;fs_mcu.c: 68:    TRISDbits.RD3 = 1;
+[e = . . _TRISDbits 1 3 -> -> 1 `i `uc ]
+"70
+[; ;fs_mcu.c: 70:    ANSELCbits.ANSC5 = 0;
+[e = . . _ANSELCbits 0 4 -> -> 0 `i `uc ]
+"71
+[; ;fs_mcu.c: 71:    ANSELCbits.ANSC4 = 0;
+[e = . . _ANSELCbits 0 3 -> -> 0 `i `uc ]
+"72
+[; ;fs_mcu.c: 72:    TRISCbits.RC5 = 1;
+[e = . . _TRISCbits 1 5 -> -> 1 `i `uc ]
+"73
+[; ;fs_mcu.c: 73:    TRISCbits.RC4 = 1;
+[e = . . _TRISCbits 1 4 -> -> 1 `i `uc ]
+"74
+[; ;fs_mcu.c: 74: }
+[e :UE 867 ]
+}
+"83
+[; ;fs_mcu.c: 83: void system_init(void)
+[v _system_init `(v ~T0 @X0 1 ef ]
+"84
+[; ;fs_mcu.c: 84: {
+{
+[e :U _system_init ]
+[f ]
+"85
+[; ;fs_mcu.c: 85:     driver_limit.pay = 0;
+[e = . _driver_limit 0 -> -> -> 0 `i `l `ul ]
+"86
+[; ;fs_mcu.c: 86:     driver_limit.payda = 0;
+[e = . _driver_limit 1 -> -> -> 0 `i `l `ul ]
+"87
+[; ;fs_mcu.c: 87:     driver_limit.ortalama = 0;
+[e = . _driver_limit 2 -> -> 0 `i `f ]
+"88
+[; ;fs_mcu.c: 88:     convert_data.convert_channel_0 = 0;
+[e = . _convert_data 0 -> -> -> 0 `i `l `ul ]
+"89
+[; ;fs_mcu.c: 89:     convert_data.convert_channel_1 = 0;
+[e = . _convert_data 1 -> -> -> 0 `i `l `ul ]
+"90
+[; ;fs_mcu.c: 90:     convert_data.convert_channel_2 = 0;
+[e = . _convert_data 2 -> -> -> 0 `i `l `ul ]
+"91
+[; ;fs_mcu.c: 91:     convert_data.convert_channel_3 = 0;
+[e = . _convert_data 3 -> -> -> 0 `i `l `ul ]
+"92
+[; ;fs_mcu.c: 92:     convert_data.convert_channel_4 = 0;
+[e = . _convert_data 4 -> -> -> 0 `i `l `ul ]
+"93
+[; ;fs_mcu.c: 93:     convert_data.convert_channel_5 = 0;
+[e = . _convert_data 5 -> -> -> 0 `i `l `ul ]
+"94
+[; ;fs_mcu.c: 94:     convert_data.convert_channel_6 = 0;
+[e = . _convert_data 6 -> -> -> 0 `i `l `ul ]
+"95
+[; ;fs_mcu.c: 95:     convert_data.convert_channel_7 = 0;
+[e = . _convert_data 7 -> -> -> 0 `i `l `ul ]
+"96
+[; ;fs_mcu.c: 96:     controller.leftMotorSpeed = 0;
+[e = . _controller 3 -> -> 0 `i `s ]
+"97
+[; ;fs_mcu.c: 97:     controller.rightMotorSpeed = 0;
+[e = . _controller 4 -> -> 0 `i `s ]
+"98
+[; ;fs_mcu.c: 98:     timer_value.timer_0_counter = 0;
+[e = . _timer_value 5 -> -> 0 `i `uc ]
+"99
+[; ;fs_mcu.c: 99:     controller.error = 0;
+[e = . _controller 0 -> -> 0 `i `s ]
+"101
+[; ;fs_mcu.c: 101:     button_bounce_controller.menu = 0;
+[e = . _button_bounce_controller 0 -> -> 0 `i `uc ]
+"102
+[; ;fs_mcu.c: 102:     button_bounce_controller.pause = 0;
+[e = . _button_bounce_controller 3 -> -> 0 `i `uc ]
+"103
+[; ;fs_mcu.c: 103:     button_bounce_controller.start = 0;
+[e = . _button_bounce_controller 1 -> -> 0 `i `uc ]
+"104
+[; ;fs_mcu.c: 104:     button_bounce_controller.stop = 0;
+[e = . _button_bounce_controller 2 -> -> 0 `i `uc ]
+"105
+[; ;fs_mcu.c: 105:     menu_value.driver_time = (uint8_t)eepromRead(0x00);
+[e = . _menu_value 0 ( _eepromRead (1 -> -> 0 `i `uc ]
+"106
+[; ;fs_mcu.c: 106:     menu_value.stop_time = (uint8_t)eepromRead(0x01);
+[e = . _menu_value 1 ( _eepromRead (1 -> -> 1 `i `uc ]
+"107
+[; ;fs_mcu.c: 107:     menu_value.speed_limit = (uint8_t)eepromRead(0x02);
+[e = . _menu_value 2 ( _eepromRead (1 -> -> 2 `i `uc ]
+"109
+[; ;fs_mcu.c: 109:     _delay((unsigned long)((700)*(64000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 700 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"110
+[; ;fs_mcu.c: 110:     timer_value.remainingMinute = menu_value.driver_time;
+[e = . _timer_value 3 -> . _menu_value 0 `s ]
+"111
+[; ;fs_mcu.c: 111:     timer_value.remainingSecond = 0;
+[e = . _timer_value 2 -> -> 0 `i `us ]
+"114
+[; ;fs_mcu.c: 114: }
+[e :UE 868 ]
+}
