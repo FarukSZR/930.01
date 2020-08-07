@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Fri Aug 07 15:40:37 2020
+                                                                                               Fri Aug 07 15:41:31 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	18F45K22
@@ -119,7 +119,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
    105                           ; SFR Addresses
    106  0000                     
    107                           	psect	eeprom_data
-   108  F00000  1E 02 04 00 00 00 00 00 	db	30,2,4,0,0,0,0,0	;# 
+   108  F00000  1E 0A 04 00 00 00 00 00 	db	30,10,4,0,0,0,0,0	;# 
    109  0000                     
    110                           	psect	idataBANK0
    111  004A0A                     __pidataBANK0:
@@ -13659,7 +13659,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Fri Aug 07 15:40:37 2020
+Symbol Table                                                                                   Fri Aug 07 15:41:31 2020
 
                  ___fldiv@aexp 0019                   ___fldiv@bexp 0018                   ___fldiv@sign 0011  
                            l70 49A4                             l72 49B2                             l73 49B4  
