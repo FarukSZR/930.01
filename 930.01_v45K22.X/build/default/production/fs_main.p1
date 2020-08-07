@@ -1001,9 +1001,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "38 fs_main.c
-[; ;fs_main.c: 38: __asm("\tpsect eeprom_data,class=EEDATA,noexec"); __asm("\tdb\t" "30" "," "2" "," "4" "," "0" "," "0" "," "0" "," "0" "," "0");
+[; ;fs_main.c: 38: __asm("\tpsect eeprom_data,class=EEDATA,noexec"); __asm("\tdb\t" "30" "," "10" "," "4" "," "0" "," "0" "," "0" "," "0" "," "0");
 [; <" 	psect eeprom_data,class=EEDATA,noexec ;# ">
-[; <" 	db	30,2,4,0,0,0,0,0 ;# ">
+[; <" 	db	30,10,4,0,0,0,0,0 ;# ">
 "40
 [; ;fs_main.c: 40: char textCursor2[16]={0};
 [v _textCursor2 `uc ~T0 @X0 -> 16 `i e ]

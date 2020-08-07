@@ -35,7 +35,7 @@
 #include "fs_speed_controller.h"
 #include "fs_menu_controller.h"
 
-__EEPROM_DATA(30,2,4,0,0,0,0,0); // DriverTime,StopTime,SpeedLimit
+__EEPROM_DATA(30,10,4,0,0,0,0,0); // DriverTime,StopTime,SpeedLimit
 
 char textCursor2[16]={0};
 uint32_t counter = 0;

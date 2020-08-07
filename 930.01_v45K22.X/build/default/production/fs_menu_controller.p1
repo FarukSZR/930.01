@@ -1513,8 +1513,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 891 ]
 "300
-[; ;fs_menu_controller.c: 300:             if ((menu_flags.menu_increase_flag == 1) && (menu_value.stop_time < 100))
-[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> . _menu_value 1 `i -> 100 `i 892  ]
+[; ;fs_menu_controller.c: 300:             if ((menu_flags.menu_increase_flag == 1) && (menu_value.stop_time < 250))
+[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> . _menu_value 1 `i -> 250 `i 892  ]
 "301
 [; ;fs_menu_controller.c: 301:             {
 {
@@ -1522,8 +1522,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_menu_controller.c: 302:                 menu_flags.menu_increase_flag = 0;
 [e = . _menu_flags 4 -> -> 0 `i `uc ]
 "303
-[; ;fs_menu_controller.c: 303:                 menu_value.stop_time += 1;
-[e =+ . _menu_value 1 -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 303:                 menu_value.stop_time += 10;
+[e =+ . _menu_value 1 -> -> 10 `i `uc ]
 "304
 [; ;fs_menu_controller.c: 304:                 eepromWrite(0x01,(uint8_t)menu_value.stop_time);
 [e ( _eepromWrite (2 , -> -> 1 `i `uc . _menu_value 1 ]
@@ -1532,8 +1532,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 892 ]
 "307
-[; ;fs_menu_controller.c: 307:             if ((menu_flags.menu_decrease_flag == 1) && (menu_value.stop_time > 0))
-[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 1 `i -> 0 `i 893  ]
+[; ;fs_menu_controller.c: 307:             if ((menu_flags.menu_decrease_flag == 1) && (menu_value.stop_time > 10))
+[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 1 `i -> 10 `i 893  ]
 "308
 [; ;fs_menu_controller.c: 308:             {
 {
@@ -1541,8 +1541,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_menu_controller.c: 309:                  menu_flags.menu_decrease_flag = 0;
 [e = . _menu_flags 5 -> -> 0 `i `uc ]
 "310
-[; ;fs_menu_controller.c: 310:                  menu_value.stop_time -= 1;
-[e =- . _menu_value 1 -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 310:                  menu_value.stop_time -= 10;
+[e =- . _menu_value 1 -> -> 10 `i `uc ]
 "311
 [; ;fs_menu_controller.c: 311:                  eepromWrite(0x01,(uint8_t)menu_value.stop_time);
 [e ( _eepromWrite (2 , -> -> 1 `i `uc . _menu_value 1 ]
@@ -1632,8 +1632,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 897 ]
 "345
-[; ;fs_menu_controller.c: 345:             if ((menu_flags.menu_decrease_flag == 1) && (menu_value.speed_limit > 0))
-[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 2 `i -> 0 `i 898  ]
+[; ;fs_menu_controller.c: 345:             if ((menu_flags.menu_decrease_flag == 1) && (menu_value.speed_limit > 1))
+[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 2 `i -> 1 `i 898  ]
 "346
 [; ;fs_menu_controller.c: 346:             {
 {
