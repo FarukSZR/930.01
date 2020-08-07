@@ -84,7 +84,7 @@ while(1)
        
     menuControl();
                   
-//    scanAdcConversion();         
+    scanAdcConversion();         
 //    calculatedAverageValue();
 //    driveSafetyCheck();        
 //    if (controller.driver_safety_check == 1)
