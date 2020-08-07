@@ -10083,7 +10083,7 @@ void startMenu(void);
 # 36 "fs_main.c" 2
 
 
-__asm("\tpsect eeprom_data,class=EEDATA,noexec"); __asm("\tdb\t" "30" "," "2" "," "4" "," "0" "," "0" "," "0" "," "0" "," "0");
+__asm("\tpsect eeprom_data,class=EEDATA,noexec"); __asm("\tdb\t" "30" "," "10" "," "4" "," "0" "," "0" "," "0" "," "0" "," "0");
 
 char textCursor2[16]={0};
 uint32_t counter = 0;
