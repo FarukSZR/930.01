@@ -10099,6 +10099,7 @@ void menuControl(void)
 void stateMachine(void)
 {
     char textCursor2[16] = {0};
+    static uint8_t secretMenuCounter = 0;
 
     switch (menu_selected)
     {
@@ -10164,7 +10165,7 @@ void stateMachine(void)
                 timer_value.remainingMinute = menu_value.driver_time;
             }
 
-            if ((menu_flags.menu_decrease_flag == 1) && (menu_value.driver_time > 0))
+            if ((menu_flags.menu_decrease_flag == 1) && (menu_value.driver_time > 1))
             {
                  menu_flags.menu_decrease_flag = 0;
                  menu_value.driver_time--;
@@ -10352,6 +10353,7 @@ void stateMachine(void)
             if ((menu_flags.menu_increase_flag == 1) && (menu_flags.menu_decrease_flag == 1))
             {
                 menu_selected = SECRET_MENU;
+                secretMenuCounter = 1;
             }
 
 
@@ -10363,22 +10365,57 @@ void stateMachine(void)
 
         case SECRET_MENU:
 
-            Lcd_Set_Cursor(1,1);
-            Lcd_Write_String("PID PARAM       ");
-            Lcd_Set_Cursor(2,1);
-            sprintf(textCursor2,"Kp:%5.1f Kd:5.1f    ",KP,KD);
-            Lcd_Write_String(textCursor2);
-
-            if ((menu_flags.menu_increase_flag == 1) && (KP < 2.5))
+            if (menu_flags.menu_input_flag == 1)
             {
-                menu_flags.menu_increase_flag = 0;
-                KP += 0.1;
+                menu_flags.menu_input_flag = 0;
+                secretMenuCounter++;
+
+                if (secretMenuCounter >2)
+                {
+                    secretMenuCounter = 1;
+                }
             }
 
-            if ((menu_flags.menu_decrease_flag == 1) && (menu_value.speed_limit >= 0))
+            if (secretMenuCounter == 1)
             {
-                 menu_flags.menu_decrease_flag = 0;
-                 KP -= 0.1;
+                Lcd_Set_Cursor(1,1);
+                Lcd_Write_String("PID PARAM       ");
+                Lcd_Set_Cursor(2,1);
+                sprintf(textCursor2,"Kp:%5.1f     ",KP);
+                Lcd_Write_String(textCursor2);
+
+                if ((menu_flags.menu_increase_flag == 1) && (KP < 2.5))
+                {
+                    menu_flags.menu_increase_flag = 0;
+                    KP += 0.1;
+                }
+
+                if ((menu_flags.menu_decrease_flag == 1) && (KP >= 0))
+                {
+                    menu_flags.menu_decrease_flag = 0;
+                     KP -= 0.1;
+                }
+            }
+
+            if (secretMenuCounter == 2)
+            {
+                Lcd_Set_Cursor(1,1);
+                Lcd_Write_String("PID PARAM       ");
+                Lcd_Set_Cursor(2,1);
+                sprintf(textCursor2,"Kd:%5.1f    ",KD);
+                Lcd_Write_String(textCursor2);
+
+                if ((menu_flags.menu_increase_flag == 1) && (KD < 2.5))
+                {
+                    menu_flags.menu_increase_flag = 0;
+                    KD += 0.1;
+                }
+
+                if ((menu_flags.menu_decrease_flag == 1) && (KD >= 0))
+                {
+                    menu_flags.menu_decrease_flag = 0;
+                     KD -= 0.1;
+                }
             }
 
             if ( timer_value.menu_login_delay == 100)
