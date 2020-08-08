@@ -1,9 +1,20 @@
 # 930.01
 Tırtıl Project
 
+### Yapilacak degisiklikler:
+
+1. speed_controller library'de bulanan def_speed max_speed min_speed HIZ_LIMITI parametresine gore tekrar duzenlenecek.
+1. Sensor kalibrasyonlari eklenecek.
+1. Cizgiden cikildiginda durma fonksiyonu eklenecek. 
+
 ### Yapilan degisiklikler:
 
 
+##### 8 Agustos 2020 @Faruk:
+1. LCD library'de bulunan birkac bug giderildi.
+1. PWM fonksiyonlari yazildi.
+1. PID algoritmasi duzenlendi.
+1. eeprom kayit ve init eeprom degerleri yazildi.
 
 ##### 7 Agustos 2020 @Faruk:
 1. Menu icin stateMachine fonksiyonu olusturuldu.
