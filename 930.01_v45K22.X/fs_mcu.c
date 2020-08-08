@@ -30,6 +30,9 @@
 #include "fs_timer.h"
 #include "fs_menu_controller.h"
 #include "fs_eeprom.h"
+
+
+
 /*
  * @brief  MCU Clock/oscillattor setting 
  * @param  none
@@ -42,35 +45,6 @@ void mcu_init(void)
    OSCTUNEbits.PLLEN = 0b1; //OSCTUNE registerının PLLEN bayrağı kullanılarak 4XLL aktif edildi.
      
    while(!OSCCONbits.HFIOFS); //Frekans kararlı olana kadar bekle
-}
-
-
-
-/*
- * @brief  MCU GPIO setting 
- * @param  none
- * @return none
- */
-void gpio_init(void)
-{    
-   ANSELB = 0x00;
-   TRISBbits.RB0 = 0; // RD0 is an output pin.
-   TRISBbits.RB1 = 0; // RD1 is an output pin.
-   TRISBbits.RB2 = 0; // RD2 is an output pin.
-   TRISBbits.RB3 = 0; // RD3 is an output pin.
-   TRISBbits.RB4 = 0; // RD3 is an output pin.
-   TRISBbits.RB5 = 0; // RD3 is an output pin.
-   
-   
-   ANSELDbits.ANSD2 = 0;
-   ANSELDbits.ANSD3 = 0;
-   TRISDbits.RD2 = 1; // RD0 is an input pin.
-   TRISDbits.RD3 = 1; // RD0 is an input pin.
-    
-   ANSELCbits.ANSC5 = 0;
-   ANSELCbits.ANSC4 = 0;
-   TRISCbits.RC5 = 1; // RD0 is an input pin.
-   TRISCbits.RC4 = 1; // RD0 is an input pin.
 }
 
 

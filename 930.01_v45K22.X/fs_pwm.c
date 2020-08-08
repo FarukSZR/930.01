@@ -7,6 +7,8 @@
 #include <pic18f45k22.h>
 #include <math.h>
 
+
+
 /*
  *@brief
  *@param[in] period: Pwm Period in Hz. For example 20Khz = 20000
@@ -34,6 +36,7 @@ void PWM_Init(void)
 }
  
 
+
 /*
  * @brief set duty cycle 0 - 1023 range 
  */
@@ -47,6 +50,8 @@ void PWM1_setDC(int16_t dutycycle)
         CCPR1L = duty>>2;  //  PWM duty cycle - first 8-bits (MSb)
     }    
 }
+
+
 
 /*
  * @brief set duty cycle 0 - 1023 range 

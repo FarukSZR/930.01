@@ -28,8 +28,8 @@
 
 
 /*
- *@brief
- *@param[in] position : ADC'den okunan ortlama deger bunun içerisine yazilir.
+ *@brief The function that loads the respective motors speeds according to the line reference read from the ADC.
+ *@param[in] position : The average value read from the ADC is written into it.
  * 
  */
 void speedControl(float position)
