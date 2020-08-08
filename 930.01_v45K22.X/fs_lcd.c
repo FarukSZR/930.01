@@ -5,7 +5,7 @@
 #include "fs_lcd.h"
 
 /*
- * @brief  Initialize ADC  
+ * @brief  Initialize LCD  
  * @param  none
  * @return none
  */
@@ -25,6 +25,13 @@ void Lcd_Port(char a)
       
 }
 
+
+
+/*
+ * @brief  Initialize LCD  
+ * @param  none
+ * @return none
+ */
 void Lcd_Cmd(char a)
 {
    RS = 0;             // => RS = 0
@@ -34,8 +41,10 @@ void Lcd_Cmd(char a)
    EN  = 0;             // => E = 0
 }
 
+
+
 /*
- * @brief  Initialize ADC  
+ * @brief  LCD Clear 
  * @param  none
  * @return none
  */
@@ -46,7 +55,7 @@ void Lcd_Clear()
 }
 
 /*
- * @brief  Initialize ADC  
+ * @brief  Lcd Set Cursor 
  * @param  none
  * @return none
  */
@@ -72,7 +81,7 @@ void Lcd_Set_Cursor(char a, char b)
 }
 
 /*
- * @brief  Initialize ADC  
+ * @brief  Initialize LCD  
  * @param  none
  * @return none
  */
@@ -116,7 +125,7 @@ void lcd_init(void)
 
 
 /*
- * @brief  Initialize ADC  
+ * @brief  Write character lcd
  * @param  none
  * @return none
  */
@@ -139,7 +148,7 @@ void Lcd_Write_Char(char a)
 
 
 /*
- * @brief  Initialize ADC  
+ * @brief  Write String
  * @param  none
  * @return none
  */
@@ -153,7 +162,7 @@ void Lcd_Write_String(char *a)
 
 
 /*
- * @brief  Initialize ADC  
+ * @brief  Right Shift Cursor
  * @param  none
  * @return none
  */
@@ -166,7 +175,7 @@ void Lcd_Shift_Right()
 
 
 /*
- * @brief  Initialize ADC  
+ * @brief  Left Shift Cursor 
  * @param  none
  * @return none
  */
