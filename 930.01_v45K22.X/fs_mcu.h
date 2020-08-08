@@ -33,7 +33,6 @@ extern "C" {
 #define STOP       (PORTDbits.RD3)  //azalt butonu +
 
 void mcu_init(void);
-void gpio_init(void);
 void system_init(void);
 
 #ifdef	__cplusplus
