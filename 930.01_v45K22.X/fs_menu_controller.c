@@ -31,7 +31,7 @@
 
 
 /*
- * @brief Initialize the I2C peripharel unit.
+ * @brief Pin configurations of button connections.
  * @param none
  * @return none
  */
@@ -65,7 +65,7 @@ void menuInitialize(void)
 
 
 /*
- * @brief Initialize the I2C peripharel unit.
+ * @brief The variable that controls the falling edge, rising edge status of the buttons.
  * @param none
  * @return none
  */
@@ -148,7 +148,7 @@ void buttonControlFlags(void)
 
 
 /*
- * @brief State Machine 
+ * @brief The function that controls which button is pressed.
  * @param none
  * @return none
  */
@@ -186,7 +186,7 @@ void menuControl(void)
 
 
 /*
- * @brief Initialize the I2C peripharel unit.
+ * @brief State Machine function.
  * @param none
  * @return none
  */
