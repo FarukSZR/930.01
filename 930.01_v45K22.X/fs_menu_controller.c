@@ -70,9 +70,7 @@ void menuInitialize(void)
  * @return none
  */
 void buttonControlFlags(void)
-{    
-    char textCursor2[16] = {0};
-    
+{       
     if ((button_bounce_controller.menu == FALSE) && (BUTTON_MENU == FALSE))
     {        
         button_bounce_controller.menu = TRUE;
