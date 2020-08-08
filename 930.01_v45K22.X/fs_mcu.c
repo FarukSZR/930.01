@@ -41,9 +41,7 @@
 void mcu_init(void)
 {
    OSCCONbits.IRCF = 0b111; // OSSCON registerının IRCF bayrağı kullanılarak 16Mhz RC osilatör seçildi.
-   // OSCCONbits.SCS = 0b11;
-   OSCTUNEbits.PLLEN = 0b1; //OSCTUNE registerının PLLEN bayrağı kullanılarak 4XLL aktif edildi.
-     
+   OSCTUNEbits.PLLEN = 0b1; //OSCTUNE registerının PLLEN bayrağı kullanılarak 4XLL aktif edildi.     
    while(!OSCCONbits.HFIOFS); //Frekans kararlı olana kadar bekle
 }
 
