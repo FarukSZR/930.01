@@ -10,6 +10,15 @@ Tırtıl Project
 ### Yapilan degisiklikler:
 
 
+##### 11 Agustos 2020 @Faruk:
+1. ADC pinleri schematic'e gore duzenlendi.
+1. LCD pinleri schematic'e gore duzenlendi.
+1. Buton pinleri schematic'e gore duzenlendi.
+1. stopMotor ve startMotor fonksiyonlari eklendi.
+1. startMotor fonksiyonu start butonuna basildinda aktiflesiyor.
+1. stopMotor menu icerisinde dolanirken ve pause-stop butonlari aktif oldugunda aktiflesiyor.
+
+
 ##### 8 Agustos 2020 @Faruk:
 1. LCD library'de bulunan birkac bug giderildi.
 1. PWM fonksiyonlari yazildi.
