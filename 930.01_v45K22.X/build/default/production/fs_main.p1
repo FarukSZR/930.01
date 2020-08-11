@@ -23,8 +23,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./fs_timer.h: 47: {
 [s S859 `us 1 `us 1 `us 1 `s 1 `uc 1 `uc 1 ]
 [n S859 . second minute remainingSecond remainingMinute menu_login_delay timer_0_counter ]
-"53 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 53: {
+"55 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 55: {
 [s S860 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
 [n S860 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
 "71 ./fs_menu_controller.h
@@ -50,18 +50,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 "106 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 106: void menuInitialize(void);
 [v _menuInitialize `(v ~T0 @X0 0 ef ]
+"51 ./fs_adc.h
+[; ;./fs_adc.h: 51: void adcInit(void);
+[v _adcInit `(v ~T0 @X0 0 ef ]
 "38 ./fs_timer.h
 [; ;./fs_timer.h: 38: void timer_0_init(void);
 [v _timer_0_init `(v ~T0 @X0 0 ef ]
 "56 ./fs_lcd.h
 [; ;./fs_lcd.h: 56: void lcd_init(void);
 [v _lcd_init `(v ~T0 @X0 0 ef ]
-"37 ./fs_mcu.h
-[; ;./fs_mcu.h: 37: void system_init(void);
+"36 ./fs_mcu.h
+[; ;./fs_mcu.h: 36: void system_init(void);
 [v _system_init `(v ~T0 @X0 0 ef ]
 "54 ./fs_lcd.h
 [; ;./fs_lcd.h: 54: void Lcd_Clear(void);
 [v _Lcd_Clear `(v ~T0 @X0 0 ef ]
+"21 ./fs_pwm.h
+[; ;./fs_pwm.h: 21: void PWM_Init(void);
+[v _PWM_Init `(v ~T0 @X0 0 ef ]
+"22
+[; ;./fs_pwm.h: 22: void PWM1_setDC(int16_t dutycycle);
+[v _PWM1_setDC `(v ~T0 @X0 0 ef1`s ]
+"23
+[; ;./fs_pwm.h: 23: void PWM2_setDC(int16_t dutycycle);
+[v _PWM2_setDC `(v ~T0 @X0 0 ef1`s ]
 "107 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 107: void menuControl(void);
 [v _menuControl `(v ~T0 @X0 0 ef ]
@@ -943,8 +955,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _KD
 -> .1.0 `f
 ]
-"67
-[; ;./fs_speed_controller.h: 67: tS_controller controller;
+"69
+[; ;./fs_speed_controller.h: 69: tS_controller controller;
 [v _controller `S860 ~T0 @X0 1 e ]
 "56 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 56: uint8_t pauseIsClick = 0;
@@ -1033,6 +1045,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "46
 [; ;fs_main.c: 46:     menuInitialize();
 [e ( _menuInitialize ..  ]
+"48
+[; ;fs_main.c: 48:     adcInit();
+[e ( _adcInit ..  ]
 "50
 [; ;fs_main.c: 50:     timer_0_init();
 [e ( _timer_0_init ..  ]
@@ -1045,80 +1060,89 @@ Version 4.0 HI-TECH Software Intermediate Code
 "53
 [; ;fs_main.c: 53:     Lcd_Clear();
 [e ( _Lcd_Clear ..  ]
+"55
+[; ;fs_main.c: 55:     PWM_Init();
+[e ( _PWM_Init ..  ]
+"56
+[; ;fs_main.c: 56:     PWM1_setDC(0);
+[e ( _PWM1_setDC (1 -> -> 0 `i `s ]
+"57
+[; ;fs_main.c: 57:     PWM2_setDC(0);
+[e ( _PWM2_setDC (1 -> -> 0 `i `s ]
 "60
 [; ;fs_main.c: 60: while(1)
 [e :U 866 ]
 "61
 [; ;fs_main.c: 61: {
 {
-"63
-[; ;fs_main.c: 63:     if (timer_counter_flag.one_second_flag == 1)
+"62
+[; ;fs_main.c: 62:     if (timer_counter_flag.one_second_flag == 1)
 [e $ ! == -> . _timer_counter_flag 0 `i -> 1 `i 868  ]
+"63
+[; ;fs_main.c: 63:     {
+{
 "64
-[; ;fs_main.c: 64:     {
-{
-"65
-[; ;fs_main.c: 65:         timer_counter_flag.one_second_flag = 0;
+[; ;fs_main.c: 64:         timer_counter_flag.one_second_flag = 0;
 [e = . _timer_counter_flag 0 -> -> 0 `i `uc ]
-"67
-[; ;fs_main.c: 67:         if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) && (menu_selected == MAIN_MENU) )
+"66
+[; ;fs_main.c: 66:         if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) && (menu_selected == MAIN_MENU) )
 [e $ ! && && && == -> _startIsClick `i -> 1 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 0 `i == -> _menu_selected `ui -> . `E6590 0 `ui 869  ]
+"67
+[; ;fs_main.c: 67:         {
+{
 "68
-[; ;fs_main.c: 68:         {
-{
-"69
-[; ;fs_main.c: 69:             timer_value.second++;
+[; ;fs_main.c: 68:             timer_value.second++;
 [e ++ . _timer_value 0 -> -> 1 `i `us ]
-"70
-[; ;fs_main.c: 70:             timer_value.remainingSecond = 60 - timer_value.second;
+"69
+[; ;fs_main.c: 69:             timer_value.remainingSecond = 60 - timer_value.second;
 [e = . _timer_value 2 -> - -> -> 60 `i `ui -> . _timer_value 0 `ui `us ]
-"72
-[; ;fs_main.c: 72:             if (timer_value.remainingSecond == 59 )
+"71
+[; ;fs_main.c: 71:             if (timer_value.remainingSecond == 59 )
 [e $ ! == -> . _timer_value 2 `ui -> -> 59 `i `ui 870  ]
-"73
-[; ;fs_main.c: 73:             {
+"72
+[; ;fs_main.c: 72:             {
 {
-"74
-[; ;fs_main.c: 74:                 timer_value.minute++;
+"73
+[; ;fs_main.c: 73:                 timer_value.minute++;
 [e ++ . _timer_value 1 -> -> 1 `i `us ]
-"75
-[; ;fs_main.c: 75:                 timer_value.remainingMinute = menu_value.driver_time - timer_value.minute;
+"74
+[; ;fs_main.c: 74:                 timer_value.remainingMinute = menu_value.driver_time - timer_value.minute;
 [e = . _timer_value 3 -> - -> . _menu_value 0 `ui -> . _timer_value 1 `ui `s ]
-"76
-[; ;fs_main.c: 76:             }
+"75
+[; ;fs_main.c: 75:             }
 }
 [e :U 870 ]
-"78
-[; ;fs_main.c: 78:             if (timer_value.second > 59)
+"77
+[; ;fs_main.c: 77:             if (timer_value.second > 59)
 [e $ ! > -> . _timer_value 0 `ui -> -> 59 `i `ui 871  ]
-"79
-[; ;fs_main.c: 79:             {
+"78
+[; ;fs_main.c: 78:             {
 {
-"80
-[; ;fs_main.c: 80:                 timer_value.second = 0;
+"79
+[; ;fs_main.c: 79:                 timer_value.second = 0;
 [e = . _timer_value 0 -> -> 0 `i `us ]
-"81
-[; ;fs_main.c: 81:             }
+"80
+[; ;fs_main.c: 80:             }
 }
 [e :U 871 ]
-"82
-[; ;fs_main.c: 82:         }
+"81
+[; ;fs_main.c: 81:         }
 }
 [e :U 869 ]
-"83
-[; ;fs_main.c: 83:     }
+"82
+[; ;fs_main.c: 82:     }
 }
 [e :U 868 ]
-"85
-[; ;fs_main.c: 85:     menuControl();
+"84
+[; ;fs_main.c: 84:     menuControl();
 [e ( _menuControl ..  ]
-"104
-[; ;fs_main.c: 104: }
+"85
+[; ;fs_main.c: 85: }
 }
 [e :U 865 ]
 [e $U 866  ]
 [e :U 867 ]
-"105
-[; ;fs_main.c: 105: }
+"86
+[; ;fs_main.c: 86: }
 [e :UE 864 ]
 }

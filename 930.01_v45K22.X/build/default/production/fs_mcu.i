@@ -9369,7 +9369,6 @@ extern volatile __bit nWRITE2 __attribute__((address(0x7B6A)));
 # 1 "./fs_mcu.h" 1
 # 35 "./fs_mcu.h"
 void mcu_init(void);
-void gpio_init(void);
 void system_init(void);
 # 27 "fs_mcu.c" 2
 
@@ -9832,7 +9831,9 @@ float KP = 0.2;
 float KD = 1.0;
 # 49 "./fs_speed_controller.h"
 void speedControl(float position);
-void driveSafetyCheck(void);
+void stopMotor(void);
+void startMotor(void);
+
 
 typedef struct
 {
@@ -10013,43 +10014,14 @@ void startMenu(void);
 uint8_t eepromRead(uint8_t address);
 void eepromWrite(uint8_t address, uint8_t data);
 # 32 "fs_mcu.c" 2
-
-
-
-
-
-
+# 41 "fs_mcu.c"
 void mcu_init(void)
 {
    OSCCONbits.IRCF = 0b111;
-
    OSCTUNEbits.PLLEN = 0b1;
-
    while(!OSCCONbits.HFIOFS);
 }
-# 54 "fs_mcu.c"
-void gpio_init(void)
-{
-   ANSELB = 0x00;
-   TRISBbits.RB0 = 0;
-   TRISBbits.RB1 = 0;
-   TRISBbits.RB2 = 0;
-   TRISBbits.RB3 = 0;
-   TRISBbits.RB4 = 0;
-   TRISBbits.RB5 = 0;
-
-
-   ANSELDbits.ANSD2 = 0;
-   ANSELDbits.ANSD3 = 0;
-   TRISDbits.RD2 = 1;
-   TRISDbits.RD3 = 1;
-
-   ANSELCbits.ANSC5 = 0;
-   ANSELCbits.ANSC4 = 0;
-   TRISCbits.RC5 = 1;
-   TRISCbits.RC4 = 1;
-}
-# 83 "fs_mcu.c"
+# 55 "fs_mcu.c"
 void system_init(void)
 {
     driver_limit.pay = 0;

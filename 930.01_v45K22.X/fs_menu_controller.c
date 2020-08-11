@@ -37,29 +37,38 @@
  */
 void menuInitialize(void)
 {    
-    ANSELBbits.ANSB5 = 0;
-    TRISBbits.RB5 = 1;  //RB3 is input pin.
+    //ANSELBbits.ANSB6 = 0;
+    TRISBbits.RB6 = 1;  //RB3 is input pin.
     
-    ANSELBbits.ANSB4 = 0;
-    TRISBbits.RB4 = 1;  //RB3 is input pin.
+    //ANSELBbits.ANSB7 = 0;
+    TRISBbits.RB7 = 1;  //RB3 is input pin.
     
-    ANSELBbits.ANSB3 = 0;
-    TRISBbits.RB3 = 1;  //RB3 is input pin.
+    ANSELDbits.ANSD4 = 0;
+    TRISDbits.RD4 = 1;  //RB3 is input pin.
     
-    ANSELAbits.ANSA0 = 0;
-    TRISAbits.RA0 = 1;  //RA0 is input pin.
+    ANSELDbits.ANSD0 = 0;
+    TRISDbits.RD0 = 1;  //RA0 is input pin.
     
-    ANSELAbits.ANSA5 = 0;
-    TRISAbits.RA5 = 1;  //RA5 is input pin.
+    ANSELDbits.ANSD1 = 0;
+    TRISDbits.RD1 = 1;  //RA5 is input pin.
     
-    ANSELBbits.ANSB2 = 0;
-    TRISBbits.RB2 = 1;  //RB2 is input pin.
+    ANSELDbits.ANSD2 = 0;
+    TRISDbits.RD2 = 1;  //RB2 is input pin.
     
-    ANSELEbits.ANSE2 = 0;
-    TRISEbits.RE2 = 0; // RE2 is output
+    ANSELDbits.ANSD3 = 0; //Acil Stop
+    TRISDbits.RD3 = 1; // RE2 is output
     
-    TRISAbits.RA4 = 0; // RA4 is output  
-    TRISBbits.RB6 = 0; // RB6 is output
+    ANSELDbits.ANSD5 = 0;   // MP3_PLAYER
+    TRISDbits.RD5 = 0;      // RD5 is output
+    
+    ANSELCbits.ANSC5 = 0;  // COMM OUTPUT
+    TRISCbits.RC5 = 0;     // RC5 is output
+    
+    ANSELCbits.ANSC4 = 0;  // LAMB OUTPUT
+    TRISCbits.RC4 = 0;     // RC4 is output
+    
+    //TRISEbits. = 0; // RA4 is output  
+    
 }
 
 
@@ -196,16 +205,15 @@ void stateMachine(void)
     switch (menu_selected)
     {              
         case MAIN_MENU:       
-        
-            LED_RED = 0;
-            LED_GREEN = 1;
-            LED_BLUE = 0;
+              
+            MP3_PLAYER = 1;
+            COMMUNICATION_SIGNAL = 1;
             Lcd_Set_Cursor(1,1);
             Lcd_Write_String("KALAN ZAMAN     ");    
             Lcd_Set_Cursor(2,1);
             sprintf(textCursor2,"      %d:%d   ",timer_value.remainingMinute,timer_value.remainingSecond);     
             Lcd_Write_String(textCursor2);
-
+           
             if ( timer_value.menu_login_delay == MENU_TIMEOUT)
             {
                 timer_value.menu_login_delay = 0;
@@ -214,8 +222,8 @@ void stateMachine(void)
 
             if ((timer_value.remainingMinute <= 0) && (timer_value.remainingSecond == 0) )
             {         
-                    menu_selected = STOP_MENU; 
-                    timer_value.minute = 0;
+                menu_selected = STOP_MENU; 
+                timer_value.minute = 0;
             }
 
             if ( (startIsClick == FALSE) && (pauseIsClick == TRUE) && (stopIsClick == FALSE) && (menu_selected == MAIN_MENU))
@@ -235,10 +243,7 @@ void stateMachine(void)
         break;
         
         case DRIVER_TIME_SETTING:
-        
-            LED_RED = 0;
-            LED_GREEN = 0;
-            LED_BLUE = 1; 
+       
 
             if (menu_flags.menu_input_flag == TRUE) 
             {           
@@ -280,15 +285,15 @@ void stateMachine(void)
                 timer_value.menu_login_delay = 0;
                 menu_selected = PAUSE_MENU;                  
             }
+            
+        stopMotor();
       
         break;
 
         case STOP_TIME_SETTING:
-        
-            LED_RED = 0;
-            LED_GREEN = 0;
-            LED_BLUE = 1; 
-
+            
+            stopMotor();
+            
             if (menu_flags.menu_input_flag == TRUE) 
             {           
                 menu_flags.menu_input_flag = 0;         
@@ -322,10 +327,6 @@ void stateMachine(void)
         break;  
 
         case SPEED_LIMIT_SETTING:
-        
-            LED_RED = 0;
-            LED_GREEN = 0;
-            LED_BLUE = 1; 
 
             if (menu_flags.menu_input_flag == TRUE) 
             {           
@@ -357,6 +358,9 @@ void stateMachine(void)
                 timer_value.menu_login_delay = 0;
                 menu_selected = PAUSE_MENU;       
             }
+            
+            stopMotor();
+            
         break;
         
         case STOP_MENU:            
@@ -366,9 +370,7 @@ void stateMachine(void)
 
             Lcd_Set_Cursor(1,1);
             Lcd_Write_String("ZAMAN DOLDU     "); 
-            LED_RED = 1;
-            LED_BLUE = 0;
-            LED_GREEN = 0;
+
             timer_value.remainingSecond = 0;
             timer_value.remainingMinute = 0;
              Lcd_Set_Cursor(2,1);
@@ -392,6 +394,8 @@ void stateMachine(void)
             timer_value.menu_login_delay = 0;
             menu_selected = DRIVER_TIME_SETTING;               
         }
+        stopMotor();
+        
         //TODO: Rampa ile durma burada olacak. 
        break;
        
@@ -401,13 +405,11 @@ void stateMachine(void)
             startIsClick = 1;
             stopIsClick = 0;           
             menu_selected = MAIN_MENU;
+            startMotor();
         break;
         
         case PAUSE_MENU:
-          
-            LED_RED = 1;
-            LED_GREEN = 1;
-            LED_BLUE = 1; 
+ 
             timer_value.remainingMinute = timer_value.remainingMinute;
             timer_value.remainingSecond = timer_value.remainingSecond;   
         
@@ -447,6 +449,7 @@ void stateMachine(void)
                 menu_selected = SECRET_MENU;
                 secretMenuCounter = 1;
             }
+            stopMotor();
             //TODO: Rampa ile durma burada olacak.
         
         break;
@@ -456,7 +459,9 @@ void stateMachine(void)
         break;
        
         case SECRET_MENU:
-                                              
+            
+            stopMotor();
+            
             if (menu_flags.menu_input_flag == 1)
             {
                 menu_flags.menu_input_flag = FALSE;

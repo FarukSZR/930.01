@@ -9935,7 +9935,9 @@ float KP = 0.2;
 float KD = 1.0;
 # 49 "./fs_speed_controller.h"
 void speedControl(float position);
-void driveSafetyCheck(void);
+void stopMotor(void);
+void startMotor(void);
+
 
 typedef struct
 {
@@ -9964,107 +9966,114 @@ tS_controller controller;
 
 void menuInitialize(void)
 {
-    ANSELBbits.ANSB5 = 0;
-    TRISBbits.RB5 = 1;
 
-    ANSELBbits.ANSB4 = 0;
-    TRISBbits.RB4 = 1;
+    TRISBbits.RB6 = 1;
 
-    ANSELBbits.ANSB3 = 0;
-    TRISBbits.RB3 = 1;
 
-    ANSELAbits.ANSA0 = 0;
-    TRISAbits.RA0 = 1;
+    TRISBbits.RB7 = 1;
 
-    ANSELAbits.ANSA5 = 0;
-    TRISAbits.RA5 = 1;
+    ANSELDbits.ANSD4 = 0;
+    TRISDbits.RD4 = 1;
 
-    ANSELBbits.ANSB2 = 0;
-    TRISBbits.RB2 = 1;
+    ANSELDbits.ANSD0 = 0;
+    TRISDbits.RD0 = 1;
 
-    ANSELEbits.ANSE2 = 0;
-    TRISEbits.RE2 = 0;
+    ANSELDbits.ANSD1 = 0;
+    TRISDbits.RD1 = 1;
 
-    TRISAbits.RA4 = 0;
-    TRISBbits.RB6 = 0;
+    ANSELDbits.ANSD2 = 0;
+    TRISDbits.RD2 = 1;
+
+    ANSELDbits.ANSD3 = 0;
+    TRISDbits.RD3 = 1;
+
+    ANSELDbits.ANSD5 = 0;
+    TRISDbits.RD5 = 0;
+
+    ANSELCbits.ANSC5 = 0;
+    TRISCbits.RC5 = 0;
+
+    ANSELCbits.ANSC4 = 0;
+    TRISCbits.RC4 = 0;
+
+
+
 }
-# 72 "fs_menu_controller.c"
+# 81 "fs_menu_controller.c"
 void buttonControlFlags(void)
 {
-    char textCursor2[16] = {0};
-
-    if ((button_bounce_controller.menu == 0) && (PORTBbits.RB2 == 0))
+    if ((button_bounce_controller.menu == 0) && (PORTBbits.RB7 == 0))
     {
         button_bounce_controller.menu = 1;
         menu_flags.menu_input_flag = 1;
     }
 
-    if ((PORTBbits.RB2 == 1) && (button_bounce_controller.menu == 1))
+    if ((PORTBbits.RB7 == 1) && (button_bounce_controller.menu == 1))
     {
         button_bounce_controller.menu = 0;
         menu_flags.menu_input_flag = 0;
     }
 
-    if ((button_bounce_controller.pause == 0) && (PORTBbits.RB3 == 0))
+    if ((button_bounce_controller.pause == 0) && (PORTDbits.RD2 == 0))
     {
         button_bounce_controller.pause = 1;
         menu_flags.menu_pause_flag = 1;
     }
-    if ((PORTBbits.RB3 == 1) && (button_bounce_controller.pause == 1))
+    if ((PORTDbits.RD2 == 1) && (button_bounce_controller.pause == 1))
     {
         button_bounce_controller.pause = 0;
         menu_flags.menu_pause_flag = 0;
     }
 
 
-    if ((button_bounce_controller.start == 0) && (PORTAbits.RA0 == 0))
+    if ((button_bounce_controller.start == 0) && (PORTDbits.RD0 == 0))
     {
         button_bounce_controller.start = 1;
         menu_flags.menu_start_flag = 1;
     }
-    if ((PORTAbits.RA0 == 1) && (button_bounce_controller.start == 1))
+    if ((PORTDbits.RD0 == 1) && (button_bounce_controller.start == 1))
     {
         button_bounce_controller.start = 0;
         menu_flags.menu_start_flag = 0;
     }
 
 
-    if ((button_bounce_controller.stop == 0) && (PORTAbits.RA5 == 0))
+    if ((button_bounce_controller.stop == 0) && (PORTDbits.RD1 == 0))
     {
         button_bounce_controller.stop = 1;
         menu_flags.menu_stop_flag = 1;
     }
-    if ((PORTAbits.RA5 == 1) && (button_bounce_controller.stop == 1))
+    if ((PORTDbits.RD1 == 1) && (button_bounce_controller.stop == 1))
     {
         button_bounce_controller.stop = 0;
         menu_flags.menu_stop_flag = 0;
     }
 
 
-    if ((button_bounce_controller.increase == 0) && (PORTBbits.RB5 == 0))
+    if ((button_bounce_controller.increase == 0) && (PORTDbits.RD4 == 0))
     {
         button_bounce_controller.increase = 1;
         menu_flags.menu_increase_flag = 1;
     }
-    if ((PORTBbits.RB5 == 1) && (button_bounce_controller.increase == 1))
+    if ((PORTDbits.RD4 == 1) && (button_bounce_controller.increase == 1))
     {
         button_bounce_controller.increase = 0;
         menu_flags.menu_increase_flag = 0;
     }
 
 
-    if ((button_bounce_controller.decrease == 0) && (PORTBbits.RB4 == 0))
+    if ((button_bounce_controller.decrease == 0) && (PORTBbits.RB6 == 0))
     {
         button_bounce_controller.decrease = 1;
         menu_flags.menu_decrease_flag = 1;
     }
-    if ((PORTBbits.RB4 == 1) && (button_bounce_controller.decrease == 1))
+    if ((PORTBbits.RB6 == 1) && (button_bounce_controller.decrease == 1))
     {
         button_bounce_controller.decrease = 0;
         menu_flags.menu_decrease_flag = 0;
     }
 }
-# 155 "fs_menu_controller.c"
+# 162 "fs_menu_controller.c"
 void menuControl(void)
 {
     buttonControlFlags();
@@ -10095,7 +10104,7 @@ void menuControl(void)
         stopIsClick = 1;
     }
 }
-# 193 "fs_menu_controller.c"
+# 200 "fs_menu_controller.c"
 void stateMachine(void)
 {
     char textCursor2[16] = {0};
@@ -10105,9 +10114,8 @@ void stateMachine(void)
     {
         case MAIN_MENU:
 
-            LATBbits.LATB6 = 0;
-            LATAbits.LATA4 = 1;
-            LATEbits.LATE2 = 0;
+            LATDbits.LATD5 = 1;
+            LATCbits.LATC5 = 1;
             Lcd_Set_Cursor(1,1);
             Lcd_Write_String("KALAN ZAMAN     ");
             Lcd_Set_Cursor(2,1);
@@ -10122,8 +10130,8 @@ void stateMachine(void)
 
             if ((timer_value.remainingMinute <= 0) && (timer_value.remainingSecond == 0) )
             {
-                    menu_selected = STOP_MENU;
-                    timer_value.minute = 0;
+                menu_selected = STOP_MENU;
+                timer_value.minute = 0;
             }
 
             if ( (startIsClick == 0) && (pauseIsClick == 1) && (stopIsClick == 0) && (menu_selected == MAIN_MENU))
@@ -10144,9 +10152,6 @@ void stateMachine(void)
 
         case DRIVER_TIME_SETTING:
 
-            LATBbits.LATB6 = 0;
-            LATAbits.LATA4 = 0;
-            LATEbits.LATE2 = 1;
 
             if (menu_flags.menu_input_flag == 1)
             {
@@ -10189,13 +10194,13 @@ void stateMachine(void)
                 menu_selected = PAUSE_MENU;
             }
 
+        stopMotor();
+
         break;
 
         case STOP_TIME_SETTING:
 
-            LATBbits.LATB6 = 0;
-            LATAbits.LATA4 = 0;
-            LATEbits.LATE2 = 1;
+            stopMotor();
 
             if (menu_flags.menu_input_flag == 1)
             {
@@ -10231,10 +10236,6 @@ void stateMachine(void)
 
         case SPEED_LIMIT_SETTING:
 
-            LATBbits.LATB6 = 0;
-            LATAbits.LATA4 = 0;
-            LATEbits.LATE2 = 1;
-
             if (menu_flags.menu_input_flag == 1)
             {
                 menu_flags.menu_input_flag = 0;
@@ -10265,6 +10266,9 @@ void stateMachine(void)
                 timer_value.menu_login_delay = 0;
                 menu_selected = PAUSE_MENU;
             }
+
+            stopMotor();
+
         break;
 
         case STOP_MENU:
@@ -10274,9 +10278,7 @@ void stateMachine(void)
 
             Lcd_Set_Cursor(1,1);
             Lcd_Write_String("ZAMAN DOLDU     ");
-            LATBbits.LATB6 = 1;
-            LATEbits.LATE2 = 0;
-            LATAbits.LATA4 = 0;
+
             timer_value.remainingSecond = 0;
             timer_value.remainingMinute = 0;
              Lcd_Set_Cursor(2,1);
@@ -10300,6 +10302,8 @@ void stateMachine(void)
             timer_value.menu_login_delay = 0;
             menu_selected = DRIVER_TIME_SETTING;
         }
+        stopMotor();
+
 
        break;
 
@@ -10309,13 +10313,11 @@ void stateMachine(void)
             startIsClick = 1;
             stopIsClick = 0;
             menu_selected = MAIN_MENU;
+            startMotor();
         break;
 
         case PAUSE_MENU:
 
-            LATBbits.LATB6 = 1;
-            LATAbits.LATA4 = 1;
-            LATEbits.LATE2 = 1;
             timer_value.remainingMinute = timer_value.remainingMinute;
             timer_value.remainingSecond = timer_value.remainingSecond;
 
@@ -10355,6 +10357,7 @@ void stateMachine(void)
                 menu_selected = SECRET_MENU;
                 secretMenuCounter = 1;
             }
+            stopMotor();
 
 
         break;
@@ -10364,6 +10367,8 @@ void stateMachine(void)
         break;
 
         case SECRET_MENU:
+
+            stopMotor();
 
             if (menu_flags.menu_input_flag == 1)
             {

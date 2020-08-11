@@ -15,8 +15,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./fs_adc.h: 102: {
 [s S856 `ul 1 `ul 1 `f 1 ]
 [n S856 . pay payda ortalama ]
-"53 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 53: {
+"55 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 55: {
 [s S857 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
 [n S857 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
 "42 ./fs_timer.h
@@ -65,63 +65,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S419 . . . ]
 "9084
 [v _OSCTUNEbits `VS419 ~T0 @X0 0 e@3995 ]
-"97
-[v _ANSELB `Vuc ~T0 @X0 0 e@3897 ]
-"8293
-[s S396 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S396 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
-"8303
-[s S397 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S397 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"8292
-[u S395 `S396 1 `S397 1 ]
-[n S395 . . . ]
-"8314
-[v _TRISBbits `VS395 ~T0 @X0 0 e@3987 ]
-"204
-[s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S8 . ANSD0 ANSD1 ANSD2 ANSD3 ANSD4 ANSD5 ANSD6 ANSD7 ]
-"203
-[u S7 `S8 1 ]
-[n S7 . . ]
-"215
-[v _ANSELDbits `VS7 ~T0 @X0 0 e@3899 ]
-"8737
-[s S408 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S408 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
-"8747
-[s S409 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S409 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"8736
-[u S407 `S408 1 `S409 1 ]
-[n S407 . . . ]
-"8758
-[v _TRISDbits `VS407 ~T0 @X0 0 e@3989 ]
-"153
-[s S6 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S6 . . ANSC2 ANSC3 ANSC4 ANSC5 ANSC6 ANSC7 ]
-"152
-[u S5 `S6 1 ]
-[n S5 . . ]
-"163
-[v _ANSELCbits `VS5 ~T0 @X0 0 e@3898 ]
-"8515
-[s S402 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S402 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"8525
-[s S403 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S403 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"8514
-[u S401 `S402 1 `S403 1 ]
-[n S401 . . . ]
-"8536
-[v _TRISCbits `VS401 ~T0 @X0 0 e@3988 ]
 "44 ./fs_eeprom.h
 [; ;./fs_eeprom.h: 44: uint8_t eepromRead(uint8_t address);
 [v _eepromRead `(uc ~T0 @X0 0 ef1`uc ]
-[v F5946 `(v ~T0 @X0 1 tf1`ul ]
+[v F5945 `(v ~T0 @X0 1 tf1`ul ]
 "203 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
-[v __delay `JF5946 ~T0 @X0 0 e ]
+[v __delay `JF5945 ~T0 @X0 0 e ]
 [p i __delay ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
 [; <" ANSELA equ 0F38h ;# ">
@@ -651,8 +600,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _KD
 -> .1.0 `f
 ]
-"67
-[; ;./fs_speed_controller.h: 67: tS_controller controller;
+"69
+[; ;./fs_speed_controller.h: 69: tS_controller controller;
 [v _controller `S857 ~T0 @X0 1 e ]
 "33 ./fs_main.h
 [p n 520 ]
@@ -806,172 +755,115 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"38 fs_mcu.c
-[; ;fs_mcu.c: 38: void mcu_init(void)
+"41 fs_mcu.c
+[; ;fs_mcu.c: 41: void mcu_init(void)
 [v _mcu_init `(v ~T0 @X0 1 ef ]
-"39
-[; ;fs_mcu.c: 39: {
+"42
+[; ;fs_mcu.c: 42: {
 {
 [e :U _mcu_init ]
 [f ]
-"40
-[; ;fs_mcu.c: 40:    OSCCONbits.IRCF = 0b111;
+"43
+[; ;fs_mcu.c: 43:    OSCCONbits.IRCF = 0b111;
 [e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
-"42
-[; ;fs_mcu.c: 42:    OSCTUNEbits.PLLEN = 0b1;
-[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
 "44
-[; ;fs_mcu.c: 44:    while(!OSCCONbits.HFIOFS);
+[; ;fs_mcu.c: 44:    OSCTUNEbits.PLLEN = 0b1;
+[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
+"45
+[; ;fs_mcu.c: 45:    while(!OSCCONbits.HFIOFS);
 [e $U 864  ]
 [e :U 865 ]
 [e :U 864 ]
 [e $ ! != -> . . _OSCCONbits 0 1 `i -> 0 `i 865  ]
 [e :U 866 ]
-"45
-[; ;fs_mcu.c: 45: }
+"46
+[; ;fs_mcu.c: 46: }
 [e :UE 863 ]
 }
-"54
-[; ;fs_mcu.c: 54: void gpio_init(void)
-[v _gpio_init `(v ~T0 @X0 1 ef ]
 "55
-[; ;fs_mcu.c: 55: {
-{
-[e :U _gpio_init ]
-[f ]
-"56
-[; ;fs_mcu.c: 56:    ANSELB = 0x00;
-[e = _ANSELB -> -> 0 `i `uc ]
-"57
-[; ;fs_mcu.c: 57:    TRISBbits.RB0 = 0;
-[e = . . _TRISBbits 1 0 -> -> 0 `i `uc ]
-"58
-[; ;fs_mcu.c: 58:    TRISBbits.RB1 = 0;
-[e = . . _TRISBbits 1 1 -> -> 0 `i `uc ]
-"59
-[; ;fs_mcu.c: 59:    TRISBbits.RB2 = 0;
-[e = . . _TRISBbits 1 2 -> -> 0 `i `uc ]
-"60
-[; ;fs_mcu.c: 60:    TRISBbits.RB3 = 0;
-[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
-"61
-[; ;fs_mcu.c: 61:    TRISBbits.RB4 = 0;
-[e = . . _TRISBbits 1 4 -> -> 0 `i `uc ]
-"62
-[; ;fs_mcu.c: 62:    TRISBbits.RB5 = 0;
-[e = . . _TRISBbits 1 5 -> -> 0 `i `uc ]
-"65
-[; ;fs_mcu.c: 65:    ANSELDbits.ANSD2 = 0;
-[e = . . _ANSELDbits 0 2 -> -> 0 `i `uc ]
-"66
-[; ;fs_mcu.c: 66:    ANSELDbits.ANSD3 = 0;
-[e = . . _ANSELDbits 0 3 -> -> 0 `i `uc ]
-"67
-[; ;fs_mcu.c: 67:    TRISDbits.RD2 = 1;
-[e = . . _TRISDbits 1 2 -> -> 1 `i `uc ]
-"68
-[; ;fs_mcu.c: 68:    TRISDbits.RD3 = 1;
-[e = . . _TRISDbits 1 3 -> -> 1 `i `uc ]
-"70
-[; ;fs_mcu.c: 70:    ANSELCbits.ANSC5 = 0;
-[e = . . _ANSELCbits 0 4 -> -> 0 `i `uc ]
-"71
-[; ;fs_mcu.c: 71:    ANSELCbits.ANSC4 = 0;
-[e = . . _ANSELCbits 0 3 -> -> 0 `i `uc ]
-"72
-[; ;fs_mcu.c: 72:    TRISCbits.RC5 = 1;
-[e = . . _TRISCbits 1 5 -> -> 1 `i `uc ]
-"73
-[; ;fs_mcu.c: 73:    TRISCbits.RC4 = 1;
-[e = . . _TRISCbits 1 4 -> -> 1 `i `uc ]
-"74
-[; ;fs_mcu.c: 74: }
-[e :UE 867 ]
-}
-"83
-[; ;fs_mcu.c: 83: void system_init(void)
+[; ;fs_mcu.c: 55: void system_init(void)
 [v _system_init `(v ~T0 @X0 1 ef ]
-"84
-[; ;fs_mcu.c: 84: {
+"56
+[; ;fs_mcu.c: 56: {
 {
 [e :U _system_init ]
 [f ]
-"85
-[; ;fs_mcu.c: 85:     driver_limit.pay = 0;
+"57
+[; ;fs_mcu.c: 57:     driver_limit.pay = 0;
 [e = . _driver_limit 0 -> -> -> 0 `i `l `ul ]
-"86
-[; ;fs_mcu.c: 86:     driver_limit.payda = 0;
+"58
+[; ;fs_mcu.c: 58:     driver_limit.payda = 0;
 [e = . _driver_limit 1 -> -> -> 0 `i `l `ul ]
-"87
-[; ;fs_mcu.c: 87:     driver_limit.ortalama = 0;
+"59
+[; ;fs_mcu.c: 59:     driver_limit.ortalama = 0;
 [e = . _driver_limit 2 -> -> 0 `i `f ]
-"88
-[; ;fs_mcu.c: 88:     convert_data.convert_channel_0 = 0;
+"60
+[; ;fs_mcu.c: 60:     convert_data.convert_channel_0 = 0;
 [e = . _convert_data 0 -> -> -> 0 `i `l `ul ]
-"89
-[; ;fs_mcu.c: 89:     convert_data.convert_channel_1 = 0;
+"61
+[; ;fs_mcu.c: 61:     convert_data.convert_channel_1 = 0;
 [e = . _convert_data 1 -> -> -> 0 `i `l `ul ]
-"90
-[; ;fs_mcu.c: 90:     convert_data.convert_channel_2 = 0;
+"62
+[; ;fs_mcu.c: 62:     convert_data.convert_channel_2 = 0;
 [e = . _convert_data 2 -> -> -> 0 `i `l `ul ]
-"91
-[; ;fs_mcu.c: 91:     convert_data.convert_channel_3 = 0;
+"63
+[; ;fs_mcu.c: 63:     convert_data.convert_channel_3 = 0;
 [e = . _convert_data 3 -> -> -> 0 `i `l `ul ]
-"92
-[; ;fs_mcu.c: 92:     convert_data.convert_channel_4 = 0;
+"64
+[; ;fs_mcu.c: 64:     convert_data.convert_channel_4 = 0;
 [e = . _convert_data 4 -> -> -> 0 `i `l `ul ]
-"93
-[; ;fs_mcu.c: 93:     convert_data.convert_channel_5 = 0;
+"65
+[; ;fs_mcu.c: 65:     convert_data.convert_channel_5 = 0;
 [e = . _convert_data 5 -> -> -> 0 `i `l `ul ]
-"94
-[; ;fs_mcu.c: 94:     convert_data.convert_channel_6 = 0;
+"66
+[; ;fs_mcu.c: 66:     convert_data.convert_channel_6 = 0;
 [e = . _convert_data 6 -> -> -> 0 `i `l `ul ]
-"95
-[; ;fs_mcu.c: 95:     convert_data.convert_channel_7 = 0;
+"67
+[; ;fs_mcu.c: 67:     convert_data.convert_channel_7 = 0;
 [e = . _convert_data 7 -> -> -> 0 `i `l `ul ]
-"96
-[; ;fs_mcu.c: 96:     controller.leftMotorSpeed = 0;
+"68
+[; ;fs_mcu.c: 68:     controller.leftMotorSpeed = 0;
 [e = . _controller 3 -> -> 0 `i `s ]
-"97
-[; ;fs_mcu.c: 97:     controller.rightMotorSpeed = 0;
+"69
+[; ;fs_mcu.c: 69:     controller.rightMotorSpeed = 0;
 [e = . _controller 4 -> -> 0 `i `s ]
-"98
-[; ;fs_mcu.c: 98:     timer_value.timer_0_counter = 0;
+"70
+[; ;fs_mcu.c: 70:     timer_value.timer_0_counter = 0;
 [e = . _timer_value 5 -> -> 0 `i `uc ]
-"99
-[; ;fs_mcu.c: 99:     controller.error = 0;
+"71
+[; ;fs_mcu.c: 71:     controller.error = 0;
 [e = . _controller 0 -> -> 0 `i `s ]
-"101
-[; ;fs_mcu.c: 101:     button_bounce_controller.menu = 0;
+"73
+[; ;fs_mcu.c: 73:     button_bounce_controller.menu = 0;
 [e = . _button_bounce_controller 0 -> -> 0 `i `uc ]
-"102
-[; ;fs_mcu.c: 102:     button_bounce_controller.pause = 0;
+"74
+[; ;fs_mcu.c: 74:     button_bounce_controller.pause = 0;
 [e = . _button_bounce_controller 3 -> -> 0 `i `uc ]
-"103
-[; ;fs_mcu.c: 103:     button_bounce_controller.start = 0;
+"75
+[; ;fs_mcu.c: 75:     button_bounce_controller.start = 0;
 [e = . _button_bounce_controller 1 -> -> 0 `i `uc ]
-"104
-[; ;fs_mcu.c: 104:     button_bounce_controller.stop = 0;
+"76
+[; ;fs_mcu.c: 76:     button_bounce_controller.stop = 0;
 [e = . _button_bounce_controller 2 -> -> 0 `i `uc ]
-"105
-[; ;fs_mcu.c: 105:     menu_value.driver_time = (uint8_t)eepromRead(0x00);
+"77
+[; ;fs_mcu.c: 77:     menu_value.driver_time = (uint8_t)eepromRead(0x00);
 [e = . _menu_value 0 ( _eepromRead (1 -> -> 0 `i `uc ]
-"106
-[; ;fs_mcu.c: 106:     menu_value.stop_time = (uint8_t)eepromRead(0x01);
+"78
+[; ;fs_mcu.c: 78:     menu_value.stop_time = (uint8_t)eepromRead(0x01);
 [e = . _menu_value 1 ( _eepromRead (1 -> -> 1 `i `uc ]
-"107
-[; ;fs_mcu.c: 107:     menu_value.speed_limit = (uint8_t)eepromRead(0x02);
+"79
+[; ;fs_mcu.c: 79:     menu_value.speed_limit = (uint8_t)eepromRead(0x02);
 [e = . _menu_value 2 ( _eepromRead (1 -> -> 2 `i `uc ]
-"109
-[; ;fs_mcu.c: 109:     _delay((unsigned long)((700)*(64000000UL/4000.0)));
+"81
+[; ;fs_mcu.c: 81:     _delay((unsigned long)((700)*(64000000UL/4000.0)));
 [e ( __delay (1 -> * -> -> 700 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"110
-[; ;fs_mcu.c: 110:     timer_value.remainingMinute = menu_value.driver_time;
+"82
+[; ;fs_mcu.c: 82:     timer_value.remainingMinute = menu_value.driver_time;
 [e = . _timer_value 3 -> . _menu_value 0 `s ]
-"111
-[; ;fs_mcu.c: 111:     timer_value.remainingSecond = 0;
+"83
+[; ;fs_mcu.c: 83:     timer_value.remainingSecond = 0;
 [e = . _timer_value 2 -> -> 0 `i `us ]
-"114
-[; ;fs_mcu.c: 114: }
-[e :UE 868 ]
+"86
+[; ;fs_mcu.c: 86: }
+[e :UE 867 ]
 }

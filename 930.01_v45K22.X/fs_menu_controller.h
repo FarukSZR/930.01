@@ -35,16 +35,16 @@ extern "C" {
 #include <stdint.h>
 
     
-#define LED_BLUE  LATEbits.LATE2 
-#define LED_GREEN LATAbits.LATA4
-#define LED_RED   LATBbits.LATB6
+#define LAMB_OUTPUT             LATCbits.LATC4 
+#define MP3_PLAYER              LATDbits.LATD5
+#define COMMUNICATION_SIGNAL    LATCbits.LATC5
 
-#define BUTTON_PAUSE    PORTBbits.RB3
-#define BUTTON_START    PORTAbits.RA0
-#define BUTTON_STOP     PORTAbits.RA5
-#define BUTTON_MENU     PORTBbits.RB2    
-#define BUTTON_DECREASE PORTBbits.RB4
-#define BUTTON_INCREASE PORTBbits.RB5
+#define BUTTON_PAUSE    PORTDbits.RD2
+#define BUTTON_START    PORTDbits.RD0
+#define BUTTON_STOP     PORTDbits.RD1
+#define BUTTON_MENU     PORTBbits.RB7    
+#define BUTTON_DECREASE PORTBbits.RB6
+#define BUTTON_INCREASE PORTDbits.RD4
     
 #define MENU_TIMEOUT    100
 #define START_TIMEOUT   100

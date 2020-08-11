@@ -9531,7 +9531,6 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 1 "./fs_mcu.h" 1
 # 35 "./fs_mcu.h"
 void mcu_init(void);
-void gpio_init(void);
 void system_init(void);
 # 3 "fs_lcd.c" 2
 
@@ -9625,34 +9624,29 @@ void Lcd_Shift_Left(void);
 
 void Lcd_Port(char a)
 {
-   if(a & 1) { PORTDbits.RD0 = 1;}
-   else {PORTDbits.RD0 = 0;}
+   if(a & 1) { PORTBbits.RB0 = 1;}
+   else {PORTBbits.RB0 = 0;}
 
-   if(a & 2) { PORTDbits.RD1 = 1;}
-   else { PORTDbits.RD1 = 0;}
+   if(a & 2) { PORTBbits.RB1 = 1;}
+   else { PORTBbits.RB1 = 0;}
 
-   if(a & 4) {PORTDbits.RD2 = 1;}
-   else {PORTDbits.RD2 = 0;}
+   if(a & 4) {PORTBbits.RB2 = 1;}
+   else {PORTBbits.RB2 = 0;}
 
-   if(a & 8) {PORTDbits.RD3 = 1;}
-   else {PORTDbits.RD3 = 0;}
+   if(a & 8) {PORTBbits.RB3 = 1;}
+   else {PORTBbits.RB3 = 0;}
 
 }
-
+# 35 "fs_lcd.c"
 void Lcd_Cmd(char a)
 {
-   PORTEbits.RE0 = 0;
+   PORTDbits.RD6 = 0;
    Lcd_Port(a);
-   PORTAbits.RA3 = 1;
+   PORTDbits.RD7 = 1;
    _delay((unsigned long)((2)*(64000000UL/4000.0)));
-   PORTAbits.RA3 = 0;
+   PORTDbits.RD7 = 0;
 }
-
-
-
-
-
-
+# 51 "fs_lcd.c"
 void Lcd_Clear()
 {
    Lcd_Cmd(0);
@@ -9692,23 +9686,23 @@ void Lcd_Set_Cursor(char a, char b)
 
 void lcd_init(void)
 {
-    TRISEbits.RE0 = 0;
-    ANSELEbits.ANSE0 = 0;
+    TRISDbits.RD6 = 0;
+    ANSELDbits.ANSD6 = 0;
 
-    TRISAbits.RA3 = 0;
-    ANSELAbits.ANSA3 = 0;
+    TRISDbits.RD7 = 0;
+    ANSELDbits.ANSD7 = 0;
 
-    TRISDbits.RD0 = 0;
-    ANSELDbits.ANSD0 = 0;
+    TRISBbits.RB0 = 0;
+    ANSELBbits.ANSB0 = 0;
 
-    TRISDbits.RD1 = 0;
-    ANSELDbits.ANSD1 = 0;
+    TRISBbits.RB1 = 0;
+    ANSELBbits.ANSB1 = 0;
 
-    TRISDbits.RD2 = 0;
-    ANSELDbits.ANSD2 = 0;
+    TRISBbits.RB2 = 0;
+    ANSELBbits.ANSB2 = 0;
 
-    TRISDbits.RD3 = 0;
-    ANSELDbits.ANSD3 = 0;
+    TRISBbits.RB3 = 0;
+    ANSELBbits.ANSB3 = 0;
 
 
     Lcd_Port(0x00);
@@ -9726,36 +9720,36 @@ void lcd_init(void)
     Lcd_Cmd(0x00);
     Lcd_Cmd(0x06);
 }
-# 123 "fs_lcd.c"
+# 132 "fs_lcd.c"
 void Lcd_Write_Char(char a)
 {
    char temp,y;
    temp = a&0x0F;
    y = a&0xF0;
-   PORTEbits.RE0 = 1;
+   PORTDbits.RD6 = 1;
    Lcd_Port(y>>4);
-   PORTAbits.RA3 = 1;
+   PORTDbits.RD7 = 1;
    _delay((unsigned long)((30)*(64000000UL/4000000.0)));
-   PORTAbits.RA3 = 0;
+   PORTDbits.RD7 = 0;
    Lcd_Port(temp);
-   PORTAbits.RA3 = 1;
+   PORTDbits.RD7 = 1;
    _delay((unsigned long)((25)*(64000000UL/4000000.0)));
-   PORTAbits.RA3 = 0;
+   PORTDbits.RD7 = 0;
 }
-# 146 "fs_lcd.c"
+# 155 "fs_lcd.c"
 void Lcd_Write_String(char *a)
 {
    int i;
    for(i=0;a[i]!='\0';i++)
    Lcd_Write_Char(a[i]);
 }
-# 160 "fs_lcd.c"
+# 169 "fs_lcd.c"
 void Lcd_Shift_Right()
 {
    Lcd_Cmd(0x01);
    Lcd_Cmd(0x0C);
 }
-# 173 "fs_lcd.c"
+# 182 "fs_lcd.c"
 void Lcd_Shift_Left()
 {
    Lcd_Cmd(0x01);
