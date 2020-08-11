@@ -10114,8 +10114,6 @@ void stateMachine(void)
     {
         case MAIN_MENU:
 
-            LATDbits.LATD5 = 1;
-            LATCbits.LATC5 = 1;
             Lcd_Set_Cursor(1,1);
             Lcd_Write_String("KALAN ZAMAN     ");
             Lcd_Set_Cursor(2,1);
@@ -10147,11 +10145,17 @@ void stateMachine(void)
                  timer_value.minute = 0;
             }
 
+            if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 1) )
+            {
+                startMotor();
+                LATDbits.LATD5 = 1;
+                LATCbits.LATC5 = 1;
+            }
+
 
         break;
 
         case DRIVER_TIME_SETTING:
-
 
             if (menu_flags.menu_input_flag == 1)
             {
@@ -10313,7 +10317,6 @@ void stateMachine(void)
             startIsClick = 1;
             stopIsClick = 0;
             menu_selected = MAIN_MENU;
-            startMotor();
         break;
 
         case PAUSE_MENU:
