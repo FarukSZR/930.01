@@ -205,9 +205,7 @@ void stateMachine(void)
     switch (menu_selected)
     {              
         case MAIN_MENU:       
-              
-            MP3_PLAYER = 1;
-            COMMUNICATION_SIGNAL = 1;
+                         
             Lcd_Set_Cursor(1,1);
             Lcd_Write_String("KALAN ZAMAN     ");    
             Lcd_Set_Cursor(2,1);
@@ -238,13 +236,19 @@ void stateMachine(void)
                  timer_value.second = 0;
                  timer_value.minute = 0;
             }  
+            
+            if ( (startIsClick == TRUE) && (pauseIsClick == FALSE) && (stopIsClick == TRUE) )
+            {
+                startMotor();
+                MP3_PLAYER = 1;
+                COMMUNICATION_SIGNAL = 1;
+            }
             //TODO:: Surus algoritmasi burada kosacak.
         
         break;
         
         case DRIVER_TIME_SETTING:
        
-
             if (menu_flags.menu_input_flag == TRUE) 
             {           
                 menu_flags.menu_input_flag = 0;         
@@ -404,8 +408,7 @@ void stateMachine(void)
             timer_value.remainingSecond = 0; 
             startIsClick = 1;
             stopIsClick = 0;           
-            menu_selected = MAIN_MENU;
-            startMotor();
+            menu_selected = MAIN_MENU;            
         break;
         
         case PAUSE_MENU:
