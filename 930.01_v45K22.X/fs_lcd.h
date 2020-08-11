@@ -29,24 +29,24 @@
 extern "C" {
 #endif
 
-#define GIYOTIN
+#define TIRTIL
     
 #ifdef GIYOTIN   
-    #define RS PORTEbits.RE0
-    #define EN PORTAbits.RA3 
-    #define D4 PORTDbits.RD0
-    #define D5 PORTDbits.RD1
-    #define D6 PORTDbits.RD2
-    #define D7 PORTDbits.RD3
+    #define RS PORTDbits.RD6
+    #define EN PORTDbits.RD7 
+    #define D4 PORTBbits.RB0
+    #define D5 PORTBbits.RB1
+    #define D6 PORTBbits.RB2
+    #define D7 PORTBbits.RB3
 #endif
   
 #ifdef TIRTIL
-    #define RS PORTBbits.RB0
-    #define EN PORTBbits.RB1
-    #define D4 PORTBbits.RB2
-    #define D5 PORTBbits.RB3
-    #define D6 PORTBbits.RB4
-    #define D7 PORTBbits.RB5
+    #define RS PORTDbits.RD6
+    #define EN PORTDbits.RD7 
+    #define D4 PORTBbits.RB0
+    #define D5 PORTBbits.RB1
+    #define D6 PORTBbits.RB2
+    #define D7 PORTBbits.RB3
 #endif
     
 void Lcd_Port(char a);

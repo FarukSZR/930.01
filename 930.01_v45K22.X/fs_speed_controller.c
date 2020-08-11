@@ -78,13 +78,20 @@ void speedControl(float position)
  */
 void driveSafetyCheck(void)
 {
-    if (START == 1)
-    {
-        controller.driver_safety_check = 1; 
-    }
-    
-    if (START == 0)
-    {
-        controller.driver_safety_check = 0; 
-    }
+
+}
+
+
+/*
+ *@brief Sensorun cizgiden cikip cikmadigini kontrol eder.
+ *@param none
+ * 
+ */
+void stopMotor(void)
+{
+    controller.rightMotorSpeed = 0;
+    controller.leftMotorSpeed = 0;
+    driver_limit.ortalama = 0;
+    PWM1_setDC(controller.leftMotorSpeed);
+    PWM2_setDC(controller.rightMotorSpeed);
 }

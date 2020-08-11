@@ -87,23 +87,23 @@ void Lcd_Set_Cursor(char a, char b)
  */
 void lcd_init(void)
 {       
-    TRISEbits.RE0 = 0;
-    ANSELEbits.ANSE0 = 0;
+    TRISDbits.RD6 = 0;
+    ANSELDbits.ANSD6 = 0;
     
-    TRISAbits.RA3 = 0;
-    ANSELAbits.ANSA3 = 0;
+    TRISDbits.RD7 = 0;
+    ANSELDbits.ANSD7 = 0;
     
-    TRISDbits.RD0 = 0;
-    ANSELDbits.ANSD0 = 0;
+    TRISBbits.RB0 = 0;
+    ANSELBbits.ANSB0 = 0;
     
-    TRISDbits.RD1 = 0;
-    ANSELDbits.ANSD1 = 0;
+    TRISBbits.RB1 = 0;
+    ANSELBbits.ANSB1 = 0;
     
-    TRISDbits.RD2 = 0;
-    ANSELDbits.ANSD2 = 0;
+    TRISBbits.RB2 = 0;
+    ANSELBbits.ANSB2 = 0;
     
-    TRISDbits.RD3 = 0;
-    ANSELDbits.ANSD3 = 0; 
+    TRISBbits.RB3 = 0;
+    ANSELBbits.ANSB3 = 0; 
     
     
     Lcd_Port(0x00);

@@ -47,7 +47,7 @@ float KD =  1.0;
 //#define DEF_SPEED_RIGHT         300
     
 void speedControl(float position);
-void driveSafetyCheck(void);
+void stopMotor(void);
 
 typedef struct
 {

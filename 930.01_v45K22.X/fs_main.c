@@ -45,21 +45,20 @@ void main(void)
     mcu_init();     // GPIO and Clock setting initialize
     menuInitialize();
      
-//    adcInit();      // ADC initialize
+    adcInit();      // ADC initialize
     
     timer_0_init(); // 10ms timer initalize
     lcd_init();
     system_init();
     Lcd_Clear();
 
-//    PWM_Init();    //20Khz Pwm Period
-//    PWM1_setDC(0);
-//    PWM2_setDC(0);
+    PWM_Init();    //20Khz Pwm Period
+    PWM1_setDC(0);
+    PWM2_setDC(0);
 
            
 while(1)
 {      
- 
     if (timer_counter_flag.one_second_flag == 1)
     {
         timer_counter_flag.one_second_flag = 0;
@@ -82,24 +81,6 @@ while(1)
         }                   
     }
        
-    menuControl();
-                  
-    //scanAdcConversion();         
-//    calculatedAverageValue();
-//    driveSafetyCheck();        
-//    if (controller.driver_safety_check == 1)
-//    {
-//        speedControl(driver_limit.ortalama); // Bu fonksiyonun çıktıları olan leftmotorspeed ve right motor speed degerleri yüklenecek PWM degerleri.         
-//        PWM1_setDC(controller.leftMotorSpeed);
-//        PWM2_setDC(controller.rightMotorSpeed); 
-//    }       
-//    else
-//    {
-//        controller.rightMotorSpeed = 0;
-//        controller.leftMotorSpeed = 0;
-//        driver_limit.ortalama = 0;
-//        PWM1_setDC(controller.leftMotorSpeed);
-//        PWM2_setDC(controller.rightMotorSpeed); 
-//    } 
+    menuControl();               
 }
 }
