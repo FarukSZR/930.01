@@ -7,7 +7,7 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "fs_speed_controller.c" 2
-# 24 "fs_speed_controller.c"
+# 27 "fs_speed_controller.c"
 # 1 "./fs_speed_controller.h" 1
 # 32 "./fs_speed_controller.h"
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
@@ -9762,7 +9762,9 @@ float KP = 0.2;
 float KD = 1.0;
 # 49 "./fs_speed_controller.h"
 void speedControl(float position);
-void driveSafetyCheck(void);
+void stopMotor(void);
+void startMotor(void);
+
 
 typedef struct
 {
@@ -9780,7 +9782,7 @@ typedef struct
 
 
 tS_controller controller;
-# 24 "fs_speed_controller.c" 2
+# 27 "fs_speed_controller.c" 2
 
 # 1 "./fs_adc.h" 1
 # 51 "./fs_adc.h"
@@ -9845,15 +9847,28 @@ tS_adc_raw_data adc_raw_data;
 tS_procces_data procces_data;
 tS_convert_data convert_data;
 tS_driver_limit driver_limit;
-# 25 "fs_speed_controller.c" 2
+# 28 "fs_speed_controller.c" 2
 
 # 1 "./fs_mcu.h" 1
 # 35 "./fs_mcu.h"
 void mcu_init(void);
-void gpio_init(void);
 void system_init(void);
-# 26 "fs_speed_controller.c" 2
-# 35 "fs_speed_controller.c"
+# 29 "fs_speed_controller.c" 2
+
+# 1 "./fs_pwm.h" 1
+# 21 "./fs_pwm.h"
+void PWM_Init(void);
+void PWM1_setDC(int16_t dutycycle);
+void PWM2_setDC(int16_t dutycycle);
+# 30 "fs_speed_controller.c" 2
+
+
+
+
+
+
+
+
 void speedControl(float position)
 {
     float pos = 0;
@@ -9887,16 +9902,21 @@ void speedControl(float position)
         controller.rightMotorSpeed = 350;
     }
 }
-# 76 "fs_speed_controller.c"
-void driveSafetyCheck(void)
+# 79 "fs_speed_controller.c"
+void stopMotor(void)
 {
-    if ((PORTDbits.RD2) == 1)
-    {
-        controller.driver_safety_check = 1;
-    }
-
-    if ((PORTDbits.RD2) == 0)
-    {
-        controller.driver_safety_check = 0;
-    }
+    controller.rightMotorSpeed = 0;
+    controller.leftMotorSpeed = 0;
+    driver_limit.ortalama = 0;
+    PWM1_setDC(controller.leftMotorSpeed);
+    PWM2_setDC(controller.rightMotorSpeed);
+}
+# 95 "fs_speed_controller.c"
+void startMotor(void)
+{
+        scanAdcConversion();
+        calculatedAverageValue();
+        speedControl(driver_limit.ortalama);
+        PWM1_setDC(controller.leftMotorSpeed);
+        PWM2_setDC(controller.rightMotorSpeed);
 }

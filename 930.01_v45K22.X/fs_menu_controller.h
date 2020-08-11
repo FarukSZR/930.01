@@ -44,7 +44,7 @@ extern "C" {
 #define BUTTON_STOP     PORTDbits.RD1
 #define BUTTON_MENU     PORTBbits.RB7    
 #define BUTTON_DECREASE PORTBbits.RB6
-#define BUTTON_INCREASE PORTDbits.RB5
+#define BUTTON_INCREASE PORTDbits.RD4
     
 #define MENU_TIMEOUT    100
 #define START_TIMEOUT   100

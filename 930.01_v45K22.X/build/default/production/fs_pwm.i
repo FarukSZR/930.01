@@ -9532,7 +9532,6 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 1 "./fs_mcu.h" 1
 # 35 "./fs_mcu.h"
 void mcu_init(void);
-void gpio_init(void);
 void system_init(void);
 # 4 "fs_pwm.c" 2
 
@@ -10213,13 +10212,7 @@ double y0(double);
 double y1(double);
 double yn(int, double);
 # 8 "fs_pwm.c" 2
-
-
-
-
-
-
-
+# 17 "fs_pwm.c"
 void PWM_Init(void)
 {
     TRISCbits.RC2 = 0;
@@ -10245,6 +10238,7 @@ void PWM_Init(void)
 
 
 
+
 void PWM1_setDC(int16_t dutycycle)
 {
     uint16_t duty=0;
@@ -10255,6 +10249,8 @@ void PWM1_setDC(int16_t dutycycle)
         CCPR1L = duty>>2;
     }
 }
+
+
 
 
 

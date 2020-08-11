@@ -213,12 +213,6 @@ void stateMachine(void)
             Lcd_Set_Cursor(2,1);
             sprintf(textCursor2,"      %d:%d   ",timer_value.remainingMinute,timer_value.remainingSecond);     
             Lcd_Write_String(textCursor2);
-        
-            scanAdcConversion();         
-            calculatedAverageValue();
-            speedControl(driver_limit.ortalama); // Bu fonksiyonun çıktıları olan leftmotorspeed ve right motor speed degerleri yüklenecek PWM degerleri.                
-            PWM1_setDC(controller.leftMotorSpeed);        
-            PWM2_setDC(controller.rightMotorSpeed); 
            
             if ( timer_value.menu_login_delay == MENU_TIMEOUT)
             {
@@ -330,13 +324,9 @@ void stateMachine(void)
                 timer_value.menu_login_delay = 0;
                 menu_selected = PAUSE_MENU;       
             }
-            
-            
-            
         break;  
 
         case SPEED_LIMIT_SETTING:
-
 
             if (menu_flags.menu_input_flag == TRUE) 
             {           
@@ -415,7 +405,7 @@ void stateMachine(void)
             startIsClick = 1;
             stopIsClick = 0;           
             menu_selected = MAIN_MENU;
-            
+            startMotor();
         break;
         
         case PAUSE_MENU:

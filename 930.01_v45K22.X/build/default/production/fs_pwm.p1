@@ -884,119 +884,119 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3 = OFF ]
 "97
 [p x EBTRB = OFF ]
-"15 fs_pwm.c
-[; ;fs_pwm.c: 15: void PWM_Init(void)
+"17 fs_pwm.c
+[; ;fs_pwm.c: 17: void PWM_Init(void)
 [v _PWM_Init `(v ~T0 @X0 1 ef ]
-"16
-[; ;fs_pwm.c: 16: {
+"18
+[; ;fs_pwm.c: 18: {
 {
 [e :U _PWM_Init ]
 [f ]
-"17
-[; ;fs_pwm.c: 17:     TRISCbits.RC2 = 0;
+"19
+[; ;fs_pwm.c: 19:     TRISCbits.RC2 = 0;
 [e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
-"18
-[; ;fs_pwm.c: 18:     TRISCbits.RC1 = 0;
+"20
+[; ;fs_pwm.c: 20:     TRISCbits.RC1 = 0;
 [e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
-"21
-[; ;fs_pwm.c: 21:     CCP1CON = 0b00001100;
-[e = _CCP1CON -> -> 12 `i `uc ]
 "23
-[; ;fs_pwm.c: 23:     CCP2CON = 0b00001100;
+[; ;fs_pwm.c: 23:     CCP1CON = 0b00001100;
+[e = _CCP1CON -> -> 12 `i `uc ]
+"25
+[; ;fs_pwm.c: 25:     CCP2CON = 0b00001100;
 [e = _CCP2CON -> -> 12 `i `uc ]
-"27
-[; ;fs_pwm.c: 27:     T2CONbits.T2CKPS = 0b01;
+"29
+[; ;fs_pwm.c: 29:     T2CONbits.T2CKPS = 0b01;
 [e = . . _T2CONbits 0 0 -> -> 1 `i `uc ]
-"28
-[; ;fs_pwm.c: 28:     T2CONbits.TMR2ON = 1;
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
 "30
-[; ;fs_pwm.c: 30:     TMR2 = 0;
-[e = _TMR2 -> -> 0 `i `uc ]
-"31
-[; ;fs_pwm.c: 31:     PR2 = 199;
-[e = _PR2 -> -> 199 `i `uc ]
+[; ;fs_pwm.c: 30:     T2CONbits.TMR2ON = 1;
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
 "32
-[; ;fs_pwm.c: 32:     CCPR1L = 0;
-[e = _CCPR1L -> -> 0 `i `uc ]
+[; ;fs_pwm.c: 32:     TMR2 = 0;
+[e = _TMR2 -> -> 0 `i `uc ]
 "33
-[; ;fs_pwm.c: 33:     CCPR2L = 0;
-[e = _CCPR2L -> -> 0 `i `uc ]
+[; ;fs_pwm.c: 33:     PR2 = 199;
+[e = _PR2 -> -> 199 `i `uc ]
 "34
-[; ;fs_pwm.c: 34: }
+[; ;fs_pwm.c: 34:     CCPR1L = 0;
+[e = _CCPR1L -> -> 0 `i `uc ]
+"35
+[; ;fs_pwm.c: 35:     CCPR2L = 0;
+[e = _CCPR2L -> -> 0 `i `uc ]
+"36
+[; ;fs_pwm.c: 36: }
 [e :UE 853 ]
 }
-"40
-[; ;fs_pwm.c: 40: void PWM1_setDC(int16_t dutycycle)
+"43
+[; ;fs_pwm.c: 43: void PWM1_setDC(int16_t dutycycle)
 [v _PWM1_setDC `(v ~T0 @X0 1 ef1`s ]
-"41
-[; ;fs_pwm.c: 41: {
+"44
+[; ;fs_pwm.c: 44: {
 {
 [e :U _PWM1_setDC ]
-"40
-[; ;fs_pwm.c: 40: void PWM1_setDC(int16_t dutycycle)
+"43
+[; ;fs_pwm.c: 43: void PWM1_setDC(int16_t dutycycle)
 [v _dutycycle `s ~T0 @X0 1 r1 ]
-"41
-[; ;fs_pwm.c: 41: {
+"44
+[; ;fs_pwm.c: 44: {
 [f ]
-"42
-[; ;fs_pwm.c: 42:     uint16_t duty=0;
+"45
+[; ;fs_pwm.c: 45:     uint16_t duty=0;
 [v _duty `us ~T0 @X0 1 a ]
 [e = _duty -> -> 0 `i `us ]
-"44
-[; ;fs_pwm.c: 44:     if (dutycycle <= 1023)
-[e $ ! <= -> _dutycycle `i -> 1023 `i 855  ]
-"45
-[; ;fs_pwm.c: 45:     {
-{
-"46
-[; ;fs_pwm.c: 46:         duty = (uint16_t) fabsf(dutycycle);
-[e = _duty -> ( _fabsf (1 -> _dutycycle `f `us ]
 "47
-[; ;fs_pwm.c: 47:         CCPR1L = duty>>2;
-[e = _CCPR1L -> >> -> _duty `ui -> 2 `i `uc ]
+[; ;fs_pwm.c: 47:     if (dutycycle <= 1023)
+[e $ ! <= -> _dutycycle `i -> 1023 `i 855  ]
 "48
-[; ;fs_pwm.c: 48:     }
+[; ;fs_pwm.c: 48:     {
+{
+"49
+[; ;fs_pwm.c: 49:         duty = (uint16_t) fabsf(dutycycle);
+[e = _duty -> ( _fabsf (1 -> _dutycycle `f `us ]
+"50
+[; ;fs_pwm.c: 50:         CCPR1L = duty>>2;
+[e = _CCPR1L -> >> -> _duty `ui -> 2 `i `uc ]
+"51
+[; ;fs_pwm.c: 51:     }
 }
 [e :U 855 ]
-"49
-[; ;fs_pwm.c: 49: }
+"52
+[; ;fs_pwm.c: 52: }
 [e :UE 854 ]
 }
-"54
-[; ;fs_pwm.c: 54: void PWM2_setDC(int16_t dutycycle)
+"59
+[; ;fs_pwm.c: 59: void PWM2_setDC(int16_t dutycycle)
 [v _PWM2_setDC `(v ~T0 @X0 1 ef1`s ]
-"55
-[; ;fs_pwm.c: 55: {
+"60
+[; ;fs_pwm.c: 60: {
 {
 [e :U _PWM2_setDC ]
-"54
-[; ;fs_pwm.c: 54: void PWM2_setDC(int16_t dutycycle)
+"59
+[; ;fs_pwm.c: 59: void PWM2_setDC(int16_t dutycycle)
 [v _dutycycle `s ~T0 @X0 1 r1 ]
-"55
-[; ;fs_pwm.c: 55: {
+"60
+[; ;fs_pwm.c: 60: {
 [f ]
-"56
-[; ;fs_pwm.c: 56:     uint16_t duty=0;
+"61
+[; ;fs_pwm.c: 61:     uint16_t duty=0;
 [v _duty `us ~T0 @X0 1 a ]
 [e = _duty -> -> 0 `i `us ]
-"58
-[; ;fs_pwm.c: 58:     if (dutycycle <= 1023)
+"63
+[; ;fs_pwm.c: 63:     if (dutycycle <= 1023)
 [e $ ! <= -> _dutycycle `i -> 1023 `i 857  ]
-"59
-[; ;fs_pwm.c: 59:     {
+"64
+[; ;fs_pwm.c: 64:     {
 {
-"60
-[; ;fs_pwm.c: 60:         duty = (uint16_t) fabsf(dutycycle);
+"65
+[; ;fs_pwm.c: 65:         duty = (uint16_t) fabsf(dutycycle);
 [e = _duty -> ( _fabsf (1 -> _dutycycle `f `us ]
-"61
-[; ;fs_pwm.c: 61:         CCPR2L = duty>>2;
+"66
+[; ;fs_pwm.c: 66:         CCPR2L = duty>>2;
 [e = _CCPR2L -> >> -> _duty `ui -> 2 `i `uc ]
-"62
-[; ;fs_pwm.c: 62:     }
+"67
+[; ;fs_pwm.c: 67:     }
 }
 [e :U 857 ]
-"63
-[; ;fs_pwm.c: 63: }
+"68
+[; ;fs_pwm.c: 68: }
 [e :UE 856 ]
 }

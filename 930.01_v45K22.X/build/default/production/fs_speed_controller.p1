@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"53 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 53: {
+"55 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 55: {
 [s S853 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
 [n S853 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
 "57 ./fs_adc.h
@@ -19,41 +19,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./fs_adc.h: 102: {
 [s S857 `ul 1 `ul 1 `f 1 ]
 [n S857 . pay payda ortalama ]
-"7148 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h: 7148:     struct {
-[s S363 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S363 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"7158
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h: 7158:     struct {
-[s S364 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S364 . . P2B P2C P2D P1B P1C P1D ]
-"7167
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h: 7167:     struct {
-[s S365 :1 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S365 . . CCP4 . TX2 RX2 ]
-"7174
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h: 7174:     struct {
-[s S366 :3 `uc 1 :1 `uc 1 ]
-[n S366 . . NOT_SS2 ]
-"7178
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h: 7178:     struct {
-[s S367 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S367 . SCK2 SDI2 . nSS2 SDO2 . CK2 DT2 ]
-"7188
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h: 7188:     struct {
-[s S368 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S368 . SCL2 SDA2 . SS2 ]
-"7194
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h: 7194:     struct {
-[s S369 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S369 . AN20 AN21 AN22 AN23 AN24 AN25 AN26 AN27 ]
-"7147
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h: 7147: typedef union {
-[u S362 `S363 1 `S364 1 `S365 1 `S366 1 `S367 1 `S368 1 `S369 1 ]
-[n S362 . . . . . . . . ]
-"7205
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h: 7205: extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
-[v _PORTDbits `VS362 ~T0 @X0 0 e@3971 ]
+"22 ./fs_pwm.h
+[; ;./fs_pwm.h: 22: void PWM1_setDC(int16_t dutycycle);
+[v _PWM1_setDC `(v ~T0 @X0 0 ef1`s ]
+"23
+[; ;./fs_pwm.h: 23: void PWM2_setDC(int16_t dutycycle);
+[v _PWM2_setDC `(v ~T0 @X0 0 ef1`s ]
+"52 ./fs_adc.h
+[; ;./fs_adc.h: 52: void scanAdcConversion(void);
+[v _scanAdcConversion `(v ~T0 @X0 0 ef ]
+"54
+[; ;./fs_adc.h: 54: void calculatedAverageValue(void);
+[v _calculatedAverageValue `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h: 54: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -822,8 +799,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _KD
 -> .1.0 `f
 ]
-"67
-[; ;./fs_speed_controller.h: 67: tS_controller controller;
+"69
+[; ;./fs_speed_controller.h: 69: tS_controller controller;
 [v _controller `S853 ~T0 @X0 1 e ]
 "108 ./fs_adc.h
 [; ;./fs_adc.h: 108: tS_adc_raw_data adc_raw_data;
@@ -837,132 +814,148 @@ Version 4.0 HI-TECH Software Intermediate Code
 "111
 [; ;./fs_adc.h: 111: tS_driver_limit driver_limit;
 [v _driver_limit `S857 ~T0 @X0 1 e ]
-"35 fs_speed_controller.c
-[; ;fs_speed_controller.c: 35: void speedControl(float position)
+"38 fs_speed_controller.c
+[; ;fs_speed_controller.c: 38: void speedControl(float position)
 [v _speedControl `(v ~T0 @X0 1 ef1`f ]
-"36
-[; ;fs_speed_controller.c: 36: {
+"39
+[; ;fs_speed_controller.c: 39: {
 {
 [e :U _speedControl ]
-"35
-[; ;fs_speed_controller.c: 35: void speedControl(float position)
+"38
+[; ;fs_speed_controller.c: 38: void speedControl(float position)
 [v _position `f ~T0 @X0 1 r1 ]
-"36
-[; ;fs_speed_controller.c: 36: {
+"39
+[; ;fs_speed_controller.c: 39: {
 [f ]
-"37
-[; ;fs_speed_controller.c: 37:     float pos = 0;
+"40
+[; ;fs_speed_controller.c: 40:     float pos = 0;
 [v _pos `f ~T0 @X0 1 a ]
 [e = _pos -> -> 0 `i `f ]
-"39
-[; ;fs_speed_controller.c: 39:     pos = (float) position;
-[e = _pos _position ]
-"41
-[; ;fs_speed_controller.c: 41:     controller.error = (int16_t)(position - 3400.0);
-[e = . _controller 0 -> - -> _position `d .3400.0 `s ]
 "42
-[; ;fs_speed_controller.c: 42:     controller.motorSpeed = (int16_t) (KP * controller.error + KD * (controller.error - controller.lastError));
-[e = . _controller 2 -> -> + * _KP -> -> . _controller 0 `i `f * _KD -> - -> . _controller 0 `i -> . _controller 1 `i `f `s `us ]
-"43
-[; ;fs_speed_controller.c: 43:     controller.lastError = controller.error;
-[e = . _controller 1 . _controller 0 ]
+[; ;fs_speed_controller.c: 42:     pos = (float) position;
+[e = _pos _position ]
+"44
+[; ;fs_speed_controller.c: 44:     controller.error = (int16_t)(position - 3400.0);
+[e = . _controller 0 -> - -> _position `d .3400.0 `s ]
 "45
-[; ;fs_speed_controller.c: 45:    controller.leftMotorSpeed =(int16_t) (200 + controller.motorSpeed + 70);
-[e = . _controller 3 -> + + -> -> 200 `i `ui -> . _controller 2 `ui -> -> 70 `i `ui `s ]
+[; ;fs_speed_controller.c: 45:     controller.motorSpeed = (int16_t) (KP * controller.error + KD * (controller.error - controller.lastError));
+[e = . _controller 2 -> -> + * _KP -> -> . _controller 0 `i `f * _KD -> - -> . _controller 0 `i -> . _controller 1 `i `f `s `us ]
 "46
-[; ;fs_speed_controller.c: 46:    controller.rightMotorSpeed =(int16_t) (200 - controller.motorSpeed);
-[e = . _controller 4 -> - -> -> 200 `i `ui -> . _controller 2 `ui `s ]
+[; ;fs_speed_controller.c: 46:     controller.lastError = controller.error;
+[e = . _controller 1 . _controller 0 ]
 "48
-[; ;fs_speed_controller.c: 48:     if (controller.leftMotorSpeed < 50)
-[e $ ! < -> . _controller 3 `i -> 50 `i 859  ]
+[; ;fs_speed_controller.c: 48:    controller.leftMotorSpeed =(int16_t) (200 + controller.motorSpeed + 70);
+[e = . _controller 3 -> + + -> -> 200 `i `ui -> . _controller 2 `ui -> -> 70 `i `ui `s ]
 "49
-[; ;fs_speed_controller.c: 49:     {
-{
-"50
-[; ;fs_speed_controller.c: 50:         controller.leftMotorSpeed = 50;
-[e = . _controller 3 -> -> 50 `i `s ]
+[; ;fs_speed_controller.c: 49:    controller.rightMotorSpeed =(int16_t) (200 - controller.motorSpeed);
+[e = . _controller 4 -> - -> -> 200 `i `ui -> . _controller 2 `ui `s ]
 "51
-[; ;fs_speed_controller.c: 51:     }
+[; ;fs_speed_controller.c: 51:     if (controller.leftMotorSpeed < 50)
+[e $ ! < -> . _controller 3 `i -> 50 `i 859  ]
+"52
+[; ;fs_speed_controller.c: 52:     {
+{
+"53
+[; ;fs_speed_controller.c: 53:         controller.leftMotorSpeed = 50;
+[e = . _controller 3 -> -> 50 `i `s ]
+"54
+[; ;fs_speed_controller.c: 54:     }
 }
 [e :U 859 ]
-"53
-[; ;fs_speed_controller.c: 53:     if (controller.rightMotorSpeed < 50)
-[e $ ! < -> . _controller 4 `i -> 50 `i 860  ]
-"54
-[; ;fs_speed_controller.c: 54:     {
-{
-"55
-[; ;fs_speed_controller.c: 55:       controller.rightMotorSpeed = 50;
-[e = . _controller 4 -> -> 50 `i `s ]
 "56
-[; ;fs_speed_controller.c: 56:     }
+[; ;fs_speed_controller.c: 56:     if (controller.rightMotorSpeed < 50)
+[e $ ! < -> . _controller 4 `i -> 50 `i 860  ]
+"57
+[; ;fs_speed_controller.c: 57:     {
+{
+"58
+[; ;fs_speed_controller.c: 58:       controller.rightMotorSpeed = 50;
+[e = . _controller 4 -> -> 50 `i `s ]
+"59
+[; ;fs_speed_controller.c: 59:     }
 }
 [e :U 860 ]
-"58
-[; ;fs_speed_controller.c: 58:     if (controller.leftMotorSpeed > 350)
-[e $ ! > -> . _controller 3 `i -> 350 `i 861  ]
-"59
-[; ;fs_speed_controller.c: 59:    {
-{
-"60
-[; ;fs_speed_controller.c: 60:         controller.leftMotorSpeed = 350;
-[e = . _controller 3 -> -> 350 `i `s ]
 "61
-[; ;fs_speed_controller.c: 61:     }
+[; ;fs_speed_controller.c: 61:     if (controller.leftMotorSpeed > 350)
+[e $ ! > -> . _controller 3 `i -> 350 `i 861  ]
+"62
+[; ;fs_speed_controller.c: 62:    {
+{
+"63
+[; ;fs_speed_controller.c: 63:         controller.leftMotorSpeed = 350;
+[e = . _controller 3 -> -> 350 `i `s ]
+"64
+[; ;fs_speed_controller.c: 64:     }
 }
 [e :U 861 ]
-"63
-[; ;fs_speed_controller.c: 63:     if (controller.rightMotorSpeed > 350)
-[e $ ! > -> . _controller 4 `i -> 350 `i 862  ]
-"64
-[; ;fs_speed_controller.c: 64:     {
-{
-"65
-[; ;fs_speed_controller.c: 65:         controller.rightMotorSpeed = 350;
-[e = . _controller 4 -> -> 350 `i `s ]
 "66
-[; ;fs_speed_controller.c: 66:     }
+[; ;fs_speed_controller.c: 66:     if (controller.rightMotorSpeed > 350)
+[e $ ! > -> . _controller 4 `i -> 350 `i 862  ]
+"67
+[; ;fs_speed_controller.c: 67:     {
+{
+"68
+[; ;fs_speed_controller.c: 68:         controller.rightMotorSpeed = 350;
+[e = . _controller 4 -> -> 350 `i `s ]
+"69
+[; ;fs_speed_controller.c: 69:     }
 }
 [e :U 862 ]
-"67
-[; ;fs_speed_controller.c: 67: }
+"70
+[; ;fs_speed_controller.c: 70: }
 [e :UE 858 ]
 }
-"76
-[; ;fs_speed_controller.c: 76: void driveSafetyCheck(void)
-[v _driveSafetyCheck `(v ~T0 @X0 1 ef ]
-"77
-[; ;fs_speed_controller.c: 77: {
-{
-[e :U _driveSafetyCheck ]
-[f ]
-"78
-[; ;fs_speed_controller.c: 78:     if ((PORTDbits.RD2) == 1)
-[e $ ! == -> . . _PORTDbits 0 2 `i -> 1 `i 864  ]
 "79
-[; ;fs_speed_controller.c: 79:     {
-{
+[; ;fs_speed_controller.c: 79: void stopMotor(void)
+[v _stopMotor `(v ~T0 @X0 1 ef ]
 "80
-[; ;fs_speed_controller.c: 80:         controller.driver_safety_check = 1;
-[e = . _controller 7 -> -> 1 `i `uc ]
-"81
-[; ;fs_speed_controller.c: 81:     }
-}
-[e :U 864 ]
-"83
-[; ;fs_speed_controller.c: 83:     if ((PORTDbits.RD2) == 0)
-[e $ ! == -> . . _PORTDbits 0 2 `i -> 0 `i 865  ]
-"84
-[; ;fs_speed_controller.c: 84:     {
+[; ;fs_speed_controller.c: 80: {
 {
+[e :U _stopMotor ]
+[f ]
+"81
+[; ;fs_speed_controller.c: 81:     controller.rightMotorSpeed = 0;
+[e = . _controller 4 -> -> 0 `i `s ]
+"82
+[; ;fs_speed_controller.c: 82:     controller.leftMotorSpeed = 0;
+[e = . _controller 3 -> -> 0 `i `s ]
+"83
+[; ;fs_speed_controller.c: 83:     driver_limit.ortalama = 0;
+[e = . _driver_limit 2 -> -> 0 `i `f ]
+"84
+[; ;fs_speed_controller.c: 84:     PWM1_setDC(controller.leftMotorSpeed);
+[e ( _PWM1_setDC (1 . _controller 3 ]
 "85
-[; ;fs_speed_controller.c: 85:         controller.driver_safety_check = 0;
-[e = . _controller 7 -> -> 0 `i `uc ]
+[; ;fs_speed_controller.c: 85:     PWM2_setDC(controller.rightMotorSpeed);
+[e ( _PWM2_setDC (1 . _controller 4 ]
 "86
-[; ;fs_speed_controller.c: 86:     }
-}
-[e :U 865 ]
-"87
-[; ;fs_speed_controller.c: 87: }
+[; ;fs_speed_controller.c: 86: }
 [e :UE 863 ]
+}
+"95
+[; ;fs_speed_controller.c: 95: void startMotor(void)
+[v _startMotor `(v ~T0 @X0 1 ef ]
+"96
+[; ;fs_speed_controller.c: 96: {
+{
+[e :U _startMotor ]
+[f ]
+"97
+[; ;fs_speed_controller.c: 97:         scanAdcConversion();
+[e ( _scanAdcConversion ..  ]
+"98
+[; ;fs_speed_controller.c: 98:         calculatedAverageValue();
+[e ( _calculatedAverageValue ..  ]
+"99
+[; ;fs_speed_controller.c: 99:         speedControl(driver_limit.ortalama);
+[e ( _speedControl (1 . _driver_limit 2 ]
+"100
+[; ;fs_speed_controller.c: 100:         PWM1_setDC(controller.leftMotorSpeed);
+[e ( _PWM1_setDC (1 . _controller 3 ]
+"101
+[; ;fs_speed_controller.c: 101:         PWM2_setDC(controller.rightMotorSpeed);
+[e ( _PWM2_setDC (1 . _controller 4 ]
+"102
+[; ;fs_speed_controller.c: 102: }
+[e :UE 864 ]
 }

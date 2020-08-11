@@ -9983,7 +9983,6 @@ void Lcd_Shift_Left(void);
 # 1 "./fs_mcu.h" 1
 # 35 "./fs_mcu.h"
 void mcu_init(void);
-void gpio_init(void);
 void system_init(void);
 # 33 "fs_main.c" 2
 
@@ -10000,7 +9999,9 @@ float KP = 0.2;
 float KD = 1.0;
 # 49 "./fs_speed_controller.h"
 void speedControl(float position);
-void driveSafetyCheck(void);
+void stopMotor(void);
+void startMotor(void);
+
 
 typedef struct
 {
@@ -10093,21 +10094,20 @@ void main(void)
     mcu_init();
     menuInitialize();
 
-
+    adcInit();
 
     timer_0_init();
     lcd_init();
     system_init();
     Lcd_Clear();
 
-
-
-
+    PWM_Init();
+    PWM1_setDC(0);
+    PWM2_setDC(0);
 
 
 while(1)
 {
-
     if (timer_counter_flag.one_second_flag == 1)
     {
         timer_counter_flag.one_second_flag = 0;
@@ -10131,6 +10131,5 @@ while(1)
     }
 
     menuControl();
-# 104 "fs_main.c"
 }
 }

@@ -48,6 +48,8 @@ float KD =  1.0;
     
 void speedControl(float position);
 void stopMotor(void);
+void startMotor(void);
+
 
 typedef struct
 {

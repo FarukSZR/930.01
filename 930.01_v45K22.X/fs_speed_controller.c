@@ -27,7 +27,7 @@
 #include "fs_speed_controller.h"
 #include "fs_adc.h"
 #include "fs_mcu.h"
-
+#include "fs_pwm.h"
 
 
 /*
@@ -76,17 +76,6 @@ void speedControl(float position)
  *@param none
  * 
  */
-void driveSafetyCheck(void)
-{
-
-}
-
-
-/*
- *@brief Sensorun cizgiden cikip cikmadigini kontrol eder.
- *@param none
- * 
- */
 void stopMotor(void)
 {
     controller.rightMotorSpeed = 0;
@@ -94,4 +83,20 @@ void stopMotor(void)
     driver_limit.ortalama = 0;
     PWM1_setDC(controller.leftMotorSpeed);
     PWM2_setDC(controller.rightMotorSpeed);
+}
+
+
+
+/*
+ *@brief Sensorun cizgiden cikip cikmadigini kontrol eder.
+ *@param none
+ * 
+ */
+void startMotor(void)
+{
+        scanAdcConversion();         
+        calculatedAverageValue();
+        speedControl(driver_limit.ortalama); // Bu fonksiyonun çıktıları olan leftmotorspeed ve right motor speed degerleri yüklenecek PWM degerleri.                
+        PWM1_setDC(controller.leftMotorSpeed);        
+        PWM2_setDC(controller.rightMotorSpeed); 
 }
