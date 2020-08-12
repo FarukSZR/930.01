@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Tue Aug 11 18:28:58 2020
+                                                                                               Wed Aug 12 17:22:30 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	18F45K22
@@ -2482,7 +2482,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2453  00140C                     l5745:
   2454                           
   2455                           ;fs_menu_controller.c: 240:             if ( (startIsClick == 1) && (pauseIsClick == 0) 
-      +                          && (stopIsClick == 1) )
+      +                          && (stopIsClick == 0) )
   2456  00140C  0101               	movlb	1	; () banked
   2457  00140E  059D               	decf	_startIsClick& (0+255),w,b
   2458  001410  A4D8               	btfss	status,2,c
@@ -2504,7 +2504,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2474  001430                     
   2475                           ; BSR set to: 0
   2476  001430  0101               	movlb	1	; () banked
-  2477  001432  059C               	decf	_stopIsClick& (0+255),w,b
+  2477  001432  519C               	movf	_stopIsClick& (0+255),w,b
   2478  001434  A4D8               	btfss	status,2,c
   2479  001436  EF1F  F00A         	goto	u7241
   2480  00143A  EF21  F00A         	goto	u7240
@@ -16939,7 +16939,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Tue Aug 11 18:28:58 2020
+Symbol Table                                                                                   Wed Aug 12 17:22:30 2020
 
                    ___fldiv@aexp 004D                     ___fldiv@bexp 004C  
                    ___fldiv@sign 0045                               l41 59E6  

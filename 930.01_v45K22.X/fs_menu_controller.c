@@ -237,7 +237,7 @@ void stateMachine(void)
                  timer_value.minute = 0;
             }  
             
-            if ( (startIsClick == TRUE) && (pauseIsClick == FALSE) && (stopIsClick == TRUE) )
+            if ( (startIsClick == TRUE) && (pauseIsClick == FALSE) && (stopIsClick == FALSE) )
             {
                 startMotor();
                 MP3_PLAYER = 1;

@@ -10145,7 +10145,7 @@ void stateMachine(void)
                  timer_value.minute = 0;
             }
 
-            if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 1) )
+            if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) )
             {
                 startMotor();
                 LATDbits.LATD5 = 1;
