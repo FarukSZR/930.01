@@ -1314,8 +1314,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 884 ]
 "240
-[; ;fs_menu_controller.c: 240:             if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 1) )
-[e $ ! && && == -> _startIsClick `i -> 1 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 1 `i 885  ]
+[; ;fs_menu_controller.c: 240:             if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) )
+[e $ ! && && == -> _startIsClick `i -> 1 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 0 `i 885  ]
 "241
 [; ;fs_menu_controller.c: 241:             {
 {
