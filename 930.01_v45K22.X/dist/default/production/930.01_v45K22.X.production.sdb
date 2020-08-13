@@ -168,11 +168,11 @@ SECRET_MENU 8
 [v _system_init system_init `(v  1 e 1 0 ]
 "38 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_menu_controller.c
 [v _menuInitialize menuInitialize `(v  1 e 1 0 ]
-"81
+"79
 [v _buttonControlFlags buttonControlFlags `(v  1 e 1 0 ]
-"164
+"162
 [v _menuControl menuControl `(v  1 e 1 0 ]
-"202
+"200
 [v _stateMachine stateMachine `(v  1 e 1 0 ]
 "17 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_pwm.c
 [v _PWM_Init PWM_Init `(v  1 e 1 0 ]
@@ -746,21 +746,21 @@ SECRET_MENU 8
 "38 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_menu_controller.c
 [v _menuInitialize menuInitialize `(v  1 e 1 0 ]
 {
-"72
+"70
 } 0
-"164
+"162
 [v _menuControl menuControl `(v  1 e 1 0 ]
 {
-"193
+"191
 } 0
-"202
+"200
 [v _stateMachine stateMachine `(v  1 e 1 0 ]
 {
-"204
+"202
 [v stateMachine@textCursor2 textCursor2 `[16]uc  1 a 16 131 ]
-"205
+"203
 [v stateMachine@secretMenuCounter secretMenuCounter `uc  1 s 1 secretMenuCounter ]
-"531
+"529
 } 0
 "79 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_speed_controller.c
 [v _stopMotor stopMotor `(v  1 e 1 0 ]
@@ -1300,10 +1300,10 @@ SECRET_MENU 8
 [v Lcd_Set_Cursor@a a `uc  1 a 1 4 ]
 "81
 } 0
-"81 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_menu_controller.c
+"79 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_menu_controller.c
 [v _buttonControlFlags buttonControlFlags `(v  1 e 1 0 ]
 {
-"155
+"153
 } 0
 "41 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_mcu.c
 [v _mcu_init mcu_init `(v  1 e 1 0 ]
