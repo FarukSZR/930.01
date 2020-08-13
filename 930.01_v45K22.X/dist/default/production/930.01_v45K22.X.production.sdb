@@ -160,7 +160,7 @@ SECRET_MENU 8
 [v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
 "155
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
-"43 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_main.c
+"40 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_main.c
 [v _main main `(v  1 e 1 0 ]
 "42 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_mcu.c
 [v _mcu_init mcu_init `(v  1 e 1 0 ]
@@ -172,7 +172,7 @@ SECRET_MENU 8
 [v _buttonControlFlags buttonControlFlags `(v  1 e 1 0 ]
 "162
 [v _menuControl menuControl `(v  1 e 1 0 ]
-"200
+"199
 [v _stateMachine stateMachine `(v  1 e 1 0 ]
 "17 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_pwm.c
 [v _PWM_Init PWM_Init `(v  1 e 1 0 ]
@@ -232,9 +232,9 @@ SECRET_MENU 8
 "105
 [v _menu_value menu_value `S941  1 e 3 0 ]
 "38 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X/fs_speed_controller.h
-[v _KP@fs_speed_controller$F1598 KP `f  1 s 4 KP ]
+[v _KP@fs_speed_controller$F1596 KP `f  1 s 4 KP ]
 "39
-[v _KD@fs_speed_controller$F1599 KD `f  1 s 4 KD ]
+[v _KD@fs_speed_controller$F1597 KD `f  1 s 4 KD ]
 [s S908 . 19 `s 1 error 2 0 `s 1 lastError 2 2 `us 1 motorSpeed 2 4 `s 1 leftMotorSpeed 2 6 `s 1 rightMotorSpeed 2 8 `f 1 left 4 10 `f 1 right 4 14 `uc 1 driver_safety_check 1 18 ]
 "69
 [v _controller controller `S908  1 e 19 0 ]
@@ -451,7 +451,7 @@ SECRET_MENU 8
 "67 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
 [u S191 . 1 `S184 1 . 1 0 ]
 [v _ANSELAbits ANSELAbits `VES191  1 e 1 @3896 ]
-[s S1306 . 1 `uc 1 . 1 0 :2:0 
+[s S1304 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 ANSC2 1 0 :1:2 
 `uc 1 ANSC3 1 0 :1:3 
 `uc 1 ANSC4 1 0 :1:4 
@@ -460,8 +460,8 @@ SECRET_MENU 8
 `uc 1 ANSC7 1 0 :1:7 
 ]
 "163
-[u S1314 . 1 `S1306 1 . 1 0 ]
-[v _ANSELCbits ANSELCbits `VES1314  1 e 1 @3898 ]
+[u S1312 . 1 `S1304 1 . 1 0 ]
+[v _ANSELCbits ANSELCbits `VES1312  1 e 1 @3898 ]
 [s S225 . 1 `uc 1 ANSE0 1 0 :1:0 
 `uc 1 ANSE1 1 0 :1:1 
 `uc 1 ANSE2 1 0 :1:2 
@@ -473,7 +473,7 @@ SECRET_MENU 8
 [v _CCP2CON CCP2CON `VEuc  1 e 1 @3942 ]
 "3361
 [v _CCPR2L CCPR2L `VEuc  1 e 1 @3943 ]
-[s S1540 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S1538 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -483,7 +483,7 @@ SECRET_MENU 8
 `uc 1 LATC7 1 0 :1:7 
 ]
 "7811
-[s S1549 . 1 `uc 1 LC0 1 0 :1:0 
+[s S1547 . 1 `uc 1 LC0 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 `uc 1 LC2 1 0 :1:2 
 `uc 1 LC3 1 0 :1:3 
@@ -492,9 +492,9 @@ SECRET_MENU 8
 `uc 1 LC6 1 0 :1:6 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S1558 . 1 `S1540 1 . 1 0 `S1549 1 . 1 0 ]
-[v _LATCbits LATCbits `VES1558  1 e 1 @3979 ]
-[s S1500 . 1 `uc 1 LATD0 1 0 :1:0 
+[u S1556 . 1 `S1538 1 . 1 0 `S1547 1 . 1 0 ]
+[v _LATCbits LATCbits `VES1556  1 e 1 @3979 ]
+[s S1498 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -504,7 +504,7 @@ SECRET_MENU 8
 `uc 1 LATD7 1 0 :1:7 
 ]
 "7923
-[s S1509 . 1 `uc 1 LD0 1 0 :1:0 
+[s S1507 . 1 `uc 1 LD0 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 `uc 1 LD2 1 0 :1:2 
 `uc 1 LD3 1 0 :1:3 
@@ -513,8 +513,8 @@ SECRET_MENU 8
 `uc 1 LD6 1 0 :1:6 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S1518 . 1 `S1500 1 . 1 0 `S1509 1 . 1 0 ]
-[v _LATDbits LATDbits `VES1518  1 e 1 @3980 ]
+[u S1516 . 1 `S1498 1 . 1 0 `S1507 1 . 1 0 ]
+[v _LATDbits LATDbits `VES1516  1 e 1 @3980 ]
 [s S144 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
@@ -536,7 +536,7 @@ SECRET_MENU 8
 ]
 [u S162 . 1 `S144 1 . 1 0 `S153 1 . 1 0 ]
 [v _TRISAbits TRISAbits `VES162  1 e 1 @3986 ]
-[s S1325 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S1323 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -546,7 +546,7 @@ SECRET_MENU 8
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "8536
-[s S1334 . 1 `uc 1 RC0 1 0 :1:0 
+[s S1332 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -555,8 +555,8 @@ SECRET_MENU 8
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S1343 . 1 `S1325 1 . 1 0 `S1334 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES1343  1 e 1 @3988 ]
+[u S1341 . 1 `S1323 1 . 1 0 `S1332 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES1341  1 e 1 @3988 ]
 [s S201 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
@@ -570,26 +570,26 @@ SECRET_MENU 8
 ]
 [u S211 . 1 `S201 1 . 1 0 `S207 1 . 1 0 ]
 [v _TRISEbits TRISEbits `VES211  1 e 1 @3990 ]
-[s S1148 . 1 `uc 1 TUN 1 0 :6:0 
+[s S1146 . 1 `uc 1 TUN 1 0 :6:0 
 `uc 1 PLLEN 1 0 :1:6 
 `uc 1 INTSRC 1 0 :1:7 
 ]
 "9084
-[s S1152 . 1 `uc 1 TUN0 1 0 :1:0 
+[s S1150 . 1 `uc 1 TUN0 1 0 :1:0 
 `uc 1 TUN1 1 0 :1:1 
 `uc 1 TUN2 1 0 :1:2 
 `uc 1 TUN3 1 0 :1:3 
 `uc 1 TUN4 1 0 :1:4 
 `uc 1 TUN5 1 0 :1:5 
 ]
-[u S1159 . 1 `S1148 1 . 1 0 `S1152 1 . 1 0 ]
-[v _OSCTUNEbits OSCTUNEbits `VES1159  1 e 1 @3995 ]
-[s S1683 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[u S1157 . 1 `S1146 1 . 1 0 `S1150 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES1157  1 e 1 @3995 ]
+[s S1681 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
 "13219
-[s S1687 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S1685 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -597,8 +597,8 @@ SECRET_MENU 8
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S1695 . 1 `S1683 1 . 1 0 `S1687 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES1695  1 e 1 @4026 ]
+[u S1693 . 1 `S1681 1 . 1 0 `S1685 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES1693  1 e 1 @4026 ]
 "13269
 [v _PR2 PR2 `VEuc  1 e 1 @4027 ]
 "13289
@@ -663,14 +663,14 @@ SECRET_MENU 8
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "13729
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
-[s S1116 . 1 `uc 1 SCS 1 0 :2:0 
+[s S1114 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 HFIOFS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 `uc 1 IDLEN 1 0 :1:7 
 ]
 "16035
-[s S1122 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S1120 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 IOFS 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -678,15 +678,15 @@ SECRET_MENU 8
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S1130 . 1 `S1116 1 . 1 0 `S1122 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES1130  1 e 1 @4051 ]
+[u S1128 . 1 `S1114 1 . 1 0 `S1120 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES1128  1 e 1 @4051 ]
 "16095
 [v _T0CON T0CON `VEuc  1 e 1 @4053 ]
 "16172
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "16192
 [v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
-[s S1834 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S1832 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -696,7 +696,7 @@ SECRET_MENU 8
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "16924
-[s S1843 . 1 `uc 1 . 1 0 :1:0 
+[s S1841 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -705,12 +705,12 @@ SECRET_MENU 8
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S1852 . 1 `uc 1 . 1 0 :6:0 
+[s S1850 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S1856 . 1 `S1834 1 . 1 0 `S1843 1 . 1 0 `S1852 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES1856  1 e 1 @4082 ]
+[u S1854 . 1 `S1832 1 . 1 0 `S1841 1 . 1 0 `S1850 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1854  1 e 1 @4082 ]
 "55 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\doprnt.c
 [v _flags flags `i  1 s 2 flags ]
 [v _prec prec `i  1 s 2 prec ]
@@ -719,10 +719,10 @@ SECRET_MENU 8
 [v _dbuf dbuf `[80]uc  1 s 80 dbuf ]
 "69
 [v _nout nout `i  1 s 2 nout ]
-"43 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_main.c
+"40 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"85
+"82
 } 0
 "67 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_timer.c
 [v _timer_0_init timer_0_init `(v  1 e 1 0 ]
@@ -751,16 +751,16 @@ SECRET_MENU 8
 "162
 [v _menuControl menuControl `(v  1 e 1 0 ]
 {
-"191
+"190
 } 0
-"200
+"199
 [v _stateMachine stateMachine `(v  1 e 1 0 ]
 {
-"202
+"201
 [v stateMachine@textCursor2 textCursor2 `[16]uc  1 a 16 131 ]
-"203
+"202
 [v stateMachine@secretMenuCounter secretMenuCounter `uc  1 s 1 secretMenuCounter ]
-"536
+"535
 } 0
 "79 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_speed_controller.c
 [v _stopMotor stopMotor `(v  1 e 1 0 ]
@@ -842,13 +842,13 @@ SECRET_MENU 8
 "4 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\fabsf.c
 [v _fabsf fabsf `(f  1 e 4 0 ]
 {
-[u S2354 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2352 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "6
-[v fabsf@u u `S2354  1 a 4 31 ]
+[v fabsf@u u `S2352  1 a 4 31 ]
 "4
 [v fabsf@x x `f  1 p 4 27 ]
 "5
-[v fabsf@F463 F463 `S2354  1 s 4 F463 ]
+[v fabsf@F463 F463 `S2352  1 s 4 F463 ]
 "9
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\xxtofl.c
@@ -869,9 +869,9 @@ SECRET_MENU 8
 "9 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[s S2365 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[s S2363 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
 "13
-[v sprintf@f f `S2365  1 a 6 123 ]
+[v sprintf@f f `S2363  1 a 6 123 ]
 "12
 [v sprintf@ap ap `[1]*.39v  1 a 2 121 ]
 "9
@@ -884,9 +884,9 @@ SECRET_MENU 8
 {
 "1371
 [v vfprintf@cfmt cfmt `*.25uc  1 a 2 109 ]
-[s S2391 _IO_FILE 0 ]
+[s S2389 _IO_FILE 0 ]
 "1368
-[v vfprintf@fp fp `*.39S2391  1 p 2 103 ]
+[v vfprintf@fp fp `*.39S2389  1 p 2 103 ]
 [v vfprintf@fmt fmt `*.25Cuc  1 p 2 105 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 107 ]
 "1382
@@ -901,9 +901,9 @@ SECRET_MENU 8
 "672
 [v vfpfcnvrt@ct ct `[3]uc  1 a 3 99 ]
 [v vfpfcnvrt@c c `uc  1 a 1 102 ]
-[s S2391 _IO_FILE 0 ]
+[s S2389 _IO_FILE 0 ]
 "670
-[v vfpfcnvrt@fp fp `*.39S2391  1 p 2 71 ]
+[v vfpfcnvrt@fp fp `*.39S2389  1 p 2 71 ]
 [v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 73 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 75 ]
 "1365
@@ -944,9 +944,9 @@ SECRET_MENU 8
 "321
 [v efgtoa@mode mode `uc  1 a 1 48 ]
 [v efgtoa@nmode nmode `uc  1 a 1 45 ]
-[s S2391 _IO_FILE 0 ]
+[s S2389 _IO_FILE 0 ]
 "319
-[v efgtoa@fp fp `*.39S2391  1 p 2 87 ]
+[v efgtoa@fp fp `*.39S2389  1 p 2 87 ]
 [v efgtoa@f f `d  1 p 4 89 ]
 [v efgtoa@c c `uc  1 p 1 93 ]
 "503
@@ -978,9 +978,9 @@ SECRET_MENU 8
 "3 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\floorf.c
 [v _floorf floorf `(f  1 e 4 0 ]
 {
-[u S2354 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2352 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "5
-[v floorf@u u `S2354  1 a 4 6 ]
+[v floorf@u u `S2352  1 a 4 6 ]
 "7
 [v floorf@m m `ul  1 a 4 0 ]
 "6
@@ -988,21 +988,21 @@ SECRET_MENU 8
 "3
 [v floorf@x x `f  1 p 4 77 ]
 "4
-[v floorf@F524 F524 `S2354  1 s 4 F524 ]
+[v floorf@F524 F524 `S2352  1 s 4 F524 ]
 "27
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\__fpclassifyf.c
 [v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
 {
-[u S2354 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+[u S2352 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
 "6
-[v ___fpclassifyf@u u `S2354  1 a 4 10 ]
+[v ___fpclassifyf@u u `S2352  1 a 4 10 ]
 "7
 [v ___fpclassifyf@e e `i  1 a 2 8 ]
 "4
 [v ___fpclassifyf@x x `f  1 p 4 0 ]
 "5
-[v ___fpclassifyf@F463 F463 `S2354  1 s 4 F463 ]
+[v ___fpclassifyf@F463 F463 `S2352  1 s 4 F463 ]
 "11
 } 0
 "43 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\fltol.c
@@ -1047,17 +1047,17 @@ SECRET_MENU 8
 "8 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S2219 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S2217 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S2224 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S2227 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2219 1 fAsBytes 4 0 `S2224 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S2227  1 a 4 46 ]
+[s S2222 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S2225 . 4 `l 1 i 4 0 `d 1 f 4 0 `S2217 1 fAsBytes 4 0 `S2222 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S2225  1 a 4 46 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 40 ]
-[s S2295 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S2293 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S2298 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2295 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S2298  1 a 2 50 ]
+[u S2296 . 2 `s 1 i 2 0 `us 1 n 2 0 `S2293 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S2296  1 a 2 50 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 45 ]
 "11
@@ -1137,9 +1137,9 @@ SECRET_MENU 8
 [v dtoa@s s `i  1 a 2 51 ]
 [v dtoa@w w `i  1 a 2 49 ]
 [v dtoa@p p `i  1 a 2 47 ]
-[s S2391 _IO_FILE 0 ]
+[s S2389 _IO_FILE 0 ]
 "274
-[v dtoa@fp fp `*.39S2391  1 p 2 27 ]
+[v dtoa@fp fp `*.39S2389  1 p 2 27 ]
 [v dtoa@d d `o  1 p 8 29 ]
 "315
 } 0
@@ -1149,9 +1149,9 @@ SECRET_MENU 8
 "74
 [v pad@w w `i  1 a 2 25 ]
 [v pad@i i `i  1 a 2 23 ]
-[s S2391 _IO_FILE 0 ]
+[s S2389 _IO_FILE 0 ]
 "72
-[v pad@fp fp `*.39S2391  1 p 2 16 ]
+[v pad@fp fp `*.39S2389  1 p 2 16 ]
 [v pad@buf buf `*.39uc  1 p 2 18 ]
 [v pad@p p `i  1 p 2 20 ]
 "95
@@ -1174,16 +1174,16 @@ SECRET_MENU 8
 [v fputs@c c `uc  1 a 1 13 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 9 ]
-[s S2365 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputs@fp fp `*.39S2365  1 p 2 11 ]
+[s S2363 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputs@fp fp `*.39S2363  1 p 2 11 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[s S2365 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputc@fp fp `*.39S2365  1 p 2 2 ]
+[s S2363 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputc@fp fp `*.39S2363  1 p 2 2 ]
 "21
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\putch.c
