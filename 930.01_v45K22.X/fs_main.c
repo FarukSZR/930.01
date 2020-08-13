@@ -37,9 +37,6 @@
 
 __EEPROM_DATA(30,10,4,0,0,0,0,0); // DriverTime,StopTime,SpeedLimit
 
-char textCursor2[16]={0};
-uint32_t counter = 0;
-
 void main(void) 
 {
     mcu_init();     // GPIO and Clock setting initialize

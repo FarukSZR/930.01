@@ -10087,7 +10087,6 @@ void menuControl(void)
         stopIsClick = 0;
     }
 
-
     if (menu_flags.menu_pause_flag == 1)
     {
         menu_flags.menu_pause_flag = 0;
@@ -10104,7 +10103,7 @@ void menuControl(void)
         stopIsClick = 1;
     }
 }
-# 200 "fs_menu_controller.c"
+# 199 "fs_menu_controller.c"
 void stateMachine(void)
 {
     char textCursor2[16] = {0};
