@@ -9562,7 +9562,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 #pragma config HFOFST = ON
 #pragma config T3CMX = PORTC0
 #pragma config P2BMX = PORTD2
-#pragma config MCLRE = INTMCLR
+#pragma config MCLRE = EXTMCLR
 
 
 #pragma config STVREN = OFF
@@ -10050,24 +10050,24 @@ void buttonControlFlags(void)
     }
 
 
-    if ((button_bounce_controller.increase == 0) && (PORTDbits.RD4 == 0))
+    if ((button_bounce_controller.increase == 0) && (PORTBbits.RB6 == 0))
     {
         button_bounce_controller.increase = 1;
         menu_flags.menu_increase_flag = 1;
     }
-    if ((PORTDbits.RD4 == 1) && (button_bounce_controller.increase == 1))
+    if ((PORTBbits.RB6 == 1) && (button_bounce_controller.increase == 1))
     {
         button_bounce_controller.increase = 0;
         menu_flags.menu_increase_flag = 0;
     }
 
 
-    if ((button_bounce_controller.decrease == 0) && (PORTBbits.RB6 == 0))
+    if ((button_bounce_controller.decrease == 0) && (PORTDbits.RD4 == 0))
     {
         button_bounce_controller.decrease = 1;
         menu_flags.menu_decrease_flag = 1;
     }
-    if ((PORTBbits.RB6 == 1) && (button_bounce_controller.decrease == 1))
+    if ((PORTDbits.RD4 == 1) && (button_bounce_controller.decrease == 1))
     {
         button_bounce_controller.decrease = 0;
         menu_flags.menu_decrease_flag = 0;
@@ -10135,6 +10135,9 @@ void stateMachine(void)
             if ( (startIsClick == 0) && (pauseIsClick == 1) && (stopIsClick == 0) && (menu_selected == MAIN_MENU))
             {
                 menu_selected = PAUSE_MENU;
+                LATDbits.LATD5 = 0;
+                LATCbits.LATC5 = 0;
+                LATCbits.LATC4 = 0;
             }
 
             if ( (startIsClick == 0) && (pauseIsClick == 0) && (stopIsClick == 1) && (menu_selected == MAIN_MENU) )
@@ -10143,6 +10146,9 @@ void stateMachine(void)
                  timer_value.remainingSecond = 0;
                  timer_value.second = 0;
                  timer_value.minute = 0;
+                 LATDbits.LATD5 = 0;
+                 LATCbits.LATC5 = 0;
+                 LATCbits.LATC4 = 0;
             }
 
             if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) )
@@ -10150,6 +10156,7 @@ void stateMachine(void)
                 startMotor();
                 LATDbits.LATD5 = 1;
                 LATCbits.LATC5 = 1;
+                LATCbits.LATC4 = 1;
             }
 
 

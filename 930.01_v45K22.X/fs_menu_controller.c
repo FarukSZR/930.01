@@ -1,6 +1,6 @@
 /**
 ******************************************************************************
-  * @file		: fs_i2c.c
+  * @file		: fs_menu_controller.c
   * @brief		: I2C Interface Class
   *				  This file contains adc interface class
   * @author		: Faruk Sozuer
@@ -171,7 +171,6 @@ void menuControl(void)
         pauseIsClick = 0;       
         stopIsClick = 0;            
     }
-    
         
     if (menu_flags.menu_pause_flag == TRUE)
     {
@@ -227,6 +226,9 @@ void stateMachine(void)
             if ( (startIsClick == FALSE) && (pauseIsClick == TRUE) && (stopIsClick == FALSE) && (menu_selected == MAIN_MENU))
             {
                 menu_selected = PAUSE_MENU;
+                MP3_PLAYER = 0;
+                COMMUNICATION_SIGNAL = 0;
+                LAMB_OUTPUT = 0;
             }
 
             if ( (startIsClick == FALSE) && (pauseIsClick == FALSE) && (stopIsClick == TRUE) && (menu_selected == MAIN_MENU) )
@@ -235,6 +237,9 @@ void stateMachine(void)
                  timer_value.remainingSecond = 0;
                  timer_value.second = 0;
                  timer_value.minute = 0;
+                 MP3_PLAYER = 0;
+                 COMMUNICATION_SIGNAL = 0;
+                 LAMB_OUTPUT = 0;
             }  
             
             if ( (startIsClick == TRUE) && (pauseIsClick == FALSE) && (stopIsClick == FALSE) )
@@ -242,6 +247,7 @@ void stateMachine(void)
                 startMotor();
                 MP3_PLAYER = 1;
                 COMMUNICATION_SIGNAL = 1;
+                LAMB_OUTPUT = 1;
             }
             //TODO:: Surus algoritmasi burada kosacak.
         
