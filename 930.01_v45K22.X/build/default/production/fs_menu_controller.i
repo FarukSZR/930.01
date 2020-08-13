@@ -9931,8 +9931,8 @@ void eepromWrite(uint8_t address, uint8_t data);
 
 # 1 "./fs_speed_controller.h" 1
 # 38 "./fs_speed_controller.h"
-float KP = 0.2;
-float KD = 1.0;
+static float KP = 0.2;
+static float KD = 1.0;
 # 49 "./fs_speed_controller.h"
 void speedControl(float position);
 void stopMotor(void);
@@ -10002,17 +10002,19 @@ void menuInitialize(void)
 # 81 "fs_menu_controller.c"
 void buttonControlFlags(void)
 {
+
     if ((button_bounce_controller.menu == 0) && (PORTBbits.RB7 == 1))
+    {
+        button_bounce_controller.menu = 0;
+        menu_flags.menu_input_flag = 0;
+    }
+
+    if ((PORTBbits.RB7 == 0) && (button_bounce_controller.menu == 1))
     {
         button_bounce_controller.menu = 1;
         menu_flags.menu_input_flag = 1;
     }
 
-    if ((PORTBbits.RB7 == 0) && (button_bounce_controller.menu == 1))
-    {
-        button_bounce_controller.menu = 0;
-        menu_flags.menu_input_flag = 0;
-    }
 
     if ((button_bounce_controller.pause == 0) && (PORTDbits.RD2 == 0))
     {
@@ -10052,28 +10054,28 @@ void buttonControlFlags(void)
 
     if ((button_bounce_controller.increase == 0) && (PORTDbits.RD4 == 1))
     {
-        button_bounce_controller.increase = 1;
-        menu_flags.menu_increase_flag = 1;
+        button_bounce_controller.increase = 0;
+        menu_flags.menu_increase_flag = 0;
     }
     if ((PORTDbits.RD4 == 0) && (button_bounce_controller.increase == 1))
     {
-        button_bounce_controller.increase = 0;
-        menu_flags.menu_increase_flag = 0;
+        button_bounce_controller.increase = 1;
+        menu_flags.menu_increase_flag = 1;
     }
 
 
     if ((button_bounce_controller.decrease == 0) && (PORTBbits.RB6 == 1))
     {
-        button_bounce_controller.decrease = 1;
-        menu_flags.menu_decrease_flag = 1;
-    }
-    if ((PORTBbits.RB6 == 0) && (button_bounce_controller.decrease == 1))
-    {
         button_bounce_controller.decrease = 0;
         menu_flags.menu_decrease_flag = 0;
     }
+    if ((PORTBbits.RB6 == 0) && (button_bounce_controller.decrease == 1))
+    {
+        button_bounce_controller.decrease = 1;
+        menu_flags.menu_decrease_flag = 1;
+    }
 }
-# 162 "fs_menu_controller.c"
+# 164 "fs_menu_controller.c"
 void menuControl(void)
 {
     buttonControlFlags();
@@ -10104,7 +10106,7 @@ void menuControl(void)
         stopIsClick = 1;
     }
 }
-# 200 "fs_menu_controller.c"
+# 202 "fs_menu_controller.c"
 void stateMachine(void)
 {
     char textCursor2[16] = {0};

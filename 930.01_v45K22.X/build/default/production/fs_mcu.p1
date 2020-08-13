@@ -589,14 +589,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./fs_adc.h: 111: tS_driver_limit driver_limit;
 [v _driver_limit `S856 ~T0 @X0 1 e ]
 "38 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 38: float KP = 0.2;
-[v _KP `f ~T0 @X0 1 e ]
+[; ;./fs_speed_controller.h: 38: static float KP = 0.2;
+[v _KP `f ~T0 @X0 1 s ]
 [i _KP
 -> .0.2 `f
 ]
 "39
-[; ;./fs_speed_controller.h: 39: float KD = 1.0;
-[v _KD `f ~T0 @X0 1 e ]
+[; ;./fs_speed_controller.h: 39: static float KD = 1.0;
+[v _KD `f ~T0 @X0 1 s ]
 [i _KD
 -> .1.0 `f
 ]
