@@ -40,7 +40,7 @@ void __interrupt (high_priority) TIMER0 (void)
         
         timer_value.timer_0_counter++;   
         
-        if(button_bounce_controller.menu == 1)
+        if(button_bounce_controller.menu == FALSE)
         {
              timer_value.menu_login_delay++;
         }
