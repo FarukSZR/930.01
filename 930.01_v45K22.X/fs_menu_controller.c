@@ -67,8 +67,6 @@ void menuInitialize(void)
     ANSELCbits.ANSC4 = 0;  // LAMB OUTPUT
     TRISCbits.RC4 = 0;     // RC4 is output
     
-    //TRISEbits. = 0; // RA4 is output  
-    
 }
 
 

@@ -9562,7 +9562,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 #pragma config HFOFST = ON
 #pragma config T3CMX = PORTC0
 #pragma config P2BMX = PORTD2
-#pragma config MCLRE = EXTMCLR
+#pragma config MCLRE = INTMCLR
 
 
 #pragma config STVREN = OFF
@@ -9996,10 +9996,8 @@ void menuInitialize(void)
     ANSELCbits.ANSC4 = 0;
     TRISCbits.RC4 = 0;
 
-
-
 }
-# 81 "fs_menu_controller.c"
+# 79 "fs_menu_controller.c"
 void buttonControlFlags(void)
 {
 
@@ -10075,7 +10073,7 @@ void buttonControlFlags(void)
         menu_flags.menu_decrease_flag = 0;
     }
 }
-# 164 "fs_menu_controller.c"
+# 162 "fs_menu_controller.c"
 void menuControl(void)
 {
     buttonControlFlags();
@@ -10106,7 +10104,7 @@ void menuControl(void)
         stopIsClick = 1;
     }
 }
-# 202 "fs_menu_controller.c"
+# 200 "fs_menu_controller.c"
 void stateMachine(void)
 {
     char textCursor2[16] = {0};

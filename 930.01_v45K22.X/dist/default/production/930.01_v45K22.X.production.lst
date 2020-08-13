@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Thu Aug 13 16:17:37 2020
+                                                                                               Thu Aug 13 16:51:55 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	18F45K22
@@ -2099,7 +2099,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2082                           
   2083 ;; *************** function _menuControl *****************
   2084 ;; Defined at:
-  2085 ;;		line 164 in file "fs_menu_controller.c"
+  2085 ;;		line 162 in file "fs_menu_controller.c"
   2086 ;; Parameters:    Size  Location     Type
   2087 ;;		None
   2088 ;; Auto vars:     Size  Location     Type
@@ -2134,13 +2134,13 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2117  0054EA                     _menuControl:
   2118                           	callstack 20
   2119  0054EA                     
-  2120                           ;fs_menu_controller.c: 166:     buttonControlFlags();
+  2120                           ;fs_menu_controller.c: 164:     buttonControlFlags();
   2121  0054EA  ECD6  F022         	call	_buttonControlFlags	;wreg free
   2122  0054EE                     
-  2123                           ;fs_menu_controller.c: 167:     stateMachine();
+  2123                           ;fs_menu_controller.c: 165:     stateMachine();
   2124  0054EE  EC4F  F009         	call	_stateMachine	;wreg free
   2125  0054F2                     
-  2126                           ;fs_menu_controller.c: 169:     if (menu_flags.menu_start_flag == 1)
+  2126                           ;fs_menu_controller.c: 167:     if (menu_flags.menu_start_flag == 1)
   2127  0054F2  0100               	movlb	0	; () banked
   2128  0054F4  A3FD               	btfss	_menu_flags& (0+255),1,b
   2129  0054F6  EF7F  F02A         	goto	u7671
@@ -2150,28 +2150,28 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2133  005502                     u7670:
   2134  005502                     
   2135                           ; BSR set to: 0
-  2136                           ;fs_menu_controller.c: 170:     {;fs_menu_controller.c: 171:         menu_flags.menu_sta
+  2136                           ;fs_menu_controller.c: 168:     {;fs_menu_controller.c: 169:         menu_flags.menu_sta
       +                          rt_flag = 0;
   2137  005502  93FD               	bcf	_menu_flags& (0+255),1,b
   2138  005504                     
   2139                           ; BSR set to: 0
-  2140                           ;fs_menu_controller.c: 172:         startIsClick = 1;
+  2140                           ;fs_menu_controller.c: 170:         startIsClick = 1;
   2141  005504  0E01               	movlw	1
   2142  005506  0101               	movlb	1	; () banked
   2143  005508  6FBD               	movwf	_startIsClick& (0+255),b
   2144                           
-  2145                           ;fs_menu_controller.c: 173:         pauseIsClick = 0;
+  2145                           ;fs_menu_controller.c: 171:         pauseIsClick = 0;
   2146  00550A  0E00               	movlw	0
   2147  00550C  0100               	movlb	0	; () banked
   2148  00550E  6FFF               	movwf	_pauseIsClick& (0+255),b
   2149                           
-  2150                           ;fs_menu_controller.c: 174:         stopIsClick = 0;
+  2150                           ;fs_menu_controller.c: 172:         stopIsClick = 0;
   2151  005510  0E00               	movlw	0
   2152  005512  0101               	movlb	1	; () banked
   2153  005514  6FBC               	movwf	_stopIsClick& (0+255),b
   2154  005516                     l6131:
   2155                           
-  2156                           ;fs_menu_controller.c: 178:     if (menu_flags.menu_pause_flag == 1)
+  2156                           ;fs_menu_controller.c: 176:     if (menu_flags.menu_pause_flag == 1)
   2157  005516  0100               	movlb	0	; () banked
   2158  005518  A7FD               	btfss	_menu_flags& (0+255),3,b
   2159  00551A  EF91  F02A         	goto	u7681
@@ -2181,26 +2181,26 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2163  005526                     u7680:
   2164  005526                     
   2165                           ; BSR set to: 0
-  2166                           ;fs_menu_controller.c: 179:     {;fs_menu_controller.c: 180:         menu_flags.menu_pau
+  2166                           ;fs_menu_controller.c: 177:     {;fs_menu_controller.c: 178:         menu_flags.menu_pau
       +                          se_flag = 0;
   2167  005526  97FD               	bcf	_menu_flags& (0+255),3,b
   2168  005528                     
   2169                           ; BSR set to: 0
-  2170                           ;fs_menu_controller.c: 181:         pauseIsClick = 1;
+  2170                           ;fs_menu_controller.c: 179:         pauseIsClick = 1;
   2171  005528  0E01               	movlw	1
   2172  00552A  6FFF               	movwf	_pauseIsClick& (0+255),b
   2173                           
-  2174                           ;fs_menu_controller.c: 182:         startIsClick = 0;
+  2174                           ;fs_menu_controller.c: 180:         startIsClick = 0;
   2175  00552C  0E00               	movlw	0
   2176  00552E  0101               	movlb	1	; () banked
   2177  005530  6FBD               	movwf	_startIsClick& (0+255),b
   2178                           
-  2179                           ;fs_menu_controller.c: 183:         stopIsClick = 0;
+  2179                           ;fs_menu_controller.c: 181:         stopIsClick = 0;
   2180  005532  0E00               	movlw	0
   2181  005534  6FBC               	movwf	_stopIsClick& (0+255),b
   2182  005536                     l6137:
   2183                           
-  2184                           ;fs_menu_controller.c: 186:     if (menu_flags.menu_stop_flag == 1)
+  2184                           ;fs_menu_controller.c: 184:     if (menu_flags.menu_stop_flag == 1)
   2185  005536  0100               	movlb	0	; () banked
   2186  005538  A5FD               	btfss	_menu_flags& (0+255),2,b
   2187  00553A  EFA1  F02A         	goto	u7691
@@ -2210,21 +2210,21 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2191  005546                     u7690:
   2192  005546                     
   2193                           ; BSR set to: 0
-  2194                           ;fs_menu_controller.c: 187:     {;fs_menu_controller.c: 188:         menu_flags.menu_sto
+  2194                           ;fs_menu_controller.c: 185:     {;fs_menu_controller.c: 186:         menu_flags.menu_sto
       +                          p_flag = 0;
   2195  005546  95FD               	bcf	_menu_flags& (0+255),2,b
   2196  005548                     
   2197                           ; BSR set to: 0
-  2198                           ;fs_menu_controller.c: 189:         pauseIsClick = 0;
+  2198                           ;fs_menu_controller.c: 187:         pauseIsClick = 0;
   2199  005548  0E00               	movlw	0
   2200  00554A  6FFF               	movwf	_pauseIsClick& (0+255),b
   2201                           
-  2202                           ;fs_menu_controller.c: 190:         startIsClick = 0;
+  2202                           ;fs_menu_controller.c: 188:         startIsClick = 0;
   2203  00554C  0E00               	movlw	0
   2204  00554E  0101               	movlb	1	; () banked
   2205  005550  6FBD               	movwf	_startIsClick& (0+255),b
   2206                           
-  2207                           ;fs_menu_controller.c: 191:         stopIsClick = 1;
+  2207                           ;fs_menu_controller.c: 189:         stopIsClick = 1;
   2208  005552  0E01               	movlw	1
   2209  005554  6FBC               	movwf	_stopIsClick& (0+255),b
   2210  005556                     l333:
@@ -2234,7 +2234,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2214                           
   2215 ;; *************** function _stateMachine *****************
   2216 ;; Defined at:
-  2217 ;;		line 202 in file "fs_menu_controller.c"
+  2217 ;;		line 200 in file "fs_menu_controller.c"
   2218 ;; Parameters:    Size  Location     Type
   2219 ;;		None
   2220 ;; Auto vars:     Size  Location     Type
@@ -2276,7 +2276,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2256  00129E                     _stateMachine:
   2257                           	callstack 20
   2258  00129E                     
-  2259                           ;fs_menu_controller.c: 204:     char textCursor2[16] = {0};
+  2259                           ;fs_menu_controller.c: 202:     char textCursor2[16] = {0};
   2260  00129E  EE20  F0E3         	lfsr	2,stateMachine@textCursor2
   2261  0012A2  0E0F               	movlw	15
   2262  0012A4                     u7101:
@@ -2284,32 +2284,32 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2264  0012A6  06E8               	decf	wreg,f,c
   2265  0012A8  E2FD               	bc	u7101
   2266                           
-  2267                           ;fs_menu_controller.c: 205:     static uint8_t secretMenuCounter = 0;;fs_menu_controller
-      +                          .c: 207:     switch (menu_selected)
+  2267                           ;fs_menu_controller.c: 203:     static uint8_t secretMenuCounter = 0;;fs_menu_controller
+      +                          .c: 205:     switch (menu_selected)
   2268  0012AA  EF0D  F00E         	goto	l6037
   2269  0012AE                     l5707:
   2270                           
   2271                           ; BSR set to: 0
-  2272                           ;fs_menu_controller.c: 211:             Lcd_Set_Cursor(1,1);
+  2272                           ;fs_menu_controller.c: 209:             Lcd_Set_Cursor(1,1);
   2273  0012AE  0E01               	movlw	1
   2274  0012B0  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   2275  0012B2  0E01               	movlw	1
   2276  0012B4  EC16  F02B         	call	_Lcd_Set_Cursor
   2277  0012B8                     
-  2278                           ;fs_menu_controller.c: 212:             Lcd_Write_String("KALAN ZAMAN     ");
+  2278                           ;fs_menu_controller.c: 210:             Lcd_Write_String("KALAN ZAMAN     ");
   2279  0012B8  0E35               	movlw	low STR_1
   2280  0012BA  6E05               	movwf	Lcd_Write_String@a^0,c
   2281  0012BC  0E06               	movlw	high STR_1
   2282  0012BE  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   2283  0012C0  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   2284  0012C4                     
-  2285                           ;fs_menu_controller.c: 213:             Lcd_Set_Cursor(2,1);
+  2285                           ;fs_menu_controller.c: 211:             Lcd_Set_Cursor(2,1);
   2286  0012C4  0E01               	movlw	1
   2287  0012C6  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   2288  0012C8  0E02               	movlw	2
   2289  0012CA  EC16  F02B         	call	_Lcd_Set_Cursor
   2290  0012CE                     
-  2291                           ;fs_menu_controller.c: 214:             sprintf(textCursor2,"      %d:%d   ",timer_value
+  2291                           ;fs_menu_controller.c: 212:             sprintf(textCursor2,"      %d:%d   ",timer_value
       +                          .remainingMinute,timer_value.remainingSecond);
   2292  0012CE  0EE3               	movlw	low stateMachine@textCursor2
   2293  0012D0  0100               	movlb	0	; () banked
@@ -2326,14 +2326,14 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2304  0012EC  C0F8  F0D6         	movff	_timer_value+5,?_sprintf+7
   2305  0012F0  ECFE  F02B         	call	_sprintf	;wreg free
   2306  0012F4                     
-  2307                           ;fs_menu_controller.c: 215:             Lcd_Write_String(textCursor2);
+  2307                           ;fs_menu_controller.c: 213:             Lcd_Write_String(textCursor2);
   2308  0012F4  0EE3               	movlw	low stateMachine@textCursor2
   2309  0012F6  6E05               	movwf	Lcd_Write_String@a^0,c
   2310  0012F8  0E00               	movlw	high stateMachine@textCursor2
   2311  0012FA  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   2312  0012FC  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   2313  001300                     
-  2314                           ;fs_menu_controller.c: 217:             if ( timer_value.menu_login_delay == 100)
+  2314                           ;fs_menu_controller.c: 215:             if ( timer_value.menu_login_delay == 100)
   2315  001300  0E64               	movlw	100
   2316  001302  0100               	movlb	0	; () banked
   2317  001304  19FB               	xorwf	(_timer_value+8)& (0+255),w,b
@@ -2345,18 +2345,18 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2323  001314                     u7110:
   2324  001314                     
   2325                           ; BSR set to: 0
-  2326                           ;fs_menu_controller.c: 218:             {;fs_menu_controller.c: 219:                 tim
+  2326                           ;fs_menu_controller.c: 216:             {;fs_menu_controller.c: 217:                 tim
       +                          er_value.menu_login_delay = 0;
   2327  001314  0E00               	movlw	0
   2328  001316  6FFB               	movwf	(_timer_value+8)& (0+255),b
   2329                           
-  2330                           ;fs_menu_controller.c: 220:                 menu_selected = DRIVER_TIME_SETTING;
+  2330                           ;fs_menu_controller.c: 218:                 menu_selected = DRIVER_TIME_SETTING;
   2331  001318  0E01               	movlw	1
   2332  00131A  0101               	movlb	1	; () banked
   2333  00131C  6FBB               	movwf	_menu_selected& (0+255),b
   2334  00131E                     l5721:
   2335                           
-  2336                           ;fs_menu_controller.c: 223:             if ((timer_value.remainingMinute <= 0) && (timer
+  2336                           ;fs_menu_controller.c: 221:             if ((timer_value.remainingMinute <= 0) && (timer
       +                          _value.remainingSecond == 0) )
   2337  00131E  0100               	movlb	0	; () banked
   2338  001320  BFFA               	btfsc	(_timer_value+7)& (0+255),7,b
@@ -2382,13 +2382,13 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2358  00134C                     u7130:
   2359  00134C                     
   2360                           ; BSR set to: 0
-  2361                           ;fs_menu_controller.c: 224:             {;fs_menu_controller.c: 225:                 men
+  2361                           ;fs_menu_controller.c: 222:             {;fs_menu_controller.c: 223:                 men
       +                          u_selected = STOP_MENU;
   2362  00134C  0E04               	movlw	4
   2363  00134E  0101               	movlb	1	; () banked
   2364  001350  6FBB               	movwf	_menu_selected& (0+255),b
   2365                           
-  2366                           ;fs_menu_controller.c: 226:                 timer_value.minute = 0;
+  2366                           ;fs_menu_controller.c: 224:                 timer_value.minute = 0;
   2367  001352  0E00               	movlw	0
   2368  001354  0100               	movlb	0	; () banked
   2369  001356  6FF6               	movwf	(_timer_value+3)& (0+255),b
@@ -2397,7 +2397,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2372  00135C                     l343:
   2373                           
   2374                           ; BSR set to: 0
-  2375                           ;fs_menu_controller.c: 229:             if ( (startIsClick == 0) && (pauseIsClick == 1) 
+  2375                           ;fs_menu_controller.c: 227:             if ( (startIsClick == 0) && (pauseIsClick == 1) 
       +                          && (stopIsClick == 0) && (menu_selected == MAIN_MENU))
   2376  00135C  0101               	movlb	1	; () banked
   2377  00135E  51BD               	movf	_startIsClick& (0+255),w,b
@@ -2438,13 +2438,13 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2412  0013A2                     u7170:
   2413  0013A2                     
   2414                           ; BSR set to: 1
-  2415                           ;fs_menu_controller.c: 230:             {;fs_menu_controller.c: 231:                 men
+  2415                           ;fs_menu_controller.c: 228:             {;fs_menu_controller.c: 229:                 men
       +                          u_selected = PAUSE_MENU;
   2416  0013A2  0E06               	movlw	6
   2417  0013A4  6FBB               	movwf	_menu_selected& (0+255),b
   2418  0013A6                     l344:
   2419                           
-  2420                           ;fs_menu_controller.c: 234:             if ( (startIsClick == 0) && (pauseIsClick == 0) 
+  2420                           ;fs_menu_controller.c: 232:             if ( (startIsClick == 0) && (pauseIsClick == 0) 
       +                          && (stopIsClick == 1) && (menu_selected == MAIN_MENU) )
   2421  0013A6  0101               	movlb	1	; () banked
   2422  0013A8  51BD               	movf	_startIsClick& (0+255),w,b
@@ -2485,33 +2485,33 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2457  0013EC                     u7210:
   2458  0013EC                     
   2459                           ; BSR set to: 1
-  2460                           ;fs_menu_controller.c: 235:             {;fs_menu_controller.c: 236:                  ti
+  2460                           ;fs_menu_controller.c: 233:             {;fs_menu_controller.c: 234:                  ti
       +                          mer_value.remainingMinute = menu_value.driver_time;
   2461  0013EC  C1AF  F0F9         	movff	_menu_value,_timer_value+6
   2462  0013F0  0100               	movlb	0	; () banked
   2463  0013F2  6BFA               	clrf	(_timer_value+7)& (0+255),b
   2464  0013F4                     
   2465                           ; BSR set to: 0
-  2466                           ;fs_menu_controller.c: 237:                  timer_value.remainingSecond = 0;
+  2466                           ;fs_menu_controller.c: 235:                  timer_value.remainingSecond = 0;
   2467  0013F4  0E00               	movlw	0
   2468  0013F6  6FF8               	movwf	(_timer_value+5)& (0+255),b
   2469  0013F8  0E00               	movlw	0
   2470  0013FA  6FF7               	movwf	(_timer_value+4)& (0+255),b
   2471                           
-  2472                           ;fs_menu_controller.c: 238:                  timer_value.second = 0;
+  2472                           ;fs_menu_controller.c: 236:                  timer_value.second = 0;
   2473  0013FC  0E00               	movlw	0
   2474  0013FE  6FF4               	movwf	(_timer_value+1)& (0+255),b
   2475  001400  0E00               	movlw	0
   2476  001402  6FF3               	movwf	_timer_value& (0+255),b
   2477                           
-  2478                           ;fs_menu_controller.c: 239:                  timer_value.minute = 0;
+  2478                           ;fs_menu_controller.c: 237:                  timer_value.minute = 0;
   2479  001404  0E00               	movlw	0
   2480  001406  6FF6               	movwf	(_timer_value+3)& (0+255),b
   2481  001408  0E00               	movlw	0
   2482  00140A  6FF5               	movwf	(_timer_value+2)& (0+255),b
   2483  00140C                     l5745:
   2484                           
-  2485                           ;fs_menu_controller.c: 242:             if ( (startIsClick == 1) && (pauseIsClick == 0) 
+  2485                           ;fs_menu_controller.c: 240:             if ( (startIsClick == 1) && (pauseIsClick == 0) 
       +                          && (stopIsClick == 0) )
   2486  00140C  0101               	movlb	1	; () banked
   2487  00140E  05BD               	decf	_startIsClick& (0+255),w,b
@@ -2543,20 +2543,20 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2513  001442                     u7240:
   2514  001442                     
   2515                           ; BSR set to: 1
-  2516                           ;fs_menu_controller.c: 243:             {;fs_menu_controller.c: 244:                 sta
+  2516                           ;fs_menu_controller.c: 241:             {;fs_menu_controller.c: 242:                 sta
       +                          rtMotor();
   2517  001442  EC67  F02D         	call	_startMotor	;wreg free
   2518  001446                     
-  2519                           ;fs_menu_controller.c: 245:                 LATDbits.LATD5 = 1;
+  2519                           ;fs_menu_controller.c: 243:                 LATDbits.LATD5 = 1;
   2520  001446  8A8C               	bsf	140,5,c	;volatile
   2521  001448                     
-  2522                           ;fs_menu_controller.c: 246:                 LATCbits.LATC5 = 1;
+  2522                           ;fs_menu_controller.c: 244:                 LATCbits.LATC5 = 1;
   2523  001448  8A8B               	bsf	139,5,c	;volatile
   2524  00144A  EF40  F00E         	goto	l383
   2525  00144E                     l348:
   2526                           
   2527                           ; BSR set to: 0
-  2528                           ;fs_menu_controller.c: 254:             if (menu_flags.menu_input_flag == 1)
+  2528                           ;fs_menu_controller.c: 252:             if (menu_flags.menu_input_flag == 1)
   2529  00144E  A1FD               	btfss	_menu_flags& (0+255),0,b
   2530  001450  EF2C  F00A         	goto	u7251
   2531  001454  EF2E  F00A         	goto	u7250
@@ -2565,18 +2565,18 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2534  00145C                     u7250:
   2535  00145C                     
   2536                           ; BSR set to: 0
-  2537                           ;fs_menu_controller.c: 255:             {;fs_menu_controller.c: 256:                 men
+  2537                           ;fs_menu_controller.c: 253:             {;fs_menu_controller.c: 254:                 men
       +                          u_flags.menu_input_flag = 0;
   2538  00145C  91FD               	bcf	_menu_flags& (0+255),0,b
   2539  00145E                     
   2540                           ; BSR set to: 0
-  2541                           ;fs_menu_controller.c: 257:                 menu_selected = STOP_TIME_SETTING;
+  2541                           ;fs_menu_controller.c: 255:                 menu_selected = STOP_TIME_SETTING;
   2542  00145E  0E02               	movlw	2
   2543  001460  0101               	movlb	1	; () banked
   2544  001462  6FBB               	movwf	_menu_selected& (0+255),b
   2545  001464                     l5761:
   2546                           
-  2547                           ;fs_menu_controller.c: 260:             if ((menu_flags.menu_increase_flag == 1) && (men
+  2547                           ;fs_menu_controller.c: 258:             if ((menu_flags.menu_increase_flag == 1) && (men
       +                          u_value.driver_time < 30))
   2548  001464  0100               	movlb	0	; () banked
   2549  001466  A9FD               	btfss	_menu_flags& (0+255),4,b
@@ -2597,24 +2597,24 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2564  001486                     u7270:
   2565  001486                     
   2566                           ; BSR set to: 1
-  2567                           ;fs_menu_controller.c: 261:             {;fs_menu_controller.c: 262:                 men
+  2567                           ;fs_menu_controller.c: 259:             {;fs_menu_controller.c: 260:                 men
       +                          u_flags.menu_increase_flag = 0;
   2568  001486  0100               	movlb	0	; () banked
   2569  001488  99FD               	bcf	_menu_flags& (0+255),4,b
   2570  00148A                     
   2571                           ; BSR set to: 0
-  2572                           ;fs_menu_controller.c: 263:                 menu_value.driver_time++;
+  2572                           ;fs_menu_controller.c: 261:                 menu_value.driver_time++;
   2573  00148A  0101               	movlb	1	; () banked
   2574  00148C  2BAF               	incf	_menu_value& (0+255),f,b
   2575  00148E                     
   2576                           ; BSR set to: 1
-  2577                           ;fs_menu_controller.c: 264:                 eepromWrite(0x00,(uint8_t)menu_value.driver_
+  2577                           ;fs_menu_controller.c: 262:                 eepromWrite(0x00,(uint8_t)menu_value.driver_
       +                          time);
   2578  00148E  C1AF  F001         	movff	_menu_value,eepromWrite@data
   2579  001492  0E00               	movlw	0
   2580  001494  ECD2  F02D         	call	_eepromWrite
   2581  001498                     
-  2582                           ;fs_menu_controller.c: 265:                 timer_value.minute =0 ;
+  2582                           ;fs_menu_controller.c: 263:                 timer_value.minute =0 ;
   2583  001498  0E00               	movlw	0
   2584  00149A  0100               	movlb	0	; () banked
   2585  00149C  6FF6               	movwf	(_timer_value+3)& (0+255),b
@@ -2622,27 +2622,27 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2587  0014A0  6FF5               	movwf	(_timer_value+2)& (0+255),b
   2588  0014A2                     
   2589                           ; BSR set to: 0
-  2590                           ;fs_menu_controller.c: 266:                 timer_value.second = 0;
+  2590                           ;fs_menu_controller.c: 264:                 timer_value.second = 0;
   2591  0014A2  0E00               	movlw	0
   2592  0014A4  6FF4               	movwf	(_timer_value+1)& (0+255),b
   2593  0014A6  0E00               	movlw	0
   2594  0014A8  6FF3               	movwf	_timer_value& (0+255),b
   2595  0014AA                     
   2596                           ; BSR set to: 0
-  2597                           ;fs_menu_controller.c: 267:                 timer_value.remainingSecond = 0;
+  2597                           ;fs_menu_controller.c: 265:                 timer_value.remainingSecond = 0;
   2598  0014AA  0E00               	movlw	0
   2599  0014AC  6FF8               	movwf	(_timer_value+5)& (0+255),b
   2600  0014AE  0E00               	movlw	0
   2601  0014B0  6FF7               	movwf	(_timer_value+4)& (0+255),b
   2602  0014B2                     
   2603                           ; BSR set to: 0
-  2604                           ;fs_menu_controller.c: 268:                 timer_value.remainingMinute = menu_value.dri
+  2604                           ;fs_menu_controller.c: 266:                 timer_value.remainingMinute = menu_value.dri
       +                          ver_time;
   2605  0014B2  C1AF  F0F9         	movff	_menu_value,_timer_value+6
   2606  0014B6  6BFA               	clrf	(_timer_value+7)& (0+255),b
   2607  0014B8                     l5779:
   2608                           
-  2609                           ;fs_menu_controller.c: 271:             if ((menu_flags.menu_decrease_flag == 1) && (men
+  2609                           ;fs_menu_controller.c: 269:             if ((menu_flags.menu_decrease_flag == 1) && (men
       +                          u_value.driver_time > 1))
   2610  0014B8  0100               	movlb	0	; () banked
   2611  0014BA  ABFD               	btfss	_menu_flags& (0+255),5,b
@@ -2663,24 +2663,24 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2626  0014DA                     u7290:
   2627  0014DA                     
   2628                           ; BSR set to: 1
-  2629                           ;fs_menu_controller.c: 272:             {;fs_menu_controller.c: 273:                  me
+  2629                           ;fs_menu_controller.c: 270:             {;fs_menu_controller.c: 271:                  me
       +                          nu_flags.menu_decrease_flag = 0;
   2630  0014DA  0100               	movlb	0	; () banked
   2631  0014DC  9BFD               	bcf	_menu_flags& (0+255),5,b
   2632  0014DE                     
   2633                           ; BSR set to: 0
-  2634                           ;fs_menu_controller.c: 274:                  menu_value.driver_time--;
+  2634                           ;fs_menu_controller.c: 272:                  menu_value.driver_time--;
   2635  0014DE  0101               	movlb	1	; () banked
   2636  0014E0  07AF               	decf	_menu_value& (0+255),f,b
   2637  0014E2                     
   2638                           ; BSR set to: 1
-  2639                           ;fs_menu_controller.c: 275:                  eepromWrite(0x00,(uint8_t)menu_value.driver
+  2639                           ;fs_menu_controller.c: 273:                  eepromWrite(0x00,(uint8_t)menu_value.driver
       +                          _time);
   2640  0014E2  C1AF  F001         	movff	_menu_value,eepromWrite@data
   2641  0014E6  0E00               	movlw	0
   2642  0014E8  ECD2  F02D         	call	_eepromWrite
   2643  0014EC                     
-  2644                           ;fs_menu_controller.c: 276:                  timer_value.minute =0 ;
+  2644                           ;fs_menu_controller.c: 274:                  timer_value.minute =0 ;
   2645  0014EC  0E00               	movlw	0
   2646  0014EE  0100               	movlb	0	; () banked
   2647  0014F0  6FF6               	movwf	(_timer_value+3)& (0+255),b
@@ -2688,46 +2688,46 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2649  0014F4  6FF5               	movwf	(_timer_value+2)& (0+255),b
   2650  0014F6                     
   2651                           ; BSR set to: 0
-  2652                           ;fs_menu_controller.c: 277:                  timer_value.second = 0;
+  2652                           ;fs_menu_controller.c: 275:                  timer_value.second = 0;
   2653  0014F6  0E00               	movlw	0
   2654  0014F8  6FF4               	movwf	(_timer_value+1)& (0+255),b
   2655  0014FA  0E00               	movlw	0
   2656  0014FC  6FF3               	movwf	_timer_value& (0+255),b
   2657  0014FE                     
   2658                           ; BSR set to: 0
-  2659                           ;fs_menu_controller.c: 278:                  timer_value.remainingSecond = 0;
+  2659                           ;fs_menu_controller.c: 276:                  timer_value.remainingSecond = 0;
   2660  0014FE  0E00               	movlw	0
   2661  001500  6FF8               	movwf	(_timer_value+5)& (0+255),b
   2662  001502  0E00               	movlw	0
   2663  001504  6FF7               	movwf	(_timer_value+4)& (0+255),b
   2664  001506                     
   2665                           ; BSR set to: 0
-  2666                           ;fs_menu_controller.c: 279:                  timer_value.remainingMinute = menu_value.dr
+  2666                           ;fs_menu_controller.c: 277:                  timer_value.remainingMinute = menu_value.dr
       +                          iver_time;
   2667  001506  C1AF  F0F9         	movff	_menu_value,_timer_value+6
   2668  00150A  6BFA               	clrf	(_timer_value+7)& (0+255),b
   2669  00150C                     l5797:
   2670                           
-  2671                           ;fs_menu_controller.c: 283:             Lcd_Set_Cursor(1,1);
+  2671                           ;fs_menu_controller.c: 281:             Lcd_Set_Cursor(1,1);
   2672  00150C  0E01               	movlw	1
   2673  00150E  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   2674  001510  0E01               	movlw	1
   2675  001512  EC16  F02B         	call	_Lcd_Set_Cursor
   2676  001516                     
-  2677                           ;fs_menu_controller.c: 284:             Lcd_Write_String("HAREKT ZAMANI dk");
+  2677                           ;fs_menu_controller.c: 282:             Lcd_Write_String("HAREKT ZAMANI dk");
   2678  001516  0E68               	movlw	low STR_3
   2679  001518  6E05               	movwf	Lcd_Write_String@a^0,c
   2680  00151A  0E06               	movlw	high STR_3
   2681  00151C  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   2682  00151E  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   2683  001522                     
-  2684                           ;fs_menu_controller.c: 285:             Lcd_Set_Cursor(2,1);
+  2684                           ;fs_menu_controller.c: 283:             Lcd_Set_Cursor(2,1);
   2685  001522  0E01               	movlw	1
   2686  001524  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   2687  001526  0E02               	movlw	2
   2688  001528  EC16  F02B         	call	_Lcd_Set_Cursor
   2689  00152C                     
-  2690                           ;fs_menu_controller.c: 286:             sprintf(textCursor2,"%d               ",menu_val
+  2690                           ;fs_menu_controller.c: 284:             sprintf(textCursor2,"%d               ",menu_val
       +                          ue.driver_time);
   2691  00152C  0EE3               	movlw	low stateMachine@textCursor2
   2692  00152E  0100               	movlb	0	; () banked
@@ -2742,14 +2742,14 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2701  001542  6BD4               	clrf	(?_sprintf+5)& (0+255),b
   2702  001544  ECFE  F02B         	call	_sprintf	;wreg free
   2703  001548                     
-  2704                           ;fs_menu_controller.c: 287:             Lcd_Write_String(textCursor2);
+  2704                           ;fs_menu_controller.c: 285:             Lcd_Write_String(textCursor2);
   2705  001548  0EE3               	movlw	low stateMachine@textCursor2
   2706  00154A  6E05               	movwf	Lcd_Write_String@a^0,c
   2707  00154C  0E00               	movlw	high stateMachine@textCursor2
   2708  00154E  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   2709  001550  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   2710  001554                     
-  2711                           ;fs_menu_controller.c: 289:             if(timer_value.menu_login_delay == 100)
+  2711                           ;fs_menu_controller.c: 287:             if(timer_value.menu_login_delay == 100)
   2712  001554  0E64               	movlw	100
   2713  001556  0100               	movlb	0	; () banked
   2714  001558  19FB               	xorwf	(_timer_value+8)& (0+255),w,b
@@ -2762,29 +2762,29 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2721  001568                     l5809:
   2722                           
   2723                           ; BSR set to: 0
-  2724                           ;fs_menu_controller.c: 290:             {;fs_menu_controller.c: 291:                 tim
+  2724                           ;fs_menu_controller.c: 288:             {;fs_menu_controller.c: 289:                 tim
       +                          er_value.menu_login_delay = 0;
   2725  001568  0E00               	movlw	0
   2726  00156A  6FFB               	movwf	(_timer_value+8)& (0+255),b
   2727                           
-  2728                           ;fs_menu_controller.c: 292:                 menu_selected = PAUSE_MENU;
+  2728                           ;fs_menu_controller.c: 290:                 menu_selected = PAUSE_MENU;
   2729  00156C  0E06               	movlw	6
   2730  00156E  0101               	movlb	1	; () banked
   2731  001570  6FBB               	movwf	_menu_selected& (0+255),b
   2732  001572                     l5811:
   2733                           
-  2734                           ;fs_menu_controller.c: 295:         stopMotor();
+  2734                           ;fs_menu_controller.c: 293:         stopMotor();
   2735  001572  ECF5  F02C         	call	_stopMotor	;wreg free
   2736                           
-  2737                           ;fs_menu_controller.c: 297:         break;
+  2737                           ;fs_menu_controller.c: 295:         break;
   2738  001576  EF40  F00E         	goto	l383
   2739  00157A                     l5813:
   2740                           
   2741                           ; BSR set to: 0
-  2742                           ;fs_menu_controller.c: 301:             stopMotor();
+  2742                           ;fs_menu_controller.c: 299:             stopMotor();
   2743  00157A  ECF5  F02C         	call	_stopMotor	;wreg free
   2744  00157E                     
-  2745                           ;fs_menu_controller.c: 303:             if (menu_flags.menu_input_flag == 1)
+  2745                           ;fs_menu_controller.c: 301:             if (menu_flags.menu_input_flag == 1)
   2746  00157E  0100               	movlb	0	; () banked
   2747  001580  A1FD               	btfss	_menu_flags& (0+255),0,b
   2748  001582  EFC5  F00A         	goto	u7311
@@ -2794,18 +2794,18 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2752  00158E                     u7310:
   2753  00158E                     
   2754                           ; BSR set to: 0
-  2755                           ;fs_menu_controller.c: 304:             {;fs_menu_controller.c: 305:                 men
+  2755                           ;fs_menu_controller.c: 302:             {;fs_menu_controller.c: 303:                 men
       +                          u_flags.menu_input_flag = 0;
   2756  00158E  91FD               	bcf	_menu_flags& (0+255),0,b
   2757  001590                     
   2758                           ; BSR set to: 0
-  2759                           ;fs_menu_controller.c: 306:                 menu_selected = SPEED_LIMIT_SETTING;
+  2759                           ;fs_menu_controller.c: 304:                 menu_selected = SPEED_LIMIT_SETTING;
   2760  001590  0E03               	movlw	3
   2761  001592  0101               	movlb	1	; () banked
   2762  001594  6FBB               	movwf	_menu_selected& (0+255),b
   2763  001596                     l5821:
   2764                           
-  2765                           ;fs_menu_controller.c: 309:             if ((menu_flags.menu_increase_flag == 1) && (men
+  2765                           ;fs_menu_controller.c: 307:             if ((menu_flags.menu_increase_flag == 1) && (men
       +                          u_value.stop_time < 250))
   2766  001596  0100               	movlb	0	; () banked
   2767  001598  A9FD               	btfss	_menu_flags& (0+255),4,b
@@ -2826,26 +2826,26 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2782  0015B8                     u7330:
   2783  0015B8                     
   2784                           ; BSR set to: 1
-  2785                           ;fs_menu_controller.c: 310:             {;fs_menu_controller.c: 311:                 men
+  2785                           ;fs_menu_controller.c: 308:             {;fs_menu_controller.c: 309:                 men
       +                          u_flags.menu_increase_flag = 0;
   2786  0015B8  0100               	movlb	0	; () banked
   2787  0015BA  99FD               	bcf	_menu_flags& (0+255),4,b
   2788  0015BC                     
   2789                           ; BSR set to: 0
-  2790                           ;fs_menu_controller.c: 312:                 menu_value.stop_time += 10;
+  2790                           ;fs_menu_controller.c: 310:                 menu_value.stop_time += 10;
   2791  0015BC  0E0A               	movlw	10
   2792  0015BE  0101               	movlb	1	; () banked
   2793  0015C0  27B0               	addwf	(_menu_value+1)& (0+255),f,b
   2794  0015C2                     
   2795                           ; BSR set to: 1
-  2796                           ;fs_menu_controller.c: 313:                 eepromWrite(0x01,(uint8_t)menu_value.stop_ti
+  2796                           ;fs_menu_controller.c: 311:                 eepromWrite(0x01,(uint8_t)menu_value.stop_ti
       +                          me);
   2797  0015C2  C1B0  F001         	movff	_menu_value+1,eepromWrite@data
   2798  0015C6  0E01               	movlw	1
   2799  0015C8  ECD2  F02D         	call	_eepromWrite
   2800  0015CC                     l5831:
   2801                           
-  2802                           ;fs_menu_controller.c: 316:             if ((menu_flags.menu_decrease_flag == 1) && (men
+  2802                           ;fs_menu_controller.c: 314:             if ((menu_flags.menu_decrease_flag == 1) && (men
       +                          u_value.stop_time > 10))
   2803  0015CC  0100               	movlb	0	; () banked
   2804  0015CE  ABFD               	btfss	_menu_flags& (0+255),5,b
@@ -2866,45 +2866,45 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2819  0015EE                     u7350:
   2820  0015EE                     
   2821                           ; BSR set to: 1
-  2822                           ;fs_menu_controller.c: 317:             {;fs_menu_controller.c: 318:                  me
+  2822                           ;fs_menu_controller.c: 315:             {;fs_menu_controller.c: 316:                  me
       +                          nu_flags.menu_decrease_flag = 0;
   2823  0015EE  0100               	movlb	0	; () banked
   2824  0015F0  9BFD               	bcf	_menu_flags& (0+255),5,b
   2825  0015F2                     
   2826                           ; BSR set to: 0
-  2827                           ;fs_menu_controller.c: 319:                  menu_value.stop_time -= 10;
+  2827                           ;fs_menu_controller.c: 317:                  menu_value.stop_time -= 10;
   2828  0015F2  0E0A               	movlw	10
   2829  0015F4  0101               	movlb	1	; () banked
   2830  0015F6  5FB0               	subwf	(_menu_value+1)& (0+255),f,b
   2831  0015F8                     
   2832                           ; BSR set to: 1
-  2833                           ;fs_menu_controller.c: 320:                  eepromWrite(0x01,(uint8_t)menu_value.stop_t
+  2833                           ;fs_menu_controller.c: 318:                  eepromWrite(0x01,(uint8_t)menu_value.stop_t
       +                          ime);
   2834  0015F8  C1B0  F001         	movff	_menu_value+1,eepromWrite@data
   2835  0015FC  0E01               	movlw	1
   2836  0015FE  ECD2  F02D         	call	_eepromWrite
   2837  001602                     l5841:
   2838                           
-  2839                           ;fs_menu_controller.c: 322:             Lcd_Set_Cursor(1,1);
+  2839                           ;fs_menu_controller.c: 320:             Lcd_Set_Cursor(1,1);
   2840  001602  0E01               	movlw	1
   2841  001604  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   2842  001606  0E01               	movlw	1
   2843  001608  EC16  F02B         	call	_Lcd_Set_Cursor
   2844  00160C                     
-  2845                           ;fs_menu_controller.c: 323:             Lcd_Write_String("DURMA ZAMANI  ms");
+  2845                           ;fs_menu_controller.c: 321:             Lcd_Write_String("DURMA ZAMANI  ms");
   2846  00160C  0E79               	movlw	low STR_5
   2847  00160E  6E05               	movwf	Lcd_Write_String@a^0,c
   2848  001610  0E06               	movlw	high STR_5
   2849  001612  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   2850  001614  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   2851  001618                     
-  2852                           ;fs_menu_controller.c: 324:             Lcd_Set_Cursor(2,1);
+  2852                           ;fs_menu_controller.c: 322:             Lcd_Set_Cursor(2,1);
   2853  001618  0E01               	movlw	1
   2854  00161A  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   2855  00161C  0E02               	movlw	2
   2856  00161E  EC16  F02B         	call	_Lcd_Set_Cursor
   2857  001622                     
-  2858                           ;fs_menu_controller.c: 325:             sprintf(textCursor2,"%d               ",menu_val
+  2858                           ;fs_menu_controller.c: 323:             sprintf(textCursor2,"%d               ",menu_val
       +                          ue.stop_time);
   2859  001622  0EE3               	movlw	low stateMachine@textCursor2
   2860  001624  0100               	movlb	0	; () banked
@@ -2919,14 +2919,14 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2869  001638  6BD4               	clrf	(?_sprintf+5)& (0+255),b
   2870  00163A  ECFE  F02B         	call	_sprintf	;wreg free
   2871  00163E                     
-  2872                           ;fs_menu_controller.c: 326:             Lcd_Write_String(textCursor2);
+  2872                           ;fs_menu_controller.c: 324:             Lcd_Write_String(textCursor2);
   2873  00163E  0EE3               	movlw	low stateMachine@textCursor2
   2874  001640  6E05               	movwf	Lcd_Write_String@a^0,c
   2875  001642  0E00               	movlw	high stateMachine@textCursor2
   2876  001644  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   2877  001646  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   2878  00164A                     
-  2879                           ;fs_menu_controller.c: 328:             if(timer_value.menu_login_delay == 100)
+  2879                           ;fs_menu_controller.c: 326:             if(timer_value.menu_login_delay == 100)
   2880  00164A  0E64               	movlw	100
   2881  00164C  0100               	movlb	0	; () banked
   2882  00164E  19FB               	xorwf	(_timer_value+8)& (0+255),w,b
@@ -2939,12 +2939,12 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2889  00165E                     l5853:
   2890                           
   2891                           ; BSR set to: 0
-  2892                           ;fs_menu_controller.c: 329:             {;fs_menu_controller.c: 330:                 tim
+  2892                           ;fs_menu_controller.c: 327:             {;fs_menu_controller.c: 328:                 tim
       +                          er_value.menu_login_delay = 0;
   2893  00165E  0E00               	movlw	0
   2894  001660  6FFB               	movwf	(_timer_value+8)& (0+255),b
   2895                           
-  2896                           ;fs_menu_controller.c: 331:                 menu_selected = PAUSE_MENU;
+  2896                           ;fs_menu_controller.c: 329:                 menu_selected = PAUSE_MENU;
   2897  001662  0E06               	movlw	6
   2898  001664  0101               	movlb	1	; () banked
   2899  001666  6FBB               	movwf	_menu_selected& (0+255),b
@@ -2952,7 +2952,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2901  00166C                     l358:
   2902                           
   2903                           ; BSR set to: 0
-  2904                           ;fs_menu_controller.c: 337:             if (menu_flags.menu_input_flag == 1)
+  2904                           ;fs_menu_controller.c: 335:             if (menu_flags.menu_input_flag == 1)
   2905  00166C  A1FD               	btfss	_menu_flags& (0+255),0,b
   2906  00166E  EF3B  F00B         	goto	u7371
   2907  001672  EF3D  F00B         	goto	u7370
@@ -2961,18 +2961,18 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2910  00167A                     u7370:
   2911  00167A                     
   2912                           ; BSR set to: 0
-  2913                           ;fs_menu_controller.c: 338:             {;fs_menu_controller.c: 339:                 men
+  2913                           ;fs_menu_controller.c: 336:             {;fs_menu_controller.c: 337:                 men
       +                          u_flags.menu_input_flag = 0;
   2914  00167A  91FD               	bcf	_menu_flags& (0+255),0,b
   2915  00167C                     
   2916                           ; BSR set to: 0
-  2917                           ;fs_menu_controller.c: 340:                 menu_selected = DRIVER_TIME_SETTING;
+  2917                           ;fs_menu_controller.c: 338:                 menu_selected = DRIVER_TIME_SETTING;
   2918  00167C  0E01               	movlw	1
   2919  00167E  0101               	movlb	1	; () banked
   2920  001680  6FBB               	movwf	_menu_selected& (0+255),b
   2921  001682                     l5859:
   2922                           
-  2923                           ;fs_menu_controller.c: 343:             if ((menu_flags.menu_increase_flag == 1) && (men
+  2923                           ;fs_menu_controller.c: 341:             if ((menu_flags.menu_increase_flag == 1) && (men
       +                          u_value.speed_limit < 5))
   2924  001682  0100               	movlb	0	; () banked
   2925  001684  A9FD               	btfss	_menu_flags& (0+255),4,b
@@ -2993,24 +2993,24 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2940  0016A4                     u7390:
   2941  0016A4                     
   2942                           ; BSR set to: 1
-  2943                           ;fs_menu_controller.c: 344:             {;fs_menu_controller.c: 345:                 men
+  2943                           ;fs_menu_controller.c: 342:             {;fs_menu_controller.c: 343:                 men
       +                          u_flags.menu_increase_flag = 0;
   2944  0016A4  0100               	movlb	0	; () banked
   2945  0016A6  99FD               	bcf	_menu_flags& (0+255),4,b
   2946  0016A8                     
   2947                           ; BSR set to: 0
-  2948                           ;fs_menu_controller.c: 346:                 menu_value.speed_limit += 1;
+  2948                           ;fs_menu_controller.c: 344:                 menu_value.speed_limit += 1;
   2949  0016A8  0101               	movlb	1	; () banked
   2950  0016AA  2BB1               	incf	(_menu_value+2)& (0+255),f,b
   2951  0016AC                     
   2952                           ; BSR set to: 1
-  2953                           ;fs_menu_controller.c: 347:                 eepromWrite(0x02,menu_value.speed_limit);
+  2953                           ;fs_menu_controller.c: 345:                 eepromWrite(0x02,menu_value.speed_limit);
   2954  0016AC  C1B1  F001         	movff	_menu_value+2,eepromWrite@data
   2955  0016B0  0E02               	movlw	2
   2956  0016B2  ECD2  F02D         	call	_eepromWrite
   2957  0016B6                     l5869:
   2958                           
-  2959                           ;fs_menu_controller.c: 350:             if ((menu_flags.menu_decrease_flag == 1) && (men
+  2959                           ;fs_menu_controller.c: 348:             if ((menu_flags.menu_decrease_flag == 1) && (men
       +                          u_value.speed_limit > 1))
   2960  0016B6  0100               	movlb	0	; () banked
   2961  0016B8  ABFD               	btfss	_menu_flags& (0+255),5,b
@@ -3031,43 +3031,43 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2976  0016D8                     u7410:
   2977  0016D8                     
   2978                           ; BSR set to: 1
-  2979                           ;fs_menu_controller.c: 351:             {;fs_menu_controller.c: 352:                  me
+  2979                           ;fs_menu_controller.c: 349:             {;fs_menu_controller.c: 350:                  me
       +                          nu_flags.menu_decrease_flag = 0;
   2980  0016D8  0100               	movlb	0	; () banked
   2981  0016DA  9BFD               	bcf	_menu_flags& (0+255),5,b
   2982  0016DC                     
   2983                           ; BSR set to: 0
-  2984                           ;fs_menu_controller.c: 353:                  menu_value.speed_limit -= 1;
+  2984                           ;fs_menu_controller.c: 351:                  menu_value.speed_limit -= 1;
   2985  0016DC  0101               	movlb	1	; () banked
   2986  0016DE  07B1               	decf	(_menu_value+2)& (0+255),f,b
   2987  0016E0                     
   2988                           ; BSR set to: 1
-  2989                           ;fs_menu_controller.c: 354:                  eepromWrite(0x02,menu_value.speed_limit);
+  2989                           ;fs_menu_controller.c: 352:                  eepromWrite(0x02,menu_value.speed_limit);
   2990  0016E0  C1B1  F001         	movff	_menu_value+2,eepromWrite@data
   2991  0016E4  0E02               	movlw	2
   2992  0016E6  ECD2  F02D         	call	_eepromWrite
   2993  0016EA                     l5879:
   2994                           
-  2995                           ;fs_menu_controller.c: 356:             Lcd_Set_Cursor(1,1);
+  2995                           ;fs_menu_controller.c: 354:             Lcd_Set_Cursor(1,1);
   2996  0016EA  0E01               	movlw	1
   2997  0016EC  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   2998  0016EE  0E01               	movlw	1
   2999  0016F0  EC16  F02B         	call	_Lcd_Set_Cursor
   3000  0016F4                     
-  3001                           ;fs_menu_controller.c: 357:             Lcd_Write_String("HIZ LiMiTi      ");
+  3001                           ;fs_menu_controller.c: 355:             Lcd_Write_String("HIZ LiMiTi      ");
   3002  0016F4  0E24               	movlw	low STR_7
   3003  0016F6  6E05               	movwf	Lcd_Write_String@a^0,c
   3004  0016F8  0E06               	movlw	high STR_7
   3005  0016FA  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   3006  0016FC  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   3007  001700                     
-  3008                           ;fs_menu_controller.c: 358:             Lcd_Set_Cursor(2,1);
+  3008                           ;fs_menu_controller.c: 356:             Lcd_Set_Cursor(2,1);
   3009  001700  0E01               	movlw	1
   3010  001702  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   3011  001704  0E02               	movlw	2
   3012  001706  EC16  F02B         	call	_Lcd_Set_Cursor
   3013  00170A                     
-  3014                           ;fs_menu_controller.c: 359:             sprintf(textCursor2,"%d               ",menu_val
+  3014                           ;fs_menu_controller.c: 357:             sprintf(textCursor2,"%d               ",menu_val
       +                          ue.speed_limit);
   3015  00170A  0EE3               	movlw	low stateMachine@textCursor2
   3016  00170C  0100               	movlb	0	; () banked
@@ -3082,14 +3082,14 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3025  001720  6BD4               	clrf	(?_sprintf+5)& (0+255),b
   3026  001722  ECFE  F02B         	call	_sprintf	;wreg free
   3027  001726                     
-  3028                           ;fs_menu_controller.c: 360:             Lcd_Write_String(textCursor2);
+  3028                           ;fs_menu_controller.c: 358:             Lcd_Write_String(textCursor2);
   3029  001726  0EE3               	movlw	low stateMachine@textCursor2
   3030  001728  6E05               	movwf	Lcd_Write_String@a^0,c
   3031  00172A  0E00               	movlw	high stateMachine@textCursor2
   3032  00172C  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   3033  00172E  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   3034  001732                     
-  3035                           ;fs_menu_controller.c: 362:             if(timer_value.menu_login_delay == 100)
+  3035                           ;fs_menu_controller.c: 360:             if(timer_value.menu_login_delay == 100)
   3036  001732  0E64               	movlw	100
   3037  001734  0100               	movlb	0	; () banked
   3038  001736  19FB               	xorwf	(_timer_value+8)& (0+255),w,b
@@ -3103,36 +3103,36 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3046  00174A                     l5895:
   3047                           
   3048                           ; BSR set to: 0
-  3049                           ;fs_menu_controller.c: 373:             startIsClick = 0;
+  3049                           ;fs_menu_controller.c: 371:             startIsClick = 0;
   3050  00174A  0E00               	movlw	0
   3051  00174C  0101               	movlb	1	; () banked
   3052  00174E  6FBD               	movwf	_startIsClick& (0+255),b
   3053                           
-  3054                           ;fs_menu_controller.c: 374:             pauseIsClick = 0;
+  3054                           ;fs_menu_controller.c: 372:             pauseIsClick = 0;
   3055  001750  0E00               	movlw	0
   3056  001752  0100               	movlb	0	; () banked
   3057  001754  6FFF               	movwf	_pauseIsClick& (0+255),b
   3058                           
-  3059                           ;fs_menu_controller.c: 375:             stopIsClick = 1;
+  3059                           ;fs_menu_controller.c: 373:             stopIsClick = 1;
   3060  001756  0E01               	movlw	1
   3061  001758  0101               	movlb	1	; () banked
   3062  00175A  6FBC               	movwf	_stopIsClick& (0+255),b
   3063  00175C                     
   3064                           ; BSR set to: 1
-  3065                           ;fs_menu_controller.c: 377:             Lcd_Set_Cursor(1,1);
+  3065                           ;fs_menu_controller.c: 375:             Lcd_Set_Cursor(1,1);
   3066  00175C  0E01               	movlw	1
   3067  00175E  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   3068  001760  0E01               	movlw	1
   3069  001762  EC16  F02B         	call	_Lcd_Set_Cursor
   3070  001766                     
-  3071                           ;fs_menu_controller.c: 378:             Lcd_Write_String("ZAMAN DOLDU     ");
+  3071                           ;fs_menu_controller.c: 376:             Lcd_Write_String("ZAMAN DOLDU     ");
   3072  001766  0E46               	movlw	low STR_9
   3073  001768  6E05               	movwf	Lcd_Write_String@a^0,c
   3074  00176A  0E06               	movlw	high STR_9
   3075  00176C  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   3076  00176E  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   3077  001772                     
-  3078                           ;fs_menu_controller.c: 380:             timer_value.remainingSecond = 0;
+  3078                           ;fs_menu_controller.c: 378:             timer_value.remainingSecond = 0;
   3079  001772  0E00               	movlw	0
   3080  001774  0100               	movlb	0	; () banked
   3081  001776  6FF8               	movwf	(_timer_value+5)& (0+255),b
@@ -3140,20 +3140,20 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3083  00177A  6FF7               	movwf	(_timer_value+4)& (0+255),b
   3084  00177C                     
   3085                           ; BSR set to: 0
-  3086                           ;fs_menu_controller.c: 381:             timer_value.remainingMinute = 0;
+  3086                           ;fs_menu_controller.c: 379:             timer_value.remainingMinute = 0;
   3087  00177C  0E00               	movlw	0
   3088  00177E  6FFA               	movwf	(_timer_value+7)& (0+255),b
   3089  001780  0E00               	movlw	0
   3090  001782  6FF9               	movwf	(_timer_value+6)& (0+255),b
   3091  001784                     
   3092                           ; BSR set to: 0
-  3093                           ;fs_menu_controller.c: 382:              Lcd_Set_Cursor(2,1);
+  3093                           ;fs_menu_controller.c: 380:              Lcd_Set_Cursor(2,1);
   3094  001784  0E01               	movlw	1
   3095  001786  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   3096  001788  0E02               	movlw	2
   3097  00178A  EC16  F02B         	call	_Lcd_Set_Cursor
   3098  00178E                     
-  3099                           ;fs_menu_controller.c: 383:             sprintf(textCursor2,"      %d:%d    ",timer_valu
+  3099                           ;fs_menu_controller.c: 381:             sprintf(textCursor2,"      %d:%d    ",timer_valu
       +                          e.remainingMinute,timer_value.remainingSecond);
   3100  00178E  0EE3               	movlw	low stateMachine@textCursor2
   3101  001790  0100               	movlb	0	; () banked
@@ -3170,14 +3170,14 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3112  0017AC  C0F8  F0D6         	movff	_timer_value+5,?_sprintf+7
   3113  0017B0  ECFE  F02B         	call	_sprintf	;wreg free
   3114  0017B4                     
-  3115                           ;fs_menu_controller.c: 384:             Lcd_Write_String(textCursor2);
+  3115                           ;fs_menu_controller.c: 382:             Lcd_Write_String(textCursor2);
   3116  0017B4  0EE3               	movlw	low stateMachine@textCursor2
   3117  0017B6  6E05               	movwf	Lcd_Write_String@a^0,c
   3118  0017B8  0E00               	movlw	high stateMachine@textCursor2
   3119  0017BA  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   3120  0017BC  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   3121  0017C0                     
-  3122                           ;fs_menu_controller.c: 386:         if (menu_flags.menu_start_flag == 1)
+  3122                           ;fs_menu_controller.c: 384:         if (menu_flags.menu_start_flag == 1)
   3123  0017C0  0100               	movlb	0	; () banked
   3124  0017C2  A3FD               	btfss	_menu_flags& (0+255),1,b
   3125  0017C4  EFE6  F00B         	goto	u7431
@@ -3187,38 +3187,38 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3129  0017D0                     u7430:
   3130  0017D0                     
   3131                           ; BSR set to: 0
-  3132                           ;fs_menu_controller.c: 387:         {;fs_menu_controller.c: 388:             menu_flags.
+  3132                           ;fs_menu_controller.c: 385:         {;fs_menu_controller.c: 386:             menu_flags.
       +                          menu_start_flag = 0;
   3133  0017D0  93FD               	bcf	_menu_flags& (0+255),1,b
   3134  0017D2                     
   3135                           ; BSR set to: 0
-  3136                           ;fs_menu_controller.c: 389:             menu_selected = START_MENU;
+  3136                           ;fs_menu_controller.c: 387:             menu_selected = START_MENU;
   3137  0017D2  0E05               	movlw	5
   3138  0017D4  0101               	movlb	1	; () banked
   3139  0017D6  6FBB               	movwf	_menu_selected& (0+255),b
   3140                           
-  3141                           ;fs_menu_controller.c: 391:             startIsClick = 1;
+  3141                           ;fs_menu_controller.c: 389:             startIsClick = 1;
   3142  0017D8  0E01               	movlw	1
   3143  0017DA  6FBD               	movwf	_startIsClick& (0+255),b
   3144                           
-  3145                           ;fs_menu_controller.c: 392:             pauseIsClick = 0;
+  3145                           ;fs_menu_controller.c: 390:             pauseIsClick = 0;
   3146  0017DC  0E00               	movlw	0
   3147  0017DE  0100               	movlb	0	; () banked
   3148  0017E0  6FFF               	movwf	_pauseIsClick& (0+255),b
   3149                           
-  3150                           ;fs_menu_controller.c: 393:             stopIsClick = 0;
+  3150                           ;fs_menu_controller.c: 391:             stopIsClick = 0;
   3151  0017E2  0E00               	movlw	0
   3152  0017E4  0101               	movlb	1	; () banked
   3153  0017E6  6FBC               	movwf	_stopIsClick& (0+255),b
   3154                           
-  3155                           ;fs_menu_controller.c: 394:             timer_value.second = 0;
+  3155                           ;fs_menu_controller.c: 392:             timer_value.second = 0;
   3156  0017E8  0E00               	movlw	0
   3157  0017EA  0100               	movlb	0	; () banked
   3158  0017EC  6FF4               	movwf	(_timer_value+1)& (0+255),b
   3159  0017EE  0E00               	movlw	0
   3160  0017F0  6FF3               	movwf	_timer_value& (0+255),b
   3161                           
-  3162                           ;fs_menu_controller.c: 395:             timer_value.minute = 0;
+  3162                           ;fs_menu_controller.c: 393:             timer_value.minute = 0;
   3163  0017F2  0E00               	movlw	0
   3164  0017F4  6FF6               	movwf	(_timer_value+3)& (0+255),b
   3165  0017F6  0E00               	movlw	0
@@ -3226,7 +3226,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3167  0017FA                     l5917:
   3168                           
   3169                           ; BSR set to: 0
-  3170                           ;fs_menu_controller.c: 398:         if ( timer_value.menu_login_delay == 100)
+  3170                           ;fs_menu_controller.c: 396:         if ( timer_value.menu_login_delay == 100)
   3171  0017FA  0E64               	movlw	100
   3172  0017FC  19FB               	xorwf	(_timer_value+8)& (0+255),w,b
   3173  0017FE  A4D8               	btfss	status,2,c
@@ -3237,12 +3237,12 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3178  00180C                     u7440:
   3179  00180C                     
   3180                           ; BSR set to: 0
-  3181                           ;fs_menu_controller.c: 399:         {;fs_menu_controller.c: 400:             timer_value
+  3181                           ;fs_menu_controller.c: 397:         {;fs_menu_controller.c: 398:             timer_value
       +                          .menu_login_delay = 0;
   3182  00180C  0E00               	movlw	0
   3183  00180E  6FFB               	movwf	(_timer_value+8)& (0+255),b
   3184                           
-  3185                           ;fs_menu_controller.c: 401:             menu_selected = DRIVER_TIME_SETTING;
+  3185                           ;fs_menu_controller.c: 399:             menu_selected = DRIVER_TIME_SETTING;
   3186  001810  0E01               	movlw	1
   3187  001812  0101               	movlb	1	; () banked
   3188  001814  6FBB               	movwf	_menu_selected& (0+255),b
@@ -3250,56 +3250,56 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3190  00181A                     l366:
   3191                           
   3192                           ; BSR set to: 0
-  3193                           ;fs_menu_controller.c: 409:             timer_value.remainingMinute = menu_value.driver_
+  3193                           ;fs_menu_controller.c: 407:             timer_value.remainingMinute = menu_value.driver_
       +                          time;
   3194  00181A  C1AF  F0F9         	movff	_menu_value,_timer_value+6
   3195  00181E  6BFA               	clrf	(_timer_value+7)& (0+255),b
   3196  001820                     
   3197                           ; BSR set to: 0
-  3198                           ;fs_menu_controller.c: 410:             timer_value.remainingSecond = 0;
+  3198                           ;fs_menu_controller.c: 408:             timer_value.remainingSecond = 0;
   3199  001820  0E00               	movlw	0
   3200  001822  6FF8               	movwf	(_timer_value+5)& (0+255),b
   3201  001824  0E00               	movlw	0
   3202  001826  6FF7               	movwf	(_timer_value+4)& (0+255),b
   3203                           
-  3204                           ;fs_menu_controller.c: 411:             startIsClick = 1;
+  3204                           ;fs_menu_controller.c: 409:             startIsClick = 1;
   3205  001828  0E01               	movlw	1
   3206  00182A  0101               	movlb	1	; () banked
   3207  00182C  6FBD               	movwf	_startIsClick& (0+255),b
   3208                           
-  3209                           ;fs_menu_controller.c: 412:             stopIsClick = 0;
+  3209                           ;fs_menu_controller.c: 410:             stopIsClick = 0;
   3210  00182E  0E00               	movlw	0
   3211  001830  6FBC               	movwf	_stopIsClick& (0+255),b
   3212                           
-  3213                           ;fs_menu_controller.c: 413:             menu_selected = MAIN_MENU;
+  3213                           ;fs_menu_controller.c: 411:             menu_selected = MAIN_MENU;
   3214  001832  0E00               	movlw	0
   3215  001834  6FBB               	movwf	_menu_selected& (0+255),b
   3216                           
-  3217                           ;fs_menu_controller.c: 414:         break;
+  3217                           ;fs_menu_controller.c: 412:         break;
   3218  001836  EF40  F00E         	goto	l383
   3219  00183A                     l5925:
   3220                           
   3221                           ; BSR set to: 0
-  3222                           ;fs_menu_controller.c: 421:             Lcd_Set_Cursor(1,1);
+  3222                           ;fs_menu_controller.c: 419:             Lcd_Set_Cursor(1,1);
   3223  00183A  0E01               	movlw	1
   3224  00183C  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   3225  00183E  0E01               	movlw	1
   3226  001840  EC16  F02B         	call	_Lcd_Set_Cursor
   3227  001844                     
-  3228                           ;fs_menu_controller.c: 422:             Lcd_Write_String("HAREKET DURDU   ");
+  3228                           ;fs_menu_controller.c: 420:             Lcd_Write_String("HAREKET DURDU   ");
   3229  001844  0E57               	movlw	low STR_11
   3230  001846  6E05               	movwf	Lcd_Write_String@a^0,c
   3231  001848  0E06               	movlw	high STR_11
   3232  00184A  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   3233  00184C  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   3234  001850                     
-  3235                           ;fs_menu_controller.c: 423:             Lcd_Set_Cursor(2,1);
+  3235                           ;fs_menu_controller.c: 421:             Lcd_Set_Cursor(2,1);
   3236  001850  0E01               	movlw	1
   3237  001852  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   3238  001854  0E02               	movlw	2
   3239  001856  EC16  F02B         	call	_Lcd_Set_Cursor
   3240  00185A                     
-  3241                           ;fs_menu_controller.c: 424:             sprintf(textCursor2,"      %d:%d    ",timer_valu
+  3241                           ;fs_menu_controller.c: 422:             sprintf(textCursor2,"      %d:%d    ",timer_valu
       +                          e.remainingMinute,timer_value.remainingSecond);
   3242  00185A  0EE3               	movlw	low stateMachine@textCursor2
   3243  00185C  0100               	movlb	0	; () banked
@@ -3316,14 +3316,14 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3254  001878  C0F8  F0D6         	movff	_timer_value+5,?_sprintf+7
   3255  00187C  ECFE  F02B         	call	_sprintf	;wreg free
   3256  001880                     
-  3257                           ;fs_menu_controller.c: 425:             Lcd_Write_String(textCursor2);
+  3257                           ;fs_menu_controller.c: 423:             Lcd_Write_String(textCursor2);
   3258  001880  0EE3               	movlw	low stateMachine@textCursor2
   3259  001882  6E05               	movwf	Lcd_Write_String@a^0,c
   3260  001884  0E00               	movlw	high stateMachine@textCursor2
   3261  001886  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   3262  001888  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   3263  00188C                     
-  3264                           ;fs_menu_controller.c: 427:             if (menu_flags.menu_start_flag == 1)
+  3264                           ;fs_menu_controller.c: 425:             if (menu_flags.menu_start_flag == 1)
   3265  00188C  0100               	movlb	0	; () banked
   3266  00188E  A3FD               	btfss	_menu_flags& (0+255),1,b
   3267  001890  EF4C  F00C         	goto	u7451
@@ -3333,32 +3333,32 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3271  00189C                     u7450:
   3272  00189C                     
   3273                           ; BSR set to: 0
-  3274                           ;fs_menu_controller.c: 428:             {;fs_menu_controller.c: 429:                 men
+  3274                           ;fs_menu_controller.c: 426:             {;fs_menu_controller.c: 427:                 men
       +                          u_flags.menu_start_flag = 0;
   3275  00189C  93FD               	bcf	_menu_flags& (0+255),1,b
   3276  00189E                     
   3277                           ; BSR set to: 0
-  3278                           ;fs_menu_controller.c: 430:                 menu_selected = MAIN_MENU;
+  3278                           ;fs_menu_controller.c: 428:                 menu_selected = MAIN_MENU;
   3279  00189E  0E00               	movlw	0
   3280  0018A0  0101               	movlb	1	; () banked
   3281  0018A2  6FBB               	movwf	_menu_selected& (0+255),b
   3282                           
-  3283                           ;fs_menu_controller.c: 432:                 startIsClick = 1;
+  3283                           ;fs_menu_controller.c: 430:                 startIsClick = 1;
   3284  0018A4  0E01               	movlw	1
   3285  0018A6  6FBD               	movwf	_startIsClick& (0+255),b
   3286                           
-  3287                           ;fs_menu_controller.c: 433:                 pauseIsClick = 0;
+  3287                           ;fs_menu_controller.c: 431:                 pauseIsClick = 0;
   3288  0018A8  0E00               	movlw	0
   3289  0018AA  0100               	movlb	0	; () banked
   3290  0018AC  6FFF               	movwf	_pauseIsClick& (0+255),b
   3291                           
-  3292                           ;fs_menu_controller.c: 434:                 stopIsClick = 0;
+  3292                           ;fs_menu_controller.c: 432:                 stopIsClick = 0;
   3293  0018AE  0E00               	movlw	0
   3294  0018B0  0101               	movlb	1	; () banked
   3295  0018B2  6FBC               	movwf	_stopIsClick& (0+255),b
   3296  0018B4                     l368:
   3297                           
-  3298                           ;fs_menu_controller.c: 437:             if ( (startIsClick == 0) && (pauseIsClick == 0) 
+  3298                           ;fs_menu_controller.c: 435:             if ( (startIsClick == 0) && (pauseIsClick == 0) 
       +                          && (stopIsClick == 1) && (menu_selected == PAUSE_MENU))
   3299  0018B4  0101               	movlb	1	; () banked
   3300  0018B6  51BD               	movf	_startIsClick& (0+255),w,b
@@ -3400,33 +3400,33 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3336  0018FC                     u7490:
   3337  0018FC                     
   3338                           ; BSR set to: 1
-  3339                           ;fs_menu_controller.c: 438:             {;fs_menu_controller.c: 439:                  ti
+  3339                           ;fs_menu_controller.c: 436:             {;fs_menu_controller.c: 437:                  ti
       +                          mer_value.remainingMinute = menu_value.driver_time;
   3340  0018FC  C1AF  F0F9         	movff	_menu_value,_timer_value+6
   3341  001900  0100               	movlb	0	; () banked
   3342  001902  6BFA               	clrf	(_timer_value+7)& (0+255),b
   3343  001904                     
   3344                           ; BSR set to: 0
-  3345                           ;fs_menu_controller.c: 440:                  timer_value.remainingSecond = 0;
+  3345                           ;fs_menu_controller.c: 438:                  timer_value.remainingSecond = 0;
   3346  001904  0E00               	movlw	0
   3347  001906  6FF8               	movwf	(_timer_value+5)& (0+255),b
   3348  001908  0E00               	movlw	0
   3349  00190A  6FF7               	movwf	(_timer_value+4)& (0+255),b
   3350                           
-  3351                           ;fs_menu_controller.c: 441:                  timer_value.second = 0;
+  3351                           ;fs_menu_controller.c: 439:                  timer_value.second = 0;
   3352  00190C  0E00               	movlw	0
   3353  00190E  6FF4               	movwf	(_timer_value+1)& (0+255),b
   3354  001910  0E00               	movlw	0
   3355  001912  6FF3               	movwf	_timer_value& (0+255),b
   3356                           
-  3357                           ;fs_menu_controller.c: 442:                  timer_value.minute = 0;
+  3357                           ;fs_menu_controller.c: 440:                  timer_value.minute = 0;
   3358  001914  0E00               	movlw	0
   3359  001916  6FF6               	movwf	(_timer_value+3)& (0+255),b
   3360  001918  0E00               	movlw	0
   3361  00191A  6FF5               	movwf	(_timer_value+2)& (0+255),b
   3362  00191C                     l5951:
   3363                           
-  3364                           ;fs_menu_controller.c: 446:             if ( timer_value.menu_login_delay == 100)
+  3364                           ;fs_menu_controller.c: 444:             if ( timer_value.menu_login_delay == 100)
   3365  00191C  0E64               	movlw	100
   3366  00191E  0100               	movlb	0	; () banked
   3367  001920  19FB               	xorwf	(_timer_value+8)& (0+255),w,b
@@ -3438,18 +3438,18 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3373  001930                     u7500:
   3374  001930                     
   3375                           ; BSR set to: 0
-  3376                           ;fs_menu_controller.c: 447:             {;fs_menu_controller.c: 448:                 tim
+  3376                           ;fs_menu_controller.c: 445:             {;fs_menu_controller.c: 446:                 tim
       +                          er_value.menu_login_delay = 0;
   3377  001930  0E00               	movlw	0
   3378  001932  6FFB               	movwf	(_timer_value+8)& (0+255),b
   3379                           
-  3380                           ;fs_menu_controller.c: 449:                 menu_selected = DRIVER_TIME_SETTING;
+  3380                           ;fs_menu_controller.c: 447:                 menu_selected = DRIVER_TIME_SETTING;
   3381  001934  0E01               	movlw	1
   3382  001936  0101               	movlb	1	; () banked
   3383  001938  6FBB               	movwf	_menu_selected& (0+255),b
   3384  00193A                     l5955:
   3385                           
-  3386                           ;fs_menu_controller.c: 452:             if ((menu_flags.menu_increase_flag == 1) && (men
+  3386                           ;fs_menu_controller.c: 450:             if ((menu_flags.menu_increase_flag == 1) && (men
       +                          u_flags.menu_decrease_flag == 1))
   3387  00193A  0100               	movlb	0	; () banked
   3388  00193C  A9FD               	btfss	_menu_flags& (0+255),4,b
@@ -3468,23 +3468,23 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3401  001958                     u7520:
   3402  001958                     
   3403                           ; BSR set to: 0
-  3404                           ;fs_menu_controller.c: 453:             {;fs_menu_controller.c: 454:                 men
+  3404                           ;fs_menu_controller.c: 451:             {;fs_menu_controller.c: 452:                 men
       +                          u_selected = SECRET_MENU;
   3405  001958  0E08               	movlw	8
   3406  00195A  0101               	movlb	1	; () banked
   3407  00195C  6FBB               	movwf	_menu_selected& (0+255),b
   3408                           
-  3409                           ;fs_menu_controller.c: 455:                 secretMenuCounter = 1;
+  3409                           ;fs_menu_controller.c: 453:                 secretMenuCounter = 1;
   3410  00195E  0E01               	movlw	1
   3411  001960  6FBA               	movwf	stateMachine@secretMenuCounter& (0+255),b
   3412  001962  EFB9  F00A         	goto	l5811
   3413  001966                     l5963:
   3414                           
   3415                           ; BSR set to: 0
-  3416                           ;fs_menu_controller.c: 468:             stopMotor();
+  3416                           ;fs_menu_controller.c: 466:             stopMotor();
   3417  001966  ECF5  F02C         	call	_stopMotor	;wreg free
   3418  00196A                     
-  3419                           ;fs_menu_controller.c: 470:             if (menu_flags.menu_input_flag == 1)
+  3419                           ;fs_menu_controller.c: 468:             if (menu_flags.menu_input_flag == 1)
   3420  00196A  0100               	movlb	0	; () banked
   3421  00196C  A1FD               	btfss	_menu_flags& (0+255),0,b
   3422  00196E  EFBB  F00C         	goto	u7531
@@ -3494,17 +3494,17 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3426  00197A                     u7530:
   3427  00197A                     
   3428                           ; BSR set to: 0
-  3429                           ;fs_menu_controller.c: 471:             {;fs_menu_controller.c: 472:                 men
+  3429                           ;fs_menu_controller.c: 469:             {;fs_menu_controller.c: 470:                 men
       +                          u_flags.menu_input_flag = 0;
   3430  00197A  91FD               	bcf	_menu_flags& (0+255),0,b
   3431  00197C                     
   3432                           ; BSR set to: 0
-  3433                           ;fs_menu_controller.c: 473:                 secretMenuCounter++;
+  3433                           ;fs_menu_controller.c: 471:                 secretMenuCounter++;
   3434  00197C  0101               	movlb	1	; () banked
   3435  00197E  2BBA               	incf	stateMachine@secretMenuCounter& (0+255),f,b
   3436  001980                     
   3437                           ; BSR set to: 1
-  3438                           ;fs_menu_controller.c: 475:                 if (secretMenuCounter >2)
+  3438                           ;fs_menu_controller.c: 473:                 if (secretMenuCounter >2)
   3439  001980  0E02               	movlw	2
   3440  001982  65BA               	cpfsgt	stateMachine@secretMenuCounter& (0+255),b
   3441  001984  EFC6  F00C         	goto	u7541
@@ -3514,13 +3514,13 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3445  001990                     u7540:
   3446  001990                     
   3447                           ; BSR set to: 1
-  3448                           ;fs_menu_controller.c: 476:                 {;fs_menu_controller.c: 477:                
+  3448                           ;fs_menu_controller.c: 474:                 {;fs_menu_controller.c: 475:                
       +                               secretMenuCounter = 1;
   3449  001990  0E01               	movlw	1
   3450  001992  6FBA               	movwf	stateMachine@secretMenuCounter& (0+255),b
   3451  001994                     l5975:
   3452                           
-  3453                           ;fs_menu_controller.c: 481:             if (secretMenuCounter == 1)
+  3453                           ;fs_menu_controller.c: 479:             if (secretMenuCounter == 1)
   3454  001994  0101               	movlb	1	; () banked
   3455  001996  05BA               	decf	stateMachine@secretMenuCounter& (0+255),w,b
   3456  001998  A4D8               	btfss	status,2,c
@@ -3531,27 +3531,27 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3461  0019A6                     u7550:
   3462  0019A6                     
   3463                           ; BSR set to: 1
-  3464                           ;fs_menu_controller.c: 482:             {;fs_menu_controller.c: 483:                 Lcd
+  3464                           ;fs_menu_controller.c: 480:             {;fs_menu_controller.c: 481:                 Lcd
       +                          _Set_Cursor(1,1);
   3465  0019A6  0E01               	movlw	1
   3466  0019A8  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   3467  0019AA  0E01               	movlw	1
   3468  0019AC  EC16  F02B         	call	_Lcd_Set_Cursor
   3469  0019B0                     
-  3470                           ;fs_menu_controller.c: 484:                 Lcd_Write_String("PID PARAM       ");
+  3470                           ;fs_menu_controller.c: 482:                 Lcd_Write_String("PID PARAM       ");
   3471  0019B0  0E13               	movlw	low STR_13
   3472  0019B2  6E05               	movwf	Lcd_Write_String@a^0,c
   3473  0019B4  0E06               	movlw	high STR_13
   3474  0019B6  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   3475  0019B8  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   3476  0019BC                     
-  3477                           ;fs_menu_controller.c: 485:                 Lcd_Set_Cursor(2,1);
+  3477                           ;fs_menu_controller.c: 483:                 Lcd_Set_Cursor(2,1);
   3478  0019BC  0E01               	movlw	1
   3479  0019BE  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   3480  0019C0  0E02               	movlw	2
   3481  0019C2  EC16  F02B         	call	_Lcd_Set_Cursor
   3482  0019C6                     
-  3483                           ;fs_menu_controller.c: 486:                 sprintf(textCursor2,"Kp:%5.1f     ",KP);
+  3483                           ;fs_menu_controller.c: 484:                 sprintf(textCursor2,"Kp:%5.1f     ",KP);
   3484  0019C6  0EE3               	movlw	low stateMachine@textCursor2
   3485  0019C8  0100               	movlb	0	; () banked
   3486  0019CA  6FCF               	movwf	sprintf@s& (0+255),b
@@ -3567,14 +3567,14 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3496  0019E4  C1CE  F0D6         	movff	_KP@fs_speed_controller$F1598+3,?_sprintf+7
   3497  0019E8  ECFE  F02B         	call	_sprintf	;wreg free
   3498  0019EC                     
-  3499                           ;fs_menu_controller.c: 487:                 Lcd_Write_String(textCursor2);
+  3499                           ;fs_menu_controller.c: 485:                 Lcd_Write_String(textCursor2);
   3500  0019EC  0EE3               	movlw	low stateMachine@textCursor2
   3501  0019EE  6E05               	movwf	Lcd_Write_String@a^0,c
   3502  0019F0  0E00               	movlw	high stateMachine@textCursor2
   3503  0019F2  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   3504  0019F4  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   3505  0019F8                     
-  3506                           ;fs_menu_controller.c: 489:                 if ((menu_flags.menu_increase_flag == 1) && 
+  3506                           ;fs_menu_controller.c: 487:                 if ((menu_flags.menu_increase_flag == 1) && 
       +                          (KP < 2.5))
   3507  0019F8  0100               	movlb	0	; () banked
   3508  0019FA  A9FD               	btfss	_menu_flags& (0+255),4,b
@@ -3605,13 +3605,13 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3533  001A36  EF39  F00D         	goto	l5995
   3534  001A3A                     u7570:
   3535  001A3A                     
-  3536                           ;fs_menu_controller.c: 490:                 {;fs_menu_controller.c: 491:                
+  3536                           ;fs_menu_controller.c: 488:                 {;fs_menu_controller.c: 489:                
       +                               menu_flags.menu_increase_flag = 0;
   3537  001A3A  0100               	movlb	0	; () banked
   3538  001A3C  99FD               	bcf	_menu_flags& (0+255),4,b
   3539  001A3E                     
   3540                           ; BSR set to: 0
-  3541                           ;fs_menu_controller.c: 492:                     KP += 0.1;
+  3541                           ;fs_menu_controller.c: 490:                     KP += 0.1;
   3542  001A3E  C1CB  F035         	movff	_KP@fs_speed_controller$F1598,___fladd@b
   3543  001A42  C1CC  F036         	movff	_KP@fs_speed_controller$F1598+1,___fladd@b+1
   3544  001A46  C1CD  F037         	movff	_KP@fs_speed_controller$F1598+2,___fladd@b+2
@@ -3631,7 +3631,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3558  001A6E  C038  F1CE         	movff	?___fladd+3,_KP@fs_speed_controller$F1598+3
   3559  001A72                     l5995:
   3560                           
-  3561                           ;fs_menu_controller.c: 495:                 if ((menu_flags.menu_decrease_flag == 1) && 
+  3561                           ;fs_menu_controller.c: 493:                 if ((menu_flags.menu_decrease_flag == 1) && 
       +                          (KP >= 0))
   3562  001A72  0100               	movlb	0	; () banked
   3563  001A74  ABFD               	btfss	_menu_flags& (0+255),5,b
@@ -3651,13 +3651,13 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3577  001A92                     u7590:
   3578  001A92                     
   3579                           ; BSR set to: 1
-  3580                           ;fs_menu_controller.c: 496:                 {;fs_menu_controller.c: 497:                
+  3580                           ;fs_menu_controller.c: 494:                 {;fs_menu_controller.c: 495:                
       +                               menu_flags.menu_decrease_flag = 0;
   3581  001A92  0100               	movlb	0	; () banked
   3582  001A94  9BFD               	bcf	_menu_flags& (0+255),5,b
   3583  001A96                     
   3584                           ; BSR set to: 0
-  3585                           ;fs_menu_controller.c: 498:                      KP -= 0.1;
+  3585                           ;fs_menu_controller.c: 496:                      KP -= 0.1;
   3586  001A96  C1CB  F045         	movff	_KP@fs_speed_controller$F1598,___flsub@b
   3587  001A9A  C1CC  F046         	movff	_KP@fs_speed_controller$F1598+1,___flsub@b+1
   3588  001A9E  C1CD  F047         	movff	_KP@fs_speed_controller$F1598+2,___flsub@b+2
@@ -3677,7 +3677,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3602  001AC6  C048  F1CE         	movff	?___flsub+3,_KP@fs_speed_controller$F1598+3
   3603  001ACA                     l6003:
   3604                           
-  3605                           ;fs_menu_controller.c: 502:             if (secretMenuCounter == 2)
+  3605                           ;fs_menu_controller.c: 500:             if (secretMenuCounter == 2)
   3606  001ACA  0E02               	movlw	2
   3607  001ACC  0101               	movlb	1	; () banked
   3608  001ACE  19BA               	xorwf	stateMachine@secretMenuCounter& (0+255),w,b
@@ -3689,27 +3689,27 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3614  001ADE                     u7600:
   3615  001ADE                     
   3616                           ; BSR set to: 1
-  3617                           ;fs_menu_controller.c: 503:             {;fs_menu_controller.c: 504:                 Lcd
+  3617                           ;fs_menu_controller.c: 501:             {;fs_menu_controller.c: 502:                 Lcd
       +                          _Set_Cursor(1,1);
   3618  001ADE  0E01               	movlw	1
   3619  001AE0  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   3620  001AE2  0E01               	movlw	1
   3621  001AE4  EC16  F02B         	call	_Lcd_Set_Cursor
   3622  001AE8                     
-  3623                           ;fs_menu_controller.c: 505:                 Lcd_Write_String("PID PARAM       ");
+  3623                           ;fs_menu_controller.c: 503:                 Lcd_Write_String("PID PARAM       ");
   3624  001AE8  0E13               	movlw	low STR_13
   3625  001AEA  6E05               	movwf	Lcd_Write_String@a^0,c
   3626  001AEC  0E06               	movlw	high STR_13
   3627  001AEE  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   3628  001AF0  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   3629  001AF4                     
-  3630                           ;fs_menu_controller.c: 506:                 Lcd_Set_Cursor(2,1);
+  3630                           ;fs_menu_controller.c: 504:                 Lcd_Set_Cursor(2,1);
   3631  001AF4  0E01               	movlw	1
   3632  001AF6  6E04               	movwf	Lcd_Set_Cursor@b^0,c
   3633  001AF8  0E02               	movlw	2
   3634  001AFA  EC16  F02B         	call	_Lcd_Set_Cursor
   3635  001AFE                     
-  3636                           ;fs_menu_controller.c: 507:                 sprintf(textCursor2,"Kd:%5.1f    ",KD);
+  3636                           ;fs_menu_controller.c: 505:                 sprintf(textCursor2,"Kd:%5.1f    ",KD);
   3637  001AFE  0EE3               	movlw	low stateMachine@textCursor2
   3638  001B00  0100               	movlb	0	; () banked
   3639  001B02  6FCF               	movwf	sprintf@s& (0+255),b
@@ -3725,14 +3725,14 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3649  001B1C  C1CA  F0D6         	movff	_KD@fs_speed_controller$F1599+3,?_sprintf+7
   3650  001B20  ECFE  F02B         	call	_sprintf	;wreg free
   3651  001B24                     
-  3652                           ;fs_menu_controller.c: 508:                 Lcd_Write_String(textCursor2);
+  3652                           ;fs_menu_controller.c: 506:                 Lcd_Write_String(textCursor2);
   3653  001B24  0EE3               	movlw	low stateMachine@textCursor2
   3654  001B26  6E05               	movwf	Lcd_Write_String@a^0,c
   3655  001B28  0E00               	movlw	high stateMachine@textCursor2
   3656  001B2A  6E06               	movwf	(Lcd_Write_String@a+1)^0,c
   3657  001B2C  ECBC  F029         	call	_Lcd_Write_String	;wreg free
   3658  001B30                     
-  3659                           ;fs_menu_controller.c: 510:                 if ((menu_flags.menu_increase_flag == 1) && 
+  3659                           ;fs_menu_controller.c: 508:                 if ((menu_flags.menu_increase_flag == 1) && 
       +                          (KD < 2.5))
   3660  001B30  0100               	movlb	0	; () banked
   3661  001B32  A9FD               	btfss	_menu_flags& (0+255),4,b
@@ -3763,13 +3763,13 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3686  001B6E  EFD5  F00D         	goto	l6023
   3687  001B72                     u7620:
   3688  001B72                     
-  3689                           ;fs_menu_controller.c: 511:                 {;fs_menu_controller.c: 512:                
+  3689                           ;fs_menu_controller.c: 509:                 {;fs_menu_controller.c: 510:                
       +                               menu_flags.menu_increase_flag = 0;
   3690  001B72  0100               	movlb	0	; () banked
   3691  001B74  99FD               	bcf	_menu_flags& (0+255),4,b
   3692  001B76                     
   3693                           ; BSR set to: 0
-  3694                           ;fs_menu_controller.c: 513:                     KD += 0.1;
+  3694                           ;fs_menu_controller.c: 511:                     KD += 0.1;
   3695  001B76  C1C7  F035         	movff	_KD@fs_speed_controller$F1599,___fladd@b
   3696  001B7A  C1C8  F036         	movff	_KD@fs_speed_controller$F1599+1,___fladd@b+1
   3697  001B7E  C1C9  F037         	movff	_KD@fs_speed_controller$F1599+2,___fladd@b+2
@@ -3789,7 +3789,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3711  001BA6  C038  F1CA         	movff	?___fladd+3,_KD@fs_speed_controller$F1599+3
   3712  001BAA                     l6023:
   3713                           
-  3714                           ;fs_menu_controller.c: 516:                 if ((menu_flags.menu_decrease_flag == 1) && 
+  3714                           ;fs_menu_controller.c: 514:                 if ((menu_flags.menu_decrease_flag == 1) && 
       +                          (KD >= 0))
   3715  001BAA  0100               	movlb	0	; () banked
   3716  001BAC  ABFD               	btfss	_menu_flags& (0+255),5,b
@@ -3809,13 +3809,13 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3730  001BCA                     u7640:
   3731  001BCA                     
   3732                           ; BSR set to: 1
-  3733                           ;fs_menu_controller.c: 517:                 {;fs_menu_controller.c: 518:                
+  3733                           ;fs_menu_controller.c: 515:                 {;fs_menu_controller.c: 516:                
       +                               menu_flags.menu_decrease_flag = 0;
   3734  001BCA  0100               	movlb	0	; () banked
   3735  001BCC  9BFD               	bcf	_menu_flags& (0+255),5,b
   3736  001BCE                     
   3737                           ; BSR set to: 0
-  3738                           ;fs_menu_controller.c: 519:                      KD -= 0.1;
+  3738                           ;fs_menu_controller.c: 517:                      KD -= 0.1;
   3739  001BCE  C1C7  F045         	movff	_KD@fs_speed_controller$F1599,___flsub@b
   3740  001BD2  C1C8  F046         	movff	_KD@fs_speed_controller$F1599+1,___flsub@b+1
   3741  001BD6  C1C9  F047         	movff	_KD@fs_speed_controller$F1599+2,___flsub@b+2
@@ -3835,7 +3835,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3755  001BFE  C048  F1CA         	movff	?___flsub+3,_KD@fs_speed_controller$F1599+3
   3756  001C02                     l6031:
   3757                           
-  3758                           ;fs_menu_controller.c: 523:             if ( timer_value.menu_login_delay == 100)
+  3758                           ;fs_menu_controller.c: 521:             if ( timer_value.menu_login_delay == 100)
   3759  001C02  0E64               	movlw	100
   3760  001C04  0100               	movlb	0	; () banked
   3761  001C06  19FB               	xorwf	(_timer_value+8)& (0+255),w,b
@@ -14694,7 +14694,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14384                           
  14385 ;; *************** function _buttonControlFlags *****************
  14386 ;; Defined at:
- 14387 ;;		line 81 in file "fs_menu_controller.c"
+ 14387 ;;		line 79 in file "fs_menu_controller.c"
  14388 ;; Parameters:    Size  Location     Type
  14389 ;;		None
  14390 ;; Auto vars:     Size  Location     Type
@@ -14728,7 +14728,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14418  0045AC                     _buttonControlFlags:
  14419                           	callstack 28
  14420  0045AC                     
- 14421                           ;fs_menu_controller.c: 84:     if ((button_bounce_controller.menu == 0) && (PORTBbits.RB
+ 14421                           ;fs_menu_controller.c: 82:     if ((button_bounce_controller.menu == 0) && (PORTBbits.RB
       +                          7 == 1))
  14422  0045AC  0100               	movlb	0	; () banked
  14423  0045AE  B1FE               	btfsc	_button_bounce_controller& (0+255),0,b
@@ -14747,16 +14747,16 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14436  0045CA                     u6870:
  14437  0045CA                     
  14438                           ; BSR set to: 0
- 14439                           ;fs_menu_controller.c: 85:     {;fs_menu_controller.c: 86:         button_bounce_control
+ 14439                           ;fs_menu_controller.c: 83:     {;fs_menu_controller.c: 84:         button_bounce_control
       +                          ler.menu = 1;
  14440  0045CA  81FE               	bsf	_button_bounce_controller& (0+255),0,b
  14441                           
- 14442                           ;fs_menu_controller.c: 87:         menu_flags.menu_input_flag = 1;
+ 14442                           ;fs_menu_controller.c: 85:         menu_flags.menu_input_flag = 1;
  14443  0045CC  81FD               	bsf	_menu_flags& (0+255),0,b
  14444  0045CE                     l315:
  14445                           
  14446                           ; BSR set to: 0
- 14447                           ;fs_menu_controller.c: 90:     if ((PORTBbits.RB7 == 0) && (button_bounce_controller.men
+ 14447                           ;fs_menu_controller.c: 88:     if ((PORTBbits.RB7 == 0) && (button_bounce_controller.men
       +                          u == 1))
  14448  0045CE  BE81               	btfsc	129,7,c	;volatile
  14449  0045D0  EFEC  F022         	goto	u6881
@@ -14774,16 +14774,16 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14461  0045EA                     u6890:
  14462  0045EA                     
  14463                           ; BSR set to: 0
- 14464                           ;fs_menu_controller.c: 91:     {;fs_menu_controller.c: 92:         button_bounce_control
+ 14464                           ;fs_menu_controller.c: 89:     {;fs_menu_controller.c: 90:         button_bounce_control
       +                          ler.menu = 0;
  14465  0045EA  91FE               	bcf	_button_bounce_controller& (0+255),0,b
  14466                           
- 14467                           ;fs_menu_controller.c: 93:         menu_flags.menu_input_flag = 0;
+ 14467                           ;fs_menu_controller.c: 91:         menu_flags.menu_input_flag = 0;
  14468  0045EC  91FD               	bcf	_menu_flags& (0+255),0,b
  14469  0045EE                     l316:
  14470                           
  14471                           ; BSR set to: 0
- 14472                           ;fs_menu_controller.c: 97:     if ((button_bounce_controller.pause == 0) && (PORTDbits.R
+ 14472                           ;fs_menu_controller.c: 95:     if ((button_bounce_controller.pause == 0) && (PORTDbits.R
       +                          D2 == 0))
  14473  0045EE  B7FE               	btfsc	_button_bounce_controller& (0+255),3,b
  14474  0045F0  EFFC  F022         	goto	u6901
@@ -14801,16 +14801,16 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14486  00460A                     u6910:
  14487  00460A                     
  14488                           ; BSR set to: 0
- 14489                           ;fs_menu_controller.c: 98:     {;fs_menu_controller.c: 99:         button_bounce_control
+ 14489                           ;fs_menu_controller.c: 96:     {;fs_menu_controller.c: 97:         button_bounce_control
       +                          ler.pause = 1;
  14490  00460A  87FE               	bsf	_button_bounce_controller& (0+255),3,b
  14491                           
- 14492                           ;fs_menu_controller.c: 100:         menu_flags.menu_pause_flag = 1;
+ 14492                           ;fs_menu_controller.c: 98:         menu_flags.menu_pause_flag = 1;
  14493  00460C  87FD               	bsf	_menu_flags& (0+255),3,b
  14494  00460E                     l317:
  14495                           
  14496                           ; BSR set to: 0
- 14497                           ;fs_menu_controller.c: 102:     if ((PORTDbits.RD2 == 1) && (button_bounce_controller.pa
+ 14497                           ;fs_menu_controller.c: 100:     if ((PORTDbits.RD2 == 1) && (button_bounce_controller.pa
       +                          use == 1))
  14498  00460E  A483               	btfss	131,2,c	;volatile
  14499  004610  EF0C  F023         	goto	u6921
@@ -14828,16 +14828,16 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14511  00462A                     u6930:
  14512  00462A                     
  14513                           ; BSR set to: 0
- 14514                           ;fs_menu_controller.c: 103:     {;fs_menu_controller.c: 104:         button_bounce_contr
+ 14514                           ;fs_menu_controller.c: 101:     {;fs_menu_controller.c: 102:         button_bounce_contr
       +                          oller.pause = 0;
  14515  00462A  97FE               	bcf	_button_bounce_controller& (0+255),3,b
  14516                           
- 14517                           ;fs_menu_controller.c: 105:         menu_flags.menu_pause_flag = 0;
+ 14517                           ;fs_menu_controller.c: 103:         menu_flags.menu_pause_flag = 0;
  14518  00462C  97FD               	bcf	_menu_flags& (0+255),3,b
  14519  00462E                     l318:
  14520                           
  14521                           ; BSR set to: 0
- 14522                           ;fs_menu_controller.c: 109:     if ((button_bounce_controller.start == 0) && (PORTDbits.
+ 14522                           ;fs_menu_controller.c: 107:     if ((button_bounce_controller.start == 0) && (PORTDbits.
       +                          RD0 == 0))
  14523  00462E  B3FE               	btfsc	_button_bounce_controller& (0+255),1,b
  14524  004630  EF1C  F023         	goto	u6941
@@ -14855,16 +14855,16 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14536  00464A                     u6950:
  14537  00464A                     
  14538                           ; BSR set to: 0
- 14539                           ;fs_menu_controller.c: 110:     {;fs_menu_controller.c: 111:         button_bounce_contr
+ 14539                           ;fs_menu_controller.c: 108:     {;fs_menu_controller.c: 109:         button_bounce_contr
       +                          oller.start = 1;
  14540  00464A  83FE               	bsf	_button_bounce_controller& (0+255),1,b
  14541                           
- 14542                           ;fs_menu_controller.c: 112:         menu_flags.menu_start_flag = 1;
+ 14542                           ;fs_menu_controller.c: 110:         menu_flags.menu_start_flag = 1;
  14543  00464C  83FD               	bsf	_menu_flags& (0+255),1,b
  14544  00464E                     l319:
  14545                           
  14546                           ; BSR set to: 0
- 14547                           ;fs_menu_controller.c: 114:     if ((PORTDbits.RD0 == 1) && (button_bounce_controller.st
+ 14547                           ;fs_menu_controller.c: 112:     if ((PORTDbits.RD0 == 1) && (button_bounce_controller.st
       +                          art == 1))
  14548  00464E  A083               	btfss	131,0,c	;volatile
  14549  004650  EF2C  F023         	goto	u6961
@@ -14882,16 +14882,16 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14561  00466A                     u6970:
  14562  00466A                     
  14563                           ; BSR set to: 0
- 14564                           ;fs_menu_controller.c: 115:     {;fs_menu_controller.c: 116:         button_bounce_contr
+ 14564                           ;fs_menu_controller.c: 113:     {;fs_menu_controller.c: 114:         button_bounce_contr
       +                          oller.start = 0;
  14565  00466A  93FE               	bcf	_button_bounce_controller& (0+255),1,b
  14566                           
- 14567                           ;fs_menu_controller.c: 117:         menu_flags.menu_start_flag = 0;
+ 14567                           ;fs_menu_controller.c: 115:         menu_flags.menu_start_flag = 0;
  14568  00466C  93FD               	bcf	_menu_flags& (0+255),1,b
  14569  00466E                     l320:
  14570                           
  14571                           ; BSR set to: 0
- 14572                           ;fs_menu_controller.c: 121:     if ((button_bounce_controller.stop == 0) && (PORTDbits.R
+ 14572                           ;fs_menu_controller.c: 119:     if ((button_bounce_controller.stop == 0) && (PORTDbits.R
       +                          D1 == 0))
  14573  00466E  B5FE               	btfsc	_button_bounce_controller& (0+255),2,b
  14574  004670  EF3C  F023         	goto	u6981
@@ -14909,16 +14909,16 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14586  00468A                     u6990:
  14587  00468A                     
  14588                           ; BSR set to: 0
- 14589                           ;fs_menu_controller.c: 122:     {;fs_menu_controller.c: 123:         button_bounce_contr
+ 14589                           ;fs_menu_controller.c: 120:     {;fs_menu_controller.c: 121:         button_bounce_contr
       +                          oller.stop = 1;
  14590  00468A  85FE               	bsf	_button_bounce_controller& (0+255),2,b
  14591                           
- 14592                           ;fs_menu_controller.c: 124:         menu_flags.menu_stop_flag = 1;
+ 14592                           ;fs_menu_controller.c: 122:         menu_flags.menu_stop_flag = 1;
  14593  00468C  85FD               	bsf	_menu_flags& (0+255),2,b
  14594  00468E                     l321:
  14595                           
  14596                           ; BSR set to: 0
- 14597                           ;fs_menu_controller.c: 126:     if ((PORTDbits.RD1 == 1) && (button_bounce_controller.st
+ 14597                           ;fs_menu_controller.c: 124:     if ((PORTDbits.RD1 == 1) && (button_bounce_controller.st
       +                          op == 1))
  14598  00468E  A283               	btfss	131,1,c	;volatile
  14599  004690  EF4C  F023         	goto	u7001
@@ -14936,16 +14936,16 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14611  0046AA                     u7010:
  14612  0046AA                     
  14613                           ; BSR set to: 0
- 14614                           ;fs_menu_controller.c: 127:     {;fs_menu_controller.c: 128:         button_bounce_contr
+ 14614                           ;fs_menu_controller.c: 125:     {;fs_menu_controller.c: 126:         button_bounce_contr
       +                          oller.stop = 0;
  14615  0046AA  95FE               	bcf	_button_bounce_controller& (0+255),2,b
  14616                           
- 14617                           ;fs_menu_controller.c: 129:         menu_flags.menu_stop_flag = 0;
+ 14617                           ;fs_menu_controller.c: 127:         menu_flags.menu_stop_flag = 0;
  14618  0046AC  95FD               	bcf	_menu_flags& (0+255),2,b
  14619  0046AE                     l322:
  14620                           
  14621                           ; BSR set to: 0
- 14622                           ;fs_menu_controller.c: 133:     if ((button_bounce_controller.increase == 0) && (PORTDbi
+ 14622                           ;fs_menu_controller.c: 131:     if ((button_bounce_controller.increase == 0) && (PORTDbi
       +                          ts.RD4 == 1))
  14623  0046AE  BBFE               	btfsc	_button_bounce_controller& (0+255),5,b
  14624  0046B0  EF5C  F023         	goto	u7021
@@ -14963,16 +14963,16 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14636  0046CA                     u7030:
  14637  0046CA                     
  14638                           ; BSR set to: 0
- 14639                           ;fs_menu_controller.c: 134:     {;fs_menu_controller.c: 135:         button_bounce_contr
+ 14639                           ;fs_menu_controller.c: 132:     {;fs_menu_controller.c: 133:         button_bounce_contr
       +                          oller.increase = 1;
  14640  0046CA  8BFE               	bsf	_button_bounce_controller& (0+255),5,b
  14641                           
- 14642                           ;fs_menu_controller.c: 136:         menu_flags.menu_increase_flag = 1;
+ 14642                           ;fs_menu_controller.c: 134:         menu_flags.menu_increase_flag = 1;
  14643  0046CC  89FD               	bsf	_menu_flags& (0+255),4,b
  14644  0046CE                     l323:
  14645                           
  14646                           ; BSR set to: 0
- 14647                           ;fs_menu_controller.c: 138:     if ((PORTDbits.RD4 == 0) && (button_bounce_controller.in
+ 14647                           ;fs_menu_controller.c: 136:     if ((PORTDbits.RD4 == 0) && (button_bounce_controller.in
       +                          crease == 1))
  14648  0046CE  B883               	btfsc	131,4,c	;volatile
  14649  0046D0  EF6C  F023         	goto	u7041
@@ -14990,16 +14990,16 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14661  0046EA                     u7050:
  14662  0046EA                     
  14663                           ; BSR set to: 0
- 14664                           ;fs_menu_controller.c: 139:     {;fs_menu_controller.c: 140:         button_bounce_contr
+ 14664                           ;fs_menu_controller.c: 137:     {;fs_menu_controller.c: 138:         button_bounce_contr
       +                          oller.increase = 0;
  14665  0046EA  9BFE               	bcf	_button_bounce_controller& (0+255),5,b
  14666                           
- 14667                           ;fs_menu_controller.c: 141:         menu_flags.menu_increase_flag = 0;
+ 14667                           ;fs_menu_controller.c: 139:         menu_flags.menu_increase_flag = 0;
  14668  0046EC  99FD               	bcf	_menu_flags& (0+255),4,b
  14669  0046EE                     l324:
  14670                           
  14671                           ; BSR set to: 0
- 14672                           ;fs_menu_controller.c: 145:     if ((button_bounce_controller.decrease == 0) && (PORTBbi
+ 14672                           ;fs_menu_controller.c: 143:     if ((button_bounce_controller.decrease == 0) && (PORTBbi
       +                          ts.RB6 == 1))
  14673  0046EE  B9FE               	btfsc	_button_bounce_controller& (0+255),4,b
  14674  0046F0  EF7C  F023         	goto	u7061
@@ -15017,16 +15017,16 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14686  00470A                     u7070:
  14687  00470A                     
  14688                           ; BSR set to: 0
- 14689                           ;fs_menu_controller.c: 146:     {;fs_menu_controller.c: 147:         button_bounce_contr
+ 14689                           ;fs_menu_controller.c: 144:     {;fs_menu_controller.c: 145:         button_bounce_contr
       +                          oller.decrease = 1;
  14690  00470A  89FE               	bsf	_button_bounce_controller& (0+255),4,b
  14691                           
- 14692                           ;fs_menu_controller.c: 148:         menu_flags.menu_decrease_flag = 1;
+ 14692                           ;fs_menu_controller.c: 146:         menu_flags.menu_decrease_flag = 1;
  14693  00470C  8BFD               	bsf	_menu_flags& (0+255),5,b
  14694  00470E                     l325:
  14695                           
  14696                           ; BSR set to: 0
- 14697                           ;fs_menu_controller.c: 150:     if ((PORTBbits.RB6 == 0) && (button_bounce_controller.de
+ 14697                           ;fs_menu_controller.c: 148:     if ((PORTBbits.RB6 == 0) && (button_bounce_controller.de
       +                          crease == 1))
  14698  00470E  BC81               	btfsc	129,6,c	;volatile
  14699  004710  EF8C  F023         	goto	u7081
@@ -15044,11 +15044,11 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14711  00472A                     u7090:
  14712  00472A                     
  14713                           ; BSR set to: 0
- 14714                           ;fs_menu_controller.c: 151:     {;fs_menu_controller.c: 152:         button_bounce_contr
+ 14714                           ;fs_menu_controller.c: 149:     {;fs_menu_controller.c: 150:         button_bounce_contr
       +                          oller.decrease = 0;
  14715  00472A  99FE               	bcf	_button_bounce_controller& (0+255),4,b
  14716                           
- 14717                           ;fs_menu_controller.c: 153:         menu_flags.menu_decrease_flag = 0;
+ 14717                           ;fs_menu_controller.c: 151:         menu_flags.menu_decrease_flag = 0;
  14718  00472C  9BFD               	bcf	_menu_flags& (0+255),5,b
  14719  00472E                     l327:
  14720                           
@@ -15904,9 +15904,9 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  15567                           ;	ECCP2 B output mux bit
  15568                           ;	P2BMX = PORTD2, P2B is on RD2
  15569                           ;	MCLR Pin Enable bit
- 15570                           ;	MCLRE = EXTMCLR, MCLR pin enabled, RE3 input pin disabled
+ 15570                           ;	MCLRE = INTMCLR, RE3 input pin enabled; MCLR disabled
  15571  300005                     	org	3145733
- 15572  300005  BD                 	db	189
+ 15572  300005  3D                 	db	61
  15573                           
  15574                           ;Config register CONFIG4L @ 0x300006
  15575                           ;	Stack Full/Underflow Reset Enable bit
@@ -16975,7 +16975,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Thu Aug 13 16:17:37 2020
+Symbol Table                                                                                   Thu Aug 13 16:51:55 2020
 
                    ___fldiv@aexp 004D                     ___fldiv@bexp 004C  
                    ___fldiv@sign 0045                               l41 59E8  
