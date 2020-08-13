@@ -989,8 +989,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_timer.c: 41:         timer_value.timer_0_counter++;
 [e ++ . _timer_value 5 -> -> 1 `i `uc ]
 "43
-[; ;fs_timer.c: 43:         if(button_bounce_controller.menu == 0)
-[e $ ! == -> . _button_bounce_controller 0 `i -> 0 `i 860  ]
+[; ;fs_timer.c: 43:         if(button_bounce_controller.menu == 1)
+[e $ ! == -> . _button_bounce_controller 0 `i -> 1 `i 860  ]
 "44
 [; ;fs_timer.c: 44:         {
 {

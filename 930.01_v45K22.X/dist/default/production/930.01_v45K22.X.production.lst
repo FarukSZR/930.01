@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Thu Aug 13 15:38:48 2020
+                                                                                               Thu Aug 13 16:13:52 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	18F45K22
@@ -15745,8 +15745,8 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  15410  000032  2BFC               	incf	(_timer_value+9)& (0+255),f,b
  15411  000034                     
  15412                           ; BSR set to: 0
- 15413                           ;fs_timer.c: 43:         if(button_bounce_controller.menu == 0)
- 15414  000034  B1FE               	btfsc	_button_bounce_controller& (0+255),0,b
+ 15413                           ;fs_timer.c: 43:         if(button_bounce_controller.menu == 1)
+ 15414  000034  A1FE               	btfss	_button_bounce_controller& (0+255),0,b
  15415  000036  EF1F  F000         	goto	i2u779_41
  15416  00003A  EF21  F000         	goto	i2u779_40
  15417  00003E                     i2u779_41:
@@ -16975,7 +16975,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Thu Aug 13 15:38:48 2020
+Symbol Table                                                                                   Thu Aug 13 16:13:52 2020
 
                    ___fldiv@aexp 004D                     ___fldiv@bexp 004C  
                    ___fldiv@sign 0045                               l41 59E8  
