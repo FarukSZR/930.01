@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Thu Aug 13 17:01:00 2020
+                                                                                               Thu Aug 13 17:04:44 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	18F45K22
@@ -14784,7 +14784,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14470                           
  14471                           ; BSR set to: 0
  14472                           ;fs_menu_controller.c: 95:     if ((button_bounce_controller.pause == 0) && (PORTDbits.R
-      +                          D2 == 0))
+      +                          D2 == 1))
  14473  0045EE  B7FE               	btfsc	_button_bounce_controller& (0+255),3,b
  14474  0045F0  EFFC  F022         	goto	u6901
  14475  0045F4  EFFE  F022         	goto	u6900
@@ -14793,7 +14793,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14478  0045FC                     u6900:
  14479  0045FC                     
  14480                           ; BSR set to: 0
- 14481  0045FC  B483               	btfsc	131,2,c	;volatile
+ 14481  0045FC  A483               	btfss	131,2,c	;volatile
  14482  0045FE  EF03  F023         	goto	u6911
  14483  004602  EF05  F023         	goto	u6910
  14484  004606                     u6911:
@@ -14810,9 +14810,9 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14494  00460E                     l317:
  14495                           
  14496                           ; BSR set to: 0
- 14497                           ;fs_menu_controller.c: 100:     if ((PORTDbits.RD2 == 1) && (button_bounce_controller.pa
+ 14497                           ;fs_menu_controller.c: 100:     if ((PORTDbits.RD2 == 0) && (button_bounce_controller.pa
       +                          use == 1))
- 14498  00460E  A483               	btfss	131,2,c	;volatile
+ 14498  00460E  B483               	btfsc	131,2,c	;volatile
  14499  004610  EF0C  F023         	goto	u6921
  14500  004614  EF0E  F023         	goto	u6920
  14501  004618                     u6921:
@@ -14838,7 +14838,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14520                           
  14521                           ; BSR set to: 0
  14522                           ;fs_menu_controller.c: 107:     if ((button_bounce_controller.start == 0) && (PORTDbits.
-      +                          RD0 == 0))
+      +                          RD0 == 1))
  14523  00462E  B3FE               	btfsc	_button_bounce_controller& (0+255),1,b
  14524  004630  EF1C  F023         	goto	u6941
  14525  004634  EF1E  F023         	goto	u6940
@@ -14847,7 +14847,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14528  00463C                     u6940:
  14529  00463C                     
  14530                           ; BSR set to: 0
- 14531  00463C  B083               	btfsc	131,0,c	;volatile
+ 14531  00463C  A083               	btfss	131,0,c	;volatile
  14532  00463E  EF23  F023         	goto	u6951
  14533  004642  EF25  F023         	goto	u6950
  14534  004646                     u6951:
@@ -14864,9 +14864,9 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14544  00464E                     l319:
  14545                           
  14546                           ; BSR set to: 0
- 14547                           ;fs_menu_controller.c: 112:     if ((PORTDbits.RD0 == 1) && (button_bounce_controller.st
+ 14547                           ;fs_menu_controller.c: 112:     if ((PORTDbits.RD0 == 0) && (button_bounce_controller.st
       +                          art == 1))
- 14548  00464E  A083               	btfss	131,0,c	;volatile
+ 14548  00464E  B083               	btfsc	131,0,c	;volatile
  14549  004650  EF2C  F023         	goto	u6961
  14550  004654  EF2E  F023         	goto	u6960
  14551  004658                     u6961:
@@ -14892,7 +14892,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14570                           
  14571                           ; BSR set to: 0
  14572                           ;fs_menu_controller.c: 119:     if ((button_bounce_controller.stop == 0) && (PORTDbits.R
-      +                          D1 == 0))
+      +                          D1 == 1))
  14573  00466E  B5FE               	btfsc	_button_bounce_controller& (0+255),2,b
  14574  004670  EF3C  F023         	goto	u6981
  14575  004674  EF3E  F023         	goto	u6980
@@ -14901,7 +14901,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14578  00467C                     u6980:
  14579  00467C                     
  14580                           ; BSR set to: 0
- 14581  00467C  B283               	btfsc	131,1,c	;volatile
+ 14581  00467C  A283               	btfss	131,1,c	;volatile
  14582  00467E  EF43  F023         	goto	u6991
  14583  004682  EF45  F023         	goto	u6990
  14584  004686                     u6991:
@@ -14918,9 +14918,9 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14594  00468E                     l321:
  14595                           
  14596                           ; BSR set to: 0
- 14597                           ;fs_menu_controller.c: 124:     if ((PORTDbits.RD1 == 1) && (button_bounce_controller.st
+ 14597                           ;fs_menu_controller.c: 124:     if ((PORTDbits.RD1 == 0) && (button_bounce_controller.st
       +                          op == 1))
- 14598  00468E  A283               	btfss	131,1,c	;volatile
+ 14598  00468E  B283               	btfsc	131,1,c	;volatile
  14599  004690  EF4C  F023         	goto	u7001
  14600  004694  EF4E  F023         	goto	u7000
  14601  004698                     u7001:
@@ -16975,7 +16975,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Thu Aug 13 17:01:00 2020
+Symbol Table                                                                                   Thu Aug 13 17:04:44 2020
 
                    ___fldiv@aexp 004D                     ___fldiv@bexp 004C  
                    ___fldiv@sign 0045                               l41 59E8  

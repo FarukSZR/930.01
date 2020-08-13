@@ -951,8 +951,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 862 ]
 "95
-[; ;fs_menu_controller.c: 95:     if ((button_bounce_controller.pause == 0) && (PORTDbits.RD2 == 0))
-[e $ ! && == -> . _button_bounce_controller 3 `i -> 0 `i == -> . . _PORTDbits 0 2 `i -> 0 `i 863  ]
+[; ;fs_menu_controller.c: 95:     if ((button_bounce_controller.pause == 0) && (PORTDbits.RD2 == 1))
+[e $ ! && == -> . _button_bounce_controller 3 `i -> 0 `i == -> . . _PORTDbits 0 2 `i -> 1 `i 863  ]
 "96
 [; ;fs_menu_controller.c: 96:     {
 {
@@ -967,8 +967,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 863 ]
 "100
-[; ;fs_menu_controller.c: 100:     if ((PORTDbits.RD2 == 1) && (button_bounce_controller.pause == 1))
-[e $ ! && == -> . . _PORTDbits 0 2 `i -> 1 `i == -> . _button_bounce_controller 3 `i -> 1 `i 864  ]
+[; ;fs_menu_controller.c: 100:     if ((PORTDbits.RD2 == 0) && (button_bounce_controller.pause == 1))
+[e $ ! && == -> . . _PORTDbits 0 2 `i -> 0 `i == -> . _button_bounce_controller 3 `i -> 1 `i 864  ]
 "101
 [; ;fs_menu_controller.c: 101:     {
 {
@@ -983,8 +983,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 864 ]
 "107
-[; ;fs_menu_controller.c: 107:     if ((button_bounce_controller.start == 0) && (PORTDbits.RD0 == 0))
-[e $ ! && == -> . _button_bounce_controller 1 `i -> 0 `i == -> . . _PORTDbits 0 0 `i -> 0 `i 865  ]
+[; ;fs_menu_controller.c: 107:     if ((button_bounce_controller.start == 0) && (PORTDbits.RD0 == 1))
+[e $ ! && == -> . _button_bounce_controller 1 `i -> 0 `i == -> . . _PORTDbits 0 0 `i -> 1 `i 865  ]
 "108
 [; ;fs_menu_controller.c: 108:     {
 {
@@ -999,8 +999,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 865 ]
 "112
-[; ;fs_menu_controller.c: 112:     if ((PORTDbits.RD0 == 1) && (button_bounce_controller.start == 1))
-[e $ ! && == -> . . _PORTDbits 0 0 `i -> 1 `i == -> . _button_bounce_controller 1 `i -> 1 `i 866  ]
+[; ;fs_menu_controller.c: 112:     if ((PORTDbits.RD0 == 0) && (button_bounce_controller.start == 1))
+[e $ ! && == -> . . _PORTDbits 0 0 `i -> 0 `i == -> . _button_bounce_controller 1 `i -> 1 `i 866  ]
 "113
 [; ;fs_menu_controller.c: 113:     {
 {
@@ -1015,8 +1015,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 866 ]
 "119
-[; ;fs_menu_controller.c: 119:     if ((button_bounce_controller.stop == 0) && (PORTDbits.RD1 == 0))
-[e $ ! && == -> . _button_bounce_controller 2 `i -> 0 `i == -> . . _PORTDbits 0 1 `i -> 0 `i 867  ]
+[; ;fs_menu_controller.c: 119:     if ((button_bounce_controller.stop == 0) && (PORTDbits.RD1 == 1))
+[e $ ! && == -> . _button_bounce_controller 2 `i -> 0 `i == -> . . _PORTDbits 0 1 `i -> 1 `i 867  ]
 "120
 [; ;fs_menu_controller.c: 120:     {
 {
@@ -1031,8 +1031,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 867 ]
 "124
-[; ;fs_menu_controller.c: 124:     if ((PORTDbits.RD1 == 1) && (button_bounce_controller.stop == 1))
-[e $ ! && == -> . . _PORTDbits 0 1 `i -> 1 `i == -> . _button_bounce_controller 2 `i -> 1 `i 868  ]
+[; ;fs_menu_controller.c: 124:     if ((PORTDbits.RD1 == 0) && (button_bounce_controller.stop == 1))
+[e $ ! && == -> . . _PORTDbits 0 1 `i -> 0 `i == -> . _button_bounce_controller 2 `i -> 1 `i 868  ]
 "125
 [; ;fs_menu_controller.c: 125:     {
 {
