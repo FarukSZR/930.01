@@ -9840,7 +9840,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 #pragma config HFOFST = ON
 #pragma config T3CMX = PORTC0
 #pragma config P2BMX = PORTD2
-#pragma config MCLRE = INTMCLR
+#pragma config MCLRE = EXTMCLR
 
 
 #pragma config STVREN = OFF
@@ -10104,7 +10104,6 @@ void main(void)
     PWM_Init();
     PWM1_setDC(0);
     PWM2_setDC(0);
-
 
 while(1)
 {

@@ -68,9 +68,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "44 ./fs_eeprom.h
 [; ;./fs_eeprom.h: 44: uint8_t eepromRead(uint8_t address);
 [v _eepromRead `(uc ~T0 @X0 0 ef1`uc ]
-[v F5945 `(v ~T0 @X0 1 tf1`ul ]
+[v F5943 `(v ~T0 @X0 1 tf1`ul ]
 "203 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
-[v __delay `JF5945 ~T0 @X0 0 e ]
+[v __delay `JF5943 ~T0 @X0 0 e ]
 [p i __delay ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
 [; <" ANSELA equ 0F38h ;# ">
@@ -576,33 +576,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FFEh ;# ">
 "17372
 [; <" TOSU equ 0FFFh ;# ">
-"108 ./fs_adc.h
-[; ;./fs_adc.h: 108: tS_adc_raw_data adc_raw_data;
-[v _adc_raw_data `S853 ~T0 @X0 1 e ]
-"109
-[; ;./fs_adc.h: 109: tS_procces_data procces_data;
-[v _procces_data `S854 ~T0 @X0 1 e ]
-"110
-[; ;./fs_adc.h: 110: tS_convert_data convert_data;
-[v _convert_data `S855 ~T0 @X0 1 e ]
-"111
-[; ;./fs_adc.h: 111: tS_driver_limit driver_limit;
-[v _driver_limit `S856 ~T0 @X0 1 e ]
-"38 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 38: static float KP = 0.2;
-[v _KP `f ~T0 @X0 1 s ]
-[i _KP
--> .0.2 `f
-]
-"39
-[; ;./fs_speed_controller.h: 39: static float KD = 1.0;
-[v _KD `f ~T0 @X0 1 s ]
-[i _KD
--> .1.0 `f
-]
-"69
-[; ;./fs_speed_controller.h: 69: tS_controller controller;
-[v _controller `S857 ~T0 @X0 1 e ]
 "33 ./fs_main.h
 [p n 520 ]
 "38
@@ -638,7 +611,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "61
 [p x P2BMX = PORTD2 ]
 "62
-[p x MCLRE = INTMCLR ]
+[p x MCLRE = EXTMCLR ]
 "65
 [p x STVREN = OFF ]
 "66
@@ -681,6 +654,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3 = OFF ]
 "97
 [p x EBTRB = OFF ]
+"108 ./fs_adc.h
+[; ;./fs_adc.h: 108: tS_adc_raw_data adc_raw_data;
+[v _adc_raw_data `S853 ~T0 @X0 1 e ]
+"109
+[; ;./fs_adc.h: 109: tS_procces_data procces_data;
+[v _procces_data `S854 ~T0 @X0 1 e ]
+"110
+[; ;./fs_adc.h: 110: tS_convert_data convert_data;
+[v _convert_data `S855 ~T0 @X0 1 e ]
+"111
+[; ;./fs_adc.h: 111: tS_driver_limit driver_limit;
+[v _driver_limit `S856 ~T0 @X0 1 e ]
+"38 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 38: static float KP = 0.2;
+[v _KP `f ~T0 @X0 1 s ]
+[i _KP
+-> .0.2 `f
+]
+"39
+[; ;./fs_speed_controller.h: 39: static float KD = 1.0;
+[v _KD `f ~T0 @X0 1 s ]
+[i _KD
+-> .1.0 `f
+]
+"69
+[; ;./fs_speed_controller.h: 69: tS_controller controller;
+[v _controller `S857 ~T0 @X0 1 e ]
 "56 ./fs_timer.h
 [; ;./fs_timer.h: 56: tS_timer_counter_flag timer_counter_flag = {0};
 [v _timer_counter_flag `S858 ~T0 @X0 1 e ]
@@ -755,115 +755,115 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"41 fs_mcu.c
-[; ;fs_mcu.c: 41: void mcu_init(void)
+"42 fs_mcu.c
+[; ;fs_mcu.c: 42: void mcu_init(void)
 [v _mcu_init `(v ~T0 @X0 1 ef ]
-"42
-[; ;fs_mcu.c: 42: {
+"43
+[; ;fs_mcu.c: 43: {
 {
 [e :U _mcu_init ]
 [f ]
-"43
-[; ;fs_mcu.c: 43:    OSCCONbits.IRCF = 0b111;
-[e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
 "44
-[; ;fs_mcu.c: 44:    OSCTUNEbits.PLLEN = 0b1;
-[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
+[; ;fs_mcu.c: 44:    OSCCONbits.IRCF = 0b111;
+[e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
 "45
-[; ;fs_mcu.c: 45:    while(!OSCCONbits.HFIOFS);
+[; ;fs_mcu.c: 45:    OSCTUNEbits.PLLEN = 0b1;
+[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
+"46
+[; ;fs_mcu.c: 46:    while(!OSCCONbits.HFIOFS);
 [e $U 864  ]
 [e :U 865 ]
 [e :U 864 ]
 [e $ ! != -> . . _OSCCONbits 0 1 `i -> 0 `i 865  ]
 [e :U 866 ]
-"46
-[; ;fs_mcu.c: 46: }
+"47
+[; ;fs_mcu.c: 47: }
 [e :UE 863 ]
 }
-"55
-[; ;fs_mcu.c: 55: void system_init(void)
-[v _system_init `(v ~T0 @X0 1 ef ]
 "56
-[; ;fs_mcu.c: 56: {
+[; ;fs_mcu.c: 56: void system_init(void)
+[v _system_init `(v ~T0 @X0 1 ef ]
+"57
+[; ;fs_mcu.c: 57: {
 {
 [e :U _system_init ]
 [f ]
-"57
-[; ;fs_mcu.c: 57:     driver_limit.pay = 0;
-[e = . _driver_limit 0 -> -> -> 0 `i `l `ul ]
 "58
-[; ;fs_mcu.c: 58:     driver_limit.payda = 0;
-[e = . _driver_limit 1 -> -> -> 0 `i `l `ul ]
+[; ;fs_mcu.c: 58:     driver_limit.pay = 0;
+[e = . _driver_limit 0 -> -> -> 0 `i `l `ul ]
 "59
-[; ;fs_mcu.c: 59:     driver_limit.ortalama = 0;
-[e = . _driver_limit 2 -> -> 0 `i `f ]
+[; ;fs_mcu.c: 59:     driver_limit.payda = 0;
+[e = . _driver_limit 1 -> -> -> 0 `i `l `ul ]
 "60
-[; ;fs_mcu.c: 60:     convert_data.convert_channel_0 = 0;
-[e = . _convert_data 0 -> -> -> 0 `i `l `ul ]
+[; ;fs_mcu.c: 60:     driver_limit.ortalama = 0;
+[e = . _driver_limit 2 -> -> 0 `i `f ]
 "61
-[; ;fs_mcu.c: 61:     convert_data.convert_channel_1 = 0;
-[e = . _convert_data 1 -> -> -> 0 `i `l `ul ]
+[; ;fs_mcu.c: 61:     convert_data.convert_channel_0 = 0;
+[e = . _convert_data 0 -> -> -> 0 `i `l `ul ]
 "62
-[; ;fs_mcu.c: 62:     convert_data.convert_channel_2 = 0;
-[e = . _convert_data 2 -> -> -> 0 `i `l `ul ]
+[; ;fs_mcu.c: 62:     convert_data.convert_channel_1 = 0;
+[e = . _convert_data 1 -> -> -> 0 `i `l `ul ]
 "63
-[; ;fs_mcu.c: 63:     convert_data.convert_channel_3 = 0;
-[e = . _convert_data 3 -> -> -> 0 `i `l `ul ]
+[; ;fs_mcu.c: 63:     convert_data.convert_channel_2 = 0;
+[e = . _convert_data 2 -> -> -> 0 `i `l `ul ]
 "64
-[; ;fs_mcu.c: 64:     convert_data.convert_channel_4 = 0;
-[e = . _convert_data 4 -> -> -> 0 `i `l `ul ]
+[; ;fs_mcu.c: 64:     convert_data.convert_channel_3 = 0;
+[e = . _convert_data 3 -> -> -> 0 `i `l `ul ]
 "65
-[; ;fs_mcu.c: 65:     convert_data.convert_channel_5 = 0;
-[e = . _convert_data 5 -> -> -> 0 `i `l `ul ]
+[; ;fs_mcu.c: 65:     convert_data.convert_channel_4 = 0;
+[e = . _convert_data 4 -> -> -> 0 `i `l `ul ]
 "66
-[; ;fs_mcu.c: 66:     convert_data.convert_channel_6 = 0;
-[e = . _convert_data 6 -> -> -> 0 `i `l `ul ]
+[; ;fs_mcu.c: 66:     convert_data.convert_channel_5 = 0;
+[e = . _convert_data 5 -> -> -> 0 `i `l `ul ]
 "67
-[; ;fs_mcu.c: 67:     convert_data.convert_channel_7 = 0;
-[e = . _convert_data 7 -> -> -> 0 `i `l `ul ]
+[; ;fs_mcu.c: 67:     convert_data.convert_channel_6 = 0;
+[e = . _convert_data 6 -> -> -> 0 `i `l `ul ]
 "68
-[; ;fs_mcu.c: 68:     controller.leftMotorSpeed = 0;
-[e = . _controller 3 -> -> 0 `i `s ]
+[; ;fs_mcu.c: 68:     convert_data.convert_channel_7 = 0;
+[e = . _convert_data 7 -> -> -> 0 `i `l `ul ]
 "69
-[; ;fs_mcu.c: 69:     controller.rightMotorSpeed = 0;
-[e = . _controller 4 -> -> 0 `i `s ]
+[; ;fs_mcu.c: 69:     controller.leftMotorSpeed = 0;
+[e = . _controller 3 -> -> 0 `i `s ]
 "70
-[; ;fs_mcu.c: 70:     timer_value.timer_0_counter = 0;
-[e = . _timer_value 5 -> -> 0 `i `uc ]
+[; ;fs_mcu.c: 70:     controller.rightMotorSpeed = 0;
+[e = . _controller 4 -> -> 0 `i `s ]
 "71
-[; ;fs_mcu.c: 71:     controller.error = 0;
+[; ;fs_mcu.c: 71:     timer_value.timer_0_counter = 0;
+[e = . _timer_value 5 -> -> 0 `i `uc ]
+"72
+[; ;fs_mcu.c: 72:     controller.error = 0;
 [e = . _controller 0 -> -> 0 `i `s ]
-"73
-[; ;fs_mcu.c: 73:     button_bounce_controller.menu = 0;
-[e = . _button_bounce_controller 0 -> -> 0 `i `uc ]
 "74
-[; ;fs_mcu.c: 74:     button_bounce_controller.pause = 0;
-[e = . _button_bounce_controller 3 -> -> 0 `i `uc ]
+[; ;fs_mcu.c: 74:     button_bounce_controller.menu = 0;
+[e = . _button_bounce_controller 0 -> -> 0 `i `uc ]
 "75
-[; ;fs_mcu.c: 75:     button_bounce_controller.start = 0;
-[e = . _button_bounce_controller 1 -> -> 0 `i `uc ]
+[; ;fs_mcu.c: 75:     button_bounce_controller.pause = 0;
+[e = . _button_bounce_controller 3 -> -> 0 `i `uc ]
 "76
-[; ;fs_mcu.c: 76:     button_bounce_controller.stop = 0;
-[e = . _button_bounce_controller 2 -> -> 0 `i `uc ]
+[; ;fs_mcu.c: 76:     button_bounce_controller.start = 0;
+[e = . _button_bounce_controller 1 -> -> 0 `i `uc ]
 "77
-[; ;fs_mcu.c: 77:     menu_value.driver_time = (uint8_t)eepromRead(0x00);
-[e = . _menu_value 0 ( _eepromRead (1 -> -> 0 `i `uc ]
+[; ;fs_mcu.c: 77:     button_bounce_controller.stop = 0;
+[e = . _button_bounce_controller 2 -> -> 0 `i `uc ]
 "78
-[; ;fs_mcu.c: 78:     menu_value.stop_time = (uint8_t)eepromRead(0x01);
-[e = . _menu_value 1 ( _eepromRead (1 -> -> 1 `i `uc ]
+[; ;fs_mcu.c: 78:     menu_value.driver_time = (uint8_t)eepromRead(0x00);
+[e = . _menu_value 0 ( _eepromRead (1 -> -> 0 `i `uc ]
 "79
-[; ;fs_mcu.c: 79:     menu_value.speed_limit = (uint8_t)eepromRead(0x02);
+[; ;fs_mcu.c: 79:     menu_value.stop_time = (uint8_t)eepromRead(0x01);
+[e = . _menu_value 1 ( _eepromRead (1 -> -> 1 `i `uc ]
+"80
+[; ;fs_mcu.c: 80:     menu_value.speed_limit = (uint8_t)eepromRead(0x02);
 [e = . _menu_value 2 ( _eepromRead (1 -> -> 2 `i `uc ]
-"81
-[; ;fs_mcu.c: 81:     _delay((unsigned long)((700)*(64000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 700 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
 "82
-[; ;fs_mcu.c: 82:     timer_value.remainingMinute = menu_value.driver_time;
-[e = . _timer_value 3 -> . _menu_value 0 `s ]
+[; ;fs_mcu.c: 82:     _delay((unsigned long)((700)*(64000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 700 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
 "83
-[; ;fs_mcu.c: 83:     timer_value.remainingSecond = 0;
+[; ;fs_mcu.c: 83:     timer_value.remainingMinute = menu_value.driver_time;
+[e = . _timer_value 3 -> . _menu_value 0 `s ]
+"84
+[; ;fs_mcu.c: 84:     timer_value.remainingSecond = 0;
 [e = . _timer_value 2 -> -> 0 `i `us ]
-"86
-[; ;fs_mcu.c: 86: }
+"87
+[; ;fs_mcu.c: 87: }
 [e :UE 867 ]
 }

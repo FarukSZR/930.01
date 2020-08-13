@@ -9366,14 +9366,8 @@ extern volatile __bit nW2 __attribute__((address(0x7B6A)));
 extern volatile __bit nWRITE2 __attribute__((address(0x7B6A)));
 # 26 "fs_mcu.c" 2
 
-# 1 "./fs_mcu.h" 1
-# 35 "./fs_mcu.h"
-void mcu_init(void);
-void system_init(void);
-# 27 "fs_mcu.c" 2
-
-# 1 "./fs_adc.h" 1
-# 33 "./fs_adc.h"
+# 1 "./fs_main.h" 1
+# 31 "./fs_main.h"
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9534,8 +9528,84 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
-# 33 "./fs_adc.h" 2
+# 31 "./fs_main.h" 2
 
+
+#pragma warning disable 520
+
+
+
+
+#pragma config FOSC = INTIO67
+#pragma config PLLCFG = ON
+#pragma config PRICLKEN = ON
+#pragma config FCMEN = OFF
+#pragma config IESO = ON
+
+#pragma DEBUG = ON
+
+
+#pragma config PWRTEN = OFF
+#pragma config BOREN = SBORDIS
+#pragma config BORV = 190
+
+
+#pragma config WDTEN = OFF
+#pragma config WDTPS = 32768
+
+
+#pragma config CCP2MX = PORTC1
+#pragma config PBADEN = OFF
+#pragma config CCP3MX = PORTB5
+#pragma config HFOFST = ON
+#pragma config T3CMX = PORTC0
+#pragma config P2BMX = PORTD2
+#pragma config MCLRE = EXTMCLR
+
+
+#pragma config STVREN = OFF
+#pragma config LVP = ON
+#pragma config XINST = OFF
+
+
+#pragma config CP0 = OFF
+#pragma config CP1 = OFF
+#pragma config CP2 = OFF
+#pragma config CP3 = OFF
+
+
+#pragma config CPB = OFF
+#pragma config CPD = OFF
+
+
+#pragma config WRT0 = OFF
+#pragma config WRT1 = OFF
+#pragma config WRT2 = OFF
+#pragma config WRT3 = OFF
+
+
+#pragma config WRTC = OFF
+#pragma config WRTB = OFF
+#pragma config WRTD = OFF
+
+
+#pragma config EBTR0 = OFF
+#pragma config EBTR1 = OFF
+#pragma config EBTR2 = OFF
+#pragma config EBTR3 = OFF
+
+
+#pragma config EBTRB = OFF
+# 27 "fs_mcu.c" 2
+
+# 1 "./fs_mcu.h" 1
+# 35 "./fs_mcu.h"
+void mcu_init(void);
+void system_init(void);
+# 28 "fs_mcu.c" 2
+
+# 1 "./fs_adc.h" 1
+# 34 "./fs_adc.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -9823,7 +9893,7 @@ tS_adc_raw_data adc_raw_data;
 tS_procces_data procces_data;
 tS_convert_data convert_data;
 tS_driver_limit driver_limit;
-# 28 "fs_mcu.c" 2
+# 29 "fs_mcu.c" 2
 
 # 1 "./fs_speed_controller.h" 1
 # 38 "./fs_speed_controller.h"
@@ -9851,80 +9921,10 @@ typedef struct
 
 
 tS_controller controller;
-# 29 "fs_mcu.c" 2
+# 30 "fs_mcu.c" 2
 
 # 1 "./fs_timer.h" 1
-# 36 "./fs_timer.h"
-# 1 "./fs_main.h" 1
-# 33 "./fs_main.h"
-#pragma warning disable 520
-
-
-
-
-#pragma config FOSC = INTIO67
-#pragma config PLLCFG = ON
-#pragma config PRICLKEN = ON
-#pragma config FCMEN = OFF
-#pragma config IESO = ON
-
-#pragma DEBUG = ON
-
-
-#pragma config PWRTEN = OFF
-#pragma config BOREN = SBORDIS
-#pragma config BORV = 190
-
-
-#pragma config WDTEN = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config CCP2MX = PORTC1
-#pragma config PBADEN = OFF
-#pragma config CCP3MX = PORTB5
-#pragma config HFOFST = ON
-#pragma config T3CMX = PORTC0
-#pragma config P2BMX = PORTD2
-#pragma config MCLRE = INTMCLR
-
-
-#pragma config STVREN = OFF
-#pragma config LVP = ON
-#pragma config XINST = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = OFF
-# 36 "./fs_timer.h" 2
-
-
+# 38 "./fs_timer.h"
 void timer_0_init(void);
 
 
@@ -9945,7 +9945,7 @@ typedef struct
 
 tS_timer_counter_flag timer_counter_flag = {0};
 tS_timer_value timer_value = {0};
-# 30 "fs_mcu.c" 2
+# 31 "fs_mcu.c" 2
 
 # 1 "./fs_menu_controller.h" 1
 # 56 "./fs_menu_controller.h"
@@ -10007,21 +10007,21 @@ void mainMenu(void);
 void stopMenu(void);
 void pauseMenu(void);
 void startMenu(void);
-# 31 "fs_mcu.c" 2
+# 32 "fs_mcu.c" 2
 
 # 1 "./fs_eeprom.h" 1
 # 44 "./fs_eeprom.h"
 uint8_t eepromRead(uint8_t address);
 void eepromWrite(uint8_t address, uint8_t data);
-# 32 "fs_mcu.c" 2
-# 41 "fs_mcu.c"
+# 33 "fs_mcu.c" 2
+# 42 "fs_mcu.c"
 void mcu_init(void)
 {
    OSCCONbits.IRCF = 0b111;
    OSCTUNEbits.PLLEN = 0b1;
    while(!OSCCONbits.HFIOFS);
 }
-# 55 "fs_mcu.c"
+# 56 "fs_mcu.c"
 void system_init(void)
 {
     driver_limit.pay = 0;

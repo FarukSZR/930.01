@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Thu Aug 13 17:04:44 2020
+                                                                                               Thu Aug 13 17:53:02 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	18F45K22
@@ -1505,7 +1505,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1491  004CF4  ECFB  F029         	call	_PWM2_setDC	;wreg free
   1492  004CF8                     l6167:
   1493                           
-  1494                           ;fs_main.c: 61: {;fs_main.c: 62:     if (timer_counter_flag.one_second_flag == 1)
+  1494                           ;fs_main.c: 60: {;fs_main.c: 61:     if (timer_counter_flag.one_second_flag == 1)
   1495  004CF8  0101               	movlb	1	; () banked
   1496  004CFA  A1BE               	btfss	_timer_counter_flag& (0+255),0,b
   1497  004CFC  EF82  F026         	goto	u7701
@@ -1515,11 +1515,11 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1501  004D08                     u7700:
   1502  004D08                     
   1503                           ; BSR set to: 1
-  1504                           ;fs_main.c: 63:     {;fs_main.c: 64:         timer_counter_flag.one_second_flag = 0;
+  1504                           ;fs_main.c: 62:     {;fs_main.c: 63:         timer_counter_flag.one_second_flag = 0;
   1505  004D08  91BE               	bcf	_timer_counter_flag& (0+255),0,b
   1506  004D0A                     
   1507                           ; BSR set to: 1
-  1508                           ;fs_main.c: 66:         if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick 
+  1508                           ;fs_main.c: 65:         if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick 
       +                          == 0) && (menu_selected == MAIN_MENU) )
   1509  004D0A  05BD               	decf	_startIsClick& (0+255),w,b
   1510  004D0C  A4D8               	btfss	status,2,c
@@ -1559,13 +1559,13 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1544  004D4E                     u7740:
   1545  004D4E                     
   1546                           ; BSR set to: 1
-  1547                           ;fs_main.c: 67:         {;fs_main.c: 68:             timer_value.second++;
+  1547                           ;fs_main.c: 66:         {;fs_main.c: 67:             timer_value.second++;
   1548  004D4E  0100               	movlb	0	; () banked
   1549  004D50  4BF3               	infsnz	_timer_value& (0+255),f,b
   1550  004D52  2BF4               	incf	(_timer_value+1)& (0+255),f,b
   1551  004D54                     
   1552                           ; BSR set to: 0
-  1553                           ;fs_main.c: 69:             timer_value.remainingSecond = 60 - timer_value.second;
+  1553                           ;fs_main.c: 68:             timer_value.remainingSecond = 60 - timer_value.second;
   1554  004D54  51F3               	movf	_timer_value& (0+255),w,b
   1555  004D56  083C               	sublw	60
   1556  004D58  6FF7               	movwf	(_timer_value+4)& (0+255),b
@@ -1576,7 +1576,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1561  004D62  6FF8               	movwf	(_timer_value+5)& (0+255),b
   1562  004D64                     
   1563                           ; BSR set to: 0
-  1564                           ;fs_main.c: 71:             if (timer_value.remainingSecond == 59 )
+  1564                           ;fs_main.c: 70:             if (timer_value.remainingSecond == 59 )
   1565  004D64  0E3B               	movlw	59
   1566  004D66  19F7               	xorwf	(_timer_value+4)& (0+255),w,b
   1567  004D68  11F8               	iorwf	(_timer_value+5)& (0+255),w,b
@@ -1588,12 +1588,12 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1573  004D78                     u7750:
   1574  004D78                     
   1575                           ; BSR set to: 0
-  1576                           ;fs_main.c: 72:             {;fs_main.c: 73:                 timer_value.minute++;
+  1576                           ;fs_main.c: 71:             {;fs_main.c: 72:                 timer_value.minute++;
   1577  004D78  4BF5               	infsnz	(_timer_value+2)& (0+255),f,b
   1578  004D7A  2BF6               	incf	(_timer_value+3)& (0+255),f,b
   1579  004D7C                     
   1580                           ; BSR set to: 0
-  1581                           ;fs_main.c: 74:                 timer_value.remainingMinute = menu_value.driver_time - t
+  1581                           ;fs_main.c: 73:                 timer_value.remainingMinute = menu_value.driver_time - t
       +                          imer_value.minute;
   1582  004D7C  51F5               	movf	(_timer_value+2)& (0+255),w,b
   1583  004D7E  0101               	movlb	1	; () banked
@@ -1608,7 +1608,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1592  004D90                     l6189:
   1593                           
   1594                           ; BSR set to: 0
-  1595                           ;fs_main.c: 77:             if (timer_value.second > 59)
+  1595                           ;fs_main.c: 76:             if (timer_value.second > 59)
   1596  004D90  51F4               	movf	(_timer_value+1)& (0+255),w,b
   1597  004D92  E109               	bnz	u7760
   1598  004D94  0E3C               	movlw	60
@@ -1621,14 +1621,14 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1605  004DA6                     u7760:
   1606  004DA6                     
   1607                           ; BSR set to: 0
-  1608                           ;fs_main.c: 78:             {;fs_main.c: 79:                 timer_value.second = 0;
+  1608                           ;fs_main.c: 77:             {;fs_main.c: 78:                 timer_value.second = 0;
   1609  004DA6  0E00               	movlw	0
   1610  004DA8  6FF4               	movwf	(_timer_value+1)& (0+255),b
   1611  004DAA  0E00               	movlw	0
   1612  004DAC  6FF3               	movwf	_timer_value& (0+255),b
   1613  004DAE                     l6193:
   1614                           
-  1615                           ;fs_main.c: 84:     menuControl();
+  1615                           ;fs_main.c: 83:     menuControl();
   1616  004DAE  EC75  F02A         	call	_menuControl	;wreg free
   1617  004DB2  EF7C  F026         	goto	l6167
   1618  004DB6  EF34  F000         	goto	start
@@ -1694,7 +1694,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1678                           
   1679 ;; *************** function _system_init *****************
   1680 ;; Defined at:
-  1681 ;;		line 55 in file "fs_mcu.c"
+  1681 ;;		line 56 in file "fs_mcu.c"
   1682 ;; Parameters:    Size  Location     Type
   1683 ;;		None
   1684 ;; Auto vars:     Size  Location     Type
@@ -1728,7 +1728,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1712  004894                     _system_init:
   1713                           	callstack 28
   1714  004894                     
-  1715                           ;fs_mcu.c: 57:     driver_limit.pay = 0;
+  1715                           ;fs_mcu.c: 58:     driver_limit.pay = 0;
   1716  004894  0E00               	movlw	0
   1717  004896  0101               	movlb	1	; () banked
   1718  004898  6F93               	movwf	_driver_limit& (0+255),b
@@ -1739,7 +1739,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1723  0048A2  0E00               	movlw	0
   1724  0048A4  6F96               	movwf	(_driver_limit+3)& (0+255),b
   1725                           
-  1726                           ;fs_mcu.c: 58:     driver_limit.payda = 0;
+  1726                           ;fs_mcu.c: 59:     driver_limit.payda = 0;
   1727  0048A6  0E00               	movlw	0
   1728  0048A8  6F97               	movwf	(_driver_limit+4)& (0+255),b
   1729  0048AA  0E00               	movlw	0
@@ -1749,7 +1749,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1733  0048B2  0E00               	movlw	0
   1734  0048B4  6F9A               	movwf	(_driver_limit+7)& (0+255),b
   1735                           
-  1736                           ;fs_mcu.c: 59:     driver_limit.ortalama = 0;
+  1736                           ;fs_mcu.c: 60:     driver_limit.ortalama = 0;
   1737  0048B6  0E00               	movlw	0
   1738  0048B8  6F9B               	movwf	(_driver_limit+8)& (0+255),b
   1739  0048BA  0E00               	movlw	0
@@ -1759,7 +1759,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1743  0048C2  0E00               	movlw	0
   1744  0048C4  6F9E               	movwf	(_driver_limit+11)& (0+255),b
   1745                           
-  1746                           ;fs_mcu.c: 60:     convert_data.convert_channel_0 = 0;
+  1746                           ;fs_mcu.c: 61:     convert_data.convert_channel_0 = 0;
   1747  0048C6  0E00               	movlw	0
   1748  0048C8  6F00               	movwf	_convert_data& (0+255),b
   1749  0048CA  0E00               	movlw	0
@@ -1769,7 +1769,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1753  0048D2  0E00               	movlw	0
   1754  0048D4  6F03               	movwf	(_convert_data+3)& (0+255),b
   1755                           
-  1756                           ;fs_mcu.c: 61:     convert_data.convert_channel_1 = 0;
+  1756                           ;fs_mcu.c: 62:     convert_data.convert_channel_1 = 0;
   1757  0048D6  0E00               	movlw	0
   1758  0048D8  6F04               	movwf	(_convert_data+4)& (0+255),b
   1759  0048DA  0E00               	movlw	0
@@ -1779,7 +1779,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1763  0048E2  0E00               	movlw	0
   1764  0048E4  6F07               	movwf	(_convert_data+7)& (0+255),b
   1765                           
-  1766                           ;fs_mcu.c: 62:     convert_data.convert_channel_2 = 0;
+  1766                           ;fs_mcu.c: 63:     convert_data.convert_channel_2 = 0;
   1767  0048E6  0E00               	movlw	0
   1768  0048E8  6F08               	movwf	(_convert_data+8)& (0+255),b
   1769  0048EA  0E00               	movlw	0
@@ -1789,7 +1789,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1773  0048F2  0E00               	movlw	0
   1774  0048F4  6F0B               	movwf	(_convert_data+11)& (0+255),b
   1775                           
-  1776                           ;fs_mcu.c: 63:     convert_data.convert_channel_3 = 0;
+  1776                           ;fs_mcu.c: 64:     convert_data.convert_channel_3 = 0;
   1777  0048F6  0E00               	movlw	0
   1778  0048F8  6F0C               	movwf	(_convert_data+12)& (0+255),b
   1779  0048FA  0E00               	movlw	0
@@ -1799,7 +1799,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1783  004902  0E00               	movlw	0
   1784  004904  6F0F               	movwf	(_convert_data+15)& (0+255),b
   1785                           
-  1786                           ;fs_mcu.c: 64:     convert_data.convert_channel_4 = 0;
+  1786                           ;fs_mcu.c: 65:     convert_data.convert_channel_4 = 0;
   1787  004906  0E00               	movlw	0
   1788  004908  6F10               	movwf	(_convert_data+16)& (0+255),b
   1789  00490A  0E00               	movlw	0
@@ -1809,7 +1809,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1793  004912  0E00               	movlw	0
   1794  004914  6F13               	movwf	(_convert_data+19)& (0+255),b
   1795                           
-  1796                           ;fs_mcu.c: 65:     convert_data.convert_channel_5 = 0;
+  1796                           ;fs_mcu.c: 66:     convert_data.convert_channel_5 = 0;
   1797  004916  0E00               	movlw	0
   1798  004918  6F14               	movwf	(_convert_data+20)& (0+255),b
   1799  00491A  0E00               	movlw	0
@@ -1819,7 +1819,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1803  004922  0E00               	movlw	0
   1804  004924  6F17               	movwf	(_convert_data+23)& (0+255),b
   1805                           
-  1806                           ;fs_mcu.c: 66:     convert_data.convert_channel_6 = 0;
+  1806                           ;fs_mcu.c: 67:     convert_data.convert_channel_6 = 0;
   1807  004926  0E00               	movlw	0
   1808  004928  6F18               	movwf	(_convert_data+24)& (0+255),b
   1809  00492A  0E00               	movlw	0
@@ -1829,7 +1829,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1813  004932  0E00               	movlw	0
   1814  004934  6F1B               	movwf	(_convert_data+27)& (0+255),b
   1815                           
-  1816                           ;fs_mcu.c: 67:     convert_data.convert_channel_7 = 0;
+  1816                           ;fs_mcu.c: 68:     convert_data.convert_channel_7 = 0;
   1817  004936  0E00               	movlw	0
   1818  004938  6F1C               	movwf	(_convert_data+28)& (0+255),b
   1819  00493A  0E00               	movlw	0
@@ -1839,24 +1839,24 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1823  004942  0E00               	movlw	0
   1824  004944  6F1F               	movwf	(_convert_data+31)& (0+255),b
   1825                           
-  1826                           ;fs_mcu.c: 68:     controller.leftMotorSpeed = 0;
+  1826                           ;fs_mcu.c: 69:     controller.leftMotorSpeed = 0;
   1827  004946  0E00               	movlw	0
   1828  004948  6F57               	movwf	(_controller+7)& (0+255),b
   1829  00494A  0E00               	movlw	0
   1830  00494C  6F56               	movwf	(_controller+6)& (0+255),b
   1831                           
-  1832                           ;fs_mcu.c: 69:     controller.rightMotorSpeed = 0;
+  1832                           ;fs_mcu.c: 70:     controller.rightMotorSpeed = 0;
   1833  00494E  0E00               	movlw	0
   1834  004950  6F59               	movwf	(_controller+9)& (0+255),b
   1835  004952  0E00               	movlw	0
   1836  004954  6F58               	movwf	(_controller+8)& (0+255),b
   1837                           
-  1838                           ;fs_mcu.c: 70:     timer_value.timer_0_counter = 0;
+  1838                           ;fs_mcu.c: 71:     timer_value.timer_0_counter = 0;
   1839  004956  0E00               	movlw	0
   1840  004958  0100               	movlb	0	; () banked
   1841  00495A  6FFC               	movwf	(_timer_value+9)& (0+255),b
   1842                           
-  1843                           ;fs_mcu.c: 71:     controller.error = 0;
+  1843                           ;fs_mcu.c: 72:     controller.error = 0;
   1844  00495C  0E00               	movlw	0
   1845  00495E  0101               	movlb	1	; () banked
   1846  004960  6F51               	movwf	(_controller+1)& (0+255),b
@@ -1864,45 +1864,45 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1848  004964  6F50               	movwf	_controller& (0+255),b
   1849  004966                     
   1850                           ; BSR set to: 1
-  1851                           ;fs_mcu.c: 73:     button_bounce_controller.menu = 0;
+  1851                           ;fs_mcu.c: 74:     button_bounce_controller.menu = 0;
   1852  004966  0100               	movlb	0	; () banked
   1853  004968  91FE               	bcf	_button_bounce_controller& (0+255),0,b
   1854  00496A                     
   1855                           ; BSR set to: 0
-  1856                           ;fs_mcu.c: 74:     button_bounce_controller.pause = 0;
+  1856                           ;fs_mcu.c: 75:     button_bounce_controller.pause = 0;
   1857  00496A  97FE               	bcf	_button_bounce_controller& (0+255),3,b
   1858  00496C                     
   1859                           ; BSR set to: 0
-  1860                           ;fs_mcu.c: 75:     button_bounce_controller.start = 0;
+  1860                           ;fs_mcu.c: 76:     button_bounce_controller.start = 0;
   1861  00496C  93FE               	bcf	_button_bounce_controller& (0+255),1,b
   1862  00496E                     
   1863                           ; BSR set to: 0
-  1864                           ;fs_mcu.c: 76:     button_bounce_controller.stop = 0;
+  1864                           ;fs_mcu.c: 77:     button_bounce_controller.stop = 0;
   1865  00496E  95FE               	bcf	_button_bounce_controller& (0+255),2,b
   1866  004970                     
   1867                           ; BSR set to: 0
-  1868                           ;fs_mcu.c: 77:     menu_value.driver_time = (uint8_t)eepromRead(0x00);
+  1868                           ;fs_mcu.c: 78:     menu_value.driver_time = (uint8_t)eepromRead(0x00);
   1869  004970  0E00               	movlw	0
   1870  004972  EC34  F02E         	call	_eepromRead
   1871  004976  0101               	movlb	1	; () banked
   1872  004978  6FAF               	movwf	_menu_value& (0+255),b
   1873  00497A                     
   1874                           ; BSR set to: 1
-  1875                           ;fs_mcu.c: 78:     menu_value.stop_time = (uint8_t)eepromRead(0x01);
+  1875                           ;fs_mcu.c: 79:     menu_value.stop_time = (uint8_t)eepromRead(0x01);
   1876  00497A  0E01               	movlw	1
   1877  00497C  EC34  F02E         	call	_eepromRead
   1878  004980  0101               	movlb	1	; () banked
   1879  004982  6FB0               	movwf	(_menu_value+1)& (0+255),b
   1880  004984                     
   1881                           ; BSR set to: 1
-  1882                           ;fs_mcu.c: 79:     menu_value.speed_limit = (uint8_t)eepromRead(0x02);
+  1882                           ;fs_mcu.c: 80:     menu_value.speed_limit = (uint8_t)eepromRead(0x02);
   1883  004984  0E02               	movlw	2
   1884  004986  EC34  F02E         	call	_eepromRead
   1885  00498A  0101               	movlb	1	; () banked
   1886  00498C  6FB1               	movwf	(_menu_value+2)& (0+255),b
   1887  00498E                     
   1888                           ; BSR set to: 1
-  1889                           ;fs_mcu.c: 81:     _delay((unsigned long)((700)*(64000000UL/4000.0)));
+  1889                           ;fs_mcu.c: 82:     _delay((unsigned long)((700)*(64000000UL/4000.0)));
   1890  00498E  0E39               	movlw	57
   1891  004990  6E03               	movwf	(??_system_init+1)^0,c
   1892  004992  0ED2               	movlw	210
@@ -1917,13 +1917,13 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1901  0049A2  D7FA               	bra	u7817
   1902  0049A4  D000               	nop2	
   1903  0049A6                     
-  1904                           ;fs_mcu.c: 82:     timer_value.remainingMinute = menu_value.driver_time;
+  1904                           ;fs_mcu.c: 83:     timer_value.remainingMinute = menu_value.driver_time;
   1905  0049A6  C1AF  F0F9         	movff	_menu_value,_timer_value+6
   1906  0049AA  0100               	movlb	0	; () banked
   1907  0049AC  6BFA               	clrf	(_timer_value+7)& (0+255),b
   1908  0049AE                     
   1909                           ; BSR set to: 0
-  1910                           ;fs_mcu.c: 83:     timer_value.remainingSecond = 0;
+  1910                           ;fs_mcu.c: 84:     timer_value.remainingSecond = 0;
   1911  0049AE  0E00               	movlw	0
   1912  0049B0  6FF8               	movwf	(_timer_value+5)& (0+255),b
   1913  0049B2  0E00               	movlw	0
@@ -15059,7 +15059,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14725                           
  14726 ;; *************** function _mcu_init *****************
  14727 ;; Defined at:
- 14728 ;;		line 41 in file "fs_mcu.c"
+ 14728 ;;		line 42 in file "fs_mcu.c"
  14729 ;; Parameters:    Size  Location     Type
  14730 ;;		None
  14731 ;; Auto vars:     Size  Location     Type
@@ -15093,11 +15093,11 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14759  005CA4                     _mcu_init:
  14760                           	callstack 29
  14761  005CA4                     
- 14762                           ;fs_mcu.c: 43:    OSCCONbits.IRCF = 0b111;
+ 14762                           ;fs_mcu.c: 44:    OSCCONbits.IRCF = 0b111;
  14763  005CA4  0E70               	movlw	112
  14764  005CA6  12D3               	iorwf	211,f,c	;volatile
  14765  005CA8                     
- 14766                           ;fs_mcu.c: 44:    OSCTUNEbits.PLLEN = 0b1;
+ 14766                           ;fs_mcu.c: 45:    OSCTUNEbits.PLLEN = 0b1;
  14767  005CA8  8C9B               	bsf	155,6,c	;volatile
  14768  005CAA                     l247:
  14769  005CAA  A4D3               	btfss	211,2,c	;volatile
@@ -15904,9 +15904,9 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  15567                           ;	ECCP2 B output mux bit
  15568                           ;	P2BMX = PORTD2, P2B is on RD2
  15569                           ;	MCLR Pin Enable bit
- 15570                           ;	MCLRE = INTMCLR, RE3 input pin enabled; MCLR disabled
+ 15570                           ;	MCLRE = EXTMCLR, MCLR pin enabled, RE3 input pin disabled
  15571  300005                     	org	3145733
- 15572  300005  3D                 	db	61
+ 15572  300005  BD                 	db	189
  15573                           
  15574                           ;Config register CONFIG4L @ 0x300006
  15575                           ;	Stack Full/Underflow Reset Enable bit
@@ -16975,7 +16975,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Thu Aug 13 17:04:44 2020
+Symbol Table                                                                                   Thu Aug 13 17:53:02 2020
 
                    ___fldiv@aexp 004D                     ___fldiv@bexp 004C  
                    ___fldiv@sign 0045                               l41 59E8  
