@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Thu Aug 13 16:13:52 2020
+                                                                                               Thu Aug 13 16:17:37 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	18F45K22
@@ -14748,11 +14748,11 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14437  0045CA                     
  14438                           ; BSR set to: 0
  14439                           ;fs_menu_controller.c: 85:     {;fs_menu_controller.c: 86:         button_bounce_control
-      +                          ler.menu = 0;
- 14440  0045CA  91FE               	bcf	_button_bounce_controller& (0+255),0,b
+      +                          ler.menu = 1;
+ 14440  0045CA  81FE               	bsf	_button_bounce_controller& (0+255),0,b
  14441                           
- 14442                           ;fs_menu_controller.c: 87:         menu_flags.menu_input_flag = 0;
- 14443  0045CC  91FD               	bcf	_menu_flags& (0+255),0,b
+ 14442                           ;fs_menu_controller.c: 87:         menu_flags.menu_input_flag = 1;
+ 14443  0045CC  81FD               	bsf	_menu_flags& (0+255),0,b
  14444  0045CE                     l315:
  14445                           
  14446                           ; BSR set to: 0
@@ -14775,11 +14775,11 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14462  0045EA                     
  14463                           ; BSR set to: 0
  14464                           ;fs_menu_controller.c: 91:     {;fs_menu_controller.c: 92:         button_bounce_control
-      +                          ler.menu = 1;
- 14465  0045EA  81FE               	bsf	_button_bounce_controller& (0+255),0,b
+      +                          ler.menu = 0;
+ 14465  0045EA  91FE               	bcf	_button_bounce_controller& (0+255),0,b
  14466                           
- 14467                           ;fs_menu_controller.c: 93:         menu_flags.menu_input_flag = 1;
- 14468  0045EC  81FD               	bsf	_menu_flags& (0+255),0,b
+ 14467                           ;fs_menu_controller.c: 93:         menu_flags.menu_input_flag = 0;
+ 14468  0045EC  91FD               	bcf	_menu_flags& (0+255),0,b
  14469  0045EE                     l316:
  14470                           
  14471                           ; BSR set to: 0
@@ -14964,11 +14964,11 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14637  0046CA                     
  14638                           ; BSR set to: 0
  14639                           ;fs_menu_controller.c: 134:     {;fs_menu_controller.c: 135:         button_bounce_contr
-      +                          oller.increase = 0;
- 14640  0046CA  9BFE               	bcf	_button_bounce_controller& (0+255),5,b
+      +                          oller.increase = 1;
+ 14640  0046CA  8BFE               	bsf	_button_bounce_controller& (0+255),5,b
  14641                           
- 14642                           ;fs_menu_controller.c: 136:         menu_flags.menu_increase_flag = 0;
- 14643  0046CC  99FD               	bcf	_menu_flags& (0+255),4,b
+ 14642                           ;fs_menu_controller.c: 136:         menu_flags.menu_increase_flag = 1;
+ 14643  0046CC  89FD               	bsf	_menu_flags& (0+255),4,b
  14644  0046CE                     l323:
  14645                           
  14646                           ; BSR set to: 0
@@ -14991,11 +14991,11 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14662  0046EA                     
  14663                           ; BSR set to: 0
  14664                           ;fs_menu_controller.c: 139:     {;fs_menu_controller.c: 140:         button_bounce_contr
-      +                          oller.increase = 1;
- 14665  0046EA  8BFE               	bsf	_button_bounce_controller& (0+255),5,b
+      +                          oller.increase = 0;
+ 14665  0046EA  9BFE               	bcf	_button_bounce_controller& (0+255),5,b
  14666                           
- 14667                           ;fs_menu_controller.c: 141:         menu_flags.menu_increase_flag = 1;
- 14668  0046EC  89FD               	bsf	_menu_flags& (0+255),4,b
+ 14667                           ;fs_menu_controller.c: 141:         menu_flags.menu_increase_flag = 0;
+ 14668  0046EC  99FD               	bcf	_menu_flags& (0+255),4,b
  14669  0046EE                     l324:
  14670                           
  14671                           ; BSR set to: 0
@@ -15018,11 +15018,11 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14687  00470A                     
  14688                           ; BSR set to: 0
  14689                           ;fs_menu_controller.c: 146:     {;fs_menu_controller.c: 147:         button_bounce_contr
-      +                          oller.decrease = 0;
- 14690  00470A  99FE               	bcf	_button_bounce_controller& (0+255),4,b
+      +                          oller.decrease = 1;
+ 14690  00470A  89FE               	bsf	_button_bounce_controller& (0+255),4,b
  14691                           
- 14692                           ;fs_menu_controller.c: 148:         menu_flags.menu_decrease_flag = 0;
- 14693  00470C  9BFD               	bcf	_menu_flags& (0+255),5,b
+ 14692                           ;fs_menu_controller.c: 148:         menu_flags.menu_decrease_flag = 1;
+ 14693  00470C  8BFD               	bsf	_menu_flags& (0+255),5,b
  14694  00470E                     l325:
  14695                           
  14696                           ; BSR set to: 0
@@ -15045,11 +15045,11 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14712  00472A                     
  14713                           ; BSR set to: 0
  14714                           ;fs_menu_controller.c: 151:     {;fs_menu_controller.c: 152:         button_bounce_contr
-      +                          oller.decrease = 1;
- 14715  00472A  89FE               	bsf	_button_bounce_controller& (0+255),4,b
+      +                          oller.decrease = 0;
+ 14715  00472A  99FE               	bcf	_button_bounce_controller& (0+255),4,b
  14716                           
- 14717                           ;fs_menu_controller.c: 153:         menu_flags.menu_decrease_flag = 1;
- 14718  00472C  8BFD               	bsf	_menu_flags& (0+255),5,b
+ 14717                           ;fs_menu_controller.c: 153:         menu_flags.menu_decrease_flag = 0;
+ 14718  00472C  9BFD               	bcf	_menu_flags& (0+255),5,b
  14719  00472E                     l327:
  14720                           
  14721                           ; BSR set to: 0
@@ -16975,7 +16975,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Thu Aug 13 16:13:52 2020
+Symbol Table                                                                                   Thu Aug 13 16:17:37 2020
 
                    ___fldiv@aexp 004D                     ___fldiv@bexp 004C  
                    ___fldiv@sign 0045                               l41 59E8  
