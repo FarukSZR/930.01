@@ -83,14 +83,14 @@ void buttonControlFlags(void)
     // Menu Click
     if ((button_bounce_controller.menu == FALSE) && (BUTTON_MENU == TRUE)) // Active Low
     {        
-        button_bounce_controller.menu = FALSE;
-        menu_flags.menu_input_flag = FALSE;        
+        button_bounce_controller.menu = TRUE;
+        menu_flags.menu_input_flag = TRUE;        
     }
    
     if ((BUTTON_MENU == FALSE) && (button_bounce_controller.menu == TRUE))
     {      
-        button_bounce_controller.menu = TRUE;
-        menu_flags.menu_input_flag = TRUE;
+        button_bounce_controller.menu = FALSE;
+        menu_flags.menu_input_flag = FALSE;
     }
              
     // Pause Click
@@ -132,25 +132,25 @@ void buttonControlFlags(void)
     // Increase Click
     if ((button_bounce_controller.increase == FALSE) && (BUTTON_INCREASE == TRUE)) // Active Low
     {
-        button_bounce_controller.increase = FALSE;
-        menu_flags.menu_increase_flag = FALSE;        
+        button_bounce_controller.increase = TRUE;
+        menu_flags.menu_increase_flag = TRUE;        
     }
     if ((BUTTON_INCREASE == FALSE) && (button_bounce_controller.increase == TRUE))
     {      
-        button_bounce_controller.increase = TRUE;
-        menu_flags.menu_increase_flag = TRUE;
+        button_bounce_controller.increase = FALSE;
+        menu_flags.menu_increase_flag = FALSE;
     }
     
     // Decrease Click
     if ((button_bounce_controller.decrease == FALSE) && (BUTTON_DECREASE == TRUE)) // Active Low
     {
-        button_bounce_controller.decrease = FALSE;
-        menu_flags.menu_decrease_flag = FALSE;        
+        button_bounce_controller.decrease = TRUE;
+        menu_flags.menu_decrease_flag = TRUE;        
     }
     if ((BUTTON_DECREASE == FALSE) && (button_bounce_controller.decrease == TRUE))
     {      
-        button_bounce_controller.decrease = TRUE;
-        menu_flags.menu_decrease_flag = TRUE;
+        button_bounce_controller.decrease = FALSE;
+        menu_flags.menu_decrease_flag = FALSE;
     }
 }
 
