@@ -35,8 +35,8 @@ extern "C" {
 #include <stdint.h>
     
     
-float KP =  0.2;
-float KD =  1.0;
+static float KP =  0.2;
+static float KD =  1.0;
     
 #define MAX_SPEED   350
 #define MIN_SPEED   50

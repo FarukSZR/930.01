@@ -9995,8 +9995,8 @@ void PWM2_setDC(int16_t dutycycle);
 
 # 1 "./fs_speed_controller.h" 1
 # 38 "./fs_speed_controller.h"
-float KP = 0.2;
-float KD = 1.0;
+static float KP = 0.2;
+static float KD = 1.0;
 # 49 "./fs_speed_controller.h"
 void speedControl(float position);
 void stopMotor(void);

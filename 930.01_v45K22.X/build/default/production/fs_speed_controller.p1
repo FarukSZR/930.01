@@ -788,14 +788,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h: 17372: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "38 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 38: float KP = 0.2;
-[v _KP `f ~T0 @X0 1 e ]
+[; ;./fs_speed_controller.h: 38: static float KP = 0.2;
+[v _KP `f ~T0 @X0 1 s ]
 [i _KP
 -> .0.2 `f
 ]
 "39
-[; ;./fs_speed_controller.h: 39: float KD = 1.0;
-[v _KD `f ~T0 @X0 1 e ]
+[; ;./fs_speed_controller.h: 39: static float KD = 1.0;
+[v _KD `f ~T0 @X0 1 s ]
 [i _KD
 -> .1.0 `f
 ]
