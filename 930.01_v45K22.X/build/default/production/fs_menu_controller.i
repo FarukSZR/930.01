@@ -10050,24 +10050,24 @@ void buttonControlFlags(void)
     }
 
 
-    if ((button_bounce_controller.increase == 0) && (PORTDbits.RD4 == 0))
+    if ((button_bounce_controller.increase == 0) && (PORTBbits.RB6 == 0))
     {
         button_bounce_controller.increase = 1;
         menu_flags.menu_increase_flag = 1;
     }
-    if ((PORTDbits.RD4 == 1) && (button_bounce_controller.increase == 1))
+    if ((PORTBbits.RB6 == 1) && (button_bounce_controller.increase == 1))
     {
         button_bounce_controller.increase = 0;
         menu_flags.menu_increase_flag = 0;
     }
 
 
-    if ((button_bounce_controller.decrease == 0) && (PORTBbits.RB6 == 0))
+    if ((button_bounce_controller.decrease == 0) && (PORTDbits.RD4 == 0))
     {
         button_bounce_controller.decrease = 1;
         menu_flags.menu_decrease_flag = 1;
     }
-    if ((PORTBbits.RB6 == 1) && (button_bounce_controller.decrease == 1))
+    if ((PORTDbits.RD4 == 1) && (button_bounce_controller.decrease == 1))
     {
         button_bounce_controller.decrease = 0;
         menu_flags.menu_decrease_flag = 0;
