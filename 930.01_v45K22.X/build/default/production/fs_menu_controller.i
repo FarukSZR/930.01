@@ -10135,6 +10135,9 @@ void stateMachine(void)
             if ( (startIsClick == 0) && (pauseIsClick == 1) && (stopIsClick == 0) && (menu_selected == MAIN_MENU))
             {
                 menu_selected = PAUSE_MENU;
+                LATDbits.LATD5 = 0;
+                LATCbits.LATC5 = 0;
+                LATCbits.LATC4 = 0;
             }
 
             if ( (startIsClick == 0) && (pauseIsClick == 0) && (stopIsClick == 1) && (menu_selected == MAIN_MENU) )
@@ -10143,6 +10146,9 @@ void stateMachine(void)
                  timer_value.remainingSecond = 0;
                  timer_value.second = 0;
                  timer_value.minute = 0;
+                 LATDbits.LATD5 = 0;
+                 LATCbits.LATC5 = 0;
+                 LATCbits.LATC4 = 0;
             }
 
             if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) )
@@ -10150,6 +10156,7 @@ void stateMachine(void)
                 startMotor();
                 LATDbits.LATD5 = 1;
                 LATCbits.LATC5 = 1;
+                LATCbits.LATC4 = 1;
             }
 
 
