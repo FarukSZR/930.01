@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Wed Aug 12 17:22:30 2020
+                                                                                               Thu Aug 13 15:27:06 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	18F45K22
@@ -14693,7 +14693,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14382                           	callstack 28
  14383  0045AA                     
  14384                           ;fs_menu_controller.c: 83:     if ((button_bounce_controller.menu == 0) && (PORTBbits.RB
-      +                          7 == 0))
+      +                          7 == 1))
  14385  0045AA  0100               	movlb	0	; () banked
  14386  0045AC  B1FE               	btfsc	_button_bounce_controller& (0+255),0,b
  14387  0045AE  EFDB  F022         	goto	u6861
@@ -14703,7 +14703,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14391  0045BA                     u6860:
  14392  0045BA                     
  14393                           ; BSR set to: 0
- 14394  0045BA  BE81               	btfsc	129,7,c	;volatile
+ 14394  0045BA  AE81               	btfss	129,7,c	;volatile
  14395  0045BC  EFE2  F022         	goto	u6871
  14396  0045C0  EFE4  F022         	goto	u6870
  14397  0045C4                     u6871:
@@ -14720,9 +14720,9 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14407  0045CC                     l315:
  14408                           
  14409                           ; BSR set to: 0
- 14410                           ;fs_menu_controller.c: 89:     if ((PORTBbits.RB7 == 1) && (button_bounce_controller.men
+ 14410                           ;fs_menu_controller.c: 89:     if ((PORTBbits.RB7 == 0) && (button_bounce_controller.men
       +                          u == 1))
- 14411  0045CC  AE81               	btfss	129,7,c	;volatile
+ 14411  0045CC  BE81               	btfsc	129,7,c	;volatile
  14412  0045CE  EFEB  F022         	goto	u6881
  14413  0045D2  EFED  F022         	goto	u6880
  14414  0045D6                     u6881:
@@ -14910,7 +14910,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14583                           
  14584                           ; BSR set to: 0
  14585                           ;fs_menu_controller.c: 131:     if ((button_bounce_controller.increase == 0) && (PORTDbi
-      +                          ts.RD4 == 0))
+      +                          ts.RD4 == 1))
  14586  0046AC  BBFE               	btfsc	_button_bounce_controller& (0+255),5,b
  14587  0046AE  EF5B  F023         	goto	u7021
  14588  0046B2  EF5D  F023         	goto	u7020
@@ -14919,7 +14919,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14591  0046BA                     u7020:
  14592  0046BA                     
  14593                           ; BSR set to: 0
- 14594  0046BA  B883               	btfsc	131,4,c	;volatile
+ 14594  0046BA  A883               	btfss	131,4,c	;volatile
  14595  0046BC  EF62  F023         	goto	u7031
  14596  0046C0  EF64  F023         	goto	u7030
  14597  0046C4                     u7031:
@@ -14936,9 +14936,9 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14607  0046CC                     l323:
  14608                           
  14609                           ; BSR set to: 0
- 14610                           ;fs_menu_controller.c: 136:     if ((PORTDbits.RD4 == 1) && (button_bounce_controller.in
+ 14610                           ;fs_menu_controller.c: 136:     if ((PORTDbits.RD4 == 0) && (button_bounce_controller.in
       +                          crease == 1))
- 14611  0046CC  A883               	btfss	131,4,c	;volatile
+ 14611  0046CC  B883               	btfsc	131,4,c	;volatile
  14612  0046CE  EF6B  F023         	goto	u7041
  14613  0046D2  EF6D  F023         	goto	u7040
  14614  0046D6                     u7041:
@@ -14964,7 +14964,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14633                           
  14634                           ; BSR set to: 0
  14635                           ;fs_menu_controller.c: 143:     if ((button_bounce_controller.decrease == 0) && (PORTBbi
-      +                          ts.RB6 == 0))
+      +                          ts.RB6 == 1))
  14636  0046EC  B9FE               	btfsc	_button_bounce_controller& (0+255),4,b
  14637  0046EE  EF7B  F023         	goto	u7061
  14638  0046F2  EF7D  F023         	goto	u7060
@@ -14973,7 +14973,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14641  0046FA                     u7060:
  14642  0046FA                     
  14643                           ; BSR set to: 0
- 14644  0046FA  BC81               	btfsc	129,6,c	;volatile
+ 14644  0046FA  AC81               	btfss	129,6,c	;volatile
  14645  0046FC  EF82  F023         	goto	u7071
  14646  004700  EF84  F023         	goto	u7070
  14647  004704                     u7071:
@@ -14990,9 +14990,9 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14657  00470C                     l325:
  14658                           
  14659                           ; BSR set to: 0
- 14660                           ;fs_menu_controller.c: 148:     if ((PORTBbits.RB6 == 1) && (button_bounce_controller.de
+ 14660                           ;fs_menu_controller.c: 148:     if ((PORTBbits.RB6 == 0) && (button_bounce_controller.de
       +                          crease == 1))
- 14661  00470C  AC81               	btfss	129,6,c	;volatile
+ 14661  00470C  BC81               	btfsc	129,6,c	;volatile
  14662  00470E  EF8B  F023         	goto	u7081
  14663  004712  EF8D  F023         	goto	u7080
  14664  004716                     u7081:
@@ -15709,8 +15709,8 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  15373  000032  2BFC               	incf	(_timer_value+9)& (0+255),f,b
  15374  000034                     
  15375                           ; BSR set to: 0
- 15376                           ;fs_timer.c: 43:         if(button_bounce_controller.menu == 1)
- 15377  000034  A1FE               	btfss	_button_bounce_controller& (0+255),0,b
+ 15376                           ;fs_timer.c: 43:         if(button_bounce_controller.menu == 0)
+ 15377  000034  B1FE               	btfsc	_button_bounce_controller& (0+255),0,b
  15378  000036  EF1F  F000         	goto	i2u779_41
  15379  00003A  EF21  F000         	goto	i2u779_40
  15380  00003E                     i2u779_41:
@@ -16939,7 +16939,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Wed Aug 12 17:22:30 2020
+Symbol Table                                                                                   Thu Aug 13 15:27:06 2020
 
                    ___fldiv@aexp 004D                     ___fldiv@bexp 004C  
                    ___fldiv@sign 0045                               l41 59E6  

@@ -9927,7 +9927,7 @@ void __attribute__((picinterrupt(("high_priority")))) TIMER0 (void)
 
         timer_value.timer_0_counter++;
 
-        if(button_bounce_controller.menu == 1)
+        if(button_bounce_controller.menu == 0)
         {
              timer_value.menu_login_delay++;
         }
