@@ -1,6 +1,6 @@
 /**
 ******************************************************************************
-  * @file		: fs_i2c.c
+  * @file		: fs_menu_controller.c
   * @brief		: I2C Interface Class
   *				  This file contains adc interface class
   * @author		: Faruk Sozuer
@@ -171,7 +171,6 @@ void menuControl(void)
         pauseIsClick = 0;       
         stopIsClick = 0;            
     }
-    
         
     if (menu_flags.menu_pause_flag == TRUE)
     {
