@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Thu Aug 13 16:51:55 2020
+                                                                                               Thu Aug 13 17:01:00 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	18F45K22
@@ -14729,7 +14729,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14419                           	callstack 28
  14420  0045AC                     
  14421                           ;fs_menu_controller.c: 82:     if ((button_bounce_controller.menu == 0) && (PORTBbits.RB
-      +                          7 == 1))
+      +                          7 == 0))
  14422  0045AC  0100               	movlb	0	; () banked
  14423  0045AE  B1FE               	btfsc	_button_bounce_controller& (0+255),0,b
  14424  0045B0  EFDC  F022         	goto	u6861
@@ -14739,7 +14739,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14428  0045BC                     u6860:
  14429  0045BC                     
  14430                           ; BSR set to: 0
- 14431  0045BC  AE81               	btfss	129,7,c	;volatile
+ 14431  0045BC  BE81               	btfsc	129,7,c	;volatile
  14432  0045BE  EFE3  F022         	goto	u6871
  14433  0045C2  EFE5  F022         	goto	u6870
  14434  0045C6                     u6871:
@@ -14756,9 +14756,9 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14444  0045CE                     l315:
  14445                           
  14446                           ; BSR set to: 0
- 14447                           ;fs_menu_controller.c: 88:     if ((PORTBbits.RB7 == 0) && (button_bounce_controller.men
+ 14447                           ;fs_menu_controller.c: 88:     if ((PORTBbits.RB7 == 1) && (button_bounce_controller.men
       +                          u == 1))
- 14448  0045CE  BE81               	btfsc	129,7,c	;volatile
+ 14448  0045CE  AE81               	btfss	129,7,c	;volatile
  14449  0045D0  EFEC  F022         	goto	u6881
  14450  0045D4  EFEE  F022         	goto	u6880
  14451  0045D8                     u6881:
@@ -14946,7 +14946,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14620                           
  14621                           ; BSR set to: 0
  14622                           ;fs_menu_controller.c: 131:     if ((button_bounce_controller.increase == 0) && (PORTDbi
-      +                          ts.RD4 == 1))
+      +                          ts.RD4 == 0))
  14623  0046AE  BBFE               	btfsc	_button_bounce_controller& (0+255),5,b
  14624  0046B0  EF5C  F023         	goto	u7021
  14625  0046B4  EF5E  F023         	goto	u7020
@@ -14955,7 +14955,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14628  0046BC                     u7020:
  14629  0046BC                     
  14630                           ; BSR set to: 0
- 14631  0046BC  A883               	btfss	131,4,c	;volatile
+ 14631  0046BC  B883               	btfsc	131,4,c	;volatile
  14632  0046BE  EF63  F023         	goto	u7031
  14633  0046C2  EF65  F023         	goto	u7030
  14634  0046C6                     u7031:
@@ -14972,9 +14972,9 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14644  0046CE                     l323:
  14645                           
  14646                           ; BSR set to: 0
- 14647                           ;fs_menu_controller.c: 136:     if ((PORTDbits.RD4 == 0) && (button_bounce_controller.in
+ 14647                           ;fs_menu_controller.c: 136:     if ((PORTDbits.RD4 == 1) && (button_bounce_controller.in
       +                          crease == 1))
- 14648  0046CE  B883               	btfsc	131,4,c	;volatile
+ 14648  0046CE  A883               	btfss	131,4,c	;volatile
  14649  0046D0  EF6C  F023         	goto	u7041
  14650  0046D4  EF6E  F023         	goto	u7040
  14651  0046D8                     u7041:
@@ -15000,7 +15000,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14670                           
  14671                           ; BSR set to: 0
  14672                           ;fs_menu_controller.c: 143:     if ((button_bounce_controller.decrease == 0) && (PORTBbi
-      +                          ts.RB6 == 1))
+      +                          ts.RB6 == 0))
  14673  0046EE  B9FE               	btfsc	_button_bounce_controller& (0+255),4,b
  14674  0046F0  EF7C  F023         	goto	u7061
  14675  0046F4  EF7E  F023         	goto	u7060
@@ -15009,7 +15009,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14678  0046FC                     u7060:
  14679  0046FC                     
  14680                           ; BSR set to: 0
- 14681  0046FC  AC81               	btfss	129,6,c	;volatile
+ 14681  0046FC  BC81               	btfsc	129,6,c	;volatile
  14682  0046FE  EF83  F023         	goto	u7071
  14683  004702  EF85  F023         	goto	u7070
  14684  004706                     u7071:
@@ -15026,9 +15026,9 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14694  00470E                     l325:
  14695                           
  14696                           ; BSR set to: 0
- 14697                           ;fs_menu_controller.c: 148:     if ((PORTBbits.RB6 == 0) && (button_bounce_controller.de
+ 14697                           ;fs_menu_controller.c: 148:     if ((PORTBbits.RB6 == 1) && (button_bounce_controller.de
       +                          crease == 1))
- 14698  00470E  BC81               	btfsc	129,6,c	;volatile
+ 14698  00470E  AC81               	btfss	129,6,c	;volatile
  14699  004710  EF8C  F023         	goto	u7081
  14700  004714  EF8E  F023         	goto	u7080
  14701  004718                     u7081:
@@ -16975,7 +16975,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Thu Aug 13 16:51:55 2020
+Symbol Table                                                                                   Thu Aug 13 17:01:00 2020
 
                    ___fldiv@aexp 004D                     ___fldiv@bexp 004C  
                    ___fldiv@sign 0045                               l41 59E8  
