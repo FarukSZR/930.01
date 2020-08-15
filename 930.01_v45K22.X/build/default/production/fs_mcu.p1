@@ -26,7 +26,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47
 [; ;./fs_timer.h: 47: {
 [s S859 `uc 1 `uc 1 `uc 1 `c 1 `uc 1 `uc 1 `us 1 ]
-[n S859 . second minute remainingSecond remainingMinute menu_login_delay timer_0_counter second_counter ]
+[n S859 . second minute remainingSecond remainingMinute menu_login_delay adc_conversion_time second_counter ]
 "72 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 72: {
 [s S861 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
@@ -834,7 +834,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_mcu.c: 70:     controller.rightMotorSpeed = 0;
 [e = . _controller 4 -> -> 0 `i `s ]
 "71
-[; ;fs_mcu.c: 71:     timer_value.timer_0_counter = 0;
+[; ;fs_mcu.c: 71:     timer_value.adc_conversion_time = 0;
 [e = . _timer_value 5 -> -> 0 `i `uc ]
 "72
 [; ;fs_mcu.c: 72:     controller.error = 0;

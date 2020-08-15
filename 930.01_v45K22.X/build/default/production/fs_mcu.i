@@ -9940,7 +9940,7 @@ typedef struct
     uint8_t remainingSecond;
     int8_t remainingMinute;
     uint8_t menu_login_delay;
-    uint8_t timer_0_counter;
+    uint8_t adc_conversion_time;
     uint16_t second_counter;
 }tS_timer_value;
 
@@ -10004,6 +10004,7 @@ tS_button_bounce_controller button_bounce_controller = {0};
 tE_menu_selected menu_selected = {0};
 tS_menu_flags menu_flags = {0};
 tS_menu_value menu_value = {0};
+
 void menuInitialize(void);
 void menuControl(void);
 void buttonControlFlags(void);
@@ -10017,6 +10018,7 @@ void speedLimitSettingMenu(void);
 void speedLimitSettingMenu(void);
 void stopTimeSettingMenu(void);
 void driverTimeSettingMenu(void);
+void exitLine(void);
 # 32 "fs_mcu.c" 2
 
 # 1 "./fs_eeprom.h" 1
@@ -10047,7 +10049,7 @@ void system_init(void)
     convert_data.convert_channel_7 = 0;
     controller.leftMotorSpeed = 0;
     controller.rightMotorSpeed = 0;
-    timer_value.timer_0_counter = 0;
+    timer_value.adc_conversion_time = 0;
     controller.error = 0;
 
     button_bounce_controller.menu = 0;

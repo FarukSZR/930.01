@@ -9906,7 +9906,7 @@ typedef struct
     uint8_t remainingSecond;
     int8_t remainingMinute;
     uint8_t menu_login_delay;
-    uint8_t timer_0_counter;
+    uint8_t adc_conversion_time;
     uint16_t second_counter;
 }tS_timer_value;
 
@@ -9968,7 +9968,7 @@ void adcInit(void)
 # 93 "fs_adc.c"
 void scanAdcConversion(void)
 {
-    switch(timer_value.timer_0_counter)
+    switch(timer_value.adc_conversion_time)
     {
         case 1:
             adc_raw_data.channel_0 = readAdcValue(0);

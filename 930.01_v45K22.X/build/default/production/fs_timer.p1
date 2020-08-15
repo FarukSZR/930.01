@@ -6,7 +6,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47
 [; ;./fs_timer.h: 47: {
 [s S854 `uc 1 `uc 1 `uc 1 `c 1 `uc 1 `uc 1 `us 1 ]
-[n S854 . second minute remainingSecond remainingMinute menu_login_delay timer_0_counter second_counter ]
+[n S854 . second minute remainingSecond remainingMinute menu_login_delay adc_conversion_time second_counter ]
 "72 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 72: {
 [s S856 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
@@ -992,7 +992,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_timer.c: 39:         TMR0L = 0xC0;
 [e = _TMR0L -> -> 192 `i `uc ]
 "41
-[; ;fs_timer.c: 41:         timer_value.timer_0_counter++;
+[; ;fs_timer.c: 41:         timer_value.adc_conversion_time++;
 [e ++ . _timer_value 5 -> -> 1 `i `uc ]
 "43
 [; ;fs_timer.c: 43:         if (startIsClick == 1)

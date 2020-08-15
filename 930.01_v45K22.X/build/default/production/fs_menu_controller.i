@@ -9880,6 +9880,7 @@ tS_button_bounce_controller button_bounce_controller = {0};
 tE_menu_selected menu_selected = {0};
 tS_menu_flags menu_flags = {0};
 tS_menu_value menu_value = {0};
+
 void menuInitialize(void);
 void menuControl(void);
 void buttonControlFlags(void);
@@ -9893,6 +9894,7 @@ void speedLimitSettingMenu(void);
 void speedLimitSettingMenu(void);
 void stopTimeSettingMenu(void);
 void driverTimeSettingMenu(void);
+void exitLine(void);
 # 26 "fs_menu_controller.c" 2
 
 # 1 "./fs_timer.h" 1
@@ -9912,7 +9914,7 @@ typedef struct
     uint8_t remainingSecond;
     int8_t remainingMinute;
     uint8_t menu_login_delay;
-    uint8_t timer_0_counter;
+    uint8_t adc_conversion_time;
     uint16_t second_counter;
 }tS_timer_value;
 
@@ -10116,14 +10118,10 @@ void menuControl(void)
 # 199 "fs_menu_controller.c"
 void stateMachine(void)
 {
-
     switch (menu_selected)
     {
         case MAIN_MENU:
-
             mainMenu();
-
-
         break;
 
         case DRIVER_TIME_SETTING:
@@ -10139,9 +10137,7 @@ void stateMachine(void)
         break;
 
         case STOP_MENU:
-
             stopMenu();
-
         break;
 
         case START_MENU:
@@ -10149,13 +10145,11 @@ void stateMachine(void)
         break;
 
         case PAUSE_MENU:
-
             pauseMenu();
-
         break;
 
         case EXIT_LINE:
-
+            exitLine();
         break;
 
         case SECRET_MENU:
@@ -10163,7 +10157,7 @@ void stateMachine(void)
         break;
     }
 }
-# 256 "fs_menu_controller.c"
+# 248 "fs_menu_controller.c"
 void mainMenu(void)
 {
     char textCursor2[16] = {0};
@@ -10214,7 +10208,7 @@ void mainMenu(void)
         LATCbits.LATC4 = 1;
     }
 }
-# 314 "fs_menu_controller.c"
+# 306 "fs_menu_controller.c"
 void stopMenu(void)
 {
     char textCursor2[16] = {0};
@@ -10252,7 +10246,7 @@ void stopMenu(void)
     }
 stopMotor();
 }
-# 359 "fs_menu_controller.c"
+# 351 "fs_menu_controller.c"
 void pauseMenu(void)
 {
     char textCursor2[16] = {0};
@@ -10298,7 +10292,7 @@ void pauseMenu(void)
     }
     stopMotor();
 }
-# 412 "fs_menu_controller.c"
+# 404 "fs_menu_controller.c"
 void startMenu(void)
 {
     timer_value.remainingMinute = menu_value.driver_time;
@@ -10466,7 +10460,7 @@ void stopTimeSettingMenu(void)
         menu_selected = PAUSE_MENU;
     }
 }
-# 587 "fs_menu_controller.c"
+# 579 "fs_menu_controller.c"
 void driverTimeSettingMenu(void)
 {
     char textCursor2[16] = {0};
@@ -10511,4 +10505,9 @@ void driverTimeSettingMenu(void)
         timer_value.menu_login_delay = 0;
         menu_selected = PAUSE_MENU;
     }
+}
+# 632 "fs_menu_controller.c"
+void exitLine(void)
+{
+
 }

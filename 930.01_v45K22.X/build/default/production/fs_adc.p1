@@ -22,7 +22,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47
 [; ;./fs_timer.h: 47: {
 [s S858 `uc 1 `uc 1 `uc 1 `c 1 `uc 1 `uc 1 `us 1 ]
-[n S858 . second minute remainingSecond remainingMinute menu_login_delay timer_0_counter second_counter ]
+[n S858 . second minute remainingSecond remainingMinute menu_login_delay adc_conversion_time second_counter ]
 "13583 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h: 13583:     struct {
 [s S645 :1 `uc 1 :1 `uc 1 ]
@@ -1135,7 +1135,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _scanAdcConversion ]
 [f ]
 "95
-[; ;fs_adc.c: 95:     switch(timer_value.timer_0_counter)
+[; ;fs_adc.c: 95:     switch(timer_value.adc_conversion_time)
 [e $U 866  ]
 "96
 [; ;fs_adc.c: 96:     {

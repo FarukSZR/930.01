@@ -38,7 +38,7 @@ void __interrupt (high_priority) TIMER0 (void)
         TMR0H	 = 0x63;
         TMR0L	 = 0xC0;
         
-        timer_value.timer_0_counter++;  
+        timer_value.adc_conversion_time++;  
         
         if (startIsClick == true)
         {

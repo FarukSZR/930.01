@@ -68,7 +68,7 @@ void system_init(void)
     convert_data.convert_channel_7 = 0;
     controller.leftMotorSpeed  = 0;
     controller.rightMotorSpeed  = 0;
-    timer_value.timer_0_counter = 0;
+    timer_value.adc_conversion_time = 0;
     controller.error = 0;
     
     button_bounce_controller.menu = 0;

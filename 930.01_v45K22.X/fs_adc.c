@@ -92,7 +92,7 @@ void adcInit(void)
  */
 void scanAdcConversion(void)
 {   
-    switch(timer_value.timer_0_counter)
+    switch(timer_value.adc_conversion_time)
     {
         case 1:
             adc_raw_data.channel_0 = readAdcValue(AN0); // RA0 pin
