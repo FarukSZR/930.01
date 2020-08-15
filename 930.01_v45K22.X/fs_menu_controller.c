@@ -156,7 +156,7 @@ void buttonControlFlags(void)
  * @param none
  * @return none
  */
-void menuControl(void)
+void loopTaskMenuControl(void)
 {    
     buttonControlFlags();
     stateMachine();      

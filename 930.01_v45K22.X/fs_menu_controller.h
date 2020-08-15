@@ -112,7 +112,7 @@ tS_menu_flags               menu_flags   = {0};
 tS_menu_value               menu_value   = {0};
 
 void menuInitialize(void);
-void menuControl(void);
+void loopTaskMenuControl(void);
 void buttonControlFlags(void);
 void stateMachine(void);
 void mainMenu(void);

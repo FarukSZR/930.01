@@ -37,25 +37,15 @@
 
 __EEPROM_DATA(30,10,4,0,0,0,0,0); // DriverTime,StopTime,SpeedLimit
 
-void main(void) 
-{
-    mcu_init();     // GPIO and Clock setting initialize
-    menuInitialize();
-     
-    adcInit();      // ADC initialize
-    
-    timer_0_init(); // 10ms timer initalize
-    lcd_init();
-    system_init();
-    Lcd_Clear();
 
-    PWM_Init();    //20Khz Pwm Period
-    PWM1_setDC(0);
-    PWM2_setDC(0);
-    openLCD_Script(); 
-           
-while(1)
-{              
+
+/*
+ * @brief The function that controls which time state.
+ * @param none
+ * @return none
+ */
+void loopTaskTimeMachine(void)
+{
     if (timer_counter_flag.one_second_flag == 1)
     {
         timer_counter_flag.one_second_flag = 0;
@@ -76,8 +66,46 @@ while(1)
                 timer_value.second = 0;
             }
         }                   
-    }
-       
-    menuControl();               
+    } 
 }
+
+
+
+/*
+ * @brief   Setup function for sensor & peripheral initialization
+ * @param   void Nothing
+ * @return  void Nothing
+ */
+void loopTaskInit(void)
+{
+    mcu_init();     // GPIO and Clock setting initialize
+    menuInitialize();
+     
+    adcInit();      // ADC initialize
+    
+    timer_0_init(); // 10ms timer initalize
+    lcd_init();
+    system_init();
+    Lcd_Clear();
+
+    PWM_Init();    //20Khz Pwm Period
+    PWM1_setDC(0);
+    PWM2_setDC(0);
+    openLCD_Script();  
+}
+
+/*
+ * @brief   CPU main function
+ * @param   void Nothing
+ * @return  int  Function Status
+ */
+void main(void) 
+{
+    loopTaskInit();
+         
+    while(1)
+    {              
+        loopTaskTimeMachine();   
+        loopTaskMenuControl();               
+    }
 }

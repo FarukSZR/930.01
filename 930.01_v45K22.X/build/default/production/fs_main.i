@@ -9876,6 +9876,13 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 #pragma config EBTRB = OFF
+
+
+
+
+
+void loopTaskTimeMachine(void);
+void loopTaskInit(void);
 # 29 "fs_main.c" 2
 
 # 1 "./fs_adc.h" 1
@@ -10406,7 +10413,7 @@ tS_menu_flags menu_flags = {0};
 tS_menu_value menu_value = {0};
 
 void menuInitialize(void);
-void menuControl(void);
+void loopTaskMenuControl(void);
 void buttonControlFlags(void);
 void stateMachine(void);
 void mainMenu(void);
@@ -10516,25 +10523,8 @@ tS_driver_limit driver_limit;
 
 
 __asm("\tpsect eeprom_data,class=EEDATA,noexec"); __asm("\tdb\t" "30" "," "10" "," "4" "," "0" "," "0" "," "0" "," "0" "," "0");
-
-void main(void)
-{
-    mcu_init();
-    menuInitialize();
-
-    adcInit();
-
-    timer_0_init();
-    lcd_init();
-    system_init();
-    Lcd_Clear();
-
-    PWM_Init();
-    PWM1_setDC(0);
-    PWM2_setDC(0);
-    openLCD_Script();
-
-while(1)
+# 47 "fs_main.c"
+void loopTaskTimeMachine(void)
 {
     if (timer_counter_flag.one_second_flag == 1)
     {
@@ -10557,7 +10547,38 @@ while(1)
             }
         }
     }
-
-    menuControl();
 }
+# 79 "fs_main.c"
+void loopTaskInit(void)
+{
+    mcu_init();
+    menuInitialize();
+
+    adcInit();
+
+    timer_0_init();
+    lcd_init();
+    system_init();
+    Lcd_Clear();
+
+    PWM_Init();
+    PWM1_setDC(0);
+    PWM2_setDC(0);
+    openLCD_Script();
+}
+
+
+
+
+
+
+void main(void)
+{
+    loopTaskInit();
+
+    while(1)
+    {
+        loopTaskTimeMachine();
+        loopTaskMenuControl();
+    }
 }

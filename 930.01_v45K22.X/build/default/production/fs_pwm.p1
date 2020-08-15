@@ -9,8 +9,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S855 . menu start stop pause decrease increase ]
 "110
 [; ;./fs_menu_controller.h: 110: tE_menu_selected menu_selected = {0};
-[c E6780 0 1 2 3 4 5 6 7 8 .. ]
-[n E6780 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
+[c E6782 0 1 2 3 4 5 6 7 8 .. ]
+[n E6782 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
 "68
 [; ;./fs_menu_controller.h: 68: {
 [s S854 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
@@ -713,9 +713,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "110
 [; ;./fs_menu_controller.h: 110: tE_menu_selected menu_selected = {0};
-[v _menu_selected `E6780 ~T0 @X0 1 e ]
+[v _menu_selected `E6782 ~T0 @X0 1 e ]
 [i _menu_selected
--> -> 0 `i `E6780
+-> -> 0 `i `E6782
 ]
 "111
 [; ;./fs_menu_controller.h: 111: tS_menu_flags menu_flags = {0};
