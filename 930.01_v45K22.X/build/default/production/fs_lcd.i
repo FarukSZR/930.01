@@ -9565,7 +9565,7 @@ void system_init(void);
 #pragma config HFOFST = ON
 #pragma config T3CMX = PORTC0
 #pragma config P2BMX = PORTD2
-#pragma config MCLRE = EXTMCLR
+#pragma config MCLRE = INTMCLR
 
 
 #pragma config STVREN = OFF
@@ -9729,11 +9729,11 @@ void Lcd_Write_Char(char a)
    PORTDbits.RD6 = 1;
    Lcd_Port(y>>4);
    PORTDbits.RD7 = 1;
-   _delay((unsigned long)((30)*(64000000UL/4000000.0)));
+   _delay((unsigned long)((40)*(64000000UL/4000000.0)));
    PORTDbits.RD7 = 0;
    Lcd_Port(temp);
    PORTDbits.RD7 = 1;
-   _delay((unsigned long)((25)*(64000000UL/4000000.0)));
+   _delay((unsigned long)((40)*(64000000UL/4000000.0)));
    PORTDbits.RD7 = 0;
 }
 # 155 "fs_lcd.c"

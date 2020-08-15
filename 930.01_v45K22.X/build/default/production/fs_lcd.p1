@@ -635,7 +635,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "61
 [p x P2BMX = PORTD2 ]
 "62
-[p x MCLRE = EXTMCLR ]
+[p x MCLRE = INTMCLR ]
 "65
 [p x STVREN = OFF ]
 "66
@@ -999,8 +999,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_lcd.c: 139:    PORTDbits.RD7 = 1;
 [e = . . _PORTDbits 0 7 -> -> 1 `i `uc ]
 "140
-[; ;fs_lcd.c: 140:    _delay((unsigned long)((30)*(64000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 64000000 `ul `d .4000000.0 `ul ]
+[; ;fs_lcd.c: 140:    _delay((unsigned long)((40)*(64000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 64000000 `ul `d .4000000.0 `ul ]
 "141
 [; ;fs_lcd.c: 141:    PORTDbits.RD7 = 0;
 [e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
@@ -1011,8 +1011,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_lcd.c: 143:    PORTDbits.RD7 = 1;
 [e = . . _PORTDbits 0 7 -> -> 1 `i `uc ]
 "144
-[; ;fs_lcd.c: 144:    _delay((unsigned long)((25)*(64000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 25 `i `d / -> -> 64000000 `ul `d .4000000.0 `ul ]
+[; ;fs_lcd.c: 144:    _delay((unsigned long)((40)*(64000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 64000000 `ul `d .4000000.0 `ul ]
 "145
 [; ;fs_lcd.c: 145:    PORTDbits.RD7 = 0;
 [e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]

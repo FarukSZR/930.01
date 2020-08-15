@@ -92,36 +92,36 @@ void buttonControlFlags(void)
     }
              
     // Pause Click
-    if ((button_bounce_controller.pause == FALSE) && (BUTTON_PAUSE == TRUE))
+    if ((button_bounce_controller.pause == FALSE) && (BUTTON_PAUSE == FALSE))
     {
         button_bounce_controller.pause = TRUE;
         menu_flags.menu_pause_flag = TRUE;        
     }
-    if ((BUTTON_PAUSE == FALSE) && (button_bounce_controller.pause == TRUE))
+    if ((BUTTON_PAUSE == TRUE) && (button_bounce_controller.pause == TRUE))
     {      
         button_bounce_controller.pause = FALSE;
         menu_flags.menu_pause_flag = FALSE;
     }
     
     // Start Click
-    if ((button_bounce_controller.start == FALSE) && (BUTTON_START == TRUE))
+    if ((button_bounce_controller.start == FALSE) && (BUTTON_START == FALSE))
     {
         button_bounce_controller.start = TRUE;
         menu_flags.menu_start_flag = TRUE;        
     }
-    if ((BUTTON_START == FALSE) && (button_bounce_controller.start == TRUE))
+    if ((BUTTON_START == TRUE) && (button_bounce_controller.start == TRUE))
     {      
         button_bounce_controller.start = FALSE;
         menu_flags.menu_start_flag = FALSE;
     }
     
     // Stop Click
-    if ((button_bounce_controller.stop == FALSE) && (BUTTON_STOP == TRUE))
+    if ((button_bounce_controller.stop == FALSE) && (BUTTON_STOP == FALSE))
     {
         button_bounce_controller.stop = TRUE;
         menu_flags.menu_stop_flag = TRUE;        
     }
-    if ((BUTTON_STOP == FALSE) && (button_bounce_controller.stop == TRUE))
+    if ((BUTTON_STOP == TRUE) && (button_bounce_controller.stop == TRUE))
     {      
         button_bounce_controller.stop = FALSE;
         menu_flags.menu_stop_flag = FALSE;

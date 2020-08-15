@@ -9560,7 +9560,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 #pragma config HFOFST = ON
 #pragma config T3CMX = PORTC0
 #pragma config P2BMX = PORTD2
-#pragma config MCLRE = EXTMCLR
+#pragma config MCLRE = INTMCLR
 
 
 #pragma config STVREN = OFF
