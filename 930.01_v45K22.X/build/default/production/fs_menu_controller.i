@@ -10701,12 +10701,13 @@ void stopMenu(void)
 
     if ( timer_value.menu_login_delay == 100)
     {
+        button_bounce_controller.menu = 0;
         timer_value.menu_login_delay = 0;
         menu_selected = DRIVER_TIME_SETTING;
     }
 stopMotor();
 }
-# 349 "fs_menu_controller.c"
+# 350 "fs_menu_controller.c"
 void pauseMenu(void)
 {
     char textCursor2[16] = {0};
@@ -10741,6 +10742,7 @@ void pauseMenu(void)
 
     if ( timer_value.menu_login_delay == 100)
     {
+        button_bounce_controller.menu = 0;
         timer_value.menu_login_delay = 0;
         menu_selected = DRIVER_TIME_SETTING;
     }
@@ -10752,7 +10754,7 @@ void pauseMenu(void)
     }
     stopMotor();
 }
-# 402 "fs_menu_controller.c"
+# 404 "fs_menu_controller.c"
 void startMenu(void)
 {
     timer_value.remainingMinute = menu_value.driver_time;
@@ -10829,6 +10831,7 @@ void secretMenu(void)
 
     if ( timer_value.menu_login_delay == 100)
     {
+        button_bounce_controller.menu = 0;
         timer_value.menu_login_delay = 0;
         menu_selected = PAUSE_MENU;
     }
@@ -10872,6 +10875,7 @@ void speedLimitSettingMenu(void)
 
     if(timer_value.menu_login_delay == 100)
     {
+        button_bounce_controller.menu = 0;
         timer_value.menu_login_delay = 0;
         menu_selected = PAUSE_MENU;
     }
@@ -10916,11 +10920,12 @@ void stopTimeSettingMenu(void)
 
     if(timer_value.menu_login_delay == 100)
     {
+        button_bounce_controller.menu = 0;
         timer_value.menu_login_delay = 0;
         menu_selected = PAUSE_MENU;
     }
 }
-# 577 "fs_menu_controller.c"
+# 582 "fs_menu_controller.c"
 void driverTimeSettingMenu(void)
 {
     char textCursor2[16] = {0};
@@ -10962,11 +10967,12 @@ void driverTimeSettingMenu(void)
 
     if(timer_value.menu_login_delay == 100)
     {
+        button_bounce_controller.menu = 0;
         timer_value.menu_login_delay = 0;
         menu_selected = PAUSE_MENU;
     }
 }
-# 630 "fs_menu_controller.c"
+# 636 "fs_menu_controller.c"
 void exitLine(void)
 {
 

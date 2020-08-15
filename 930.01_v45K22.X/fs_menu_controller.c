@@ -333,6 +333,7 @@ void stopMenu(void)
 
     if ( timer_value.menu_login_delay == MENU_TIMEOUT)
     {
+        button_bounce_controller.menu = false;
         timer_value.menu_login_delay = 0;
         menu_selected = DRIVER_TIME_SETTING;               
     }
@@ -380,6 +381,7 @@ void pauseMenu(void)
 
     if ( timer_value.menu_login_delay == MENU_TIMEOUT)
     {
+        button_bounce_controller.menu = false;
         timer_value.menu_login_delay = 0;
         menu_selected = DRIVER_TIME_SETTING;               
     }
@@ -475,6 +477,7 @@ void secretMenu(void)
 
     if ( timer_value.menu_login_delay == MENU_TIMEOUT)
     {
+        button_bounce_controller.menu = false;
         timer_value.menu_login_delay = 0;
         menu_selected = PAUSE_MENU;               
     }    
@@ -518,6 +521,7 @@ void speedLimitSettingMenu(void)
 
     if(timer_value.menu_login_delay == MENU_TIMEOUT)// && (menu_selected == SPEED_LIMIT_SETTING) )
     {
+        button_bounce_controller.menu = false;
         timer_value.menu_login_delay = 0;
         menu_selected = PAUSE_MENU;       
     }  
@@ -562,6 +566,7 @@ void stopTimeSettingMenu(void)
 
     if(timer_value.menu_login_delay == MENU_TIMEOUT) // && (menu_selected == STOP_TIME_SETTING) )
     {
+        button_bounce_controller.menu = false;
         timer_value.menu_login_delay = 0;
         menu_selected = PAUSE_MENU;       
     }
@@ -615,6 +620,7 @@ void driverTimeSettingMenu(void)
 
     if(timer_value.menu_login_delay == MENU_TIMEOUT)  // && (menu_selected == DRIVER_TIME_SETTING) )
     {
+        button_bounce_controller.menu = false;
         timer_value.menu_login_delay = 0;
         menu_selected = PAUSE_MENU;                  
     }   
