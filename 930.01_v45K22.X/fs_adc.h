@@ -34,7 +34,8 @@ extern "C" {
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-
+#include "fs_timer.h"
+    
 #define AN0    0
 #define AN1    1   
 #define AN2    2

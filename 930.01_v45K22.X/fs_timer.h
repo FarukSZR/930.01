@@ -34,6 +34,7 @@ extern "C" {
 #include <stdlib.h>
 #include <stdint.h>
 #include "fs_main.h"
+ #include "fs_menu_controller.h"
     
 void timer_0_init(void);
 

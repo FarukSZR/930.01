@@ -23,7 +23,7 @@
   */
 
 #include "fs_eeprom.h"
-#include <proc/pic18f45k22.h>
+
 
 
 /*
@@ -36,6 +36,13 @@
 uint8_t eepromRead(uint8_t address)
 {
 
+#ifdef PIC18F45K22
+
+#endif
+    
+#ifdef PIC18F46K22
+ 
+#endif
     // Set address registers
     //EEADRH = (uint8_t)(address >> 8);
     EEADR = (uint8_t)address;

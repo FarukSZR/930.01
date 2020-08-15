@@ -1,7 +1,4 @@
-#include <xc.h>
-#include <proc/pic18f45k22.h>
-#include "fs_mcu.h"
-#include "fs_main.h"
+
 #include "fs_lcd.h"
 
 /*

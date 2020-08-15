@@ -33,7 +33,8 @@ extern "C" {
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-
+#include <proc/pic18f45k22.h>
+    
 #define DRIVER_TIME_MINUTE_ADDRESS  0x00
 #define STOP_TIME_EEPROM_ADDRESS    0x01
 #define SPEED_LIMIT_EEPROM_ADDRESS  0x02

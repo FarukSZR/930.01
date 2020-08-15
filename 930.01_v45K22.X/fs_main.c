@@ -52,7 +52,8 @@ void main(void)
     PWM_Init();    //20Khz Pwm Period
     PWM1_setDC(0);
     PWM2_setDC(0);
-          
+    openLCD_Script(); 
+           
 while(1)
 {              
     if (timer_counter_flag.one_second_flag == 1)

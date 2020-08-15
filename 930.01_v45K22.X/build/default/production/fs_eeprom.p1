@@ -547,96 +547,96 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37
 [; ;fs_eeprom.c: 37: {
 [f ]
-"41
-[; ;fs_eeprom.c: 41:     EEADR = (uint8_t)address;
+"48
+[; ;fs_eeprom.c: 48:     EEADR = (uint8_t)address;
 [e = _EEADR _address ]
-"43
-[; ;fs_eeprom.c: 43:     EECON1bits.EEPGD = 0;
+"50
+[; ;fs_eeprom.c: 50:     EECON1bits.EEPGD = 0;
 [e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
-"44
-[; ;fs_eeprom.c: 44:     EECON1bits.CFGS = 0;
+"51
+[; ;fs_eeprom.c: 51:     EECON1bits.CFGS = 0;
 [e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
-"45
-[; ;fs_eeprom.c: 45:     EECON1bits.RD = 1;
+"52
+[; ;fs_eeprom.c: 52:     EECON1bits.RD = 1;
 [e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
-"49
-[; ;fs_eeprom.c: 49:     while(EECON1bits.RD == 1);
+"56
+[; ;fs_eeprom.c: 56:     while(EECON1bits.RD == 1);
 [e $U 854  ]
 [e :U 855 ]
 [e :U 854 ]
 [e $ == -> . . _EECON1bits 0 0 `i -> 1 `i 855  ]
 [e :U 856 ]
-"51
-[; ;fs_eeprom.c: 51:     return EEDATA;
+"58
+[; ;fs_eeprom.c: 58:     return EEDATA;
 [e ) _EEDATA ]
 [e $UE 853  ]
-"53
-[; ;fs_eeprom.c: 53: }
+"60
+[; ;fs_eeprom.c: 60: }
 [e :UE 853 ]
 }
-"62
-[; ;fs_eeprom.c: 62: void eepromWrite(uint8_t address, uint8_t data)
+"69
+[; ;fs_eeprom.c: 69: void eepromWrite(uint8_t address, uint8_t data)
 [v _eepromWrite `(v ~T0 @X0 1 ef2`uc`uc ]
-"63
-[; ;fs_eeprom.c: 63: {
+"70
+[; ;fs_eeprom.c: 70: {
 {
 [e :U _eepromWrite ]
-"62
-[; ;fs_eeprom.c: 62: void eepromWrite(uint8_t address, uint8_t data)
+"69
+[; ;fs_eeprom.c: 69: void eepromWrite(uint8_t address, uint8_t data)
 [v _address `uc ~T0 @X0 1 r1 ]
 [v _data `uc ~T0 @X0 1 r2 ]
-"63
-[; ;fs_eeprom.c: 63: {
-[f ]
-"66
-[; ;fs_eeprom.c: 66:     EEADR = (uint8_t)address;
-[e = _EEADR _address ]
-"68
-[; ;fs_eeprom.c: 68:     EEDATA = data;
-[e = _EEDATA _data ]
-"69
-[; ;fs_eeprom.c: 69:     EECON1bits.EEPGD = 0;
-[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
 "70
-[; ;fs_eeprom.c: 70:     EECON1bits.CFGS = 0;
-[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
-"71
-[; ;fs_eeprom.c: 71:     EECON1bits.WREN = 1;
-[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+[; ;fs_eeprom.c: 70: {
+[f ]
+"73
+[; ;fs_eeprom.c: 73:     EEADR = (uint8_t)address;
+[e = _EEADR _address ]
 "75
-[; ;fs_eeprom.c: 75:     EECON2 = 0x55;
-[e = _EECON2 -> -> 85 `i `uc ]
+[; ;fs_eeprom.c: 75:     EEDATA = data;
+[e = _EEDATA _data ]
 "76
-[; ;fs_eeprom.c: 76:     EECON2 = 0xAA;
-[e = _EECON2 -> -> 170 `i `uc ]
+[; ;fs_eeprom.c: 76:     EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
 "77
-[; ;fs_eeprom.c: 77:     EECON1bits.WR = 1;
+[; ;fs_eeprom.c: 77:     EECON1bits.CFGS = 0;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+"78
+[; ;fs_eeprom.c: 78:     EECON1bits.WREN = 1;
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+"82
+[; ;fs_eeprom.c: 82:     EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"83
+[; ;fs_eeprom.c: 83:     EECON2 = 0xAA;
+[e = _EECON2 -> -> 170 `i `uc ]
+"84
+[; ;fs_eeprom.c: 84:     EECON1bits.WR = 1;
 [e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
-"80
-[; ;fs_eeprom.c: 80:     while(PIR2bits.EEIF == 0)
+"87
+[; ;fs_eeprom.c: 87:     while(PIR2bits.EEIF == 0)
 [e $U 858  ]
 [e :U 859 ]
-"81
-[; ;fs_eeprom.c: 81:     {
+"88
+[; ;fs_eeprom.c: 88:     {
 {
-"82
-[; ;fs_eeprom.c: 82:         continue;
+"89
+[; ;fs_eeprom.c: 89:         continue;
 [e $U 858  ]
-"83
-[; ;fs_eeprom.c: 83:     }
+"90
+[; ;fs_eeprom.c: 90:     }
 }
 [e :U 858 ]
-"80
-[; ;fs_eeprom.c: 80:     while(PIR2bits.EEIF == 0)
+"87
+[; ;fs_eeprom.c: 87:     while(PIR2bits.EEIF == 0)
 [e $ == -> . . _PIR2bits 0 4 `i -> 0 `i 859  ]
 [e :U 860 ]
-"85
-[; ;fs_eeprom.c: 85:     PIR2bits.EEIF = 0;
+"92
+[; ;fs_eeprom.c: 92:     PIR2bits.EEIF = 0;
 [e = . . _PIR2bits 0 4 -> -> 0 `i `uc ]
-"86
-[; ;fs_eeprom.c: 86:     EECON1bits.WREN = 0;
+"93
+[; ;fs_eeprom.c: 93:     EECON1bits.WREN = 0;
 [e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
-"87
-[; ;fs_eeprom.c: 87: }
+"94
+[; ;fs_eeprom.c: 94: }
 [e :UE 857 ]
 }

@@ -29,11 +29,18 @@
 extern "C" {
 #endif
 
-#define START      (PORTDbits.RD2)  //arttır butonu +
-#define STOP       (PORTDbits.RD3)  //azalt butonu +
-
+#include <proc/pic18f45k22.h>
+#include "fs_adc.h"
+#include "fs_speed_controller.h"
+#include "fs_timer.h"
+#include "fs_menu_controller.h"
+#include "fs_eeprom.h"
+#include "fs_main.h"
+#include "fs_lcd.h"
+    
 void mcu_init(void);
 void system_init(void);
+void openLCD_Script(void);
 
 #ifdef	__cplusplus
 }

@@ -29,6 +29,11 @@
 extern "C" {
 #endif
 
+    
+#include <proc/pic18f45k22.h>
+#include "fs_mcu.h"
+#include "fs_main.h"
+    
 #define TIRTIL
     
 #ifdef GIYOTIN   

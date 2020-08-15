@@ -23,14 +23,9 @@
   */
 
 
-#include <proc/pic18f45k22.h>
-#include "fs_main.h"
+
 #include "fs_mcu.h"
-#include "fs_adc.h"
-#include "fs_speed_controller.h"
-#include "fs_timer.h"
-#include "fs_menu_controller.h"
-#include "fs_eeprom.h"
+
 
 
 
@@ -81,5 +76,22 @@ void system_init(void)
 
     __delay_ms(700);
     timer_value.remainingMinute = menu_value.driver_time; 
-    timer_value.remainingSecond = 0;  // Eepromdan okunacaks
+    timer_value.remainingSecond = 0;  
+}
+
+
+
+/*
+ * @brief  Writes text to the screen while the system is booting. 
+ * @param  none
+ * @return none
+ */
+void openLCD_Script(void)
+{
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("   Ergin Oyun  ");
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_String(" iYi Eglenceler ");
+    __delay_ms(2500);
+    Lcd_Clear(); 
 }
