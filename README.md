@@ -14,8 +14,8 @@ Tırtıl Project
 1. Buton, LCD, ADC, PWM kutuphaneleri ilgili donanima gore guncellendi.
 1. Timer icerisinde bulunan menu icerisinde gezerken saniye saymasi bug_fix giderildi.
 1. stopMotor ve startMotor fonksiyonlari olusturuldu. 
-   -startMotor fonksiyonu icerisinde adc cevrimlerinden gelen degiskenlerin durumuna gore PID algoritmasi kosuyor. Buna bagli olarak motorlara ilgili PWM'lerin gonderilmesi bu fonksiyonda isletiliyor.   
-   -stopMotor fonksiyonu menu icerisinde gezerken, stop ve pause komutlarinda devreye aliniyor.
+   - startMotor fonksiyonu icerisinde adc cevrimlerinden gelen degiskenlerin durumuna gore PID algoritmasi kosuyor. Buna bagli olarak motorlara ilgili PWM'lerin gonderilmesi bu fonksiyonda isletiliyor.   
+   - stopMotor fonksiyonu menu icerisinde gezerken, stop ve pause komutlarinda devreye aliniyor.
 1. LCD ekranda acilis betigi eklendi.
 1. LCD okuma yazma delay eklendi. (Yaklasik 40us)
 1. ADC coversion time parametresi eklendi. Timer interrupti icerisinde 10ms'de bir adc cevrimleri kanallari gezer. 8 kanal x 10ms = 80ms Adc cevrim sureleri.
