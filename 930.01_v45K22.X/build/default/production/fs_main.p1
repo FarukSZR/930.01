@@ -21,23 +21,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S858 . one_second_flag ]
 "47
 [; ;./fs_timer.h: 47: {
-[s S859 `us 1 `us 1 `us 1 `s 1 `uc 1 `uc 1 ]
-[n S859 . second minute remainingSecond remainingMinute menu_login_delay timer_0_counter ]
+[s S859 `uc 1 `uc 1 `uc 1 `c 1 `uc 1 `uc 1 `us 1 ]
+[n S859 . second minute remainingSecond remainingMinute menu_login_delay timer_0_counter second_counter ]
 "55 ./fs_speed_controller.h
 [; ;./fs_speed_controller.h: 55: {
 [s S860 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
 [n S860 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
 "71 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 71: {
-[s S862 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[s S862 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
 [n S862 . menu start stop pause decrease increase ]
 "103
 [; ;./fs_menu_controller.h: 103: tE_menu_selected menu_selected = {0};
-[c E6590 0 1 2 3 4 5 6 7 8 .. ]
-[n E6590 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
+[c E6591 0 1 2 3 4 5 6 7 8 .. ]
+[n E6591 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
 "61
 [; ;./fs_menu_controller.h: 61: {
-[s S861 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[s S861 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
 [n S861 . menu_input_flag menu_start_flag menu_stop_flag menu_pause_flag menu_increase_flag menu_decrease_flag ]
 "95
 [; ;./fs_menu_controller.h: 95: {
@@ -868,7 +868,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "61
 [p x P2BMX = PORTD2 ]
 "62
-[p x MCLRE = INTMCLR ]
+[p x MCLRE = EXTMCLR ]
 "65
 [p x STVREN = OFF ]
 "66
@@ -923,8 +923,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "111
 [; ;./fs_adc.h: 111: tS_driver_limit driver_limit;
 [v _driver_limit `S857 ~T0 @X0 1 e ]
-"56 ./fs_timer.h
-[; ;./fs_timer.h: 56: tS_timer_counter_flag timer_counter_flag = {0};
+"57 ./fs_timer.h
+[; ;./fs_timer.h: 57: tS_timer_counter_flag timer_counter_flag = {0};
 [v _timer_counter_flag `S858 ~T0 @X0 1 e ]
 [i _timer_counter_flag
 :U ..
@@ -933,13 +933,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"57
-[; ;./fs_timer.h: 57: tS_timer_value timer_value = {0};
+"58
+[; ;./fs_timer.h: 58: tS_timer_value timer_value = {0};
 [v _timer_value `S859 ~T0 @X0 1 e ]
 [i _timer_value
 :U ..
 :U ..
--> -> 0 `i `us
+-> -> 0 `i `uc
 ..
 ..
 ]
@@ -959,22 +959,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./fs_speed_controller.h: 69: tS_controller controller;
 [v _controller `S860 ~T0 @X0 1 e ]
 "56 ./fs_menu_controller.h
-[; ;./fs_menu_controller.h: 56: uint8_t pauseIsClick = 0;
-[v _pauseIsClick `uc ~T0 @X0 1 e ]
+[; ;./fs_menu_controller.h: 56: _Bool pauseIsClick = 0;
+[v _pauseIsClick `a ~T0 @X0 1 e ]
 [i _pauseIsClick
--> -> 0 `i `uc
+-> -> 0 `i `a
 ]
 "57
-[; ;./fs_menu_controller.h: 57: uint8_t startIsClick = 0;
-[v _startIsClick `uc ~T0 @X0 1 e ]
+[; ;./fs_menu_controller.h: 57: _Bool startIsClick = 0;
+[v _startIsClick `a ~T0 @X0 1 e ]
 [i _startIsClick
--> -> 0 `i `uc
+-> -> 0 `i `a
 ]
 "58
-[; ;./fs_menu_controller.h: 58: uint8_t stopIsClick = 0;
-[v _stopIsClick `uc ~T0 @X0 1 e ]
+[; ;./fs_menu_controller.h: 58: _Bool stopIsClick = 0;
+[v _stopIsClick `a ~T0 @X0 1 e ]
 [i _stopIsClick
--> -> 0 `i `uc
+-> -> 0 `i `a
 ]
 "102
 [; ;./fs_menu_controller.h: 102: tS_button_bounce_controller button_bounce_controller = {0};
@@ -982,15 +982,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _button_bounce_controller
 :U ..
 :U ..
--> -> 0 `i `uc
+-> -> 0 `i `a
 ..
 ..
 ]
 "103
 [; ;./fs_menu_controller.h: 103: tE_menu_selected menu_selected = {0};
-[v _menu_selected `E6590 ~T0 @X0 1 e ]
+[v _menu_selected `E6591 ~T0 @X0 1 e ]
 [i _menu_selected
--> -> 0 `i `E6590
+-> -> 0 `i `E6591
 ]
 "104
 [; ;./fs_menu_controller.h: 104: tS_menu_flags menu_flags = {0};
@@ -998,7 +998,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _menu_flags
 :U ..
 :U ..
--> -> 0 `i `uc
+-> -> 0 `i `a
 ..
 ..
 ]
@@ -1072,41 +1072,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . _timer_counter_flag 0 -> -> 0 `i `uc ]
 "62
 [; ;fs_main.c: 62:         if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) && (menu_selected == MAIN_MENU) )
-[e $ ! && && && == -> _startIsClick `i -> 1 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 0 `i == -> _menu_selected `ui -> . `E6590 0 `ui 869  ]
+[e $ ! && && && == -> _startIsClick `i -> 1 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 0 `i == -> _menu_selected `ui -> . `E6591 0 `ui 869  ]
 "63
 [; ;fs_main.c: 63:         {
 {
 "64
 [; ;fs_main.c: 64:             timer_value.second++;
-[e ++ . _timer_value 0 -> -> 1 `i `us ]
+[e ++ . _timer_value 0 -> -> 1 `i `uc ]
 "65
-[; ;fs_main.c: 65:             timer_value.remainingSecond = 60 - timer_value.second;
-[e = . _timer_value 2 -> - -> -> 60 `i `ui -> . _timer_value 0 `ui `us ]
+[; ;fs_main.c: 65:             timer_value.remainingSecond = (uint8_t)60 - timer_value.second;
+[e = . _timer_value 2 -> - -> -> -> 60 `i `uc `i -> . _timer_value 0 `i `uc ]
 "67
 [; ;fs_main.c: 67:             if (timer_value.remainingSecond == 59 )
-[e $ ! == -> . _timer_value 2 `ui -> -> 59 `i `ui 870  ]
+[e $ ! == -> . _timer_value 2 `i -> 59 `i 870  ]
 "68
 [; ;fs_main.c: 68:             {
 {
 "69
 [; ;fs_main.c: 69:                 timer_value.minute++;
-[e ++ . _timer_value 1 -> -> 1 `i `us ]
+[e ++ . _timer_value 1 -> -> 1 `i `uc ]
 "70
-[; ;fs_main.c: 70:                 timer_value.remainingMinute = menu_value.driver_time - timer_value.minute;
-[e = . _timer_value 3 -> - -> . _menu_value 0 `ui -> . _timer_value 1 `ui `s ]
+[; ;fs_main.c: 70:                 timer_value.remainingMinute = (int8_t)menu_value.driver_time - timer_value.minute;
+[e = . _timer_value 3 -> - -> -> . _menu_value 0 `c `i -> . _timer_value 1 `i `c ]
 "71
 [; ;fs_main.c: 71:             }
 }
 [e :U 870 ]
 "73
 [; ;fs_main.c: 73:             if (timer_value.second > 59)
-[e $ ! > -> . _timer_value 0 `ui -> -> 59 `i `ui 871  ]
+[e $ ! > -> . _timer_value 0 `i -> 59 `i 871  ]
 "74
 [; ;fs_main.c: 74:             {
 {
 "75
 [; ;fs_main.c: 75:                 timer_value.second = 0;
-[e = . _timer_value 0 -> -> 0 `i `us ]
+[e = . _timer_value 0 -> -> 0 `i `uc ]
 "76
 [; ;fs_main.c: 76:             }
 }

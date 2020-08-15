@@ -9787,7 +9787,7 @@ typedef uint32_t uint_fast32_t;
 #pragma config HFOFST = ON
 #pragma config T3CMX = PORTC0
 #pragma config P2BMX = PORTD2
-#pragma config MCLRE = INTMCLR
+#pragma config MCLRE = EXTMCLR
 
 
 #pragma config STVREN = OFF
@@ -9836,12 +9836,13 @@ typedef struct
 
 typedef struct
 {
-    uint16_t second;
-    uint16_t minute;
-    uint16_t remainingSecond;
-    int16_t remainingMinute;
+    uint8_t second;
+    uint8_t minute;
+    uint8_t remainingSecond;
+    int8_t remainingMinute;
     uint8_t menu_login_delay;
     uint8_t timer_0_counter;
+    uint16_t second_counter;
 }tS_timer_value;
 
 tS_timer_counter_flag timer_counter_flag = {0};
@@ -9849,29 +9850,32 @@ tS_timer_value timer_value = {0};
 # 24 "fs_timer.c" 2
 
 # 1 "./fs_menu_controller.h" 1
+# 36 "./fs_menu_controller.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdbool.h" 1 3
+# 36 "./fs_menu_controller.h" 2
 # 56 "./fs_menu_controller.h"
-uint8_t pauseIsClick = 0;
-uint8_t startIsClick = 0;
-uint8_t stopIsClick = 0;
+_Bool pauseIsClick = 0;
+_Bool startIsClick = 0;
+_Bool stopIsClick = 0;
 
 typedef struct
 {
-    uint8_t menu_input_flag :1;
-    uint8_t menu_start_flag :1;
-    uint8_t menu_stop_flag :1;
-    uint8_t menu_pause_flag :1;
-    uint8_t menu_increase_flag :1;
-    uint8_t menu_decrease_flag :1;
+    _Bool menu_input_flag ;
+    _Bool menu_start_flag ;
+    _Bool menu_stop_flag ;
+    _Bool menu_pause_flag ;
+    _Bool menu_increase_flag ;
+    _Bool menu_decrease_flag ;
 }tS_menu_flags;
 
 typedef struct
 {
-    uint8_t menu :1;
-    uint8_t start :1;
-    uint8_t stop :1;
-    uint8_t pause :1;
-    uint8_t decrease :1;
-    uint8_t increase :1;
+    _Bool menu ;
+    _Bool start ;
+    _Bool stop ;
+    _Bool pause ;
+    _Bool decrease ;
+    _Bool increase ;
 }tS_button_bounce_controller;
 
 
@@ -9927,23 +9931,28 @@ void __attribute__((picinterrupt(("high_priority")))) TIMER0 (void)
 
         timer_value.timer_0_counter++;
 
+        if (startIsClick == 1)
+        {
+            timer_value.second_counter++;
+        }
+
         if(button_bounce_controller.menu == 1)
         {
              timer_value.menu_login_delay++;
         }
-        else
+        if(button_bounce_controller.menu == 0)
         {
              timer_value.menu_login_delay = 0;
         }
 
-        if (timer_value.timer_0_counter >= 100)
+        if (timer_value.second_counter >= 100)
         {
-            timer_value.timer_0_counter = 0;
+            timer_value.second_counter = 0;
             timer_counter_flag.one_second_flag = 1;
         }
     }
 }
-# 67 "fs_timer.c"
+# 72 "fs_timer.c"
 void timer_0_init(void)
 {
   T0CON = 0x81;

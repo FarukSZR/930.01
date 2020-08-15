@@ -21,8 +21,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S857 . one_second_flag ]
 "47
 [; ;./fs_timer.h: 47: {
-[s S858 `us 1 `us 1 `us 1 `s 1 `uc 1 `uc 1 ]
-[n S858 . second minute remainingSecond remainingMinute menu_login_delay timer_0_counter ]
+[s S858 `uc 1 `uc 1 `uc 1 `c 1 `uc 1 `uc 1 `us 1 ]
+[n S858 . second minute remainingSecond remainingMinute menu_login_delay timer_0_counter second_counter ]
 "13583 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h: 13583:     struct {
 [s S645 :1 `uc 1 :1 `uc 1 ]
@@ -944,7 +944,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "61
 [p x P2BMX = PORTD2 ]
 "62
-[p x MCLRE = INTMCLR ]
+[p x MCLRE = EXTMCLR ]
 "65
 [p x STVREN = OFF ]
 "66
@@ -987,8 +987,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3 = OFF ]
 "97
 [p x EBTRB = OFF ]
-"56 ./fs_timer.h
-[; ;./fs_timer.h: 56: tS_timer_counter_flag timer_counter_flag = {0};
+"57 ./fs_timer.h
+[; ;./fs_timer.h: 57: tS_timer_counter_flag timer_counter_flag = {0};
 [v _timer_counter_flag `S857 ~T0 @X0 1 e ]
 [i _timer_counter_flag
 :U ..
@@ -997,13 +997,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"57
-[; ;./fs_timer.h: 57: tS_timer_value timer_value = {0};
+"58
+[; ;./fs_timer.h: 58: tS_timer_value timer_value = {0};
 [v _timer_value `S858 ~T0 @X0 1 e ]
 [i _timer_value
 :U ..
 :U ..
--> -> 0 `i `us
+-> -> 0 `i `uc
 ..
 ..
 ]

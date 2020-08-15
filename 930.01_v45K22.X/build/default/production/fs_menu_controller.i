@@ -9562,7 +9562,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 #pragma config HFOFST = ON
 #pragma config T3CMX = PORTC0
 #pragma config P2BMX = PORTD2
-#pragma config MCLRE = INTMCLR
+#pragma config MCLRE = EXTMCLR
 
 
 #pragma config STVREN = OFF
@@ -9825,29 +9825,32 @@ typedef uint32_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 139 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdint.h" 2 3
 # 35 "./fs_menu_controller.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdbool.h" 1 3
+# 36 "./fs_menu_controller.h" 2
 # 56 "./fs_menu_controller.h"
-uint8_t pauseIsClick = 0;
-uint8_t startIsClick = 0;
-uint8_t stopIsClick = 0;
+_Bool pauseIsClick = 0;
+_Bool startIsClick = 0;
+_Bool stopIsClick = 0;
 
 typedef struct
 {
-    uint8_t menu_input_flag :1;
-    uint8_t menu_start_flag :1;
-    uint8_t menu_stop_flag :1;
-    uint8_t menu_pause_flag :1;
-    uint8_t menu_increase_flag :1;
-    uint8_t menu_decrease_flag :1;
+    _Bool menu_input_flag ;
+    _Bool menu_start_flag ;
+    _Bool menu_stop_flag ;
+    _Bool menu_pause_flag ;
+    _Bool menu_increase_flag ;
+    _Bool menu_decrease_flag ;
 }tS_menu_flags;
 
 typedef struct
 {
-    uint8_t menu :1;
-    uint8_t start :1;
-    uint8_t stop :1;
-    uint8_t pause :1;
-    uint8_t decrease :1;
-    uint8_t increase :1;
+    _Bool menu ;
+    _Bool start ;
+    _Bool stop ;
+    _Bool pause ;
+    _Bool decrease ;
+    _Bool increase ;
 }tS_button_bounce_controller;
 
 
@@ -9898,12 +9901,13 @@ typedef struct
 
 typedef struct
 {
-    uint16_t second;
-    uint16_t minute;
-    uint16_t remainingSecond;
-    int16_t remainingMinute;
+    uint8_t second;
+    uint8_t minute;
+    uint8_t remainingSecond;
+    int8_t remainingMinute;
     uint8_t menu_login_delay;
     uint8_t timer_0_counter;
+    uint16_t second_counter;
 }tS_timer_value;
 
 tS_timer_counter_flag timer_counter_flag = {0};
@@ -10123,14 +10127,12 @@ void stateMachine(void)
             {
                 timer_value.menu_login_delay = 0;
                 menu_selected = DRIVER_TIME_SETTING;
-                startIsClick = 0;
             }
 
             if ((timer_value.remainingMinute <= 0) && (timer_value.remainingSecond == 0) )
             {
-                menu_selected = STOP_MENU;
-                timer_value.minute = 0;
-                startIsClick = 0;
+                    menu_selected = STOP_MENU;
+                    timer_value.minute = 0;
             }
 
             if ( (startIsClick == 0) && (pauseIsClick == 1) && (stopIsClick == 0) && (menu_selected == MAIN_MENU))
@@ -10151,7 +10153,6 @@ void stateMachine(void)
                  LATDbits.LATD5 = 0;
                  LATCbits.LATC5 = 0;
                  LATCbits.LATC4 = 0;
-                 startIsClick = 0;
             }
 
             if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) )
@@ -10167,7 +10168,8 @@ void stateMachine(void)
 
         case DRIVER_TIME_SETTING:
 
-            startIsClick = 0;
+            stopMotor();
+
             if (menu_flags.menu_input_flag == 1)
             {
                 menu_flags.menu_input_flag = 0;
@@ -10185,7 +10187,7 @@ void stateMachine(void)
                 timer_value.remainingMinute = menu_value.driver_time;
             }
 
-            if ((menu_flags.menu_decrease_flag == 1) && (menu_value.driver_time >= 0))
+            if ((menu_flags.menu_decrease_flag == 1) && (menu_value.driver_time > 0))
             {
                  menu_flags.menu_decrease_flag = 0;
                  menu_value.driver_time--;
@@ -10206,14 +10208,10 @@ void stateMachine(void)
                 timer_value.menu_login_delay = 0;
                 menu_selected = PAUSE_MENU;
             }
-
-        stopMotor();
-
         break;
 
         case STOP_TIME_SETTING:
 
-            startIsClick = 0;
             stopMotor();
 
             if (menu_flags.menu_input_flag == 1)
@@ -10250,10 +10248,6 @@ void stateMachine(void)
 
         case SPEED_LIMIT_SETTING:
             stopMotor();
-            startIsClick = 0;
-
-            timer_value.remainingSecond = timer_value.remainingSecond;
-            timer_value.remainingMinute = timer_value.remainingMinute;
 
             if (menu_flags.menu_input_flag == 1)
             {
@@ -10297,9 +10291,8 @@ void stateMachine(void)
 
             timer_value.remainingSecond = 0;
             timer_value.remainingMinute = 0;
-            timer_value.second = 0;
 
-             Lcd_Set_Cursor(2,1);
+            Lcd_Set_Cursor(2,1);
             sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
             Lcd_Write_String(textCursor2);
 
@@ -10327,7 +10320,7 @@ void stateMachine(void)
 
         case START_MENU:
             timer_value.remainingMinute = menu_value.driver_time;
-            timer_value.remainingSecond = timer_value.remainingSecond;
+            timer_value.remainingSecond = 0;
             startIsClick = 1;
             stopIsClick = 0;
             menu_selected = MAIN_MENU;
@@ -10360,7 +10353,6 @@ void stateMachine(void)
                  timer_value.remainingSecond = 0;
                  timer_value.second = 0;
                  timer_value.minute = 0;
-
             }
 
             if ( timer_value.menu_login_delay == 100)
@@ -10384,12 +10376,7 @@ void stateMachine(void)
         break;
 
         case SECRET_MENU:
-            startIsClick = 0;
             stopMotor();
-
-            timer_value.remainingMinute = timer_value.remainingMinute;
-
-            timer_value.second = 0;
 
             if (menu_flags.menu_input_flag == 1)
             {
@@ -10449,7 +10436,6 @@ void stateMachine(void)
                 timer_value.menu_login_delay = 0;
                 menu_selected = PAUSE_MENU;
             }
-
         break;
     }
 }
