@@ -1,7 +1,7 @@
 /**
 ******************************************************************************
-  * @file		: fs_adc.c
-  * @brief		: ADC Interface Class
+  * @file		: fs_mcu.h
+  * @brief		: Init Value Setting Interface Class header file
   *				  This file contains adc interface class
   * @author		: Faruk Sozuer
   * @date		: 14.07.2020

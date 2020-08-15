@@ -1,8 +1,8 @@
 /**
 ******************************************************************************
-  * @file		: fs_adc.c
-  * @brief		: ADC Interface Class
-  *				  This file contains adc interface class
+  * @file		: fs_lcd.h
+  * @brief		: LCD Interface Class header file
+  *				  This file contains lcd interface class
   * @author		: Faruk Sozuer
   * @date		: 14.07.2020
   * @version	: 0.0.1

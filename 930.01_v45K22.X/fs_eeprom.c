@@ -1,8 +1,8 @@
 /**
 ******************************************************************************
-  * @file		: fs_i2c.c
-  * @brief		: I2C Interface Class
-  *				  This file contains adc interface class
+  * @file		: fs_eeprom.c
+  * @brief		: EEPROM Interface Class source file
+  *				  This file contains eeprom interface class
   * @author		: Faruk Sozuer
   * @date		: 28.07.2020
   * @version	: 0.0.1

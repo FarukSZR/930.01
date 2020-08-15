@@ -1,8 +1,8 @@
 /**
 ******************************************************************************
-  * @file		: fs_i2c.c
-  * @brief		: I2C Interface Class
-  *				  This file contains adc interface class
+  * @file		: fs_menu_controller.h
+  * @brief		: Menu Controller Interface Class header file
+  *				  This file contains menu controller interface class
   * @author		: Faruk Sozuer
   * @date		: 28.07.2020
   * @version	: 0.0.1

@@ -1,8 +1,8 @@
 /**
 ******************************************************************************
-  * @file		: fs_i2c.c
-  * @brief		: I2C Interface Class
-  *				  This file contains adc interface class
+  * @file		: fs_pwm.c
+  * @brief		: PWM Interface Class source file
+  *				  This file contains PWM interface class
   * @author		: Faruk Sozuer
   * @date		: 28.07.2020
   * @version	: 0.0.1

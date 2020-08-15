@@ -1,8 +1,8 @@
 /**
 ******************************************************************************
   * @file		: fs_speed_controller.h
-  * @brief		: TIMER Interface Class
-  *				  This file contains Timer interface class
+  * @brief		: Speed Controller Interface Class header file
+  *				  This file contains Speed Controller interface class
   * @author		: Faruk Sozuer
   * @date		: 14.07.2020
   * @version	: 0.0.1
