@@ -7,7 +7,7 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "fs_lcd.c" 2
-
+# 26 "fs_lcd.c"
 # 1 "./fs_lcd.h" 1
 # 33 "./fs_lcd.h"
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\proc/pic18f45k22.h" 1 3
@@ -10449,7 +10449,7 @@ void Lcd_Write_Char(char a);
 void Lcd_Write_String(char *a);
 void Lcd_Shift_Right(void);
 void Lcd_Shift_Left(void);
-# 2 "fs_lcd.c" 2
+# 26 "fs_lcd.c" 2
 
 
 
@@ -10472,7 +10472,7 @@ void Lcd_Port(char a)
    else {PORTBbits.RB3 = 0;}
 
 }
-# 32 "fs_lcd.c"
+# 56 "fs_lcd.c"
 void Lcd_Cmd(char a)
 {
    PORTDbits.RD6 = 0;
@@ -10481,7 +10481,7 @@ void Lcd_Cmd(char a)
    _delay((unsigned long)((2)*(64000000UL/4000.0)));
    PORTDbits.RD7 = 0;
 }
-# 48 "fs_lcd.c"
+# 72 "fs_lcd.c"
 void Lcd_Clear()
 {
    Lcd_Cmd(0);
@@ -10555,7 +10555,7 @@ void lcd_init(void)
     Lcd_Cmd(0x00);
     Lcd_Cmd(0x06);
 }
-# 129 "fs_lcd.c"
+# 153 "fs_lcd.c"
 void Lcd_Write_Char(char a)
 {
    char temp,y;
@@ -10571,20 +10571,20 @@ void Lcd_Write_Char(char a)
    _delay((unsigned long)((40)*(64000000UL/4000000.0)));
    PORTDbits.RD7 = 0;
 }
-# 152 "fs_lcd.c"
+# 176 "fs_lcd.c"
 void Lcd_Write_String(char *a)
 {
    int i;
    for(i=0;a[i]!='\0';i++)
    Lcd_Write_Char(a[i]);
 }
-# 166 "fs_lcd.c"
+# 190 "fs_lcd.c"
 void Lcd_Shift_Right()
 {
    Lcd_Cmd(0x01);
    Lcd_Cmd(0x0C);
 }
-# 179 "fs_lcd.c"
+# 203 "fs_lcd.c"
 void Lcd_Shift_Left()
 {
    Lcd_Cmd(0x01);

@@ -10448,14 +10448,21 @@ void mcu_init(void);
 void system_init(void);
 void openLCD_Script(void);
 # 27 "fs_mcu.c" 2
-# 37 "fs_mcu.c"
+
+
+
+
+
+
+
+
 void mcu_init(void)
 {
    OSCCONbits.IRCF = 0b111;
    OSCTUNEbits.PLLEN = 0b1;
    while(!OSCCONbits.HFIOFS);
 }
-# 51 "fs_mcu.c"
+# 49 "fs_mcu.c"
 void system_init(void)
 {
     driver_limit.pay = 0;
@@ -10486,7 +10493,7 @@ void system_init(void)
     timer_value.remainingMinute = menu_value.driver_time;
     timer_value.remainingSecond = 0;
 }
-# 89 "fs_mcu.c"
+# 87 "fs_mcu.c"
 void openLCD_Script(void)
 {
     Lcd_Set_Cursor(1,1);

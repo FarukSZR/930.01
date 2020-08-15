@@ -190,27 +190,27 @@ SECRET_MENU 8
 [v _eepromRead eepromRead `(uc  1 e 1 0 ]
 "69
 [v _eepromWrite eepromWrite `(v  1 e 1 0 ]
-"9 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_lcd.c
+"33 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_lcd.c
 [v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
-"32
+"56
 [v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
-"48
+"72
 [v _Lcd_Clear Lcd_Clear `(v  1 e 1 0 ]
-"59
+"83
 [v _Lcd_Set_Cursor Lcd_Set_Cursor `(v  1 e 1 0 ]
-"85
+"109
 [v _lcd_init lcd_init `(v  1 e 1 0 ]
-"129
+"153
 [v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
-"152
+"176
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
 "40 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_main.c
 [v _main main `(v  1 e 1 0 ]
-"37 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_mcu.c
+"35 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_mcu.c
 [v _mcu_init mcu_init `(v  1 e 1 0 ]
-"51
+"49
 [v _system_init system_init `(v  1 e 1 0 ]
-"89
+"87
 [v _openLCD_Script openLCD_Script `(v  1 e 1 0 ]
 "35 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_menu_controller.c
 [v _menuInitialize menuInitialize `(v  1 e 1 0 ]
@@ -222,21 +222,21 @@ SECRET_MENU 8
 [v _stateMachine stateMachine `(v  1 e 1 0 ]
 "245
 [v _mainMenu mainMenu `(v  1 e 1 0 ]
-"303
+"304
 [v _stopMenu stopMenu `(v  1 e 1 0 ]
-"348
+"349
 [v _pauseMenu pauseMenu `(v  1 e 1 0 ]
-"401
+"402
 [v _startMenu startMenu `(v  1 e 1 0 ]
-"416
+"417
 [v _secretMenu secretMenu `(v  1 e 1 0 ]
-"488
+"489
 [v _speedLimitSettingMenu speedLimitSettingMenu `(v  1 e 1 0 ]
-"531
+"532
 [v _stopTimeSettingMenu stopTimeSettingMenu `(v  1 e 1 0 ]
-"576
+"577
 [v _driverTimeSettingMenu driverTimeSettingMenu `(v  1 e 1 0 ]
-"629
+"630
 [v _exitLine exitLine `(v  1 e 1 0 ]
 "34 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_pwm.c
 [v _PWM_Init PWM_Init `(v  1 e 1 0 ]
@@ -783,10 +783,10 @@ SECRET_MENU 8
 {
 "79
 } 0
-"51 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_mcu.c
+"49 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_mcu.c
 [v _system_init system_init `(v  1 e 1 0 ]
 {
-"80
+"78
 } 0
 "36 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_eeprom.c
 [v _eepromRead eepromRead `(uc  1 e 1 0 ]
@@ -797,15 +797,15 @@ SECRET_MENU 8
 [v eepromRead@address address `uc  1 a 1 0 ]
 "60
 } 0
-"89 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_mcu.c
+"87 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_mcu.c
 [v _openLCD_Script openLCD_Script `(v  1 e 1 0 ]
 {
-"97
+"95
 } 0
-"48 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_lcd.c
+"72 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_lcd.c
 [v _Lcd_Clear Lcd_Clear `(v  1 e 1 0 ]
 {
-"52
+"76
 } 0
 "35 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_menu_controller.c
 [v _menuInitialize menuInitialize `(v  1 e 1 0 ]
@@ -822,52 +822,52 @@ SECRET_MENU 8
 {
 "236
 } 0
-"531
+"532
 [v _stopTimeSettingMenu stopTimeSettingMenu `(v  1 e 1 0 ]
 {
-"533
+"534
 [v stopTimeSettingMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"567
+"568
 } 0
-"303
+"304
 [v _stopMenu stopMenu `(v  1 e 1 0 ]
 {
-"305
+"306
 [v stopMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"339
+"340
 } 0
-"401
+"402
 [v _startMenu startMenu `(v  1 e 1 0 ]
 {
-"408
+"409
 } 0
-"488
+"489
 [v _speedLimitSettingMenu speedLimitSettingMenu `(v  1 e 1 0 ]
 {
-"490
+"491
 [v speedLimitSettingMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"523
+"524
 } 0
-"416
+"417
 [v _secretMenu secretMenu `(v  1 e 1 0 ]
 {
-"418
+"419
 [v secretMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"480
+"481
 } 0
-"348
+"349
 [v _pauseMenu pauseMenu `(v  1 e 1 0 ]
 {
-"350
+"351
 [v pauseMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"392
+"393
 } 0
 "245
 [v _mainMenu mainMenu `(v  1 e 1 0 ]
 {
 "247
 [v mainMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"294
+"295
 } 0
 "93 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_speed_controller.c
 [v _startMotor startMotor `(v  1 e 1 0 ]
@@ -923,17 +923,17 @@ SECRET_MENU 8
 [v ___lldiv@divisor divisor `ul  1 p 4 4 ]
 "30
 } 0
-"629 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_menu_controller.c
+"630 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_menu_controller.c
 [v _exitLine exitLine `(v  1 e 1 0 ]
 {
-"632
+"633
 } 0
-"576
+"577
 [v _driverTimeSettingMenu driverTimeSettingMenu `(v  1 e 1 0 ]
 {
-"578
+"579
 [v driverTimeSettingMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"620
+"621
 } 0
 "77 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_speed_controller.c
 [v _stopMotor stopMotor `(v  1 e 1 0 ]
@@ -1382,75 +1382,75 @@ SECRET_MENU 8
 [v eepromWrite@address address `uc  1 a 1 1 ]
 "94
 } 0
-"152 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_lcd.c
+"176 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_lcd.c
 [v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
 {
-"154
+"178
 [v Lcd_Write_String@i i `i  1 a 2 8 ]
-"152
+"176
 [v Lcd_Write_String@a a `*.35uc  1 p 2 4 ]
-"157
+"181
 } 0
-"129
+"153
 [v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
 {
 [v Lcd_Write_Char@a a `uc  1 a 1 wreg ]
-"131
+"155
 [v Lcd_Write_Char@y y `uc  1 a 1 2 ]
 [v Lcd_Write_Char@temp temp `uc  1 a 1 1 ]
-"129
+"153
 [v Lcd_Write_Char@a a `uc  1 a 1 wreg ]
-"132
+"156
 [v Lcd_Write_Char@a a `uc  1 a 1 3 ]
-"143
+"167
 } 0
-"59
+"83
 [v _Lcd_Set_Cursor Lcd_Set_Cursor `(v  1 e 1 0 ]
 {
 [v Lcd_Set_Cursor@a a `uc  1 a 1 wreg ]
-"61
+"85
 [v Lcd_Set_Cursor@temp temp `uc  1 a 1 7 ]
 [v Lcd_Set_Cursor@y y `uc  1 a 1 6 ]
 [v Lcd_Set_Cursor@z z `uc  1 a 1 5 ]
-"59
+"83
 [v Lcd_Set_Cursor@a a `uc  1 a 1 wreg ]
 [v Lcd_Set_Cursor@b b `uc  1 p 1 3 ]
-"62
+"86
 [v Lcd_Set_Cursor@a a `uc  1 a 1 4 ]
-"78
+"102
 } 0
 "76 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_menu_controller.c
 [v _buttonControlFlags buttonControlFlags `(v  1 e 1 0 ]
 {
 "150
 } 0
-"37 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_mcu.c
+"35 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_mcu.c
 [v _mcu_init mcu_init `(v  1 e 1 0 ]
 {
-"42
+"40
 } 0
-"85 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_lcd.c
+"109 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_lcd.c
 [v _lcd_init lcd_init `(v  1 e 1 0 ]
 {
-"120
+"144
 } 0
-"32
+"56
 [v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
 {
 [v Lcd_Cmd@a a `uc  1 a 1 wreg ]
 [v Lcd_Cmd@a a `uc  1 a 1 wreg ]
-"34
+"58
 [v Lcd_Cmd@a a `uc  1 a 1 2 ]
-"39
+"63
 } 0
-"9
+"33
 [v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
 {
 [v Lcd_Port@a a `uc  1 a 1 wreg ]
 [v Lcd_Port@a a `uc  1 a 1 wreg ]
-"11
+"35
 [v Lcd_Port@a a `uc  1 a 1 0 ]
-"23
+"47
 } 0
 "53 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
 [v _adcInit adcInit `(v  1 e 1 0 ]
