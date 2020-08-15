@@ -99,6 +99,10 @@ extern "C" {
 
 #define _XTAL_FREQ 64000000UL    
 
+    
+void loopTaskTimeMachine(void);
+void loopTaskInit(void);
+
 #ifdef	__cplusplus
 }
 #endif

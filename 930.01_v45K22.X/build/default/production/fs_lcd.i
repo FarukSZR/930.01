@@ -9829,6 +9829,13 @@ typedef uint32_t uint_fast32_t;
 
 
 #pragma config EBTRB = OFF
+
+
+
+
+
+void loopTaskTimeMachine(void);
+void loopTaskInit(void);
 # 36 "./fs_timer.h" 2
 
 # 1 "./fs_menu_controller.h" 1
@@ -10324,7 +10331,7 @@ tS_menu_flags menu_flags = {0};
 tS_menu_value menu_value = {0};
 
 void menuInitialize(void);
-void menuControl(void);
+void loopTaskMenuControl(void);
 void buttonControlFlags(void);
 void stateMachine(void);
 void mainMenu(void);
