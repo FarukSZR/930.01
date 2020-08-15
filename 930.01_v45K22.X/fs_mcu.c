@@ -1,7 +1,7 @@
 /**
 ******************************************************************************
-  * @file		: fs_timer.c
-  * @brief		: TIMER Interface Class
+  * @file		: fs_mcu.c
+  * @brief		: Init Value Setting Interface Class source file
   *				  This file contains Timer interface class
   * @author		: Faruk Sozuer
   * @date		: 14.07.2020
@@ -25,8 +25,6 @@
 
 
 #include "fs_mcu.h"
-
-
 
 
 /*

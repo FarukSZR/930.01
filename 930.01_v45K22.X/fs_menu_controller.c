@@ -1,7 +1,7 @@
 /**
 ******************************************************************************
   * @file		: fs_menu_controller.c
-  * @brief		: Menu Controller Interface Class
+  * @brief		: Menu Controller Interface Class source file
   *				This file contains menu controller state machine interface class
   * @author		: Faruk Sozuer
   * @date		: 28.07.2020
@@ -622,7 +622,7 @@ void driverTimeSettingMenu(void)
 
 
 /*
- * @brief State function used to set the Driver Time.
+ * @brief State function used to set the Exit Line.
  * @param none
  * @return none
  */

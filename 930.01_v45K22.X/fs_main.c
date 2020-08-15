@@ -1,7 +1,7 @@
 /**
 ******************************************************************************
   * @file		: fs_main.c
-  * @brief		: Main Interface Class
+  * @brief		: Main Interface Class source file
   *				  This file contains Main interface class
   * @author		: Faruk Sozuer
   * @date		: 14.07.2020

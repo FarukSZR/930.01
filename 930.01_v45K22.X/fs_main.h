@@ -1,7 +1,7 @@
 /**
 ******************************************************************************
-  * @file		: fs_adc.c
-  * @brief		: ADC Interface Class
+  * @file		: fs_main.h
+  * @brief		: MCU Configuration File
   *				  This file contains adc interface class
   * @author		: Faruk Sozuer
   * @date		: 14.07.2020
