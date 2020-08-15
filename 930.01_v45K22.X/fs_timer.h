@@ -45,12 +45,13 @@ typedef struct
 
 typedef struct
 {
-    uint16_t second;
-    uint16_t minute;
-    uint16_t remainingSecond;
-    int16_t remainingMinute;
+    uint8_t second;
+    uint8_t minute;
+    uint8_t remainingSecond;
+    int8_t  remainingMinute;
     uint8_t  menu_login_delay;
     uint8_t  timer_0_counter;
+    uint16_t second_counter;
 }tS_timer_value;
 
 tS_timer_counter_flag timer_counter_flag = {0};

@@ -82,6 +82,4 @@ void system_init(void)
     __delay_ms(700);
     timer_value.remainingMinute = menu_value.driver_time; 
     timer_value.remainingSecond = 0;  // Eepromdan okunacaks
-    
-    //timer_value.all_driver_time_finish = ((menu_value.driver_time +1) * 60);
 }

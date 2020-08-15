@@ -33,7 +33,7 @@ extern "C" {
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-
+#include <stdbool.h>
     
 #define LAMB_OUTPUT             LATCbits.LATC4 
 #define MP3_PLAYER              LATDbits.LATD5
@@ -53,28 +53,28 @@ extern "C" {
 #define TRUE    1
 #define FALSE   0
     
-uint8_t  pauseIsClick = 0;
-uint8_t  startIsClick = 0;
-uint8_t  stopIsClick = 0; 
+bool  pauseIsClick = false;
+bool  startIsClick = false;
+bool  stopIsClick = false; 
 
 typedef struct
 {
-    uint8_t menu_input_flag :1;
-    uint8_t menu_start_flag :1;
-    uint8_t menu_stop_flag  :1;
-    uint8_t menu_pause_flag :1;
-    uint8_t menu_increase_flag :1;
-    uint8_t menu_decrease_flag :1;
+    bool menu_input_flag ;
+    bool menu_start_flag ;
+    bool menu_stop_flag  ;
+    bool menu_pause_flag ;
+    bool menu_increase_flag ;
+    bool menu_decrease_flag ;
 }tS_menu_flags;
     
 typedef struct
 {
-    uint8_t menu     :1;
-    uint8_t start    :1;
-    uint8_t stop     :1;
-    uint8_t pause    :1;
-    uint8_t decrease :1;
-    uint8_t increase :1;
+    bool menu     ;
+    bool start    ;
+    bool stop     ;
+    bool pause    ;
+    bool decrease ;
+    bool increase ;
 }tS_button_bounce_controller;
 
 

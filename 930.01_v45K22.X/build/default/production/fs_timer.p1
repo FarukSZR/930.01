@@ -5,19 +5,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S853 . one_second_flag ]
 "47
 [; ;./fs_timer.h: 47: {
-[s S854 `us 1 `us 1 `us 1 `s 1 `uc 1 `uc 1 ]
-[n S854 . second minute remainingSecond remainingMinute menu_login_delay timer_0_counter ]
+[s S854 `uc 1 `uc 1 `uc 1 `c 1 `uc 1 `uc 1 `us 1 ]
+[n S854 . second minute remainingSecond remainingMinute menu_login_delay timer_0_counter second_counter ]
 "71 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 71: {
-[s S856 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[s S856 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
 [n S856 . menu start stop pause decrease increase ]
 "103
 [; ;./fs_menu_controller.h: 103: tE_menu_selected menu_selected = {0};
-[c E6332 0 1 2 3 4 5 6 7 8 .. ]
-[n E6332 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
+[c E6333 0 1 2 3 4 5 6 7 8 .. ]
+[n E6333 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
 "61
 [; ;./fs_menu_controller.h: 61: {
-[s S855 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[s S855 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
 [n S855 . menu_input_flag menu_start_flag menu_stop_flag menu_pause_flag menu_increase_flag menu_decrease_flag ]
 "95
 [; ;./fs_menu_controller.h: 95: {
@@ -844,7 +844,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "61
 [p x P2BMX = PORTD2 ]
 "62
-[p x MCLRE = INTMCLR ]
+[p x MCLRE = EXTMCLR ]
 "65
 [p x STVREN = OFF ]
 "66
@@ -887,8 +887,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3 = OFF ]
 "97
 [p x EBTRB = OFF ]
-"56 ./fs_timer.h
-[; ;./fs_timer.h: 56: tS_timer_counter_flag timer_counter_flag = {0};
+"57 ./fs_timer.h
+[; ;./fs_timer.h: 57: tS_timer_counter_flag timer_counter_flag = {0};
 [v _timer_counter_flag `S853 ~T0 @X0 1 e ]
 [i _timer_counter_flag
 :U ..
@@ -897,33 +897,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"57
-[; ;./fs_timer.h: 57: tS_timer_value timer_value = {0};
+"58
+[; ;./fs_timer.h: 58: tS_timer_value timer_value = {0};
 [v _timer_value `S854 ~T0 @X0 1 e ]
 [i _timer_value
 :U ..
 :U ..
--> -> 0 `i `us
+-> -> 0 `i `uc
 ..
 ..
 ]
 "56 ./fs_menu_controller.h
-[; ;./fs_menu_controller.h: 56: uint8_t pauseIsClick = 0;
-[v _pauseIsClick `uc ~T0 @X0 1 e ]
+[; ;./fs_menu_controller.h: 56: _Bool pauseIsClick = 0;
+[v _pauseIsClick `a ~T0 @X0 1 e ]
 [i _pauseIsClick
--> -> 0 `i `uc
+-> -> 0 `i `a
 ]
 "57
-[; ;./fs_menu_controller.h: 57: uint8_t startIsClick = 0;
-[v _startIsClick `uc ~T0 @X0 1 e ]
+[; ;./fs_menu_controller.h: 57: _Bool startIsClick = 0;
+[v _startIsClick `a ~T0 @X0 1 e ]
 [i _startIsClick
--> -> 0 `i `uc
+-> -> 0 `i `a
 ]
 "58
-[; ;./fs_menu_controller.h: 58: uint8_t stopIsClick = 0;
-[v _stopIsClick `uc ~T0 @X0 1 e ]
+[; ;./fs_menu_controller.h: 58: _Bool stopIsClick = 0;
+[v _stopIsClick `a ~T0 @X0 1 e ]
 [i _stopIsClick
--> -> 0 `i `uc
+-> -> 0 `i `a
 ]
 "102
 [; ;./fs_menu_controller.h: 102: tS_button_bounce_controller button_bounce_controller = {0};
@@ -931,15 +931,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _button_bounce_controller
 :U ..
 :U ..
--> -> 0 `i `uc
+-> -> 0 `i `a
 ..
 ..
 ]
 "103
 [; ;./fs_menu_controller.h: 103: tE_menu_selected menu_selected = {0};
-[v _menu_selected `E6332 ~T0 @X0 1 e ]
+[v _menu_selected `E6333 ~T0 @X0 1 e ]
 [i _menu_selected
--> -> 0 `i `E6332
+-> -> 0 `i `E6333
 ]
 "104
 [; ;./fs_menu_controller.h: 104: tS_menu_flags menu_flags = {0};
@@ -947,7 +947,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _menu_flags
 :U ..
 :U ..
--> -> 0 `i `uc
+-> -> 0 `i `a
 ..
 ..
 ]
@@ -989,79 +989,92 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_timer.c: 41:         timer_value.timer_0_counter++;
 [e ++ . _timer_value 5 -> -> 1 `i `uc ]
 "43
-[; ;fs_timer.c: 43:         if(button_bounce_controller.menu == 1)
-[e $ ! == -> . _button_bounce_controller 0 `i -> 1 `i 860  ]
+[; ;fs_timer.c: 43:         if (startIsClick == 1)
+[e $ ! == -> _startIsClick `i -> 1 `i 860  ]
 "44
 [; ;fs_timer.c: 44:         {
 {
 "45
-[; ;fs_timer.c: 45:              timer_value.menu_login_delay++;
-[e ++ . _timer_value 4 -> -> 1 `i `uc ]
+[; ;fs_timer.c: 45:             timer_value.second_counter++;
+[e ++ . _timer_value 6 -> -> 1 `i `us ]
 "46
 [; ;fs_timer.c: 46:         }
 }
-[e $U 861  ]
-"47
-[; ;fs_timer.c: 47:         else
 [e :U 860 ]
 "48
-[; ;fs_timer.c: 48:         {
-{
+[; ;fs_timer.c: 48:         if(button_bounce_controller.menu == 1)
+[e $ ! == -> . _button_bounce_controller 0 `i -> 1 `i 861  ]
 "49
-[; ;fs_timer.c: 49:              timer_value.menu_login_delay = 0;
-[e = . _timer_value 4 -> -> 0 `i `uc ]
+[; ;fs_timer.c: 49:         {
+{
 "50
-[; ;fs_timer.c: 50:         }
+[; ;fs_timer.c: 50:              timer_value.menu_login_delay++;
+[e ++ . _timer_value 4 -> -> 1 `i `uc ]
+"51
+[; ;fs_timer.c: 51:         }
 }
 [e :U 861 ]
 "52
-[; ;fs_timer.c: 52:         if (timer_value.timer_0_counter >= 100)
-[e $ ! >= -> . _timer_value 5 `i -> 100 `i 862  ]
+[; ;fs_timer.c: 52:         if(button_bounce_controller.menu == 0)
+[e $ ! == -> . _button_bounce_controller 0 `i -> 0 `i 862  ]
 "53
 [; ;fs_timer.c: 53:         {
 {
 "54
-[; ;fs_timer.c: 54:             timer_value.timer_0_counter = 0;
-[e = . _timer_value 5 -> -> 0 `i `uc ]
+[; ;fs_timer.c: 54:              timer_value.menu_login_delay = 0;
+[e = . _timer_value 4 -> -> 0 `i `uc ]
 "55
-[; ;fs_timer.c: 55:             timer_counter_flag.one_second_flag = 1;
-[e = . _timer_counter_flag 0 -> -> 1 `i `uc ]
-"56
-[; ;fs_timer.c: 56:         }
+[; ;fs_timer.c: 55:         }
 }
 [e :U 862 ]
 "57
-[; ;fs_timer.c: 57:     }
+[; ;fs_timer.c: 57:         if (timer_value.second_counter >= 100)
+[e $ ! >= -> . _timer_value 6 `ui -> -> 100 `i `ui 863  ]
+"58
+[; ;fs_timer.c: 58:         {
+{
+"59
+[; ;fs_timer.c: 59:             timer_value.second_counter = 0;
+[e = . _timer_value 6 -> -> 0 `i `us ]
+"60
+[; ;fs_timer.c: 60:             timer_counter_flag.one_second_flag = 1;
+[e = . _timer_counter_flag 0 -> -> 1 `i `uc ]
+"61
+[; ;fs_timer.c: 61:         }
+}
+[e :U 863 ]
+"62
+[; ;fs_timer.c: 62:     }
 }
 [e :U 859 ]
-"58
-[; ;fs_timer.c: 58: }
+"63
+[; ;fs_timer.c: 63: }
 [e :UE 858 ]
 }
-"67
-[; ;fs_timer.c: 67: void timer_0_init(void)
+"72
+[; ;fs_timer.c: 72: void timer_0_init(void)
 [v _timer_0_init `(v ~T0 @X0 1 ef ]
-"68
-[; ;fs_timer.c: 68: {
+"73
+[; ;fs_timer.c: 73: {
 {
 [e :U _timer_0_init ]
 [f ]
-"69
-[; ;fs_timer.c: 69:   T0CON = 0x81;
-[e = _T0CON -> -> 129 `i `uc ]
-"70
-[; ;fs_timer.c: 70:   TMR0H = 0x63;
-[e = _TMR0H -> -> 99 `i `uc ]
-"71
-[; ;fs_timer.c: 71:   TMR0L = 0xC0;
-[e = _TMR0L -> -> 192 `i `uc ]
-"72
-[; ;fs_timer.c: 72:   INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"73
-[; ;fs_timer.c: 73:   INTCONbits.TMR0IE = 1;
-[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
 "74
-[; ;fs_timer.c: 74: }
-[e :UE 863 ]
+[; ;fs_timer.c: 74:   T0CON = 0x81;
+[e = _T0CON -> -> 129 `i `uc ]
+"75
+[; ;fs_timer.c: 75:   TMR0H = 0x63;
+[e = _TMR0H -> -> 99 `i `uc ]
+"76
+[; ;fs_timer.c: 76:   TMR0L = 0xC0;
+[e = _TMR0L -> -> 192 `i `uc ]
+"77
+[; ;fs_timer.c: 77:   INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"78
+[; ;fs_timer.c: 78:   INTCONbits.TMR0IE = 1;
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
+"79
+[; ;fs_timer.c: 79: }
+[e :UE 864 ]
 }

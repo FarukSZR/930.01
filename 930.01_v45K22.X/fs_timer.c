@@ -38,20 +38,25 @@ void __interrupt (high_priority) TIMER0 (void)
         TMR0H	 = 0x63;
         TMR0L	 = 0xC0;
         
-        timer_value.timer_0_counter++;   
+        timer_value.timer_0_counter++;  
+        
+        if (startIsClick == true)
+        {
+            timer_value.second_counter++;
+        }       
         
         if(button_bounce_controller.menu == TRUE) // Active Low
         {
              timer_value.menu_login_delay++;
         }
-        else
+        if(button_bounce_controller.menu == FALSE)
         {
              timer_value.menu_login_delay = 0;
         }
                    
-        if (timer_value.timer_0_counter >= 100) // Task scheduler is count 8
+        if (timer_value.second_counter >= 100) // Task scheduler is count 8
         {
-            timer_value.timer_0_counter = 0;
+            timer_value.second_counter = 0;
             timer_counter_flag.one_second_flag = 1;
         }       
     }  

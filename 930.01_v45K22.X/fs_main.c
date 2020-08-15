@@ -62,12 +62,12 @@ while(1)
         if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) && (menu_selected == MAIN_MENU) )
         {
             timer_value.second++;
-            timer_value.remainingSecond = 60 - timer_value.second;
+            timer_value.remainingSecond = (uint8_t)60 - timer_value.second;
                            
             if (timer_value.remainingSecond == 59 )
             {
                 timer_value.minute++;
-                timer_value.remainingMinute = menu_value.driver_time - timer_value.minute;
+                timer_value.remainingMinute = (int8_t)menu_value.driver_time - timer_value.minute;
             }
             
             if (timer_value.second > 59)

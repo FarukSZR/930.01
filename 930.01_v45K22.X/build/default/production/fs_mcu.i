@@ -9560,7 +9560,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 #pragma config HFOFST = ON
 #pragma config T3CMX = PORTC0
 #pragma config P2BMX = PORTD2
-#pragma config MCLRE = INTMCLR
+#pragma config MCLRE = EXTMCLR
 
 
 #pragma config STVREN = OFF
@@ -9935,12 +9935,13 @@ typedef struct
 
 typedef struct
 {
-    uint16_t second;
-    uint16_t minute;
-    uint16_t remainingSecond;
-    int16_t remainingMinute;
+    uint8_t second;
+    uint8_t minute;
+    uint8_t remainingSecond;
+    int8_t remainingMinute;
     uint8_t menu_login_delay;
     uint8_t timer_0_counter;
+    uint16_t second_counter;
 }tS_timer_value;
 
 tS_timer_counter_flag timer_counter_flag = {0};
@@ -9948,29 +9949,32 @@ tS_timer_value timer_value = {0};
 # 31 "fs_mcu.c" 2
 
 # 1 "./fs_menu_controller.h" 1
+# 36 "./fs_menu_controller.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdbool.h" 1 3
+# 36 "./fs_menu_controller.h" 2
 # 56 "./fs_menu_controller.h"
-uint8_t pauseIsClick = 0;
-uint8_t startIsClick = 0;
-uint8_t stopIsClick = 0;
+_Bool pauseIsClick = 0;
+_Bool startIsClick = 0;
+_Bool stopIsClick = 0;
 
 typedef struct
 {
-    uint8_t menu_input_flag :1;
-    uint8_t menu_start_flag :1;
-    uint8_t menu_stop_flag :1;
-    uint8_t menu_pause_flag :1;
-    uint8_t menu_increase_flag :1;
-    uint8_t menu_decrease_flag :1;
+    _Bool menu_input_flag ;
+    _Bool menu_start_flag ;
+    _Bool menu_stop_flag ;
+    _Bool menu_pause_flag ;
+    _Bool menu_increase_flag ;
+    _Bool menu_decrease_flag ;
 }tS_menu_flags;
 
 typedef struct
 {
-    uint8_t menu :1;
-    uint8_t start :1;
-    uint8_t stop :1;
-    uint8_t pause :1;
-    uint8_t decrease :1;
-    uint8_t increase :1;
+    _Bool menu ;
+    _Bool start ;
+    _Bool stop ;
+    _Bool pause ;
+    _Bool decrease ;
+    _Bool increase ;
 }tS_button_bounce_controller;
 
 
@@ -10051,6 +10055,4 @@ void system_init(void)
     _delay((unsigned long)((700)*(64000000UL/4000.0)));
     timer_value.remainingMinute = menu_value.driver_time;
     timer_value.remainingSecond = 0;
-
-
 }
