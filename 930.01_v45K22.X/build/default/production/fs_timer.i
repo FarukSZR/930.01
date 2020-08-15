@@ -9841,7 +9841,7 @@ typedef struct
     uint8_t remainingSecond;
     int8_t remainingMinute;
     uint8_t menu_login_delay;
-    uint8_t timer_0_counter;
+    uint8_t adc_conversion_time;
     uint16_t second_counter;
 }tS_timer_value;
 
@@ -9905,6 +9905,7 @@ tS_button_bounce_controller button_bounce_controller = {0};
 tE_menu_selected menu_selected = {0};
 tS_menu_flags menu_flags = {0};
 tS_menu_value menu_value = {0};
+
 void menuInitialize(void);
 void menuControl(void);
 void buttonControlFlags(void);
@@ -9918,6 +9919,7 @@ void speedLimitSettingMenu(void);
 void speedLimitSettingMenu(void);
 void stopTimeSettingMenu(void);
 void driverTimeSettingMenu(void);
+void exitLine(void);
 # 25 "fs_timer.c" 2
 
 
@@ -9935,7 +9937,7 @@ void __attribute__((picinterrupt(("high_priority")))) TIMER0 (void)
         TMR0H = 0x63;
         TMR0L = 0xC0;
 
-        timer_value.timer_0_counter++;
+        timer_value.adc_conversion_time++;
 
         if (startIsClick == 1)
         {

@@ -50,7 +50,7 @@ typedef struct
     uint8_t remainingSecond;
     int8_t  remainingMinute;
     uint8_t  menu_login_delay;
-    uint8_t  timer_0_counter;
+    uint8_t  adc_conversion_time;
     uint16_t second_counter;
 }tS_timer_value;
 

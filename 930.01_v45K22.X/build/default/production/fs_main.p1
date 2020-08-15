@@ -22,7 +22,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47
 [; ;./fs_timer.h: 47: {
 [s S859 `uc 1 `uc 1 `uc 1 `c 1 `uc 1 `uc 1 `us 1 ]
-[n S859 . second minute remainingSecond remainingMinute menu_login_delay timer_0_counter second_counter ]
+[n S859 . second minute remainingSecond remainingMinute menu_login_delay adc_conversion_time second_counter ]
 "55 ./fs_speed_controller.h
 [; ;./fs_speed_controller.h: 55: {
 [s S860 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
@@ -47,8 +47,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "35 ./fs_mcu.h
 [; ;./fs_mcu.h: 35: void mcu_init(void);
 [v _mcu_init `(v ~T0 @X0 0 ef ]
-"107 ./fs_menu_controller.h
-[; ;./fs_menu_controller.h: 107: void menuInitialize(void);
+"108 ./fs_menu_controller.h
+[; ;./fs_menu_controller.h: 108: void menuInitialize(void);
 [v _menuInitialize `(v ~T0 @X0 0 ef ]
 "51 ./fs_adc.h
 [; ;./fs_adc.h: 51: void adcInit(void);
@@ -74,8 +74,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23
 [; ;./fs_pwm.h: 23: void PWM2_setDC(int16_t dutycycle);
 [v _PWM2_setDC `(v ~T0 @X0 0 ef1`s ]
-"108 ./fs_menu_controller.h
-[; ;./fs_menu_controller.h: 108: void menuControl(void);
+"109 ./fs_menu_controller.h
+[; ;./fs_menu_controller.h: 109: void menuControl(void);
 [v _menuControl `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h: 54: __asm("ANSELA equ 0F38h");
