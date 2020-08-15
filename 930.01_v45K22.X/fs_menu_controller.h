@@ -104,6 +104,7 @@ tS_button_bounce_controller button_bounce_controller = {0};
 tE_menu_selected            menu_selected = {0};
 tS_menu_flags               menu_flags   = {0};
 tS_menu_value               menu_value   = {0};
+
 void menuInitialize(void);
 void menuControl(void);
 void buttonControlFlags(void);
@@ -117,6 +118,7 @@ void speedLimitSettingMenu(void);
 void speedLimitSettingMenu(void);
 void stopTimeSettingMenu(void);
 void driverTimeSettingMenu(void);
+void exitLine(void);
 
 #ifdef	__cplusplus
 }

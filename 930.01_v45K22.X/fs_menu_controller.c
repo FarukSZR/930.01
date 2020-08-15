@@ -197,15 +197,11 @@ void menuControl(void)
  * @return none
  */
 void stateMachine(void)
-{    
-              
+{                
     switch (menu_selected)
     {              
-        case MAIN_MENU:       
-                         
-            mainMenu();
-            //TODO:: Surus algoritmasi burada kosacak.
-        
+        case MAIN_MENU:                               
+            mainMenu();//TODO:: Surus algoritmasi burada kosacak.        
         break;
         
         case DRIVER_TIME_SETTING:
@@ -220,10 +216,8 @@ void stateMachine(void)
             speedLimitSettingMenu();
         break;
         
-        case STOP_MENU:            
-            
-            stopMenu();         //TODO: Rampa ile durma burada olacak. 
-       
+        case STOP_MENU:                        
+            stopMenu();         //TODO: Rampa ile durma burada olacak.      
         break;
        
         case START_MENU:          
@@ -231,13 +225,11 @@ void stateMachine(void)
         break;
         
         case PAUSE_MENU:
-
-            pauseMenu();//TODO: Rampa ile durma burada olacak.
-        
+            pauseMenu();//TODO: Rampa ile durma burada olacak.        
         break;
         
         case EXIT_LINE:
-            //TODO: Rampa ile durma burada olacak. Çizgiden çıktıgında bu durma islemi gerceklestirilecek.
+            exitLine();//TODO: Rampa ile durma burada olacak. Çizgiden çıktıgında bu durma islemi gerceklestirilecek.
         break;
        
         case SECRET_MENU:
@@ -249,7 +241,7 @@ void stateMachine(void)
 
 
 /*
- * @brief State Machine function.
+ * @brief State function used to set the Main Menu.
  * @param none
  * @return none
  */
@@ -307,7 +299,7 @@ void mainMenu(void)
 
 
 /*
- * @brief State Machine function.
+ * @brief State function used to set the Stop Menu.
  * @param none
  * @return none
  */
@@ -352,7 +344,7 @@ stopMotor();
 
 
 /*
- * @brief State Machine function.
+ * @brief State function used to set the Pause Menu.
  * @param none
  * @return none
  */
@@ -405,7 +397,7 @@ void pauseMenu(void)
 
 
 /*
- * @brief State Machine function.
+ * @brief State function used to set the Start menu.
  * @param none
  * @return none
  */
@@ -420,7 +412,7 @@ void startMenu(void)
 
 
 /*
- * @brief State Machine function.
+ * @brief State function used to set the Secret Menu.
  * @param none
  * @return none
  */
@@ -492,7 +484,7 @@ void secretMenu(void)
 
 
 /*
- * @brief State Machine function.
+ * @brief State function used to set the Speed Limit.
  * @param none
  * @return none
  */
@@ -535,7 +527,7 @@ void speedLimitSettingMenu(void)
 
 
 /*
- * @brief State Machine function.
+ * @brief State function used to set the Stop Time.
  * @param none
  * @return none
  */
@@ -580,7 +572,7 @@ void stopTimeSettingMenu(void)
 
 
 /*
- * @brief State Machine function.
+ * @brief State function used to set the Driver Time.
  * @param none
  * @return none
  */
@@ -628,4 +620,16 @@ void driverTimeSettingMenu(void)
         timer_value.menu_login_delay = 0;
         menu_selected = PAUSE_MENU;                  
     }   
+}
+
+
+
+/*
+ * @brief State function used to set the Driver Time.
+ * @param none
+ * @return none
+ */
+void exitLine(void)
+{
+    
 }
