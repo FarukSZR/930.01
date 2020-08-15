@@ -9755,16 +9755,14 @@ typedef uint32_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 139 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdint.h" 2 3
 # 35 "./fs_eeprom.h" 2
-# 44 "./fs_eeprom.h"
+# 45 "./fs_eeprom.h"
 uint8_t eepromRead(uint8_t address);
 void eepromWrite(uint8_t address, uint8_t data);
 # 25 "fs_eeprom.c" 2
 # 36 "fs_eeprom.c"
 uint8_t eepromRead(uint8_t address)
 {
-
-
-
+# 48 "fs_eeprom.c"
     EEADR = (uint8_t)address;
 
     EECON1bits.EEPGD = 0;
@@ -9778,7 +9776,7 @@ uint8_t eepromRead(uint8_t address)
     return EEDATA;
 
 }
-# 62 "fs_eeprom.c"
+# 69 "fs_eeprom.c"
 void eepromWrite(uint8_t address, uint8_t data)
 {
 

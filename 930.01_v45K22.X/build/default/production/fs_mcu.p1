@@ -1,48 +1,48 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"57 ./fs_adc.h
-[; ;./fs_adc.h: 57: {
-[s S853 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
-[n S853 . channel_0 channel_1 channel_2 channel_3 channel_4 channel_5 channel_6 channel_7 ]
-"69
-[; ;./fs_adc.h: 69: {
-[s S854 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 ]
-[n S854 . channel_0 channel_1 channel_2 channel_3 channel_4 channel_5 channel_6 channel_7 ]
-"81
-[; ;./fs_adc.h: 81: {
-[s S855 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
-[n S855 . convert_channel_0 convert_channel_1 convert_channel_2 convert_channel_3 convert_channel_4 convert_channel_5 convert_channel_6 convert_channel_7 convert_channel_0_f convert_channel_1_f convert_channel_2_f convert_channel_3_f convert_channel_4_f convert_channel_5_f convert_channel_6_f convert_channel_7_f ]
+"57 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 57: {
+[s S853 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
+[n S853 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
+"78 ./fs_menu_controller.h
+[; ;./fs_menu_controller.h: 78: {
+[s S855 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
+[n S855 . menu start stop pause decrease increase ]
+"110
+[; ;./fs_menu_controller.h: 110: tE_menu_selected menu_selected = {0};
+[c E6785 0 1 2 3 4 5 6 7 8 .. ]
+[n E6785 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
+"68
+[; ;./fs_menu_controller.h: 68: {
+[s S854 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
+[n S854 . menu_input_flag menu_start_flag menu_stop_flag menu_pause_flag menu_increase_flag menu_decrease_flag ]
 "102
-[; ;./fs_adc.h: 102: {
-[s S856 `ul 1 `ul 1 `f 1 ]
-[n S856 . pay payda ortalama ]
-"55 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 55: {
-[s S857 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
-[n S857 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
-"42 ./fs_timer.h
-[; ;./fs_timer.h: 42: {
-[s S858 :1 `uc 1 ]
-[n S858 . one_second_flag ]
-"47
-[; ;./fs_timer.h: 47: {
-[s S859 `uc 1 `uc 1 `uc 1 `c 1 `uc 1 `uc 1 `us 1 ]
-[n S859 . second minute remainingSecond remainingMinute menu_login_delay adc_conversion_time second_counter ]
-"72 ./fs_menu_controller.h
-[; ;./fs_menu_controller.h: 72: {
-[s S861 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
-[n S861 . menu start stop pause decrease increase ]
-"104
-[; ;./fs_menu_controller.h: 104: tE_menu_selected menu_selected = {0};
-[c E6405 0 1 2 3 4 5 6 7 8 .. ]
-[n E6405 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
-"62
-[; ;./fs_menu_controller.h: 62: {
-[s S860 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
-[n S860 . menu_input_flag menu_start_flag menu_stop_flag menu_pause_flag menu_increase_flag menu_decrease_flag ]
-"96
-[; ;./fs_menu_controller.h: 96: {
-[s S862 `uc 1 `uc 1 `uc 1 ]
-[n S862 . driver_time stop_time speed_limit ]
+[; ;./fs_menu_controller.h: 102: {
+[s S856 `uc 1 `uc 1 `uc 1 ]
+[n S856 . driver_time stop_time speed_limit ]
+"43 ./fs_timer.h
+[; ;./fs_timer.h: 43: {
+[s S857 :1 `uc 1 ]
+[n S857 . one_second_flag ]
+"48
+[; ;./fs_timer.h: 48: {
+[s S858 `uc 1 `uc 1 `uc 1 `c 1 `uc 1 `uc 1 `us 1 ]
+[n S858 . second minute remainingSecond remainingMinute menu_login_delay adc_conversion_time second_counter ]
+"58 ./fs_adc.h
+[; ;./fs_adc.h: 58: {
+[s S859 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
+[n S859 . channel_0 channel_1 channel_2 channel_3 channel_4 channel_5 channel_6 channel_7 ]
+"70
+[; ;./fs_adc.h: 70: {
+[s S860 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 ]
+[n S860 . channel_0 channel_1 channel_2 channel_3 channel_4 channel_5 channel_6 channel_7 ]
+"82
+[; ;./fs_adc.h: 82: {
+[s S861 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
+[n S861 . convert_channel_0 convert_channel_1 convert_channel_2 convert_channel_3 convert_channel_4 convert_channel_5 convert_channel_6 convert_channel_7 convert_channel_0_f convert_channel_1_f convert_channel_2_f convert_channel_3_f convert_channel_4_f convert_channel_5_f convert_channel_6_f convert_channel_7_f ]
+"103
+[; ;./fs_adc.h: 103: {
+[s S862 `ul 1 `ul 1 `f 1 ]
+[n S862 . pay payda ortalama ]
 "16018 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
 [s S758 :2 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
 [n S758 . SCS HFIOFS OSTS IRCF IDLEN ]
@@ -65,13 +65,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S419 . . . ]
 "9084
 [v _OSCTUNEbits `VS419 ~T0 @X0 0 e@3995 ]
-"44 ./fs_eeprom.h
-[; ;./fs_eeprom.h: 44: uint8_t eepromRead(uint8_t address);
+"45 ./fs_eeprom.h
+[; ;./fs_eeprom.h: 45: uint8_t eepromRead(uint8_t address);
 [v _eepromRead `(uc ~T0 @X0 0 ef1`uc ]
 [v F5943 `(v ~T0 @X0 1 tf1`ul ]
 "203 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\pic18.h
 [v __delay `JF5943 ~T0 @X0 0 e ]
 [p i __delay ]
+"60 ./fs_lcd.h
+[; ;./fs_lcd.h: 60: void Lcd_Set_Cursor(char a, char b);
+[v _Lcd_Set_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+"63
+[; ;./fs_lcd.h: 63: void Lcd_Write_String(char *a);
+[v _Lcd_Write_String `(v ~T0 @X0 0 ef1`*uc ]
+"59
+[; ;./fs_lcd.h: 59: void Lcd_Clear(void);
+[v _Lcd_Clear `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
 [; <" ANSELA equ 0F38h ;# ">
 "99
@@ -654,80 +663,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3 = OFF ]
 "97
 [p x EBTRB = OFF ]
-"108 ./fs_adc.h
-[; ;./fs_adc.h: 108: tS_adc_raw_data adc_raw_data;
-[v _adc_raw_data `S853 ~T0 @X0 1 e ]
-"109
-[; ;./fs_adc.h: 109: tS_procces_data procces_data;
-[v _procces_data `S854 ~T0 @X0 1 e ]
-"110
-[; ;./fs_adc.h: 110: tS_convert_data convert_data;
-[v _convert_data `S855 ~T0 @X0 1 e ]
-"111
-[; ;./fs_adc.h: 111: tS_driver_limit driver_limit;
-[v _driver_limit `S856 ~T0 @X0 1 e ]
-"38 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 38: static float KP = 0.2;
+"40 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 40: static float KP = 0.2;
 [v _KP `f ~T0 @X0 1 s ]
 [i _KP
 -> .0.2 `f
 ]
-"39
-[; ;./fs_speed_controller.h: 39: static float KD = 1.0;
+"41
+[; ;./fs_speed_controller.h: 41: static float KD = 1.0;
 [v _KD `f ~T0 @X0 1 s ]
 [i _KD
 -> .1.0 `f
 ]
-"69
-[; ;./fs_speed_controller.h: 69: tS_controller controller;
-[v _controller `S857 ~T0 @X0 1 e ]
-"57 ./fs_timer.h
-[; ;./fs_timer.h: 57: tS_timer_counter_flag timer_counter_flag = {0};
-[v _timer_counter_flag `S858 ~T0 @X0 1 e ]
-[i _timer_counter_flag
-:U ..
-:U ..
--> -> 0 `i `uc
-..
-..
-]
-"58
-[; ;./fs_timer.h: 58: tS_timer_value timer_value = {0};
-[v _timer_value `S859 ~T0 @X0 1 e ]
-[i _timer_value
-:U ..
-:U ..
--> -> 0 `i `uc
-..
-..
-]
-"56 ./fs_menu_controller.h
-[; ;./fs_menu_controller.h: 56: _Bool pauseIsClick = 0;
+"71
+[; ;./fs_speed_controller.h: 71: tS_controller controller;
+[v _controller `S853 ~T0 @X0 1 e ]
+"62 ./fs_menu_controller.h
+[; ;./fs_menu_controller.h: 62: _Bool pauseIsClick = 0;
 [v _pauseIsClick `a ~T0 @X0 1 e ]
 [i _pauseIsClick
 -> -> 0 `i `a
 ]
-"57
-[; ;./fs_menu_controller.h: 57: _Bool startIsClick = 0;
+"63
+[; ;./fs_menu_controller.h: 63: _Bool startIsClick = 0;
 [v _startIsClick `a ~T0 @X0 1 e ]
 [i _startIsClick
 -> -> 0 `i `a
 ]
-"58
-[; ;./fs_menu_controller.h: 58: _Bool stopIsClick = 0;
+"64
+[; ;./fs_menu_controller.h: 64: _Bool stopIsClick = 0;
 [v _stopIsClick `a ~T0 @X0 1 e ]
 [i _stopIsClick
 -> -> 0 `i `a
 ]
-"59
-[; ;./fs_menu_controller.h: 59: uint8_t secretMenuCounter = 0;
+"65
+[; ;./fs_menu_controller.h: 65: uint8_t secretMenuCounter = 0;
 [v _secretMenuCounter `uc ~T0 @X0 1 e ]
 [i _secretMenuCounter
 -> -> 0 `i `uc
 ]
-"103
-[; ;./fs_menu_controller.h: 103: tS_button_bounce_controller button_bounce_controller = {0};
-[v _button_bounce_controller `S861 ~T0 @X0 1 e ]
+"109
+[; ;./fs_menu_controller.h: 109: tS_button_bounce_controller button_bounce_controller = {0};
+[v _button_bounce_controller `S855 ~T0 @X0 1 e ]
 [i _button_bounce_controller
 :U ..
 :U ..
@@ -735,15 +712,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"104
-[; ;./fs_menu_controller.h: 104: tE_menu_selected menu_selected = {0};
-[v _menu_selected `E6405 ~T0 @X0 1 e ]
+"110
+[; ;./fs_menu_controller.h: 110: tE_menu_selected menu_selected = {0};
+[v _menu_selected `E6785 ~T0 @X0 1 e ]
 [i _menu_selected
--> -> 0 `i `E6405
+-> -> 0 `i `E6785
 ]
-"105
-[; ;./fs_menu_controller.h: 105: tS_menu_flags menu_flags = {0};
-[v _menu_flags `S860 ~T0 @X0 1 e ]
+"111
+[; ;./fs_menu_controller.h: 111: tS_menu_flags menu_flags = {0};
+[v _menu_flags `S854 ~T0 @X0 1 e ]
 [i _menu_flags
 :U ..
 :U ..
@@ -751,9 +728,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"106
-[; ;./fs_menu_controller.h: 106: tS_menu_value menu_value = {0};
-[v _menu_value `S862 ~T0 @X0 1 e ]
+"112
+[; ;./fs_menu_controller.h: 112: tS_menu_value menu_value = {0};
+[v _menu_value `S856 ~T0 @X0 1 e ]
 [i _menu_value
 :U ..
 :U ..
@@ -761,115 +738,179 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"42 fs_mcu.c
-[; ;fs_mcu.c: 42: void mcu_init(void)
+"58 ./fs_timer.h
+[; ;./fs_timer.h: 58: tS_timer_counter_flag timer_counter_flag = {0};
+[v _timer_counter_flag `S857 ~T0 @X0 1 e ]
+[i _timer_counter_flag
+:U ..
+:U ..
+-> -> 0 `i `uc
+..
+..
+]
+"59
+[; ;./fs_timer.h: 59: tS_timer_value timer_value = {0};
+[v _timer_value `S858 ~T0 @X0 1 e ]
+[i _timer_value
+:U ..
+:U ..
+-> -> 0 `i `uc
+..
+..
+]
+"109 ./fs_adc.h
+[; ;./fs_adc.h: 109: tS_adc_raw_data adc_raw_data;
+[v _adc_raw_data `S859 ~T0 @X0 1 e ]
+"110
+[; ;./fs_adc.h: 110: tS_procces_data procces_data;
+[v _procces_data `S860 ~T0 @X0 1 e ]
+"111
+[; ;./fs_adc.h: 111: tS_convert_data convert_data;
+[v _convert_data `S861 ~T0 @X0 1 e ]
+"112
+[; ;./fs_adc.h: 112: tS_driver_limit driver_limit;
+[v _driver_limit `S862 ~T0 @X0 1 e ]
+"37 fs_mcu.c
+[; ;fs_mcu.c: 37: void mcu_init(void)
 [v _mcu_init `(v ~T0 @X0 1 ef ]
-"43
-[; ;fs_mcu.c: 43: {
+"38
+[; ;fs_mcu.c: 38: {
 {
 [e :U _mcu_init ]
 [f ]
-"44
-[; ;fs_mcu.c: 44:    OSCCONbits.IRCF = 0b111;
+"39
+[; ;fs_mcu.c: 39:    OSCCONbits.IRCF = 0b111;
 [e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
-"45
-[; ;fs_mcu.c: 45:    OSCTUNEbits.PLLEN = 0b1;
+"40
+[; ;fs_mcu.c: 40:    OSCTUNEbits.PLLEN = 0b1;
 [e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
-"46
-[; ;fs_mcu.c: 46:    while(!OSCCONbits.HFIOFS);
+"41
+[; ;fs_mcu.c: 41:    while(!OSCCONbits.HFIOFS);
 [e $U 864  ]
 [e :U 865 ]
 [e :U 864 ]
 [e $ ! != -> . . _OSCCONbits 0 1 `i -> 0 `i 865  ]
 [e :U 866 ]
-"47
-[; ;fs_mcu.c: 47: }
+"42
+[; ;fs_mcu.c: 42: }
 [e :UE 863 ]
 }
-"56
-[; ;fs_mcu.c: 56: void system_init(void)
+"51
+[; ;fs_mcu.c: 51: void system_init(void)
 [v _system_init `(v ~T0 @X0 1 ef ]
-"57
-[; ;fs_mcu.c: 57: {
+"52
+[; ;fs_mcu.c: 52: {
 {
 [e :U _system_init ]
 [f ]
-"58
-[; ;fs_mcu.c: 58:     driver_limit.pay = 0;
+"53
+[; ;fs_mcu.c: 53:     driver_limit.pay = 0;
 [e = . _driver_limit 0 -> -> -> 0 `i `l `ul ]
-"59
-[; ;fs_mcu.c: 59:     driver_limit.payda = 0;
+"54
+[; ;fs_mcu.c: 54:     driver_limit.payda = 0;
 [e = . _driver_limit 1 -> -> -> 0 `i `l `ul ]
-"60
-[; ;fs_mcu.c: 60:     driver_limit.ortalama = 0;
+"55
+[; ;fs_mcu.c: 55:     driver_limit.ortalama = 0;
 [e = . _driver_limit 2 -> -> 0 `i `f ]
-"61
-[; ;fs_mcu.c: 61:     convert_data.convert_channel_0 = 0;
+"56
+[; ;fs_mcu.c: 56:     convert_data.convert_channel_0 = 0;
 [e = . _convert_data 0 -> -> -> 0 `i `l `ul ]
-"62
-[; ;fs_mcu.c: 62:     convert_data.convert_channel_1 = 0;
+"57
+[; ;fs_mcu.c: 57:     convert_data.convert_channel_1 = 0;
 [e = . _convert_data 1 -> -> -> 0 `i `l `ul ]
-"63
-[; ;fs_mcu.c: 63:     convert_data.convert_channel_2 = 0;
+"58
+[; ;fs_mcu.c: 58:     convert_data.convert_channel_2 = 0;
 [e = . _convert_data 2 -> -> -> 0 `i `l `ul ]
-"64
-[; ;fs_mcu.c: 64:     convert_data.convert_channel_3 = 0;
+"59
+[; ;fs_mcu.c: 59:     convert_data.convert_channel_3 = 0;
 [e = . _convert_data 3 -> -> -> 0 `i `l `ul ]
-"65
-[; ;fs_mcu.c: 65:     convert_data.convert_channel_4 = 0;
+"60
+[; ;fs_mcu.c: 60:     convert_data.convert_channel_4 = 0;
 [e = . _convert_data 4 -> -> -> 0 `i `l `ul ]
-"66
-[; ;fs_mcu.c: 66:     convert_data.convert_channel_5 = 0;
+"61
+[; ;fs_mcu.c: 61:     convert_data.convert_channel_5 = 0;
 [e = . _convert_data 5 -> -> -> 0 `i `l `ul ]
-"67
-[; ;fs_mcu.c: 67:     convert_data.convert_channel_6 = 0;
+"62
+[; ;fs_mcu.c: 62:     convert_data.convert_channel_6 = 0;
 [e = . _convert_data 6 -> -> -> 0 `i `l `ul ]
-"68
-[; ;fs_mcu.c: 68:     convert_data.convert_channel_7 = 0;
+"63
+[; ;fs_mcu.c: 63:     convert_data.convert_channel_7 = 0;
 [e = . _convert_data 7 -> -> -> 0 `i `l `ul ]
-"69
-[; ;fs_mcu.c: 69:     controller.leftMotorSpeed = 0;
+"64
+[; ;fs_mcu.c: 64:     controller.leftMotorSpeed = 0;
 [e = . _controller 3 -> -> 0 `i `s ]
-"70
-[; ;fs_mcu.c: 70:     controller.rightMotorSpeed = 0;
+"65
+[; ;fs_mcu.c: 65:     controller.rightMotorSpeed = 0;
 [e = . _controller 4 -> -> 0 `i `s ]
-"71
-[; ;fs_mcu.c: 71:     timer_value.adc_conversion_time = 0;
+"66
+[; ;fs_mcu.c: 66:     timer_value.adc_conversion_time = 0;
 [e = . _timer_value 5 -> -> 0 `i `uc ]
-"72
-[; ;fs_mcu.c: 72:     controller.error = 0;
+"67
+[; ;fs_mcu.c: 67:     controller.error = 0;
 [e = . _controller 0 -> -> 0 `i `s ]
-"74
-[; ;fs_mcu.c: 74:     button_bounce_controller.menu = 0;
+"69
+[; ;fs_mcu.c: 69:     button_bounce_controller.menu = 0;
 [e = . _button_bounce_controller 0 -> -> 0 `i `a ]
-"75
-[; ;fs_mcu.c: 75:     button_bounce_controller.pause = 0;
+"70
+[; ;fs_mcu.c: 70:     button_bounce_controller.pause = 0;
 [e = . _button_bounce_controller 3 -> -> 0 `i `a ]
-"76
-[; ;fs_mcu.c: 76:     button_bounce_controller.start = 0;
+"71
+[; ;fs_mcu.c: 71:     button_bounce_controller.start = 0;
 [e = . _button_bounce_controller 1 -> -> 0 `i `a ]
-"77
-[; ;fs_mcu.c: 77:     button_bounce_controller.stop = 0;
+"72
+[; ;fs_mcu.c: 72:     button_bounce_controller.stop = 0;
 [e = . _button_bounce_controller 2 -> -> 0 `i `a ]
-"78
-[; ;fs_mcu.c: 78:     menu_value.driver_time = (uint8_t)eepromRead(0x00);
+"73
+[; ;fs_mcu.c: 73:     menu_value.driver_time = (uint8_t)eepromRead(0x00);
 [e = . _menu_value 0 ( _eepromRead (1 -> -> 0 `i `uc ]
-"79
-[; ;fs_mcu.c: 79:     menu_value.stop_time = (uint8_t)eepromRead(0x01);
+"74
+[; ;fs_mcu.c: 74:     menu_value.stop_time = (uint8_t)eepromRead(0x01);
 [e = . _menu_value 1 ( _eepromRead (1 -> -> 1 `i `uc ]
-"80
-[; ;fs_mcu.c: 80:     menu_value.speed_limit = (uint8_t)eepromRead(0x02);
+"75
+[; ;fs_mcu.c: 75:     menu_value.speed_limit = (uint8_t)eepromRead(0x02);
 [e = . _menu_value 2 ( _eepromRead (1 -> -> 2 `i `uc ]
-"82
-[; ;fs_mcu.c: 82:     _delay((unsigned long)((700)*(64000000UL/4000.0)));
+"77
+[; ;fs_mcu.c: 77:     _delay((unsigned long)((700)*(64000000UL/4000.0)));
 [e ( __delay (1 -> * -> -> 700 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
-"83
-[; ;fs_mcu.c: 83:     timer_value.remainingMinute = menu_value.driver_time;
+"78
+[; ;fs_mcu.c: 78:     timer_value.remainingMinute = menu_value.driver_time;
 [e = . _timer_value 3 -> . _menu_value 0 `c ]
-"84
-[; ;fs_mcu.c: 84:     timer_value.remainingSecond = 0;
+"79
+[; ;fs_mcu.c: 79:     timer_value.remainingSecond = 0;
 [e = . _timer_value 2 -> -> 0 `i `uc ]
-"85
-[; ;fs_mcu.c: 85: }
+"80
+[; ;fs_mcu.c: 80: }
 [e :UE 867 ]
 }
+"89
+[; ;fs_mcu.c: 89: void openLCD_Script(void)
+[v _openLCD_Script `(v ~T0 @X0 1 ef ]
+"90
+[; ;fs_mcu.c: 90: {
+{
+[e :U _openLCD_Script ]
+[f ]
+"91
+[; ;fs_mcu.c: 91:     Lcd_Set_Cursor(1,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"92
+[; ;fs_mcu.c: 92:     Lcd_Write_String("   Ergin Oyun  ");
+[e ( _Lcd_Write_String (1 :s 1C ]
+"93
+[; ;fs_mcu.c: 93:     Lcd_Set_Cursor(2,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"94
+[; ;fs_mcu.c: 94:     Lcd_Write_String(" iYi Eglenceler ");
+[e ( _Lcd_Write_String (1 :s 2C ]
+"95
+[; ;fs_mcu.c: 95:     _delay((unsigned long)((2500)*(64000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 64000000 `ul `d .4000.0 `ul ]
+"96
+[; ;fs_mcu.c: 96:     Lcd_Clear();
+[e ( _Lcd_Clear ..  ]
+"97
+[; ;fs_mcu.c: 97: }
+[e :UE 868 ]
+}
+[a 2C 32 105 89 105 32 69 103 108 101 110 99 101 108 101 114 32 0 ]
+[a 1C 32 32 32 69 114 103 105 110 32 79 121 117 110 32 32 0 ]

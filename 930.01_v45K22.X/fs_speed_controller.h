@@ -33,7 +33,9 @@ extern "C" {
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-    
+#include "fs_adc.h"
+#include "fs_mcu.h"
+#include "fs_pwm.h"    
     
 static float KP =  0.2;
 static float KD =  1.0;

@@ -22,12 +22,9 @@
  ******************************************************************************
   */
 
-#include <proc/pic18f45k22.h>
+
 #include "fs_menu_controller.h"
-#include "fs_timer.h"
-#include "fs_lcd.h"
-#include "fs_eeprom.h"
-#include "fs_speed_controller.h"
+
 
 
 /*

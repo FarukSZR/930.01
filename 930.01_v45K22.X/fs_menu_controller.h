@@ -29,11 +29,17 @@
 extern "C" {
 #endif
     
-#include "fs_main.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include "fs_main.h"
+#include "fs_timer.h"
+#include "fs_lcd.h"
+#include "fs_eeprom.h"
+#include "fs_speed_controller.h"
+#include <proc/pic18f45k22.h>
     
 #define LAMB_OUTPUT             LATCbits.LATC4 
 #define MP3_PLAYER              LATDbits.LATD5

@@ -25,9 +25,7 @@
 
 
 #include "fs_speed_controller.h"
-#include "fs_adc.h"
-#include "fs_mcu.h"
-#include "fs_pwm.h"
+
 
 
 /*
