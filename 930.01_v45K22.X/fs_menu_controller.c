@@ -254,6 +254,7 @@ void mainMenu(void)
 
     if ( timer_value.menu_login_delay == MENU_TIMEOUT)
     {
+        button_bounce_controller.menu = false;
         timer_value.menu_login_delay = 0;
         menu_selected = DRIVER_TIME_SETTING;               
     }
