@@ -224,19 +224,19 @@ SECRET_MENU 8
 [v _mainMenu mainMenu `(v  1 e 1 0 ]
 "304
 [v _stopMenu stopMenu `(v  1 e 1 0 ]
-"349
+"350
 [v _pauseMenu pauseMenu `(v  1 e 1 0 ]
-"402
+"404
 [v _startMenu startMenu `(v  1 e 1 0 ]
-"417
+"419
 [v _secretMenu secretMenu `(v  1 e 1 0 ]
-"489
+"492
 [v _speedLimitSettingMenu speedLimitSettingMenu `(v  1 e 1 0 ]
-"532
+"536
 [v _stopTimeSettingMenu stopTimeSettingMenu `(v  1 e 1 0 ]
-"577
+"582
 [v _driverTimeSettingMenu driverTimeSettingMenu `(v  1 e 1 0 ]
-"630
+"636
 [v _exitLine exitLine `(v  1 e 1 0 ]
 "34 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_pwm.c
 [v _PWM_Init PWM_Init `(v  1 e 1 0 ]
@@ -822,45 +822,45 @@ SECRET_MENU 8
 {
 "236
 } 0
-"532
+"536
 [v _stopTimeSettingMenu stopTimeSettingMenu `(v  1 e 1 0 ]
 {
-"534
+"538
 [v stopTimeSettingMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"568
+"573
 } 0
 "304
 [v _stopMenu stopMenu `(v  1 e 1 0 ]
 {
 "306
 [v stopMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"340
+"341
 } 0
-"402
+"404
 [v _startMenu startMenu `(v  1 e 1 0 ]
 {
-"409
+"411
 } 0
-"489
+"492
 [v _speedLimitSettingMenu speedLimitSettingMenu `(v  1 e 1 0 ]
 {
-"491
+"494
 [v speedLimitSettingMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"524
+"528
 } 0
-"417
+"419
 [v _secretMenu secretMenu `(v  1 e 1 0 ]
 {
-"419
+"421
 [v secretMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"481
+"484
 } 0
-"349
+"350
 [v _pauseMenu pauseMenu `(v  1 e 1 0 ]
 {
-"351
+"352
 [v pauseMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"393
+"395
 } 0
 "245
 [v _mainMenu mainMenu `(v  1 e 1 0 ]
@@ -923,17 +923,17 @@ SECRET_MENU 8
 [v ___lldiv@divisor divisor `ul  1 p 4 4 ]
 "30
 } 0
-"630 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_menu_controller.c
+"636 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_menu_controller.c
 [v _exitLine exitLine `(v  1 e 1 0 ]
 {
-"633
+"639
 } 0
-"577
+"582
 [v _driverTimeSettingMenu driverTimeSettingMenu `(v  1 e 1 0 ]
 {
-"579
+"584
 [v driverTimeSettingMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"621
+"627
 } 0
 "77 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_speed_controller.c
 [v _stopMotor stopMotor `(v  1 e 1 0 ]
