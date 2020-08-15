@@ -9562,7 +9562,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 #pragma config HFOFST = ON
 #pragma config T3CMX = PORTC0
 #pragma config P2BMX = PORTD2
-#pragma config MCLRE = EXTMCLR
+#pragma config MCLRE = INTMCLR
 
 
 #pragma config STVREN = OFF
@@ -10014,36 +10014,36 @@ void buttonControlFlags(void)
     }
 
 
-    if ((button_bounce_controller.pause == 0) && (PORTDbits.RD2 == 1))
+    if ((button_bounce_controller.pause == 0) && (PORTDbits.RD2 == 0))
     {
         button_bounce_controller.pause = 1;
         menu_flags.menu_pause_flag = 1;
     }
-    if ((PORTDbits.RD2 == 0) && (button_bounce_controller.pause == 1))
+    if ((PORTDbits.RD2 == 1) && (button_bounce_controller.pause == 1))
     {
         button_bounce_controller.pause = 0;
         menu_flags.menu_pause_flag = 0;
     }
 
 
-    if ((button_bounce_controller.start == 0) && (PORTDbits.RD0 == 1))
+    if ((button_bounce_controller.start == 0) && (PORTDbits.RD0 == 0))
     {
         button_bounce_controller.start = 1;
         menu_flags.menu_start_flag = 1;
     }
-    if ((PORTDbits.RD0 == 0) && (button_bounce_controller.start == 1))
+    if ((PORTDbits.RD0 == 1) && (button_bounce_controller.start == 1))
     {
         button_bounce_controller.start = 0;
         menu_flags.menu_start_flag = 0;
     }
 
 
-    if ((button_bounce_controller.stop == 0) && (PORTDbits.RD1 == 1))
+    if ((button_bounce_controller.stop == 0) && (PORTDbits.RD1 == 0))
     {
         button_bounce_controller.stop = 1;
         menu_flags.menu_stop_flag = 1;
     }
-    if ((PORTDbits.RD1 == 0) && (button_bounce_controller.stop == 1))
+    if ((PORTDbits.RD1 == 1) && (button_bounce_controller.stop == 1))
     {
         button_bounce_controller.stop = 0;
         menu_flags.menu_stop_flag = 0;

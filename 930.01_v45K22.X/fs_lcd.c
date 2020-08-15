@@ -137,11 +137,11 @@ void Lcd_Write_Char(char a)
    RS = 1;             // => RS = 1
    Lcd_Port(y>>4);             //Data transfer
    EN = 1;
-   __delay_us(30);
+   __delay_us(40);
    EN = 0;
    Lcd_Port(temp);
    EN = 1;
-   __delay_us(25);
+   __delay_us(40);
    EN = 0;
 }
 
