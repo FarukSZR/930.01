@@ -9832,6 +9832,7 @@ typedef uint32_t uint_fast32_t;
 _Bool pauseIsClick = 0;
 _Bool startIsClick = 0;
 _Bool stopIsClick = 0;
+uint8_t secretMenuCounter = 0;
 
 typedef struct
 {
@@ -9887,6 +9888,11 @@ void mainMenu(void);
 void stopMenu(void);
 void pauseMenu(void);
 void startMenu(void);
+void secretMenu(void);
+void speedLimitSettingMenu(void);
+void speedLimitSettingMenu(void);
+void stopTimeSettingMenu(void);
+void driverTimeSettingMenu(void);
 # 26 "fs_menu_controller.c" 2
 
 # 1 "./fs_timer.h" 1
@@ -10110,264 +10116,41 @@ void menuControl(void)
 # 199 "fs_menu_controller.c"
 void stateMachine(void)
 {
-    char textCursor2[16] = {0};
-    static uint8_t secretMenuCounter = 0;
 
     switch (menu_selected)
     {
         case MAIN_MENU:
 
-            Lcd_Set_Cursor(1,1);
-            Lcd_Write_String("KALAN ZAMAN     ");
-            Lcd_Set_Cursor(2,1);
-            sprintf(textCursor2,"      %d:%d   ",timer_value.remainingMinute,timer_value.remainingSecond);
-            Lcd_Write_String(textCursor2);
-
-            if ( timer_value.menu_login_delay == 100)
-            {
-                timer_value.menu_login_delay = 0;
-                menu_selected = DRIVER_TIME_SETTING;
-            }
-
-            if ((timer_value.remainingMinute <= 0) && (timer_value.remainingSecond == 0) )
-            {
-                    menu_selected = STOP_MENU;
-                    timer_value.minute = 0;
-            }
-
-            if ( (startIsClick == 0) && (pauseIsClick == 1) && (stopIsClick == 0) && (menu_selected == MAIN_MENU))
-            {
-                menu_selected = PAUSE_MENU;
-                LATDbits.LATD5 = 0;
-                LATCbits.LATC5 = 0;
-                LATCbits.LATC4 = 0;
-                startIsClick = 0;
-            }
-
-            if ( (startIsClick == 0) && (pauseIsClick == 0) && (stopIsClick == 1) && (menu_selected == MAIN_MENU) )
-            {
-                 timer_value.remainingMinute = menu_value.driver_time;
-                 timer_value.remainingSecond = 0;
-                 timer_value.second = 0;
-                 timer_value.minute = 0;
-                 LATDbits.LATD5 = 0;
-                 LATCbits.LATC5 = 0;
-                 LATCbits.LATC4 = 0;
-            }
-
-            if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) )
-            {
-                startMotor();
-                LATDbits.LATD5 = 1;
-                LATCbits.LATC5 = 1;
-                LATCbits.LATC4 = 1;
-            }
+            mainMenu();
 
 
         break;
 
         case DRIVER_TIME_SETTING:
-
-            stopMotor();
-
-            if (menu_flags.menu_input_flag == 1)
-            {
-                menu_flags.menu_input_flag = 0;
-                menu_selected = STOP_TIME_SETTING;
-            }
-
-            if ((menu_flags.menu_increase_flag == 1) && (menu_value.driver_time < 30))
-            {
-                menu_flags.menu_increase_flag = 0;
-                menu_value.driver_time++;
-                eepromWrite(0x00,(uint8_t)menu_value.driver_time);
-                timer_value.minute =0 ;
-                timer_value.second = 0;
-                timer_value.remainingSecond = 0;
-                timer_value.remainingMinute = menu_value.driver_time;
-            }
-
-            if ((menu_flags.menu_decrease_flag == 1) && (menu_value.driver_time > 0))
-            {
-                 menu_flags.menu_decrease_flag = 0;
-                 menu_value.driver_time--;
-                 eepromWrite(0x00,(uint8_t)menu_value.driver_time);
-                 timer_value.minute =0 ;
-                 timer_value.second = 0;
-                 timer_value.remainingSecond = 0;
-                 timer_value.remainingMinute = menu_value.driver_time;
-            }
-            Lcd_Set_Cursor(1,1);
-            Lcd_Write_String("HAREKT ZAMANI dk");
-            Lcd_Set_Cursor(2,1);
-            sprintf(textCursor2,"%d               ",menu_value.driver_time);
-            Lcd_Write_String(textCursor2);
-
-            if(timer_value.menu_login_delay == 100)
-            {
-                timer_value.menu_login_delay = 0;
-                menu_selected = PAUSE_MENU;
-            }
+            driverTimeSettingMenu();
         break;
 
         case STOP_TIME_SETTING:
-
-            stopMotor();
-
-            if (menu_flags.menu_input_flag == 1)
-            {
-                menu_flags.menu_input_flag = 0;
-                menu_selected = SPEED_LIMIT_SETTING;
-            }
-
-            if ((menu_flags.menu_increase_flag == 1) && (menu_value.stop_time < 250))
-            {
-                menu_flags.menu_increase_flag = 0;
-                menu_value.stop_time += 10;
-                eepromWrite(0x01,(uint8_t)menu_value.stop_time);
-            }
-
-            if ((menu_flags.menu_decrease_flag == 1) && (menu_value.stop_time > 10))
-            {
-                 menu_flags.menu_decrease_flag = 0;
-                 menu_value.stop_time -= 10;
-                 eepromWrite(0x01,(uint8_t)menu_value.stop_time);
-            }
-            Lcd_Set_Cursor(1,1);
-            Lcd_Write_String("DURMA ZAMANI  ms");
-            Lcd_Set_Cursor(2,1);
-            sprintf(textCursor2,"%d             ",menu_value.stop_time);
-            Lcd_Write_String(textCursor2);
-
-            if(timer_value.menu_login_delay == 100)
-            {
-                timer_value.menu_login_delay = 0;
-                menu_selected = PAUSE_MENU;
-            }
+            stopTimeSettingMenu();
         break;
 
         case SPEED_LIMIT_SETTING:
-            stopMotor();
-
-            if (menu_flags.menu_input_flag == 1)
-            {
-                menu_flags.menu_input_flag = 0;
-                menu_selected = DRIVER_TIME_SETTING;
-            }
-
-            if ((menu_flags.menu_increase_flag == 1) && (menu_value.speed_limit < 5))
-            {
-                menu_flags.menu_increase_flag = 0;
-                menu_value.speed_limit += 1;
-                eepromWrite(0x02,menu_value.speed_limit);
-            }
-
-            if ((menu_flags.menu_decrease_flag == 1) && (menu_value.speed_limit > 1))
-            {
-                 menu_flags.menu_decrease_flag = 0;
-                 menu_value.speed_limit -= 1;
-                 eepromWrite(0x02,menu_value.speed_limit);
-            }
-            Lcd_Set_Cursor(1,1);
-            Lcd_Write_String("HIZ LiMiTi      ");
-            Lcd_Set_Cursor(2,1);
-            sprintf(textCursor2,"%d               ",menu_value.speed_limit);
-            Lcd_Write_String(textCursor2);
-
-            if(timer_value.menu_login_delay == 100)
-            {
-                timer_value.menu_login_delay = 0;
-                menu_selected = PAUSE_MENU;
-            }
+            speedLimitSettingMenu();
         break;
 
         case STOP_MENU:
-            startIsClick = 0;
-            pauseIsClick = 0;
-            stopIsClick = 1;
 
-            Lcd_Set_Cursor(1,1);
-            Lcd_Write_String("ZAMAN DOLDU     ");
+            stopMenu();
 
-            timer_value.remainingSecond = 0;
-            timer_value.remainingMinute = 0;
-
-            Lcd_Set_Cursor(2,1);
-            sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
-            Lcd_Write_String(textCursor2);
-
-        if (menu_flags.menu_start_flag == 1)
-        {
-            menu_flags.menu_start_flag = 0;
-            menu_selected = START_MENU;
-
-            startIsClick = 1;
-            pauseIsClick = 0;
-            stopIsClick = 0;
-            timer_value.second = 0;
-            timer_value.minute = 0;
-        }
-
-        if ( timer_value.menu_login_delay == 100)
-        {
-            timer_value.menu_login_delay = 0;
-            menu_selected = DRIVER_TIME_SETTING;
-        }
-        stopMotor();
-
-
-       break;
+        break;
 
         case START_MENU:
-            timer_value.remainingMinute = menu_value.driver_time;
-            timer_value.remainingSecond = 0;
-            startIsClick = 1;
-            stopIsClick = 0;
-            menu_selected = MAIN_MENU;
+            startMenu();
         break;
 
         case PAUSE_MENU:
-            startIsClick = 0;
-            timer_value.remainingMinute = timer_value.remainingMinute;
-            timer_value.remainingSecond = timer_value.remainingSecond;
 
-            Lcd_Set_Cursor(1,1);
-            Lcd_Write_String("HAREKET DURDU   ");
-            Lcd_Set_Cursor(2,1);
-            sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
-            Lcd_Write_String(textCursor2);
-
-            if (menu_flags.menu_start_flag == 1)
-            {
-                menu_flags.menu_start_flag = 0;
-                menu_selected = MAIN_MENU;
-
-                startIsClick = 1;
-                pauseIsClick = 0;
-                stopIsClick = 0;
-            }
-
-            if ( (startIsClick == 0) && (pauseIsClick == 0) && (stopIsClick == 1) && (menu_selected == PAUSE_MENU))
-            {
-                 timer_value.remainingMinute = menu_value.driver_time;
-                 timer_value.remainingSecond = 0;
-                 timer_value.second = 0;
-                 timer_value.minute = 0;
-            }
-
-            if ( timer_value.menu_login_delay == 100)
-            {
-                timer_value.menu_login_delay = 0;
-                menu_selected = DRIVER_TIME_SETTING;
-            }
-
-            if ((menu_flags.menu_increase_flag == 1) && (menu_flags.menu_decrease_flag == 1))
-            {
-                menu_selected = SECRET_MENU;
-                secretMenuCounter = 1;
-            }
-            stopMotor();
-
+            pauseMenu();
 
         break;
 
@@ -10376,66 +10159,356 @@ void stateMachine(void)
         break;
 
         case SECRET_MENU:
-            stopMotor();
-
-            if (menu_flags.menu_input_flag == 1)
-            {
-                menu_flags.menu_input_flag = 0;
-                secretMenuCounter++;
-
-                if (secretMenuCounter >2)
-                {
-                    secretMenuCounter = 1;
-                }
-            }
-
-            if (secretMenuCounter == 1)
-            {
-                Lcd_Set_Cursor(1,1);
-                Lcd_Write_String("PID PARAM       ");
-                Lcd_Set_Cursor(2,1);
-                sprintf(textCursor2,"Kp:%5.1f     ",KP);
-                Lcd_Write_String(textCursor2);
-
-                if ((menu_flags.menu_increase_flag == 1) && (KP < 2.5))
-                {
-                    menu_flags.menu_increase_flag = 0;
-                    KP += 0.1;
-                }
-
-                if ((menu_flags.menu_decrease_flag == 1) && (KP >= 0))
-                {
-                    menu_flags.menu_decrease_flag = 0;
-                     KP -= 0.1;
-                }
-            }
-
-            if (secretMenuCounter == 2)
-            {
-                Lcd_Set_Cursor(1,1);
-                Lcd_Write_String("PID PARAM       ");
-                Lcd_Set_Cursor(2,1);
-                sprintf(textCursor2,"Kd:%5.1f    ",KD);
-                Lcd_Write_String(textCursor2);
-
-                if ((menu_flags.menu_increase_flag == 1) && (KD < 2.5))
-                {
-                    menu_flags.menu_increase_flag = 0;
-                    KD += 0.1;
-                }
-
-                if ((menu_flags.menu_decrease_flag == 1) && (KD >= 0))
-                {
-                    menu_flags.menu_decrease_flag = 0;
-                     KD -= 0.1;
-                }
-            }
-
-            if ( timer_value.menu_login_delay == 100)
-            {
-                timer_value.menu_login_delay = 0;
-                menu_selected = PAUSE_MENU;
-            }
+            secretMenu();
         break;
+    }
+}
+# 256 "fs_menu_controller.c"
+void mainMenu(void)
+{
+    char textCursor2[16] = {0};
+
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("KALAN ZAMAN     ");
+    Lcd_Set_Cursor(2,1);
+    sprintf(textCursor2,"      %d:%d   ",timer_value.remainingMinute,timer_value.remainingSecond);
+    Lcd_Write_String(textCursor2);
+
+    if ( timer_value.menu_login_delay == 100)
+    {
+        timer_value.menu_login_delay = 0;
+        menu_selected = DRIVER_TIME_SETTING;
+    }
+
+    if ((timer_value.remainingMinute <= 0) && (timer_value.remainingSecond == 0) )
+    {
+            menu_selected = STOP_MENU;
+            timer_value.minute = 0;
+    }
+
+    if ( (startIsClick == 0) && (pauseIsClick == 1) && (stopIsClick == 0) && (menu_selected == MAIN_MENU))
+    {
+        menu_selected = PAUSE_MENU;
+        LATDbits.LATD5 = 0;
+        LATCbits.LATC5 = 0;
+        LATCbits.LATC4 = 0;
+        startIsClick = 0;
+    }
+
+    if ( (startIsClick == 0) && (pauseIsClick == 0) && (stopIsClick == 1) && (menu_selected == MAIN_MENU) )
+    {
+         timer_value.remainingMinute = menu_value.driver_time;
+         timer_value.remainingSecond = 0;
+         timer_value.second = 0;
+         timer_value.minute = 0;
+         LATDbits.LATD5 = 0;
+         LATCbits.LATC5 = 0;
+         LATCbits.LATC4 = 0;
+    }
+
+    if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) )
+    {
+        startMotor();
+        LATDbits.LATD5 = 1;
+        LATCbits.LATC5 = 1;
+        LATCbits.LATC4 = 1;
+    }
+}
+# 314 "fs_menu_controller.c"
+void stopMenu(void)
+{
+    char textCursor2[16] = {0};
+
+    startIsClick = 0;
+    pauseIsClick = 0;
+    stopIsClick = 1;
+
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("ZAMAN DOLDU     ");
+
+    timer_value.remainingSecond = 0;
+    timer_value.remainingMinute = 0;
+
+    Lcd_Set_Cursor(2,1);
+    sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
+    Lcd_Write_String(textCursor2);
+
+    if (menu_flags.menu_start_flag == 1)
+    {
+        menu_flags.menu_start_flag = 0;
+        menu_selected = START_MENU;
+
+        startIsClick = 1;
+        pauseIsClick = 0;
+        stopIsClick = 0;
+        timer_value.second = 0;
+        timer_value.minute = 0;
+    }
+
+    if ( timer_value.menu_login_delay == 100)
+    {
+        timer_value.menu_login_delay = 0;
+        menu_selected = DRIVER_TIME_SETTING;
+    }
+stopMotor();
+}
+# 359 "fs_menu_controller.c"
+void pauseMenu(void)
+{
+    char textCursor2[16] = {0};
+
+    startIsClick = 0;
+    timer_value.remainingMinute = timer_value.remainingMinute;
+    timer_value.remainingSecond = timer_value.remainingSecond;
+
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("HAREKET DURDU   ");
+    Lcd_Set_Cursor(2,1);
+    sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
+    Lcd_Write_String(textCursor2);
+
+    if (menu_flags.menu_start_flag == 1)
+    {
+        menu_flags.menu_start_flag = 0;
+        menu_selected = MAIN_MENU;
+
+        startIsClick = 1;
+        pauseIsClick = 0;
+        stopIsClick = 0;
+    }
+
+    if ( (startIsClick == 0) && (pauseIsClick == 0) && (stopIsClick == 1) && (menu_selected == PAUSE_MENU))
+    {
+         timer_value.remainingMinute = menu_value.driver_time;
+         timer_value.remainingSecond = 0;
+         timer_value.second = 0;
+         timer_value.minute = 0;
+    }
+
+    if ( timer_value.menu_login_delay == 100)
+    {
+        timer_value.menu_login_delay = 0;
+        menu_selected = DRIVER_TIME_SETTING;
+    }
+
+    if ((menu_flags.menu_increase_flag == 1) && (menu_flags.menu_decrease_flag == 1))
+    {
+        menu_selected = SECRET_MENU;
+        secretMenuCounter = 1;
+    }
+    stopMotor();
+}
+# 412 "fs_menu_controller.c"
+void startMenu(void)
+{
+    timer_value.remainingMinute = menu_value.driver_time;
+    timer_value.remainingSecond = 0;
+    startIsClick = 1;
+    stopIsClick = 0;
+    menu_selected = MAIN_MENU;
+}
+
+
+
+
+
+
+
+void secretMenu(void)
+{
+    char textCursor2[16] = {0};
+
+    stopMotor();
+
+    if (menu_flags.menu_input_flag == 1)
+    {
+        menu_flags.menu_input_flag = 0;
+        secretMenuCounter++;
+
+        if (secretMenuCounter >2)
+        {
+            secretMenuCounter = 1;
+        }
+    }
+
+    if (secretMenuCounter == 1)
+    {
+        Lcd_Set_Cursor(1,1);
+        Lcd_Write_String("PID PARAM       ");
+        Lcd_Set_Cursor(2,1);
+        sprintf(textCursor2,"Kp:%5.1f     ",KP);
+        Lcd_Write_String(textCursor2);
+
+        if ((menu_flags.menu_increase_flag == 1) && (KP < 2.5))
+        {
+            menu_flags.menu_increase_flag = 0;
+            KP += 0.1;
+        }
+
+        if ((menu_flags.menu_decrease_flag == 1) && (KP >= 0))
+        {
+            menu_flags.menu_decrease_flag = 0;
+             KP -= 0.1;
+        }
+    }
+
+    if (secretMenuCounter == 2)
+    {
+        Lcd_Set_Cursor(1,1);
+        Lcd_Write_String("PID PARAM       ");
+        Lcd_Set_Cursor(2,1);
+        sprintf(textCursor2,"Kd:%5.1f    ",KD);
+        Lcd_Write_String(textCursor2);
+
+        if ((menu_flags.menu_increase_flag == 1) && (KD < 2.5))
+        {
+            menu_flags.menu_increase_flag = 0;
+            KD += 0.1;
+        }
+
+        if ((menu_flags.menu_decrease_flag == 1) && (KD >= 0))
+        {
+            menu_flags.menu_decrease_flag = 0;
+             KD -= 0.1;
+        }
+    }
+
+    if ( timer_value.menu_login_delay == 100)
+    {
+        timer_value.menu_login_delay = 0;
+        menu_selected = PAUSE_MENU;
+    }
+}
+
+
+
+
+
+
+
+void speedLimitSettingMenu(void)
+{
+    char textCursor2[16] = {0};
+    stopMotor();
+
+    if (menu_flags.menu_input_flag == 1)
+    {
+        menu_flags.menu_input_flag = 0;
+        menu_selected = DRIVER_TIME_SETTING;
+    }
+
+    if ((menu_flags.menu_increase_flag == 1) && (menu_value.speed_limit < 5))
+    {
+        menu_flags.menu_increase_flag = 0;
+        menu_value.speed_limit += 1;
+        eepromWrite(0x02,menu_value.speed_limit);
+    }
+
+    if ((menu_flags.menu_decrease_flag == 1) && (menu_value.speed_limit > 1))
+    {
+         menu_flags.menu_decrease_flag = 0;
+         menu_value.speed_limit -= 1;
+         eepromWrite(0x02,menu_value.speed_limit);
+    }
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("HIZ LiMiTi      ");
+    Lcd_Set_Cursor(2,1);
+    sprintf(textCursor2,"%d               ",menu_value.speed_limit);
+    Lcd_Write_String(textCursor2);
+
+    if(timer_value.menu_login_delay == 100)
+    {
+        timer_value.menu_login_delay = 0;
+        menu_selected = PAUSE_MENU;
+    }
+}
+
+
+
+
+
+
+
+void stopTimeSettingMenu(void)
+{
+    char textCursor2[16] = {0};
+
+    stopMotor();
+
+    if (menu_flags.menu_input_flag == 1)
+    {
+        menu_flags.menu_input_flag = 0;
+        menu_selected = SPEED_LIMIT_SETTING;
+    }
+
+    if ((menu_flags.menu_increase_flag == 1) && (menu_value.stop_time < 250))
+    {
+        menu_flags.menu_increase_flag = 0;
+        menu_value.stop_time += 10;
+        eepromWrite(0x01,(uint8_t)menu_value.stop_time);
+    }
+
+    if ((menu_flags.menu_decrease_flag == 1) && (menu_value.stop_time > 10))
+    {
+         menu_flags.menu_decrease_flag = 0;
+         menu_value.stop_time -= 10;
+         eepromWrite(0x01,(uint8_t)menu_value.stop_time);
+    }
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("DURMA ZAMANI  ms");
+    Lcd_Set_Cursor(2,1);
+    sprintf(textCursor2,"%d             ",menu_value.stop_time);
+    Lcd_Write_String(textCursor2);
+
+    if(timer_value.menu_login_delay == 100)
+    {
+        timer_value.menu_login_delay = 0;
+        menu_selected = PAUSE_MENU;
+    }
+}
+# 587 "fs_menu_controller.c"
+void driverTimeSettingMenu(void)
+{
+    char textCursor2[16] = {0};
+
+    stopMotor();
+
+    if (menu_flags.menu_input_flag == 1)
+    {
+        menu_flags.menu_input_flag = 0;
+        menu_selected = STOP_TIME_SETTING;
+    }
+
+    if ((menu_flags.menu_increase_flag == 1) && (menu_value.driver_time < 30))
+    {
+        menu_flags.menu_increase_flag = 0;
+        menu_value.driver_time++;
+        eepromWrite(0x00,(uint8_t)menu_value.driver_time);
+        timer_value.minute =0 ;
+        timer_value.second = 0;
+        timer_value.remainingSecond = 0;
+        timer_value.remainingMinute = menu_value.driver_time;
+    }
+
+    if ((menu_flags.menu_decrease_flag == 1) && (menu_value.driver_time > 0))
+    {
+         menu_flags.menu_decrease_flag = 0;
+         menu_value.driver_time--;
+         eepromWrite(0x00,(uint8_t)menu_value.driver_time);
+         timer_value.minute =0 ;
+         timer_value.second = 0;
+         timer_value.remainingSecond = 0;
+         timer_value.remainingMinute = menu_value.driver_time;
+    }
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("HAREKT ZAMANI dk");
+    Lcd_Set_Cursor(2,1);
+    sprintf(textCursor2,"%d               ",menu_value.driver_time);
+    Lcd_Write_String(textCursor2);
+
+    if(timer_value.menu_login_delay == 100)
+    {
+        timer_value.menu_login_delay = 0;
+        menu_selected = PAUSE_MENU;
     }
 }

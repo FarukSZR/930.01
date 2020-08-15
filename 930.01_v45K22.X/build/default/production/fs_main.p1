@@ -27,28 +27,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./fs_speed_controller.h: 55: {
 [s S860 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
 [n S860 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
-"71 ./fs_menu_controller.h
-[; ;./fs_menu_controller.h: 71: {
+"72 ./fs_menu_controller.h
+[; ;./fs_menu_controller.h: 72: {
 [s S862 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
 [n S862 . menu start stop pause decrease increase ]
-"103
-[; ;./fs_menu_controller.h: 103: tE_menu_selected menu_selected = {0};
-[c E6591 0 1 2 3 4 5 6 7 8 .. ]
-[n E6591 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
-"61
-[; ;./fs_menu_controller.h: 61: {
+"104
+[; ;./fs_menu_controller.h: 104: tE_menu_selected menu_selected = {0};
+[c E6592 0 1 2 3 4 5 6 7 8 .. ]
+[n E6592 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
+"62
+[; ;./fs_menu_controller.h: 62: {
 [s S861 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
 [n S861 . menu_input_flag menu_start_flag menu_stop_flag menu_pause_flag menu_increase_flag menu_decrease_flag ]
-"95
-[; ;./fs_menu_controller.h: 95: {
+"96
+[; ;./fs_menu_controller.h: 96: {
 [s S863 `uc 1 `uc 1 `uc 1 ]
 [n S863 . driver_time stop_time speed_limit ]
 [p mainexit ]
 "35 ./fs_mcu.h
 [; ;./fs_mcu.h: 35: void mcu_init(void);
 [v _mcu_init `(v ~T0 @X0 0 ef ]
-"106 ./fs_menu_controller.h
-[; ;./fs_menu_controller.h: 106: void menuInitialize(void);
+"107 ./fs_menu_controller.h
+[; ;./fs_menu_controller.h: 107: void menuInitialize(void);
 [v _menuInitialize `(v ~T0 @X0 0 ef ]
 "51 ./fs_adc.h
 [; ;./fs_adc.h: 51: void adcInit(void);
@@ -74,8 +74,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23
 [; ;./fs_pwm.h: 23: void PWM2_setDC(int16_t dutycycle);
 [v _PWM2_setDC `(v ~T0 @X0 0 ef1`s ]
-"107 ./fs_menu_controller.h
-[; ;./fs_menu_controller.h: 107: void menuControl(void);
+"108 ./fs_menu_controller.h
+[; ;./fs_menu_controller.h: 108: void menuControl(void);
 [v _menuControl `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h: 54: __asm("ANSELA equ 0F38h");
@@ -976,8 +976,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _stopIsClick
 -> -> 0 `i `a
 ]
-"102
-[; ;./fs_menu_controller.h: 102: tS_button_bounce_controller button_bounce_controller = {0};
+"59
+[; ;./fs_menu_controller.h: 59: uint8_t secretMenuCounter = 0;
+[v _secretMenuCounter `uc ~T0 @X0 1 e ]
+[i _secretMenuCounter
+-> -> 0 `i `uc
+]
+"103
+[; ;./fs_menu_controller.h: 103: tS_button_bounce_controller button_bounce_controller = {0};
 [v _button_bounce_controller `S862 ~T0 @X0 1 e ]
 [i _button_bounce_controller
 :U ..
@@ -986,14 +992,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"103
-[; ;./fs_menu_controller.h: 103: tE_menu_selected menu_selected = {0};
-[v _menu_selected `E6591 ~T0 @X0 1 e ]
-[i _menu_selected
--> -> 0 `i `E6591
-]
 "104
-[; ;./fs_menu_controller.h: 104: tS_menu_flags menu_flags = {0};
+[; ;./fs_menu_controller.h: 104: tE_menu_selected menu_selected = {0};
+[v _menu_selected `E6592 ~T0 @X0 1 e ]
+[i _menu_selected
+-> -> 0 `i `E6592
+]
+"105
+[; ;./fs_menu_controller.h: 105: tS_menu_flags menu_flags = {0};
 [v _menu_flags `S861 ~T0 @X0 1 e ]
 [i _menu_flags
 :U ..
@@ -1002,8 +1008,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"105
-[; ;./fs_menu_controller.h: 105: tS_menu_value menu_value = {0};
+"106
+[; ;./fs_menu_controller.h: 106: tS_menu_value menu_value = {0};
 [v _menu_value `S863 ~T0 @X0 1 e ]
 [i _menu_value
 :U ..
@@ -1072,7 +1078,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . _timer_counter_flag 0 -> -> 0 `i `uc ]
 "62
 [; ;fs_main.c: 62:         if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) && (menu_selected == MAIN_MENU) )
-[e $ ! && && && == -> _startIsClick `i -> 1 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 0 `i == -> _menu_selected `ui -> . `E6591 0 `ui 869  ]
+[e $ ! && && && == -> _startIsClick `i -> 1 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 0 `i == -> _menu_selected `ui -> . `E6592 0 `ui 869  ]
 "63
 [; ;fs_main.c: 63:         {
 {
