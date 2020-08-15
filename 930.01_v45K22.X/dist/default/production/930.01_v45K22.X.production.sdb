@@ -760,7 +760,7 @@ SECRET_MENU 8
 [v stateMachine@textCursor2 textCursor2 `[16]uc  1 a 16 131 ]
 "202
 [v stateMachine@secretMenuCounter secretMenuCounter `uc  1 s 1 secretMenuCounter ]
-"535
+"547
 } 0
 "79 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_speed_controller.c
 [v _stopMotor stopMotor `(v  1 e 1 0 ]

@@ -214,13 +214,15 @@ void stateMachine(void)
             if ( timer_value.menu_login_delay == MENU_TIMEOUT)
             {
                 timer_value.menu_login_delay = 0;
-                menu_selected = DRIVER_TIME_SETTING;               
+                menu_selected = DRIVER_TIME_SETTING;
+                startIsClick = 0;
             }
 
             if ((timer_value.remainingMinute <= 0) && (timer_value.remainingSecond == 0) )
             {         
                 menu_selected = STOP_MENU; 
                 timer_value.minute = 0;
+                startIsClick = 0;
             }
 
             if ( (startIsClick == FALSE) && (pauseIsClick == TRUE) && (stopIsClick == FALSE) && (menu_selected == MAIN_MENU))
@@ -229,17 +231,19 @@ void stateMachine(void)
                 MP3_PLAYER = 0;
                 COMMUNICATION_SIGNAL = 0;
                 LAMB_OUTPUT = 0;
+                startIsClick = 0;
             }
 
             if ( (startIsClick == FALSE) && (pauseIsClick == FALSE) && (stopIsClick == TRUE) && (menu_selected == MAIN_MENU) )
             {
                  timer_value.remainingMinute = menu_value.driver_time;
-                 timer_value.remainingSecond = 0;
+                 timer_value.remainingSecond =  0;
                  timer_value.second = 0;
                  timer_value.minute = 0;
                  MP3_PLAYER = 0;
                  COMMUNICATION_SIGNAL = 0;
                  LAMB_OUTPUT = 0;
+                 startIsClick = 0;
             }  
             
             if ( (startIsClick == TRUE) && (pauseIsClick == FALSE) && (stopIsClick == FALSE) )
@@ -254,7 +258,8 @@ void stateMachine(void)
         break;
         
         case DRIVER_TIME_SETTING:
-       
+            
+            startIsClick = 0;           
             if (menu_flags.menu_input_flag == TRUE) 
             {           
                 menu_flags.menu_input_flag = 0;         
@@ -272,7 +277,7 @@ void stateMachine(void)
                 timer_value.remainingMinute = menu_value.driver_time; // Her menuye giriste remainingMinute resetlemmeyecek. Sadece degisim varsa ilgili deger yazılacak.
             }
 
-            if ((menu_flags.menu_decrease_flag == TRUE) && (menu_value.driver_time > 1))
+            if ((menu_flags.menu_decrease_flag == TRUE) && (menu_value.driver_time >= 0))
             {
                  menu_flags.menu_decrease_flag = 0;
                  menu_value.driver_time--;
@@ -281,9 +286,7 @@ void stateMachine(void)
                  timer_value.second = 0;
                  timer_value.remainingSecond = 0;
                  timer_value.remainingMinute = menu_value.driver_time; 
-            }
-              
-                      
+            }                                  
             Lcd_Set_Cursor(1,1);
             Lcd_Write_String("HAREKT ZAMANI dk");  
             Lcd_Set_Cursor(2,1);
@@ -302,8 +305,9 @@ void stateMachine(void)
 
         case STOP_TIME_SETTING:
             
+            startIsClick = 0;
             stopMotor();
-            
+                   
             if (menu_flags.menu_input_flag == TRUE) 
             {           
                 menu_flags.menu_input_flag = 0;         
@@ -326,7 +330,7 @@ void stateMachine(void)
             Lcd_Set_Cursor(1,1);
             Lcd_Write_String("DURMA ZAMANI  ms"); 
             Lcd_Set_Cursor(2,1);
-            sprintf(textCursor2,"%d               ",menu_value.stop_time);
+            sprintf(textCursor2,"%d             ",menu_value.stop_time);
             Lcd_Write_String(textCursor2);
 
             if(timer_value.menu_login_delay == MENU_TIMEOUT) // && (menu_selected == STOP_TIME_SETTING) )
@@ -337,7 +341,12 @@ void stateMachine(void)
         break;  
 
         case SPEED_LIMIT_SETTING:
-
+            stopMotor();
+            startIsClick = 0;
+            //timer_value.second = 0; 
+            timer_value.remainingSecond = timer_value.remainingSecond;
+            timer_value.remainingMinute = timer_value.remainingMinute;
+            
             if (menu_flags.menu_input_flag == TRUE) 
             {           
                 menu_flags.menu_input_flag = FALSE;         
@@ -367,10 +376,7 @@ void stateMachine(void)
             {
                 timer_value.menu_login_delay = 0;
                 menu_selected = PAUSE_MENU;       
-            }
-            
-            stopMotor();
-            
+            }                    
         break;
         
         case STOP_MENU:            
@@ -383,6 +389,8 @@ void stateMachine(void)
 
             timer_value.remainingSecond = 0;
             timer_value.remainingMinute = 0;
+            timer_value.second = 0;
+            
              Lcd_Set_Cursor(2,1);
             sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
             Lcd_Write_String(textCursor2);
@@ -411,14 +419,14 @@ void stateMachine(void)
        
         case START_MENU:          
             timer_value.remainingMinute = menu_value.driver_time;
-            timer_value.remainingSecond = 0; 
+            timer_value.remainingSecond = timer_value.remainingSecond; 
             startIsClick = 1;
             stopIsClick = 0;           
             menu_selected = MAIN_MENU;            
         break;
         
         case PAUSE_MENU:
- 
+            startIsClick = FALSE;
             timer_value.remainingMinute = timer_value.remainingMinute;
             timer_value.remainingSecond = timer_value.remainingSecond;   
         
@@ -468,8 +476,12 @@ void stateMachine(void)
         break;
        
         case SECRET_MENU:
-            
+            startIsClick = 0;
             stopMotor();
+            
+            timer_value.remainingMinute = timer_value.remainingMinute;
+            //timer_value.remainingSecond = timer_value.remainingSecond;  
+            timer_value.second = 0; 
             
             if (menu_flags.menu_input_flag == 1)
             {
