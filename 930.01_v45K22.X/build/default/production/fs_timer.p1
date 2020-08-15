@@ -7,20 +7,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./fs_timer.h: 47: {
 [s S854 `uc 1 `uc 1 `uc 1 `c 1 `uc 1 `uc 1 `us 1 ]
 [n S854 . second minute remainingSecond remainingMinute menu_login_delay timer_0_counter second_counter ]
-"71 ./fs_menu_controller.h
-[; ;./fs_menu_controller.h: 71: {
+"72 ./fs_menu_controller.h
+[; ;./fs_menu_controller.h: 72: {
 [s S856 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
 [n S856 . menu start stop pause decrease increase ]
-"103
-[; ;./fs_menu_controller.h: 103: tE_menu_selected menu_selected = {0};
-[c E6333 0 1 2 3 4 5 6 7 8 .. ]
-[n E6333 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
-"61
-[; ;./fs_menu_controller.h: 61: {
+"104
+[; ;./fs_menu_controller.h: 104: tE_menu_selected menu_selected = {0};
+[c E6334 0 1 2 3 4 5 6 7 8 .. ]
+[n E6334 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
+"62
+[; ;./fs_menu_controller.h: 62: {
 [s S855 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
 [n S855 . menu_input_flag menu_start_flag menu_stop_flag menu_pause_flag menu_increase_flag menu_decrease_flag ]
-"95
-[; ;./fs_menu_controller.h: 95: {
+"96
+[; ;./fs_menu_controller.h: 96: {
 [s S857 `uc 1 `uc 1 `uc 1 ]
 [n S857 . driver_time stop_time speed_limit ]
 [t ~ __interrupt . k ]
@@ -925,8 +925,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _stopIsClick
 -> -> 0 `i `a
 ]
-"102
-[; ;./fs_menu_controller.h: 102: tS_button_bounce_controller button_bounce_controller = {0};
+"59
+[; ;./fs_menu_controller.h: 59: uint8_t secretMenuCounter = 0;
+[v _secretMenuCounter `uc ~T0 @X0 1 e ]
+[i _secretMenuCounter
+-> -> 0 `i `uc
+]
+"103
+[; ;./fs_menu_controller.h: 103: tS_button_bounce_controller button_bounce_controller = {0};
 [v _button_bounce_controller `S856 ~T0 @X0 1 e ]
 [i _button_bounce_controller
 :U ..
@@ -935,14 +941,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"103
-[; ;./fs_menu_controller.h: 103: tE_menu_selected menu_selected = {0};
-[v _menu_selected `E6333 ~T0 @X0 1 e ]
-[i _menu_selected
--> -> 0 `i `E6333
-]
 "104
-[; ;./fs_menu_controller.h: 104: tS_menu_flags menu_flags = {0};
+[; ;./fs_menu_controller.h: 104: tE_menu_selected menu_selected = {0};
+[v _menu_selected `E6334 ~T0 @X0 1 e ]
+[i _menu_selected
+-> -> 0 `i `E6334
+]
+"105
+[; ;./fs_menu_controller.h: 105: tS_menu_flags menu_flags = {0};
 [v _menu_flags `S855 ~T0 @X0 1 e ]
 [i _menu_flags
 :U ..
@@ -951,8 +957,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"105
-[; ;./fs_menu_controller.h: 105: tS_menu_value menu_value = {0};
+"106
+[; ;./fs_menu_controller.h: 106: tS_menu_value menu_value = {0};
 [v _menu_value `S857 ~T0 @X0 1 e ]
 [i _menu_value
 :U ..

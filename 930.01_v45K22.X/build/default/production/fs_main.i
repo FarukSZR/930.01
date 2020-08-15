@@ -10030,6 +10030,7 @@ tS_controller controller;
 _Bool pauseIsClick = 0;
 _Bool startIsClick = 0;
 _Bool stopIsClick = 0;
+uint8_t secretMenuCounter = 0;
 
 typedef struct
 {
@@ -10085,6 +10086,11 @@ void mainMenu(void);
 void stopMenu(void);
 void pauseMenu(void);
 void startMenu(void);
+void secretMenu(void);
+void speedLimitSettingMenu(void);
+void speedLimitSettingMenu(void);
+void stopTimeSettingMenu(void);
+void driverTimeSettingMenu(void);
 # 36 "fs_main.c" 2
 
 

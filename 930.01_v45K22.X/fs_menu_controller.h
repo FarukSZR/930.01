@@ -56,6 +56,7 @@ extern "C" {
 bool  pauseIsClick = false;
 bool  startIsClick = false;
 bool  stopIsClick = false; 
+uint8_t secretMenuCounter = 0;
 
 typedef struct
 {
@@ -111,6 +112,11 @@ void mainMenu(void);
 void stopMenu(void);
 void pauseMenu(void);
 void startMenu(void);
+void secretMenu(void);
+void speedLimitSettingMenu(void);
+void speedLimitSettingMenu(void);
+void stopTimeSettingMenu(void);
+void driverTimeSettingMenu(void);
 
 #ifdef	__cplusplus
 }
