@@ -10344,20 +10344,20 @@ void eepromWrite(uint8_t address, uint8_t data);
 # 39 "./fs_mcu.h" 2
 
 
-void mcu_init(void);
-void system_init(void);
+void mcuInit(void);
+void systemInit(void);
 void openLCD_Script(void);
 # 34 "./fs_lcd.h" 2
 # 57 "./fs_lcd.h"
-void Lcd_Port(char a);
-void Lcd_Cmd(char a);
-void Lcd_Clear(void);
-void Lcd_Set_Cursor(char a, char b);
-void lcd_init(void);
-void Lcd_Write_Char(char a);
-void Lcd_Write_String(char *a);
-void Lcd_Shift_Right(void);
-void Lcd_Shift_Left(void);
+void lcdPort(char a);
+void lcdCmd(char a);
+void lcdClear(void);
+void lcdSetCursor(char a, char b);
+void lcdInit(void);
+void lcdWriteChar(char a);
+void lcdWriteString(char *a);
+void lcdShiftRight(void);
+void lcdShiftLeft(void);
 # 39 "./fs_menu_controller.h" 2
 # 62 "./fs_menu_controller.h"
 _Bool pauseIsClick = 0;
@@ -10551,15 +10551,15 @@ void loopTaskTimeMachine(void)
 # 79 "fs_main.c"
 void loopTaskInit(void)
 {
-    mcu_init();
+    mcuInit();
     menuInitialize();
 
     adcInit();
 
     timer_0_init();
-    lcd_init();
-    system_init();
-    Lcd_Clear();
+    lcdInit();
+    systemInit();
+    lcdClear();
 
     PWM_Init();
     PWM1_setDC(0);

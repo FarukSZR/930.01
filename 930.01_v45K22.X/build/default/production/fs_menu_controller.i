@@ -10358,20 +10358,20 @@ void eepromWrite(uint8_t address, uint8_t data);
 # 39 "./fs_mcu.h" 2
 
 
-void mcu_init(void);
-void system_init(void);
+void mcuInit(void);
+void systemInit(void);
 void openLCD_Script(void);
 # 34 "./fs_lcd.h" 2
 # 57 "./fs_lcd.h"
-void Lcd_Port(char a);
-void Lcd_Cmd(char a);
-void Lcd_Clear(void);
-void Lcd_Set_Cursor(char a, char b);
-void lcd_init(void);
-void Lcd_Write_Char(char a);
-void Lcd_Write_String(char *a);
-void Lcd_Shift_Right(void);
-void Lcd_Shift_Left(void);
+void lcdPort(char a);
+void lcdCmd(char a);
+void lcdClear(void);
+void lcdSetCursor(char a, char b);
+void lcdInit(void);
+void lcdWriteChar(char a);
+void lcdWriteString(char *a);
+void lcdShiftRight(void);
+void lcdShiftLeft(void);
 # 39 "./fs_menu_controller.h" 2
 # 62 "./fs_menu_controller.h"
 _Bool pauseIsClick = 0;
@@ -10628,11 +10628,11 @@ void mainMenu(void)
 {
     char textCursor2[16] = {0};
 
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("KALAN ZAMAN     ");
-    Lcd_Set_Cursor(2,1);
+    lcdSetCursor(1,1);
+    lcdWriteString("KALAN ZAMAN     ");
+    lcdSetCursor(2,1);
     sprintf(textCursor2,"      %d:%d   ",timer_value.remainingMinute,timer_value.remainingSecond);
-    Lcd_Write_String(textCursor2);
+    lcdWriteString(textCursor2);
 
     if ( timer_value.menu_login_delay == 100)
     {
@@ -10684,15 +10684,15 @@ void stopMenu(void)
     pauseIsClick = 0;
     stopIsClick = 1;
 
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("ZAMAN DOLDU     ");
+    lcdSetCursor(1,1);
+    lcdWriteString("ZAMAN DOLDU     ");
 
     timer_value.remainingSecond = 0;
     timer_value.remainingMinute = 0;
 
-    Lcd_Set_Cursor(2,1);
+    lcdSetCursor(2,1);
     sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
-    Lcd_Write_String(textCursor2);
+    lcdWriteString(textCursor2);
 
     if (menu_flags.menu_start_flag == 1)
     {
@@ -10723,11 +10723,11 @@ void pauseMenu(void)
     timer_value.remainingMinute = timer_value.remainingMinute;
     timer_value.remainingSecond = timer_value.remainingSecond;
 
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("HAREKET DURDU   ");
-    Lcd_Set_Cursor(2,1);
+    lcdSetCursor(1,1);
+    lcdWriteString("HAREKET DURDU   ");
+    lcdSetCursor(2,1);
     sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
-    Lcd_Write_String(textCursor2);
+    lcdWriteString(textCursor2);
 
     if (menu_flags.menu_start_flag == 1)
     {
@@ -10796,11 +10796,11 @@ void secretMenu(void)
 
     if (secretMenuCounter == 1)
     {
-        Lcd_Set_Cursor(1,1);
-        Lcd_Write_String("PID PARAM       ");
-        Lcd_Set_Cursor(2,1);
+        lcdSetCursor(1,1);
+        lcdWriteString("PID PARAM       ");
+        lcdSetCursor(2,1);
         sprintf(textCursor2,"Kp:%5.1f     ",KP);
-        Lcd_Write_String(textCursor2);
+        lcdWriteString(textCursor2);
 
         if ((menu_flags.menu_increase_flag == 1) && (KP < 2.5))
         {
@@ -10817,11 +10817,11 @@ void secretMenu(void)
 
     if (secretMenuCounter == 2)
     {
-        Lcd_Set_Cursor(1,1);
-        Lcd_Write_String("PID PARAM       ");
-        Lcd_Set_Cursor(2,1);
+        lcdSetCursor(1,1);
+        lcdWriteString("PID PARAM       ");
+        lcdSetCursor(2,1);
         sprintf(textCursor2,"Kd:%5.1f    ",KD);
-        Lcd_Write_String(textCursor2);
+        lcdWriteString(textCursor2);
 
         if ((menu_flags.menu_increase_flag == 1) && (KD < 2.5))
         {
@@ -10874,11 +10874,11 @@ void speedLimitSettingMenu(void)
          menu_value.speed_limit -= 1;
          eepromWrite(0x02,menu_value.speed_limit);
     }
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("HIZ LiMiTi      ");
-    Lcd_Set_Cursor(2,1);
+    lcdSetCursor(1,1);
+    lcdWriteString("HIZ LiMiTi      ");
+    lcdSetCursor(2,1);
     sprintf(textCursor2,"%d               ",menu_value.speed_limit);
-    Lcd_Write_String(textCursor2);
+    lcdWriteString(textCursor2);
 
     if(timer_value.menu_login_delay == 100)
     {
@@ -10919,11 +10919,11 @@ void stopTimeSettingMenu(void)
          menu_value.stop_time -= 10;
          eepromWrite(0x01,(uint8_t)menu_value.stop_time);
     }
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("DURMA ZAMANI  ms");
-    Lcd_Set_Cursor(2,1);
+    lcdSetCursor(1,1);
+    lcdWriteString("DURMA ZAMANI  ms");
+    lcdSetCursor(2,1);
     sprintf(textCursor2,"%d             ",menu_value.stop_time);
-    Lcd_Write_String(textCursor2);
+    lcdWriteString(textCursor2);
 
     if(timer_value.menu_login_delay == 100)
     {
@@ -10966,11 +10966,11 @@ void driverTimeSettingMenu(void)
          timer_value.remainingSecond = 0;
          timer_value.remainingMinute = menu_value.driver_time;
     }
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("HAREKT ZAMANI dk");
-    Lcd_Set_Cursor(2,1);
+    lcdSetCursor(1,1);
+    lcdWriteString("HAREKT ZAMANI dk");
+    lcdSetCursor(2,1);
     sprintf(textCursor2,"%d               ",menu_value.driver_time);
-    Lcd_Write_String(textCursor2);
+    lcdWriteString(textCursor2);
 
     if(timer_value.menu_login_delay == 100)
     {

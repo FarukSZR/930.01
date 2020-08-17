@@ -178,11 +178,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./fs_menu_controller.h: 122: void secretMenu(void);
 [v _secretMenu `(v ~T0 @X0 0 ef ]
 "60 ./fs_lcd.h
-[; ;./fs_lcd.h: 60: void Lcd_Set_Cursor(char a, char b);
-[v _Lcd_Set_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+[; ;./fs_lcd.h: 60: void lcdSetCursor(char a, char b);
+[v _lcdSetCursor `(v ~T0 @X0 0 ef2`uc`uc ]
 "63
-[; ;./fs_lcd.h: 63: void Lcd_Write_String(char *a);
-[v _Lcd_Write_String `(v ~T0 @X0 0 ef1`*uc ]
+[; ;./fs_lcd.h: 63: void lcdWriteString(char *a);
+[v _lcdWriteString `(v ~T0 @X0 0 ef1`*uc ]
 "113 C:\Program Files\Microchip\xc8\v2.20\pic\include\c99\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "7902 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc/pic18f45k22.h
@@ -1393,20 +1393,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _textCursor2 `uc ~T0 @X0 -> 16 `i a ]
 [e = _textCursor2 F6896 ]
 "249
-[; ;fs_menu_controller.c: 249:     Lcd_Set_Cursor(1,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 249:     lcdSetCursor(1,1);
+[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "250
-[; ;fs_menu_controller.c: 250:     Lcd_Write_String("KALAN ZAMAN     ");
-[e ( _Lcd_Write_String (1 :s 1C ]
+[; ;fs_menu_controller.c: 250:     lcdWriteString("KALAN ZAMAN     ");
+[e ( _lcdWriteString (1 :s 1C ]
 "251
-[; ;fs_menu_controller.c: 251:     Lcd_Set_Cursor(2,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 251:     lcdSetCursor(2,1);
+[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "252
 [; ;fs_menu_controller.c: 252:     sprintf(textCursor2,"      %d:%d   ",timer_value.remainingMinute,timer_value.remainingSecond);
 [e ( _sprintf (1 , , (. , &U _textCursor2 :s 2C -> . _timer_value 3 `i -> . _timer_value 2 `i ]
 "253
-[; ;fs_menu_controller.c: 253:     Lcd_Write_String(textCursor2);
-[e ( _Lcd_Write_String (1 &U _textCursor2 ]
+[; ;fs_menu_controller.c: 253:     lcdWriteString(textCursor2);
+[e ( _lcdWriteString (1 &U _textCursor2 ]
 "255
 [; ;fs_menu_controller.c: 255:     if ( timer_value.menu_login_delay == 100)
 [e $ ! == -> . _timer_value 4 `i -> 100 `i 894  ]
@@ -1552,11 +1552,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_menu_controller.c: 310:     stopIsClick = 1;
 [e = _stopIsClick -> -> 1 `i `a ]
 "312
-[; ;fs_menu_controller.c: 312:     Lcd_Set_Cursor(1,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 312:     lcdSetCursor(1,1);
+[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "313
-[; ;fs_menu_controller.c: 313:     Lcd_Write_String("ZAMAN DOLDU     ");
-[e ( _Lcd_Write_String (1 :s 3C ]
+[; ;fs_menu_controller.c: 313:     lcdWriteString("ZAMAN DOLDU     ");
+[e ( _lcdWriteString (1 :s 3C ]
 "315
 [; ;fs_menu_controller.c: 315:     timer_value.remainingSecond = 0;
 [e = . _timer_value 2 -> -> 0 `i `uc ]
@@ -1564,14 +1564,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_menu_controller.c: 316:     timer_value.remainingMinute = 0;
 [e = . _timer_value 3 -> -> 0 `i `c ]
 "318
-[; ;fs_menu_controller.c: 318:     Lcd_Set_Cursor(2,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 318:     lcdSetCursor(2,1);
+[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "319
 [; ;fs_menu_controller.c: 319:     sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
 [e ( _sprintf (1 , , (. , &U _textCursor2 :s 4C -> . _timer_value 3 `i -> . _timer_value 2 `i ]
 "320
-[; ;fs_menu_controller.c: 320:     Lcd_Write_String(textCursor2);
-[e ( _Lcd_Write_String (1 &U _textCursor2 ]
+[; ;fs_menu_controller.c: 320:     lcdWriteString(textCursor2);
+[e ( _lcdWriteString (1 &U _textCursor2 ]
 "322
 [; ;fs_menu_controller.c: 322:     if (menu_flags.menu_start_flag == 1)
 [e $ ! == -> . _menu_flags 1 `i -> 1 `i 900  ]
@@ -1657,20 +1657,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_menu_controller.c: 356:     timer_value.remainingSecond = timer_value.remainingSecond;
 [e = . _timer_value 2 . _timer_value 2 ]
 "358
-[; ;fs_menu_controller.c: 358:     Lcd_Set_Cursor(1,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 358:     lcdSetCursor(1,1);
+[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "359
-[; ;fs_menu_controller.c: 359:     Lcd_Write_String("HAREKET DURDU   ");
-[e ( _Lcd_Write_String (1 :s 5C ]
+[; ;fs_menu_controller.c: 359:     lcdWriteString("HAREKET DURDU   ");
+[e ( _lcdWriteString (1 :s 5C ]
 "360
-[; ;fs_menu_controller.c: 360:     Lcd_Set_Cursor(2,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 360:     lcdSetCursor(2,1);
+[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "361
 [; ;fs_menu_controller.c: 361:     sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
 [e ( _sprintf (1 , , (. , &U _textCursor2 :s 6C -> . _timer_value 3 `i -> . _timer_value 2 `i ]
 "362
-[; ;fs_menu_controller.c: 362:     Lcd_Write_String(textCursor2);
-[e ( _Lcd_Write_String (1 &U _textCursor2 ]
+[; ;fs_menu_controller.c: 362:     lcdWriteString(textCursor2);
+[e ( _lcdWriteString (1 &U _textCursor2 ]
 "364
 [; ;fs_menu_controller.c: 364:     if (menu_flags.menu_start_flag == 1)
 [e $ ! == -> . _menu_flags 1 `i -> 1 `i 903  ]
@@ -1844,20 +1844,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_menu_controller.c: 437:     {
 {
 "438
-[; ;fs_menu_controller.c: 438:         Lcd_Set_Cursor(1,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 438:         lcdSetCursor(1,1);
+[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "439
-[; ;fs_menu_controller.c: 439:         Lcd_Write_String("PID PARAM       ");
-[e ( _Lcd_Write_String (1 :s 7C ]
+[; ;fs_menu_controller.c: 439:         lcdWriteString("PID PARAM       ");
+[e ( _lcdWriteString (1 :s 7C ]
 "440
-[; ;fs_menu_controller.c: 440:         Lcd_Set_Cursor(2,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 440:         lcdSetCursor(2,1);
+[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "441
 [; ;fs_menu_controller.c: 441:         sprintf(textCursor2,"Kp:%5.1f     ",KP);
 [e ( _sprintf (1 , (. , &U _textCursor2 :s 8C -> _KP `d ]
 "442
-[; ;fs_menu_controller.c: 442:         Lcd_Write_String(textCursor2);
-[e ( _Lcd_Write_String (1 &U _textCursor2 ]
+[; ;fs_menu_controller.c: 442:         lcdWriteString(textCursor2);
+[e ( _lcdWriteString (1 &U _textCursor2 ]
 "444
 [; ;fs_menu_controller.c: 444:         if ((menu_flags.menu_increase_flag == 1) && (KP < 2.5))
 [e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> _KP `d .2.5 912  ]
@@ -1901,20 +1901,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_menu_controller.c: 458:     {
 {
 "459
-[; ;fs_menu_controller.c: 459:         Lcd_Set_Cursor(1,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 459:         lcdSetCursor(1,1);
+[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "460
-[; ;fs_menu_controller.c: 460:         Lcd_Write_String("PID PARAM       ");
-[e ( _Lcd_Write_String (1 :s 9C ]
+[; ;fs_menu_controller.c: 460:         lcdWriteString("PID PARAM       ");
+[e ( _lcdWriteString (1 :s 9C ]
 "461
-[; ;fs_menu_controller.c: 461:         Lcd_Set_Cursor(2,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 461:         lcdSetCursor(2,1);
+[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "462
 [; ;fs_menu_controller.c: 462:         sprintf(textCursor2,"Kd:%5.1f    ",KD);
 [e ( _sprintf (1 , (. , &U _textCursor2 :s 10C -> _KD `d ]
 "463
-[; ;fs_menu_controller.c: 463:         Lcd_Write_String(textCursor2);
-[e ( _Lcd_Write_String (1 &U _textCursor2 ]
+[; ;fs_menu_controller.c: 463:         lcdWriteString(textCursor2);
+[e ( _lcdWriteString (1 &U _textCursor2 ]
 "465
 [; ;fs_menu_controller.c: 465:         if ((menu_flags.menu_increase_flag == 1) && (KD < 2.5))
 [e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> _KD `d .2.5 915  ]
@@ -2050,20 +2050,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 921 ]
 "516
-[; ;fs_menu_controller.c: 516:     Lcd_Set_Cursor(1,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 516:     lcdSetCursor(1,1);
+[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "517
-[; ;fs_menu_controller.c: 517:     Lcd_Write_String("HIZ LiMiTi      ");
-[e ( _Lcd_Write_String (1 :s 11C ]
+[; ;fs_menu_controller.c: 517:     lcdWriteString("HIZ LiMiTi      ");
+[e ( _lcdWriteString (1 :s 11C ]
 "518
-[; ;fs_menu_controller.c: 518:     Lcd_Set_Cursor(2,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 518:     lcdSetCursor(2,1);
+[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "519
 [; ;fs_menu_controller.c: 519:     sprintf(textCursor2,"%d               ",menu_value.speed_limit);
 [e ( _sprintf (1 , (. , &U _textCursor2 :s 12C -> . _menu_value 2 `i ]
 "520
-[; ;fs_menu_controller.c: 520:     Lcd_Write_String(textCursor2);
-[e ( _Lcd_Write_String (1 &U _textCursor2 ]
+[; ;fs_menu_controller.c: 520:     lcdWriteString(textCursor2);
+[e ( _lcdWriteString (1 &U _textCursor2 ]
 "522
 [; ;fs_menu_controller.c: 522:     if(timer_value.menu_login_delay == 100)
 [e $ ! == -> . _timer_value 4 `i -> 100 `i 922  ]
@@ -2163,20 +2163,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 926 ]
 "561
-[; ;fs_menu_controller.c: 561:     Lcd_Set_Cursor(1,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 561:     lcdSetCursor(1,1);
+[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "562
-[; ;fs_menu_controller.c: 562:     Lcd_Write_String("DURMA ZAMANI  ms");
-[e ( _Lcd_Write_String (1 :s 13C ]
+[; ;fs_menu_controller.c: 562:     lcdWriteString("DURMA ZAMANI  ms");
+[e ( _lcdWriteString (1 :s 13C ]
 "563
-[; ;fs_menu_controller.c: 563:     Lcd_Set_Cursor(2,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 563:     lcdSetCursor(2,1);
+[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "564
 [; ;fs_menu_controller.c: 564:     sprintf(textCursor2,"%d             ",menu_value.stop_time);
 [e ( _sprintf (1 , (. , &U _textCursor2 :s 14C -> . _menu_value 1 `i ]
 "565
-[; ;fs_menu_controller.c: 565:     Lcd_Write_String(textCursor2);
-[e ( _Lcd_Write_String (1 &U _textCursor2 ]
+[; ;fs_menu_controller.c: 565:     lcdWriteString(textCursor2);
+[e ( _lcdWriteString (1 &U _textCursor2 ]
 "567
 [; ;fs_menu_controller.c: 567:     if(timer_value.menu_login_delay == 100)
 [e $ ! == -> . _timer_value 4 `i -> 100 `i 927  ]
@@ -2300,20 +2300,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 931 ]
 "615
-[; ;fs_menu_controller.c: 615:     Lcd_Set_Cursor(1,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 615:     lcdSetCursor(1,1);
+[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "616
-[; ;fs_menu_controller.c: 616:     Lcd_Write_String("HAREKT ZAMANI dk");
-[e ( _Lcd_Write_String (1 :s 15C ]
+[; ;fs_menu_controller.c: 616:     lcdWriteString("HAREKT ZAMANI dk");
+[e ( _lcdWriteString (1 :s 15C ]
 "617
-[; ;fs_menu_controller.c: 617:     Lcd_Set_Cursor(2,1);
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 617:     lcdSetCursor(2,1);
+[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "618
 [; ;fs_menu_controller.c: 618:     sprintf(textCursor2,"%d               ",menu_value.driver_time);
 [e ( _sprintf (1 , (. , &U _textCursor2 :s 16C -> . _menu_value 0 `i ]
 "619
-[; ;fs_menu_controller.c: 619:     Lcd_Write_String(textCursor2);
-[e ( _Lcd_Write_String (1 &U _textCursor2 ]
+[; ;fs_menu_controller.c: 619:     lcdWriteString(textCursor2);
+[e ( _lcdWriteString (1 &U _textCursor2 ]
 "621
 [; ;fs_menu_controller.c: 621:     if(timer_value.menu_login_delay == 100)
 [e $ ! == -> . _timer_value 4 `i -> 100 `i 932  ]

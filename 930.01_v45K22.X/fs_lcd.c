@@ -30,7 +30,7 @@
  * @param  none
  * @return none
  */
-void Lcd_Port(char a)
+void lcdPort(char a)
 {
    if(a & 1) { D4 = 1;}    
    else {D4 = 0;}
@@ -53,10 +53,10 @@ void Lcd_Port(char a)
  * @param  none
  * @return none
  */
-void Lcd_Cmd(char a)
+void lcdCmd(char a)
 {
    RS = 0;             // => RS = 0
-   Lcd_Port(a);
+   lcdPort(a);
    EN  = 1;             // => E = 1
    __delay_ms(2);
    EN  = 0;             // => E = 0
@@ -69,10 +69,10 @@ void Lcd_Cmd(char a)
  * @param  none
  * @return none
  */
-void Lcd_Clear()
+void lcdClear()
 {
-   Lcd_Cmd(0);
-   Lcd_Cmd(1);
+   lcdCmd(0);
+   lcdCmd(1);
 }
 
 /*
@@ -80,7 +80,7 @@ void Lcd_Clear()
  * @param  none
  * @return none
  */
-void Lcd_Set_Cursor(char a, char b)
+void lcdSetCursor(char a, char b)
 {
    char temp,z,y;
    if(a == 1)
@@ -88,16 +88,16 @@ void Lcd_Set_Cursor(char a, char b)
      temp = 0x80 + b - 1;
       z = temp>>4;
       y = temp & 0x0F;
-      Lcd_Cmd(z);
-      Lcd_Cmd(y);
+      lcdCmd(z);
+      lcdCmd(y);
    }
    else if(a == 2)
    {
       temp = 0xC0 + b - 1;
       z = temp>>4;
       y = temp & 0x0F;
-      Lcd_Cmd(z);
-      Lcd_Cmd(y);
+      lcdCmd(z);
+      lcdCmd(y);
    }
 }
 
@@ -106,7 +106,7 @@ void Lcd_Set_Cursor(char a, char b)
  * @param  none
  * @return none
  */
-void lcd_init(void)
+void lcdInit(void)
 {       
     TRISDbits.RD6 = 0;
     ANSELDbits.ANSD6 = 0;
@@ -127,20 +127,20 @@ void lcd_init(void)
     ANSELBbits.ANSB3 = 0; 
     
     
-    Lcd_Port(0x00);
+    lcdPort(0x00);
      __delay_ms(20);
-    Lcd_Cmd(0x03);
+    lcdCmd(0x03);
      __delay_ms(5);
-    Lcd_Cmd(0x03);
+    lcdCmd(0x03);
      __delay_ms(11);
-    Lcd_Cmd(0x03);
-    Lcd_Cmd(0x02);
-    Lcd_Cmd(0x02);
-    Lcd_Cmd(0x08);
-    Lcd_Cmd(0x00);
-    Lcd_Cmd(0x0C);
-    Lcd_Cmd(0x00);
-    Lcd_Cmd(0x06);
+    lcdCmd(0x03);
+    lcdCmd(0x02);
+    lcdCmd(0x02);
+    lcdCmd(0x08);
+    lcdCmd(0x00);
+    lcdCmd(0x0C);
+    lcdCmd(0x00);
+    lcdCmd(0x06);
 }
 
 
@@ -150,17 +150,17 @@ void lcd_init(void)
  * @param  none
  * @return none
  */
-void Lcd_Write_Char(char a)
+void lcdWriteChar(char a)
 {
    char temp,y;
    temp = a&0x0F;
    y = a&0xF0;
    RS = 1;             // => RS = 1
-   Lcd_Port(y>>4);             //Data transfer
+   lcdPort(y>>4);             //Data transfer
    EN = 1;
    __delay_us(40);
    EN = 0;
-   Lcd_Port(temp);
+   lcdPort(temp);
    EN = 1;
    __delay_us(40);
    EN = 0;
@@ -173,11 +173,11 @@ void Lcd_Write_Char(char a)
  * @param  none
  * @return none
  */
-void Lcd_Write_String(char *a)
+void lcdWriteString(char *a)
 {
    int i;
    for(i=0;a[i]!='\0';i++)
-   Lcd_Write_Char(a[i]);
+   lcdWriteChar(a[i]);
 }
 
 
@@ -187,10 +187,10 @@ void Lcd_Write_String(char *a)
  * @param  none
  * @return none
  */
-void Lcd_Shift_Right()
+void lcdShiftRight()
 {
-   Lcd_Cmd(0x01);
-   Lcd_Cmd(0x0C);
+   lcdCmd(0x01);
+   lcdCmd(0x0C);
 }
 
 
@@ -200,9 +200,9 @@ void Lcd_Shift_Right()
  * @param  none
  * @return none
  */
-void Lcd_Shift_Left()
+void lcdShiftLeft()
 {
-   Lcd_Cmd(0x01);
-   Lcd_Cmd(0x08);
+   lcdCmd(0x01);
+   lcdCmd(0x08);
 }
 
