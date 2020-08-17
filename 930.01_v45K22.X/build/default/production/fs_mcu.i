@@ -9850,15 +9850,15 @@ void loopTaskInit(void);
 # 1 "./fs_mcu.h" 1
 # 34 "./fs_lcd.h" 2
 # 57 "./fs_lcd.h"
-void Lcd_Port(char a);
-void Lcd_Cmd(char a);
-void Lcd_Clear(void);
-void Lcd_Set_Cursor(char a, char b);
-void lcd_init(void);
-void Lcd_Write_Char(char a);
-void Lcd_Write_String(char *a);
-void Lcd_Shift_Right(void);
-void Lcd_Shift_Left(void);
+void lcdPort(char a);
+void lcdCmd(char a);
+void lcdClear(void);
+void lcdSetCursor(char a, char b);
+void lcdInit(void);
+void lcdWriteChar(char a);
+void lcdWriteString(char *a);
+void lcdShiftRight(void);
+void lcdShiftLeft(void);
 # 39 "./fs_menu_controller.h" 2
 
 # 1 "./fs_eeprom.h" 1
@@ -10451,8 +10451,8 @@ tS_driver_limit driver_limit;
 
 
 
-void mcu_init(void);
-void system_init(void);
+void mcuInit(void);
+void systemInit(void);
 void openLCD_Script(void);
 # 27 "fs_mcu.c" 2
 
@@ -10463,14 +10463,14 @@ void openLCD_Script(void);
 
 
 
-void mcu_init(void)
+void mcuInit(void)
 {
    OSCCONbits.IRCF = 0b111;
    OSCTUNEbits.PLLEN = 0b1;
    while(!OSCCONbits.HFIOFS);
 }
 # 49 "fs_mcu.c"
-void system_init(void)
+void systemInit(void)
 {
     driver_limit.pay = 0;
     driver_limit.payda = 0;
@@ -10503,10 +10503,10 @@ void system_init(void)
 # 87 "fs_mcu.c"
 void openLCD_Script(void)
 {
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("   Ergin Oyun  ");
-    Lcd_Set_Cursor(2,1);
-    Lcd_Write_String(" iYi Eglenceler ");
+    lcdSetCursor(1,1);
+    lcdWriteString("   Ergin Oyun  ");
+    lcdSetCursor(2,1);
+    lcdWriteString(" iYi Eglenceler ");
     _delay((unsigned long)((2500)*(64000000UL/4000.0)));
-    Lcd_Clear();
+    lcdClear();
 }

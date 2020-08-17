@@ -38,8 +38,8 @@ extern "C" {
 #include "fs_main.h"
 #include "fs_lcd.h"
     
-void mcu_init(void);
-void system_init(void);
+void mcuInit(void);
+void systemInit(void);
 void openLCD_Script(void);
 
 #ifdef	__cplusplus

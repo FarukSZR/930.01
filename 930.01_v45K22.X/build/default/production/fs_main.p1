@@ -44,8 +44,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [s S863 `ul 1 `ul 1 `f 1 ]
 [n S863 . pay payda ortalama ]
 "41 ./fs_mcu.h
-[; ;./fs_mcu.h: 41: void mcu_init(void);
-[v _mcu_init `(v ~T0 @X0 0 ef ]
+[; ;./fs_mcu.h: 41: void mcuInit(void);
+[v _mcuInit `(v ~T0 @X0 0 ef ]
 "114 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 114: void menuInitialize(void);
 [v _menuInitialize `(v ~T0 @X0 0 ef ]
@@ -56,14 +56,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./fs_timer.h: 39: void timer_0_init(void);
 [v _timer_0_init `(v ~T0 @X0 0 ef ]
 "61 ./fs_lcd.h
-[; ;./fs_lcd.h: 61: void lcd_init(void);
-[v _lcd_init `(v ~T0 @X0 0 ef ]
+[; ;./fs_lcd.h: 61: void lcdInit(void);
+[v _lcdInit `(v ~T0 @X0 0 ef ]
 "42 ./fs_mcu.h
-[; ;./fs_mcu.h: 42: void system_init(void);
-[v _system_init `(v ~T0 @X0 0 ef ]
+[; ;./fs_mcu.h: 42: void systemInit(void);
+[v _systemInit `(v ~T0 @X0 0 ef ]
 "59 ./fs_lcd.h
-[; ;./fs_lcd.h: 59: void Lcd_Clear(void);
-[v _Lcd_Clear `(v ~T0 @X0 0 ef ]
+[; ;./fs_lcd.h: 59: void lcdClear(void);
+[v _lcdClear `(v ~T0 @X0 0 ef ]
 "42 ./fs_pwm.h
 [; ;./fs_pwm.h: 42: void PWM_Init(void);
 [v _PWM_Init `(v ~T0 @X0 0 ef ]
@@ -852,8 +852,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _loopTaskInit ]
 [f ]
 "81
-[; ;fs_main.c: 81:     mcu_init();
-[e ( _mcu_init ..  ]
+[; ;fs_main.c: 81:     mcuInit();
+[e ( _mcuInit ..  ]
 "82
 [; ;fs_main.c: 82:     menuInitialize();
 [e ( _menuInitialize ..  ]
@@ -864,14 +864,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_main.c: 86:     timer_0_init();
 [e ( _timer_0_init ..  ]
 "87
-[; ;fs_main.c: 87:     lcd_init();
-[e ( _lcd_init ..  ]
+[; ;fs_main.c: 87:     lcdInit();
+[e ( _lcdInit ..  ]
 "88
-[; ;fs_main.c: 88:     system_init();
-[e ( _system_init ..  ]
+[; ;fs_main.c: 88:     systemInit();
+[e ( _systemInit ..  ]
 "89
-[; ;fs_main.c: 89:     Lcd_Clear();
-[e ( _Lcd_Clear ..  ]
+[; ;fs_main.c: 89:     lcdClear();
+[e ( _lcdClear ..  ]
 "91
 [; ;fs_main.c: 91:     PWM_Init();
 [e ( _PWM_Init ..  ]

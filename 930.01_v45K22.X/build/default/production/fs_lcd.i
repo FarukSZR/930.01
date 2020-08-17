@@ -10442,20 +10442,20 @@ tS_driver_limit driver_limit;
 # 39 "./fs_mcu.h" 2
 
 
-void mcu_init(void);
-void system_init(void);
+void mcuInit(void);
+void systemInit(void);
 void openLCD_Script(void);
 # 34 "./fs_lcd.h" 2
 # 57 "./fs_lcd.h"
-void Lcd_Port(char a);
-void Lcd_Cmd(char a);
-void Lcd_Clear(void);
-void Lcd_Set_Cursor(char a, char b);
-void lcd_init(void);
-void Lcd_Write_Char(char a);
-void Lcd_Write_String(char *a);
-void Lcd_Shift_Right(void);
-void Lcd_Shift_Left(void);
+void lcdPort(char a);
+void lcdCmd(char a);
+void lcdClear(void);
+void lcdSetCursor(char a, char b);
+void lcdInit(void);
+void lcdWriteChar(char a);
+void lcdWriteString(char *a);
+void lcdShiftRight(void);
+void lcdShiftLeft(void);
 # 26 "fs_lcd.c" 2
 
 
@@ -10464,7 +10464,7 @@ void Lcd_Shift_Left(void);
 
 
 
-void Lcd_Port(char a)
+void lcdPort(char a)
 {
    if(a & 1) { PORTBbits.RB0 = 1;}
    else {PORTBbits.RB0 = 0;}
@@ -10480,19 +10480,19 @@ void Lcd_Port(char a)
 
 }
 # 56 "fs_lcd.c"
-void Lcd_Cmd(char a)
+void lcdCmd(char a)
 {
    PORTDbits.RD6 = 0;
-   Lcd_Port(a);
+   lcdPort(a);
    PORTDbits.RD7 = 1;
    _delay((unsigned long)((2)*(64000000UL/4000.0)));
    PORTDbits.RD7 = 0;
 }
 # 72 "fs_lcd.c"
-void Lcd_Clear()
+void lcdClear()
 {
-   Lcd_Cmd(0);
-   Lcd_Cmd(1);
+   lcdCmd(0);
+   lcdCmd(1);
 }
 
 
@@ -10500,7 +10500,7 @@ void Lcd_Clear()
 
 
 
-void Lcd_Set_Cursor(char a, char b)
+void lcdSetCursor(char a, char b)
 {
    char temp,z,y;
    if(a == 1)
@@ -10508,16 +10508,16 @@ void Lcd_Set_Cursor(char a, char b)
      temp = 0x80 + b - 1;
       z = temp>>4;
       y = temp & 0x0F;
-      Lcd_Cmd(z);
-      Lcd_Cmd(y);
+      lcdCmd(z);
+      lcdCmd(y);
    }
    else if(a == 2)
    {
       temp = 0xC0 + b - 1;
       z = temp>>4;
       y = temp & 0x0F;
-      Lcd_Cmd(z);
-      Lcd_Cmd(y);
+      lcdCmd(z);
+      lcdCmd(y);
    }
 }
 
@@ -10526,7 +10526,7 @@ void Lcd_Set_Cursor(char a, char b)
 
 
 
-void lcd_init(void)
+void lcdInit(void)
 {
     TRISDbits.RD6 = 0;
     ANSELDbits.ANSD6 = 0;
@@ -10547,53 +10547,53 @@ void lcd_init(void)
     ANSELBbits.ANSB3 = 0;
 
 
-    Lcd_Port(0x00);
+    lcdPort(0x00);
      _delay((unsigned long)((20)*(64000000UL/4000.0)));
-    Lcd_Cmd(0x03);
+    lcdCmd(0x03);
      _delay((unsigned long)((5)*(64000000UL/4000.0)));
-    Lcd_Cmd(0x03);
+    lcdCmd(0x03);
      _delay((unsigned long)((11)*(64000000UL/4000.0)));
-    Lcd_Cmd(0x03);
-    Lcd_Cmd(0x02);
-    Lcd_Cmd(0x02);
-    Lcd_Cmd(0x08);
-    Lcd_Cmd(0x00);
-    Lcd_Cmd(0x0C);
-    Lcd_Cmd(0x00);
-    Lcd_Cmd(0x06);
+    lcdCmd(0x03);
+    lcdCmd(0x02);
+    lcdCmd(0x02);
+    lcdCmd(0x08);
+    lcdCmd(0x00);
+    lcdCmd(0x0C);
+    lcdCmd(0x00);
+    lcdCmd(0x06);
 }
 # 153 "fs_lcd.c"
-void Lcd_Write_Char(char a)
+void lcdWriteChar(char a)
 {
    char temp,y;
    temp = a&0x0F;
    y = a&0xF0;
    PORTDbits.RD6 = 1;
-   Lcd_Port(y>>4);
+   lcdPort(y>>4);
    PORTDbits.RD7 = 1;
    _delay((unsigned long)((40)*(64000000UL/4000000.0)));
    PORTDbits.RD7 = 0;
-   Lcd_Port(temp);
+   lcdPort(temp);
    PORTDbits.RD7 = 1;
    _delay((unsigned long)((40)*(64000000UL/4000000.0)));
    PORTDbits.RD7 = 0;
 }
 # 176 "fs_lcd.c"
-void Lcd_Write_String(char *a)
+void lcdWriteString(char *a)
 {
    int i;
    for(i=0;a[i]!='\0';i++)
-   Lcd_Write_Char(a[i]);
+   lcdWriteChar(a[i]);
 }
 # 190 "fs_lcd.c"
-void Lcd_Shift_Right()
+void lcdShiftRight()
 {
-   Lcd_Cmd(0x01);
-   Lcd_Cmd(0x0C);
+   lcdCmd(0x01);
+   lcdCmd(0x0C);
 }
 # 203 "fs_lcd.c"
-void Lcd_Shift_Left()
+void lcdShiftLeft()
 {
-   Lcd_Cmd(0x01);
-   Lcd_Cmd(0x08);
+   lcdCmd(0x01);
+   lcdCmd(0x08);
 }

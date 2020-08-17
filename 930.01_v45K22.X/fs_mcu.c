@@ -32,7 +32,7 @@
  * @param  none
  * @return none
  */
-void mcu_init(void)
+void mcuInit(void)
 {
    OSCCONbits.IRCF = 0b111; // OSSCON registerının IRCF bayrağı kullanılarak 16Mhz RC osilatör seçildi.
    OSCTUNEbits.PLLEN = 0b1; //OSCTUNE registerının PLLEN bayrağı kullanılarak 4XLL aktif edildi.     
@@ -46,7 +46,7 @@ void mcu_init(void)
  * @param  none
  * @return none
  */
-void system_init(void)
+void systemInit(void)
 {
     driver_limit.pay = 0;
     driver_limit.payda = 0;
@@ -86,10 +86,10 @@ void system_init(void)
  */
 void openLCD_Script(void)
 {
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("   Ergin Oyun  ");
-    Lcd_Set_Cursor(2,1);
-    Lcd_Write_String(" iYi Eglenceler ");
+    lcdSetCursor(1,1);
+    lcdWriteString("   Ergin Oyun  ");
+    lcdSetCursor(2,1);
+    lcdWriteString(" iYi Eglenceler ");
     __delay_ms(2500);
-    Lcd_Clear(); 
+    lcdClear(); 
 }

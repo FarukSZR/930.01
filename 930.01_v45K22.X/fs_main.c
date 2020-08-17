@@ -78,15 +78,15 @@ void loopTaskTimeMachine(void)
  */
 void loopTaskInit(void)
 {
-    mcu_init();     // GPIO and Clock setting initialize
+    mcuInit();     // GPIO and Clock setting initialize
     menuInitialize();
      
     adcInit();      // ADC initialize
     
     timer_0_init(); // 10ms timer initalize
-    lcd_init();
-    system_init();
-    Lcd_Clear();
+    lcdInit();
+    systemInit();
+    lcdClear();
 
     PWM_Init();    //20Khz Pwm Period
     PWM1_setDC(0);

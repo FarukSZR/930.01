@@ -10219,15 +10219,15 @@ void loopTaskInit(void);
 # 1 "./fs_mcu.h" 1
 # 34 "./fs_lcd.h" 2
 # 57 "./fs_lcd.h"
-void Lcd_Port(char a);
-void Lcd_Cmd(char a);
-void Lcd_Clear(void);
-void Lcd_Set_Cursor(char a, char b);
-void lcd_init(void);
-void Lcd_Write_Char(char a);
-void Lcd_Write_String(char *a);
-void Lcd_Shift_Right(void);
-void Lcd_Shift_Left(void);
+void lcdPort(char a);
+void lcdCmd(char a);
+void lcdClear(void);
+void lcdSetCursor(char a, char b);
+void lcdInit(void);
+void lcdWriteChar(char a);
+void lcdWriteString(char *a);
+void lcdShiftRight(void);
+void lcdShiftLeft(void);
 # 39 "./fs_menu_controller.h" 2
 
 # 1 "./fs_eeprom.h" 1
@@ -10436,8 +10436,8 @@ tS_driver_limit driver_limit;
 
 
 
-void mcu_init(void);
-void system_init(void);
+void mcuInit(void);
+void systemInit(void);
 void openLCD_Script(void);
 # 38 "./fs_pwm.h" 2
 
