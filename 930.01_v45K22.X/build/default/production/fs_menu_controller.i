@@ -10665,6 +10665,7 @@ void mainMenu(void)
          LATDbits.LATD5 = 0;
          LATCbits.LATC5 = 0;
          LATCbits.LATC4 = 0;
+         stopMotor();
     }
 
     if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) )
@@ -10675,7 +10676,7 @@ void mainMenu(void)
         LATCbits.LATC4 = 1;
     }
 }
-# 304 "fs_menu_controller.c"
+# 305 "fs_menu_controller.c"
 void stopMenu(void)
 {
     char textCursor2[16] = {0};
@@ -10716,7 +10717,7 @@ void stopMenu(void)
     }
 
 }
-# 352 "fs_menu_controller.c"
+# 353 "fs_menu_controller.c"
 void pauseMenu(void)
 {
     char textCursor2[16] = {0};
@@ -10764,7 +10765,7 @@ void pauseMenu(void)
         secretMenuCounter = 1;
     }
 }
-# 407 "fs_menu_controller.c"
+# 408 "fs_menu_controller.c"
 void startMenu(void)
 {
     timer_value.remainingMinute = menu_value.driver_time;
@@ -10935,7 +10936,7 @@ void stopTimeSettingMenu(void)
         menu_selected = PAUSE_MENU;
     }
 }
-# 585 "fs_menu_controller.c"
+# 586 "fs_menu_controller.c"
 void driverTimeSettingMenu(void)
 {
     char textCursor2[16] = {0};
@@ -10982,7 +10983,7 @@ void driverTimeSettingMenu(void)
         menu_selected = PAUSE_MENU;
     }
 }
-# 639 "fs_menu_controller.c"
+# 640 "fs_menu_controller.c"
 void exitLine(void)
 {
 

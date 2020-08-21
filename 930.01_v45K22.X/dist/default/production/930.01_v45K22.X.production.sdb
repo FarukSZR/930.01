@@ -226,21 +226,21 @@ SECRET_MENU 8
 [v _stateMachine stateMachine `(v  1 e 1 0 ]
 "245
 [v _mainMenu mainMenu `(v  1 e 1 0 ]
-"304
+"305
 [v _stopMenu stopMenu `(v  1 e 1 0 ]
-"352
+"353
 [v _pauseMenu pauseMenu `(v  1 e 1 0 ]
-"407
+"408
 [v _startMenu startMenu `(v  1 e 1 0 ]
-"422
+"423
 [v _secretMenu secretMenu `(v  1 e 1 0 ]
-"495
+"496
 [v _speedLimitSettingMenu speedLimitSettingMenu `(v  1 e 1 0 ]
-"539
+"540
 [v _stopTimeSettingMenu stopTimeSettingMenu `(v  1 e 1 0 ]
-"585
+"586
 [v _driverTimeSettingMenu driverTimeSettingMenu `(v  1 e 1 0 ]
-"639
+"640
 [v _exitLine exitLine `(v  1 e 1 0 ]
 "34 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_pwm.c
 [v _PWM_Init PWM_Init `(v  1 e 1 0 ]
@@ -797,52 +797,52 @@ SECRET_MENU 8
 {
 "236
 } 0
-"539
+"540
 [v _stopTimeSettingMenu stopTimeSettingMenu `(v  1 e 1 0 ]
 {
-"541
+"542
 [v stopTimeSettingMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"576
+"577
 } 0
-"304
+"305
 [v _stopMenu stopMenu `(v  1 e 1 0 ]
 {
-"306
+"307
 [v stopMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"343
+"344
 } 0
-"407
+"408
 [v _startMenu startMenu `(v  1 e 1 0 ]
 {
-"414
+"415
 } 0
-"495
+"496
 [v _speedLimitSettingMenu speedLimitSettingMenu `(v  1 e 1 0 ]
 {
-"497
+"498
 [v speedLimitSettingMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"531
+"532
 } 0
-"422
+"423
 [v _secretMenu secretMenu `(v  1 e 1 0 ]
 {
-"424
+"425
 [v secretMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"487
+"488
 } 0
-"352
+"353
 [v _pauseMenu pauseMenu `(v  1 e 1 0 ]
 {
-"354
+"355
 [v pauseMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"398
+"399
 } 0
 "245
 [v _mainMenu mainMenu `(v  1 e 1 0 ]
 {
 "247
 [v mainMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"295
+"296
 } 0
 "93 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_speed_controller.c
 [v _startMotor startMotor `(v  1 e 1 0 ]
@@ -898,17 +898,17 @@ SECRET_MENU 8
 [v ___lldiv@divisor divisor `ul  1 p 4 4 ]
 "30
 } 0
-"639 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_menu_controller.c
+"640 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_menu_controller.c
 [v _exitLine exitLine `(v  1 e 1 0 ]
 {
-"642
+"643
 } 0
-"585
+"586
 [v _driverTimeSettingMenu driverTimeSettingMenu `(v  1 e 1 0 ]
 {
-"587
+"588
 [v driverTimeSettingMenu@textCursor2 textCursor2 `[16]uc  1 a 16 129 ]
-"630
+"631
 } 0
 "77 C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_speed_controller.c
 [v _stopMotor stopMotor `(v  1 e 1 0 ]

@@ -283,6 +283,7 @@ void mainMenu(void)
          MP3_PLAYER = 0;
          COMMUNICATION_SIGNAL = 0;
          LAMB_OUTPUT = 0;
+         stopMotor();
     }  
 
     if ( (startIsClick == TRUE) && (pauseIsClick == FALSE) && (stopIsClick == FALSE) )
