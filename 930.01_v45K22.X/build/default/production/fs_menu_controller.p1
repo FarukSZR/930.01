@@ -207,12 +207,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S387 . . . ]
 "7811
 [v _LATCbits `VS387 ~T0 @X0 0 e@3979 ]
-"53 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 53: void startMotor(void);
-[v _startMotor `(v ~T0 @X0 0 ef ]
-"52
+"52 ./fs_speed_controller.h
 [; ;./fs_speed_controller.h: 52: void stopMotor(void);
 [v _stopMotor `(v ~T0 @X0 0 ef ]
+"53
+[; ;./fs_speed_controller.h: 53: void startMotor(void);
+[v _startMotor `(v ~T0 @X0 0 ef ]
 "46 ./fs_eeprom.h
 [; ;./fs_eeprom.h: 46: void eepromWrite(uint8_t address, uint8_t data);
 [v _eepromWrite `(v ~T0 @X0 0 ef2`uc`uc ]
@@ -1495,858 +1495,861 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_menu_controller.c: 285:          LATCbits.LATC4 = 0;
 [e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
 "286
-[; ;fs_menu_controller.c: 286:     }
+[; ;fs_menu_controller.c: 286:          stopMotor();
+[e ( _stopMotor ..  ]
+"287
+[; ;fs_menu_controller.c: 287:     }
 }
 [e :U 897 ]
-"288
-[; ;fs_menu_controller.c: 288:     if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) )
-[e $ ! && && == -> _startIsClick `i -> 1 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 0 `i 898  ]
 "289
-[; ;fs_menu_controller.c: 289:     {
-{
+[; ;fs_menu_controller.c: 289:     if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) )
+[e $ ! && && == -> _startIsClick `i -> 1 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 0 `i 898  ]
 "290
-[; ;fs_menu_controller.c: 290:         startMotor();
-[e ( _startMotor ..  ]
+[; ;fs_menu_controller.c: 290:     {
+{
 "291
-[; ;fs_menu_controller.c: 291:         LATDbits.LATD5 = 1;
-[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 291:         startMotor();
+[e ( _startMotor ..  ]
 "292
-[; ;fs_menu_controller.c: 292:         LATCbits.LATC5 = 1;
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 292:         LATDbits.LATD5 = 1;
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 "293
-[; ;fs_menu_controller.c: 293:         LATCbits.LATC4 = 1;
-[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 293:         LATCbits.LATC5 = 1;
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
 "294
-[; ;fs_menu_controller.c: 294:     }
+[; ;fs_menu_controller.c: 294:         LATCbits.LATC4 = 1;
+[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
+"295
+[; ;fs_menu_controller.c: 295:     }
 }
 [e :U 898 ]
-"295
-[; ;fs_menu_controller.c: 295: }
+"296
+[; ;fs_menu_controller.c: 296: }
 [e :UE 893 ]
 }
-"304
-[; ;fs_menu_controller.c: 304: void stopMenu(void)
-[v _stopMenu `(v ~T0 @X0 1 ef ]
 "305
-[; ;fs_menu_controller.c: 305: {
+[; ;fs_menu_controller.c: 305: void stopMenu(void)
+[v _stopMenu `(v ~T0 @X0 1 ef ]
+"306
+[; ;fs_menu_controller.c: 306: {
 {
 [e :U _stopMenu ]
 [f ]
 [v F6899 `uc ~T0 @X0 -> 16 `i s ]
 [i F6899
 :U ..
-"306
-[; ;fs_menu_controller.c: 306:     char textCursor2[16] = {0};
+"307
+[; ;fs_menu_controller.c: 307:     char textCursor2[16] = {0};
 -> -> 0 `i `uc
 ..
 ]
 [v _textCursor2 `uc ~T0 @X0 -> 16 `i a ]
 [e = _textCursor2 F6899 ]
-"308
-[; ;fs_menu_controller.c: 308:     stopMotor();
+"309
+[; ;fs_menu_controller.c: 309:     stopMotor();
 [e ( _stopMotor ..  ]
-"310
-[; ;fs_menu_controller.c: 310:     startIsClick = 0;
-[e = _startIsClick -> -> 0 `i `a ]
 "311
-[; ;fs_menu_controller.c: 311:     pauseIsClick = 0;
-[e = _pauseIsClick -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 311:     startIsClick = 0;
+[e = _startIsClick -> -> 0 `i `a ]
 "312
-[; ;fs_menu_controller.c: 312:     stopIsClick = 1;
-[e = _stopIsClick -> -> 1 `i `a ]
-"314
-[; ;fs_menu_controller.c: 314:     lcdSetCursor(1,1);
-[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"315
-[; ;fs_menu_controller.c: 315:     lcdWriteString("ZAMAN DOLDU     ");
-[e ( _lcdWriteString (1 :s 3C ]
-"317
-[; ;fs_menu_controller.c: 317:     timer_value.remainingSecond = 0;
-[e = . _timer_value 2 -> -> 0 `i `uc ]
-"318
-[; ;fs_menu_controller.c: 318:     timer_value.remainingMinute = 0;
-[e = . _timer_value 3 -> -> 0 `i `c ]
-"320
-[; ;fs_menu_controller.c: 320:     lcdSetCursor(2,1);
-[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"321
-[; ;fs_menu_controller.c: 321:     sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
-[e ( _sprintf (1 , , (. , &U _textCursor2 :s 4C -> . _timer_value 3 `i -> . _timer_value 2 `i ]
-"322
-[; ;fs_menu_controller.c: 322:     lcdWriteString(textCursor2);
-[e ( _lcdWriteString (1 &U _textCursor2 ]
-"324
-[; ;fs_menu_controller.c: 324:     if (menu_flags.menu_start_flag == 1)
-[e $ ! == -> . _menu_flags 1 `i -> 1 `i 900  ]
-"325
-[; ;fs_menu_controller.c: 325:     {
-{
-"326
-[; ;fs_menu_controller.c: 326:         menu_flags.menu_start_flag = 0;
-[e = . _menu_flags 1 -> -> 0 `i `a ]
-"327
-[; ;fs_menu_controller.c: 327:         menu_selected = START_MENU;
-[e = _menu_selected . `E6857 5 ]
-"329
-[; ;fs_menu_controller.c: 329:         startIsClick = 1;
-[e = _startIsClick -> -> 1 `i `a ]
-"330
-[; ;fs_menu_controller.c: 330:         pauseIsClick = 0;
+[; ;fs_menu_controller.c: 312:     pauseIsClick = 0;
 [e = _pauseIsClick -> -> 0 `i `a ]
+"313
+[; ;fs_menu_controller.c: 313:     stopIsClick = 1;
+[e = _stopIsClick -> -> 1 `i `a ]
+"315
+[; ;fs_menu_controller.c: 315:     lcdSetCursor(1,1);
+[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"316
+[; ;fs_menu_controller.c: 316:     lcdWriteString("ZAMAN DOLDU     ");
+[e ( _lcdWriteString (1 :s 3C ]
+"318
+[; ;fs_menu_controller.c: 318:     timer_value.remainingSecond = 0;
+[e = . _timer_value 2 -> -> 0 `i `uc ]
+"319
+[; ;fs_menu_controller.c: 319:     timer_value.remainingMinute = 0;
+[e = . _timer_value 3 -> -> 0 `i `c ]
+"321
+[; ;fs_menu_controller.c: 321:     lcdSetCursor(2,1);
+[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"322
+[; ;fs_menu_controller.c: 322:     sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
+[e ( _sprintf (1 , , (. , &U _textCursor2 :s 4C -> . _timer_value 3 `i -> . _timer_value 2 `i ]
+"323
+[; ;fs_menu_controller.c: 323:     lcdWriteString(textCursor2);
+[e ( _lcdWriteString (1 &U _textCursor2 ]
+"325
+[; ;fs_menu_controller.c: 325:     if (menu_flags.menu_start_flag == 1)
+[e $ ! == -> . _menu_flags 1 `i -> 1 `i 900  ]
+"326
+[; ;fs_menu_controller.c: 326:     {
+{
+"327
+[; ;fs_menu_controller.c: 327:         menu_flags.menu_start_flag = 0;
+[e = . _menu_flags 1 -> -> 0 `i `a ]
+"328
+[; ;fs_menu_controller.c: 328:         menu_selected = START_MENU;
+[e = _menu_selected . `E6857 5 ]
+"330
+[; ;fs_menu_controller.c: 330:         startIsClick = 1;
+[e = _startIsClick -> -> 1 `i `a ]
 "331
-[; ;fs_menu_controller.c: 331:         stopIsClick = 0;
-[e = _stopIsClick -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 331:         pauseIsClick = 0;
+[e = _pauseIsClick -> -> 0 `i `a ]
 "332
-[; ;fs_menu_controller.c: 332:         timer_value.second = 0;
-[e = . _timer_value 0 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 332:         stopIsClick = 0;
+[e = _stopIsClick -> -> 0 `i `a ]
 "333
-[; ;fs_menu_controller.c: 333:         timer_value.minute = 0;
-[e = . _timer_value 1 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 333:         timer_value.second = 0;
+[e = . _timer_value 0 -> -> 0 `i `uc ]
 "334
-[; ;fs_menu_controller.c: 334:     }
+[; ;fs_menu_controller.c: 334:         timer_value.minute = 0;
+[e = . _timer_value 1 -> -> 0 `i `uc ]
+"335
+[; ;fs_menu_controller.c: 335:     }
 }
 [e :U 900 ]
-"336
-[; ;fs_menu_controller.c: 336:     if ( timer_value.menu_login_delay == 100)
-[e $ ! == -> . _timer_value 4 `i -> 100 `i 901  ]
 "337
-[; ;fs_menu_controller.c: 337:     {
-{
+[; ;fs_menu_controller.c: 337:     if ( timer_value.menu_login_delay == 100)
+[e $ ! == -> . _timer_value 4 `i -> 100 `i 901  ]
 "338
-[; ;fs_menu_controller.c: 338:         button_bounce_controller.menu = 0;
-[e = . _button_bounce_controller 0 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 338:     {
+{
 "339
-[; ;fs_menu_controller.c: 339:         timer_value.menu_login_delay = 0;
-[e = . _timer_value 4 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 339:         button_bounce_controller.menu = 0;
+[e = . _button_bounce_controller 0 -> -> 0 `i `a ]
 "340
-[; ;fs_menu_controller.c: 340:         menu_selected = DRIVER_TIME_SETTING;
-[e = _menu_selected . `E6857 1 ]
+[; ;fs_menu_controller.c: 340:         timer_value.menu_login_delay = 0;
+[e = . _timer_value 4 -> -> 0 `i `uc ]
 "341
-[; ;fs_menu_controller.c: 341:     }
+[; ;fs_menu_controller.c: 341:         menu_selected = DRIVER_TIME_SETTING;
+[e = _menu_selected . `E6857 1 ]
+"342
+[; ;fs_menu_controller.c: 342:     }
 }
 [e :U 901 ]
-"343
-[; ;fs_menu_controller.c: 343: }
+"344
+[; ;fs_menu_controller.c: 344: }
 [e :UE 899 ]
 }
-"352
-[; ;fs_menu_controller.c: 352: void pauseMenu(void)
-[v _pauseMenu `(v ~T0 @X0 1 ef ]
 "353
-[; ;fs_menu_controller.c: 353: {
+[; ;fs_menu_controller.c: 353: void pauseMenu(void)
+[v _pauseMenu `(v ~T0 @X0 1 ef ]
+"354
+[; ;fs_menu_controller.c: 354: {
 {
 [e :U _pauseMenu ]
 [f ]
 [v F6902 `uc ~T0 @X0 -> 16 `i s ]
 [i F6902
 :U ..
-"354
-[; ;fs_menu_controller.c: 354:     char textCursor2[16] = {0};
+"355
+[; ;fs_menu_controller.c: 355:     char textCursor2[16] = {0};
 -> -> 0 `i `uc
 ..
 ]
 [v _textCursor2 `uc ~T0 @X0 -> 16 `i a ]
 [e = _textCursor2 F6902 ]
-"356
-[; ;fs_menu_controller.c: 356:     startIsClick = 0;
-[e = _startIsClick -> -> 0 `i `a ]
 "357
-[; ;fs_menu_controller.c: 357:     timer_value.remainingMinute = timer_value.remainingMinute;
-[e = . _timer_value 3 . _timer_value 3 ]
+[; ;fs_menu_controller.c: 357:     startIsClick = 0;
+[e = _startIsClick -> -> 0 `i `a ]
 "358
-[; ;fs_menu_controller.c: 358:     timer_value.remainingSecond = timer_value.remainingSecond;
+[; ;fs_menu_controller.c: 358:     timer_value.remainingMinute = timer_value.remainingMinute;
+[e = . _timer_value 3 . _timer_value 3 ]
+"359
+[; ;fs_menu_controller.c: 359:     timer_value.remainingSecond = timer_value.remainingSecond;
 [e = . _timer_value 2 . _timer_value 2 ]
-"360
-[; ;fs_menu_controller.c: 360:     stopMotor();
+"361
+[; ;fs_menu_controller.c: 361:     stopMotor();
 [e ( _stopMotor ..  ]
-"362
-[; ;fs_menu_controller.c: 362:     lcdSetCursor(1,1);
-[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "363
-[; ;fs_menu_controller.c: 363:     lcdWriteString("HAREKET DURDU   ");
-[e ( _lcdWriteString (1 :s 5C ]
+[; ;fs_menu_controller.c: 363:     lcdSetCursor(1,1);
+[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "364
-[; ;fs_menu_controller.c: 364:     lcdSetCursor(2,1);
-[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 364:     lcdWriteString("HAREKET DURDU   ");
+[e ( _lcdWriteString (1 :s 5C ]
 "365
-[; ;fs_menu_controller.c: 365:     sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
-[e ( _sprintf (1 , , (. , &U _textCursor2 :s 6C -> . _timer_value 3 `i -> . _timer_value 2 `i ]
+[; ;fs_menu_controller.c: 365:     lcdSetCursor(2,1);
+[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "366
-[; ;fs_menu_controller.c: 366:     lcdWriteString(textCursor2);
+[; ;fs_menu_controller.c: 366:     sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
+[e ( _sprintf (1 , , (. , &U _textCursor2 :s 6C -> . _timer_value 3 `i -> . _timer_value 2 `i ]
+"367
+[; ;fs_menu_controller.c: 367:     lcdWriteString(textCursor2);
 [e ( _lcdWriteString (1 &U _textCursor2 ]
-"368
-[; ;fs_menu_controller.c: 368:     if (menu_flags.menu_start_flag == 1)
-[e $ ! == -> . _menu_flags 1 `i -> 1 `i 903  ]
 "369
-[; ;fs_menu_controller.c: 369:     {
-{
+[; ;fs_menu_controller.c: 369:     if (menu_flags.menu_start_flag == 1)
+[e $ ! == -> . _menu_flags 1 `i -> 1 `i 903  ]
 "370
-[; ;fs_menu_controller.c: 370:         menu_flags.menu_start_flag = 0;
-[e = . _menu_flags 1 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 370:     {
+{
 "371
-[; ;fs_menu_controller.c: 371:         menu_selected = MAIN_MENU;
+[; ;fs_menu_controller.c: 371:         menu_flags.menu_start_flag = 0;
+[e = . _menu_flags 1 -> -> 0 `i `a ]
+"372
+[; ;fs_menu_controller.c: 372:         menu_selected = MAIN_MENU;
 [e = _menu_selected . `E6857 0 ]
-"373
-[; ;fs_menu_controller.c: 373:         startIsClick = 1;
-[e = _startIsClick -> -> 1 `i `a ]
 "374
-[; ;fs_menu_controller.c: 374:         pauseIsClick = 0;
-[e = _pauseIsClick -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 374:         startIsClick = 1;
+[e = _startIsClick -> -> 1 `i `a ]
 "375
-[; ;fs_menu_controller.c: 375:         stopIsClick = 0;
-[e = _stopIsClick -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 375:         pauseIsClick = 0;
+[e = _pauseIsClick -> -> 0 `i `a ]
 "376
-[; ;fs_menu_controller.c: 376:     }
+[; ;fs_menu_controller.c: 376:         stopIsClick = 0;
+[e = _stopIsClick -> -> 0 `i `a ]
+"377
+[; ;fs_menu_controller.c: 377:     }
 }
 [e :U 903 ]
-"378
-[; ;fs_menu_controller.c: 378:     if ( (startIsClick == 0) && (pauseIsClick == 0) && (stopIsClick == 1) && (menu_selected == PAUSE_MENU))
-[e $ ! && && && == -> _startIsClick `i -> 0 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 1 `i == -> _menu_selected `ui -> . `E6857 6 `ui 904  ]
 "379
-[; ;fs_menu_controller.c: 379:     {
-{
+[; ;fs_menu_controller.c: 379:     if ( (startIsClick == 0) && (pauseIsClick == 0) && (stopIsClick == 1) && (menu_selected == PAUSE_MENU))
+[e $ ! && && && == -> _startIsClick `i -> 0 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 1 `i == -> _menu_selected `ui -> . `E6857 6 `ui 904  ]
 "380
-[; ;fs_menu_controller.c: 380:          timer_value.remainingMinute = menu_value.driver_time;
-[e = . _timer_value 3 -> . _menu_value 0 `c ]
+[; ;fs_menu_controller.c: 380:     {
+{
 "381
-[; ;fs_menu_controller.c: 381:          timer_value.remainingSecond = 0;
-[e = . _timer_value 2 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 381:          timer_value.remainingMinute = menu_value.driver_time;
+[e = . _timer_value 3 -> . _menu_value 0 `c ]
 "382
-[; ;fs_menu_controller.c: 382:          timer_value.second = 0;
-[e = . _timer_value 0 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 382:          timer_value.remainingSecond = 0;
+[e = . _timer_value 2 -> -> 0 `i `uc ]
 "383
-[; ;fs_menu_controller.c: 383:          timer_value.minute = 0;
-[e = . _timer_value 1 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 383:          timer_value.second = 0;
+[e = . _timer_value 0 -> -> 0 `i `uc ]
 "384
-[; ;fs_menu_controller.c: 384:     }
+[; ;fs_menu_controller.c: 384:          timer_value.minute = 0;
+[e = . _timer_value 1 -> -> 0 `i `uc ]
+"385
+[; ;fs_menu_controller.c: 385:     }
 }
 [e :U 904 ]
-"386
-[; ;fs_menu_controller.c: 386:     if ( timer_value.menu_login_delay == 100)
-[e $ ! == -> . _timer_value 4 `i -> 100 `i 905  ]
 "387
-[; ;fs_menu_controller.c: 387:     {
-{
+[; ;fs_menu_controller.c: 387:     if ( timer_value.menu_login_delay == 100)
+[e $ ! == -> . _timer_value 4 `i -> 100 `i 905  ]
 "388
-[; ;fs_menu_controller.c: 388:         button_bounce_controller.menu = 0;
-[e = . _button_bounce_controller 0 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 388:     {
+{
 "389
-[; ;fs_menu_controller.c: 389:         timer_value.menu_login_delay = 0;
-[e = . _timer_value 4 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 389:         button_bounce_controller.menu = 0;
+[e = . _button_bounce_controller 0 -> -> 0 `i `a ]
 "390
-[; ;fs_menu_controller.c: 390:         menu_selected = DRIVER_TIME_SETTING;
-[e = _menu_selected . `E6857 1 ]
+[; ;fs_menu_controller.c: 390:         timer_value.menu_login_delay = 0;
+[e = . _timer_value 4 -> -> 0 `i `uc ]
 "391
-[; ;fs_menu_controller.c: 391:     }
+[; ;fs_menu_controller.c: 391:         menu_selected = DRIVER_TIME_SETTING;
+[e = _menu_selected . `E6857 1 ]
+"392
+[; ;fs_menu_controller.c: 392:     }
 }
 [e :U 905 ]
-"393
-[; ;fs_menu_controller.c: 393:     if ((menu_flags.menu_increase_flag == 1) && (menu_flags.menu_decrease_flag == 1))
-[e $ ! && == -> . _menu_flags 4 `i -> 1 `i == -> . _menu_flags 5 `i -> 1 `i 906  ]
 "394
-[; ;fs_menu_controller.c: 394:     {
-{
+[; ;fs_menu_controller.c: 394:     if ((menu_flags.menu_increase_flag == 1) && (menu_flags.menu_decrease_flag == 1))
+[e $ ! && == -> . _menu_flags 4 `i -> 1 `i == -> . _menu_flags 5 `i -> 1 `i 906  ]
 "395
-[; ;fs_menu_controller.c: 395:         menu_selected = SECRET_MENU;
-[e = _menu_selected . `E6857 8 ]
+[; ;fs_menu_controller.c: 395:     {
+{
 "396
-[; ;fs_menu_controller.c: 396:         secretMenuCounter = 1;
-[e = _secretMenuCounter -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 396:         menu_selected = SECRET_MENU;
+[e = _menu_selected . `E6857 8 ]
 "397
-[; ;fs_menu_controller.c: 397:     }
+[; ;fs_menu_controller.c: 397:         secretMenuCounter = 1;
+[e = _secretMenuCounter -> -> 1 `i `uc ]
+"398
+[; ;fs_menu_controller.c: 398:     }
 }
 [e :U 906 ]
-"398
-[; ;fs_menu_controller.c: 398: }
+"399
+[; ;fs_menu_controller.c: 399: }
 [e :UE 902 ]
 }
-"407
-[; ;fs_menu_controller.c: 407: void startMenu(void)
-[v _startMenu `(v ~T0 @X0 1 ef ]
 "408
-[; ;fs_menu_controller.c: 408: {
+[; ;fs_menu_controller.c: 408: void startMenu(void)
+[v _startMenu `(v ~T0 @X0 1 ef ]
+"409
+[; ;fs_menu_controller.c: 409: {
 {
 [e :U _startMenu ]
 [f ]
-"409
-[; ;fs_menu_controller.c: 409:     timer_value.remainingMinute = menu_value.driver_time;
-[e = . _timer_value 3 -> . _menu_value 0 `c ]
 "410
-[; ;fs_menu_controller.c: 410:     timer_value.remainingSecond = 0;
-[e = . _timer_value 2 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 410:     timer_value.remainingMinute = menu_value.driver_time;
+[e = . _timer_value 3 -> . _menu_value 0 `c ]
 "411
-[; ;fs_menu_controller.c: 411:     startIsClick = 1;
-[e = _startIsClick -> -> 1 `i `a ]
+[; ;fs_menu_controller.c: 411:     timer_value.remainingSecond = 0;
+[e = . _timer_value 2 -> -> 0 `i `uc ]
 "412
-[; ;fs_menu_controller.c: 412:     stopIsClick = 0;
-[e = _stopIsClick -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 412:     startIsClick = 1;
+[e = _startIsClick -> -> 1 `i `a ]
 "413
-[; ;fs_menu_controller.c: 413:     menu_selected = MAIN_MENU;
-[e = _menu_selected . `E6857 0 ]
+[; ;fs_menu_controller.c: 413:     stopIsClick = 0;
+[e = _stopIsClick -> -> 0 `i `a ]
 "414
-[; ;fs_menu_controller.c: 414: }
+[; ;fs_menu_controller.c: 414:     menu_selected = MAIN_MENU;
+[e = _menu_selected . `E6857 0 ]
+"415
+[; ;fs_menu_controller.c: 415: }
 [e :UE 907 ]
 }
-"422
-[; ;fs_menu_controller.c: 422: void secretMenu(void)
-[v _secretMenu `(v ~T0 @X0 1 ef ]
 "423
-[; ;fs_menu_controller.c: 423: {
+[; ;fs_menu_controller.c: 423: void secretMenu(void)
+[v _secretMenu `(v ~T0 @X0 1 ef ]
+"424
+[; ;fs_menu_controller.c: 424: {
 {
 [e :U _secretMenu ]
 [f ]
 [v F6906 `uc ~T0 @X0 -> 16 `i s ]
 [i F6906
 :U ..
-"424
-[; ;fs_menu_controller.c: 424:     char textCursor2[16] = {0};
+"425
+[; ;fs_menu_controller.c: 425:     char textCursor2[16] = {0};
 -> -> 0 `i `uc
 ..
 ]
 [v _textCursor2 `uc ~T0 @X0 -> 16 `i a ]
 [e = _textCursor2 F6906 ]
-"426
-[; ;fs_menu_controller.c: 426:     stopMotor();
+"427
+[; ;fs_menu_controller.c: 427:     stopMotor();
 [e ( _stopMotor ..  ]
-"428
-[; ;fs_menu_controller.c: 428:     if (menu_flags.menu_input_flag == 1)
-[e $ ! == -> . _menu_flags 0 `i -> 1 `i 909  ]
 "429
-[; ;fs_menu_controller.c: 429:     {
-{
+[; ;fs_menu_controller.c: 429:     if (menu_flags.menu_input_flag == 1)
+[e $ ! == -> . _menu_flags 0 `i -> 1 `i 909  ]
 "430
-[; ;fs_menu_controller.c: 430:         menu_flags.menu_input_flag = 0;
-[e = . _menu_flags 0 -> -> 0 `i `a ]
-"431
-[; ;fs_menu_controller.c: 431:         secretMenuCounter++;
-[e ++ _secretMenuCounter -> -> 1 `i `uc ]
-"433
-[; ;fs_menu_controller.c: 433:         if (secretMenuCounter >2)
-[e $ ! > -> _secretMenuCounter `i -> 2 `i 910  ]
-"434
-[; ;fs_menu_controller.c: 434:         {
+[; ;fs_menu_controller.c: 430:     {
 {
+"431
+[; ;fs_menu_controller.c: 431:         menu_flags.menu_input_flag = 0;
+[e = . _menu_flags 0 -> -> 0 `i `a ]
+"432
+[; ;fs_menu_controller.c: 432:         secretMenuCounter++;
+[e ++ _secretMenuCounter -> -> 1 `i `uc ]
+"434
+[; ;fs_menu_controller.c: 434:         if (secretMenuCounter >2)
+[e $ ! > -> _secretMenuCounter `i -> 2 `i 910  ]
 "435
-[; ;fs_menu_controller.c: 435:             secretMenuCounter = 1;
-[e = _secretMenuCounter -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 435:         {
+{
 "436
-[; ;fs_menu_controller.c: 436:         }
+[; ;fs_menu_controller.c: 436:             secretMenuCounter = 1;
+[e = _secretMenuCounter -> -> 1 `i `uc ]
+"437
+[; ;fs_menu_controller.c: 437:         }
 }
 [e :U 910 ]
-"437
-[; ;fs_menu_controller.c: 437:     }
+"438
+[; ;fs_menu_controller.c: 438:     }
 }
 [e :U 909 ]
-"439
-[; ;fs_menu_controller.c: 439:     if (secretMenuCounter == 1)
-[e $ ! == -> _secretMenuCounter `i -> 1 `i 911  ]
 "440
-[; ;fs_menu_controller.c: 440:     {
-{
+[; ;fs_menu_controller.c: 440:     if (secretMenuCounter == 1)
+[e $ ! == -> _secretMenuCounter `i -> 1 `i 911  ]
 "441
-[; ;fs_menu_controller.c: 441:         lcdSetCursor(1,1);
-[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"442
-[; ;fs_menu_controller.c: 442:         lcdWriteString("PID PARAM       ");
-[e ( _lcdWriteString (1 :s 7C ]
-"443
-[; ;fs_menu_controller.c: 443:         lcdSetCursor(2,1);
-[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"444
-[; ;fs_menu_controller.c: 444:         sprintf(textCursor2,"Kp:%5.1f     ",KP);
-[e ( _sprintf (1 , (. , &U _textCursor2 :s 8C -> _KP `d ]
-"445
-[; ;fs_menu_controller.c: 445:         lcdWriteString(textCursor2);
-[e ( _lcdWriteString (1 &U _textCursor2 ]
-"447
-[; ;fs_menu_controller.c: 447:         if ((menu_flags.menu_increase_flag == 1) && (KP < 2.5))
-[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> _KP `d .2.5 912  ]
-"448
-[; ;fs_menu_controller.c: 448:         {
+[; ;fs_menu_controller.c: 441:     {
 {
+"442
+[; ;fs_menu_controller.c: 442:         lcdSetCursor(1,1);
+[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"443
+[; ;fs_menu_controller.c: 443:         lcdWriteString("PID PARAM       ");
+[e ( _lcdWriteString (1 :s 7C ]
+"444
+[; ;fs_menu_controller.c: 444:         lcdSetCursor(2,1);
+[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"445
+[; ;fs_menu_controller.c: 445:         sprintf(textCursor2,"Kp:%5.1f     ",KP);
+[e ( _sprintf (1 , (. , &U _textCursor2 :s 8C -> _KP `d ]
+"446
+[; ;fs_menu_controller.c: 446:         lcdWriteString(textCursor2);
+[e ( _lcdWriteString (1 &U _textCursor2 ]
+"448
+[; ;fs_menu_controller.c: 448:         if ((menu_flags.menu_increase_flag == 1) && (KP < 2.5))
+[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> _KP `d .2.5 912  ]
 "449
-[; ;fs_menu_controller.c: 449:             menu_flags.menu_increase_flag = 0;
-[e = . _menu_flags 4 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 449:         {
+{
 "450
-[; ;fs_menu_controller.c: 450:             KP += 0.1;
-[e =+ _KP -> .0.1 `f ]
+[; ;fs_menu_controller.c: 450:             menu_flags.menu_increase_flag = 0;
+[e = . _menu_flags 4 -> -> 0 `i `a ]
 "451
-[; ;fs_menu_controller.c: 451:         }
+[; ;fs_menu_controller.c: 451:             KP += 0.1;
+[e =+ _KP -> .0.1 `f ]
+"452
+[; ;fs_menu_controller.c: 452:         }
 }
 [e :U 912 ]
-"453
-[; ;fs_menu_controller.c: 453:         if ((menu_flags.menu_decrease_flag == 1) && (KP >= 0))
-[e $ ! && == -> . _menu_flags 5 `i -> 1 `i >= _KP -> -> 0 `i `f 913  ]
 "454
-[; ;fs_menu_controller.c: 454:         {
-{
+[; ;fs_menu_controller.c: 454:         if ((menu_flags.menu_decrease_flag == 1) && (KP >= 0))
+[e $ ! && == -> . _menu_flags 5 `i -> 1 `i >= _KP -> -> 0 `i `f 913  ]
 "455
-[; ;fs_menu_controller.c: 455:             menu_flags.menu_decrease_flag = 0;
-[e = . _menu_flags 5 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 455:         {
+{
 "456
-[; ;fs_menu_controller.c: 456:              KP -= 0.1;
-[e =- _KP -> .0.1 `f ]
+[; ;fs_menu_controller.c: 456:             menu_flags.menu_decrease_flag = 0;
+[e = . _menu_flags 5 -> -> 0 `i `a ]
 "457
-[; ;fs_menu_controller.c: 457:         }
+[; ;fs_menu_controller.c: 457:              KP -= 0.1;
+[e =- _KP -> .0.1 `f ]
+"458
+[; ;fs_menu_controller.c: 458:         }
 }
 [e :U 913 ]
-"458
-[; ;fs_menu_controller.c: 458:     }
+"459
+[; ;fs_menu_controller.c: 459:     }
 }
 [e :U 911 ]
-"460
-[; ;fs_menu_controller.c: 460:     if (secretMenuCounter == 2)
-[e $ ! == -> _secretMenuCounter `i -> 2 `i 914  ]
 "461
-[; ;fs_menu_controller.c: 461:     {
-{
+[; ;fs_menu_controller.c: 461:     if (secretMenuCounter == 2)
+[e $ ! == -> _secretMenuCounter `i -> 2 `i 914  ]
 "462
-[; ;fs_menu_controller.c: 462:         lcdSetCursor(1,1);
-[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"463
-[; ;fs_menu_controller.c: 463:         lcdWriteString("PID PARAM       ");
-[e ( _lcdWriteString (1 :s 9C ]
-"464
-[; ;fs_menu_controller.c: 464:         lcdSetCursor(2,1);
-[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"465
-[; ;fs_menu_controller.c: 465:         sprintf(textCursor2,"Kd:%5.1f    ",KD);
-[e ( _sprintf (1 , (. , &U _textCursor2 :s 10C -> _KD `d ]
-"466
-[; ;fs_menu_controller.c: 466:         lcdWriteString(textCursor2);
-[e ( _lcdWriteString (1 &U _textCursor2 ]
-"468
-[; ;fs_menu_controller.c: 468:         if ((menu_flags.menu_increase_flag == 1) && (KD < 2.5))
-[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> _KD `d .2.5 915  ]
-"469
-[; ;fs_menu_controller.c: 469:         {
+[; ;fs_menu_controller.c: 462:     {
 {
+"463
+[; ;fs_menu_controller.c: 463:         lcdSetCursor(1,1);
+[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"464
+[; ;fs_menu_controller.c: 464:         lcdWriteString("PID PARAM       ");
+[e ( _lcdWriteString (1 :s 9C ]
+"465
+[; ;fs_menu_controller.c: 465:         lcdSetCursor(2,1);
+[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"466
+[; ;fs_menu_controller.c: 466:         sprintf(textCursor2,"Kd:%5.1f    ",KD);
+[e ( _sprintf (1 , (. , &U _textCursor2 :s 10C -> _KD `d ]
+"467
+[; ;fs_menu_controller.c: 467:         lcdWriteString(textCursor2);
+[e ( _lcdWriteString (1 &U _textCursor2 ]
+"469
+[; ;fs_menu_controller.c: 469:         if ((menu_flags.menu_increase_flag == 1) && (KD < 2.5))
+[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> _KD `d .2.5 915  ]
 "470
-[; ;fs_menu_controller.c: 470:             menu_flags.menu_increase_flag = 0;
-[e = . _menu_flags 4 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 470:         {
+{
 "471
-[; ;fs_menu_controller.c: 471:             KD += 0.1;
-[e =+ _KD -> .0.1 `f ]
+[; ;fs_menu_controller.c: 471:             menu_flags.menu_increase_flag = 0;
+[e = . _menu_flags 4 -> -> 0 `i `a ]
 "472
-[; ;fs_menu_controller.c: 472:         }
+[; ;fs_menu_controller.c: 472:             KD += 0.1;
+[e =+ _KD -> .0.1 `f ]
+"473
+[; ;fs_menu_controller.c: 473:         }
 }
 [e :U 915 ]
-"474
-[; ;fs_menu_controller.c: 474:         if ((menu_flags.menu_decrease_flag == 1) && (KD >= 0))
-[e $ ! && == -> . _menu_flags 5 `i -> 1 `i >= _KD -> -> 0 `i `f 916  ]
 "475
-[; ;fs_menu_controller.c: 475:         {
-{
+[; ;fs_menu_controller.c: 475:         if ((menu_flags.menu_decrease_flag == 1) && (KD >= 0))
+[e $ ! && == -> . _menu_flags 5 `i -> 1 `i >= _KD -> -> 0 `i `f 916  ]
 "476
-[; ;fs_menu_controller.c: 476:             menu_flags.menu_decrease_flag = 0;
-[e = . _menu_flags 5 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 476:         {
+{
 "477
-[; ;fs_menu_controller.c: 477:              KD -= 0.1;
-[e =- _KD -> .0.1 `f ]
+[; ;fs_menu_controller.c: 477:             menu_flags.menu_decrease_flag = 0;
+[e = . _menu_flags 5 -> -> 0 `i `a ]
 "478
-[; ;fs_menu_controller.c: 478:         }
+[; ;fs_menu_controller.c: 478:              KD -= 0.1;
+[e =- _KD -> .0.1 `f ]
+"479
+[; ;fs_menu_controller.c: 479:         }
 }
 [e :U 916 ]
-"479
-[; ;fs_menu_controller.c: 479:     }
+"480
+[; ;fs_menu_controller.c: 480:     }
 }
 [e :U 914 ]
-"481
-[; ;fs_menu_controller.c: 481:     if ( timer_value.menu_login_delay == 100)
-[e $ ! == -> . _timer_value 4 `i -> 100 `i 917  ]
 "482
-[; ;fs_menu_controller.c: 482:     {
-{
+[; ;fs_menu_controller.c: 482:     if ( timer_value.menu_login_delay == 100)
+[e $ ! == -> . _timer_value 4 `i -> 100 `i 917  ]
 "483
-[; ;fs_menu_controller.c: 483:         button_bounce_controller.menu = 0;
-[e = . _button_bounce_controller 0 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 483:     {
+{
 "484
-[; ;fs_menu_controller.c: 484:         timer_value.menu_login_delay = 0;
-[e = . _timer_value 4 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 484:         button_bounce_controller.menu = 0;
+[e = . _button_bounce_controller 0 -> -> 0 `i `a ]
 "485
-[; ;fs_menu_controller.c: 485:         menu_selected = PAUSE_MENU;
-[e = _menu_selected . `E6857 6 ]
+[; ;fs_menu_controller.c: 485:         timer_value.menu_login_delay = 0;
+[e = . _timer_value 4 -> -> 0 `i `uc ]
 "486
-[; ;fs_menu_controller.c: 486:     }
+[; ;fs_menu_controller.c: 486:         menu_selected = PAUSE_MENU;
+[e = _menu_selected . `E6857 6 ]
+"487
+[; ;fs_menu_controller.c: 487:     }
 }
 [e :U 917 ]
-"487
-[; ;fs_menu_controller.c: 487: }
+"488
+[; ;fs_menu_controller.c: 488: }
 [e :UE 908 ]
 }
-"495
-[; ;fs_menu_controller.c: 495: void speedLimitSettingMenu(void)
-[v _speedLimitSettingMenu `(v ~T0 @X0 1 ef ]
 "496
-[; ;fs_menu_controller.c: 496: {
+[; ;fs_menu_controller.c: 496: void speedLimitSettingMenu(void)
+[v _speedLimitSettingMenu `(v ~T0 @X0 1 ef ]
+"497
+[; ;fs_menu_controller.c: 497: {
 {
 [e :U _speedLimitSettingMenu ]
 [f ]
 [v F6909 `uc ~T0 @X0 -> 16 `i s ]
 [i F6909
 :U ..
-"497
-[; ;fs_menu_controller.c: 497:     char textCursor2[16] = {0};
+"498
+[; ;fs_menu_controller.c: 498:     char textCursor2[16] = {0};
 -> -> 0 `i `uc
 ..
 ]
 [v _textCursor2 `uc ~T0 @X0 -> 16 `i a ]
 [e = _textCursor2 F6909 ]
-"498
-[; ;fs_menu_controller.c: 498:     stopMotor();
+"499
+[; ;fs_menu_controller.c: 499:     stopMotor();
 [e ( _stopMotor ..  ]
-"500
-[; ;fs_menu_controller.c: 500:     if (menu_flags.menu_input_flag == 1)
-[e $ ! == -> . _menu_flags 0 `i -> 1 `i 919  ]
 "501
-[; ;fs_menu_controller.c: 501:     {
-{
+[; ;fs_menu_controller.c: 501:     if (menu_flags.menu_input_flag == 1)
+[e $ ! == -> . _menu_flags 0 `i -> 1 `i 919  ]
 "502
-[; ;fs_menu_controller.c: 502:         menu_flags.menu_input_flag = 0;
-[e = . _menu_flags 0 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 502:     {
+{
 "503
-[; ;fs_menu_controller.c: 503:         menu_selected = DRIVER_TIME_SETTING;
-[e = _menu_selected . `E6857 1 ]
+[; ;fs_menu_controller.c: 503:         menu_flags.menu_input_flag = 0;
+[e = . _menu_flags 0 -> -> 0 `i `a ]
 "504
-[; ;fs_menu_controller.c: 504:     }
+[; ;fs_menu_controller.c: 504:         menu_selected = DRIVER_TIME_SETTING;
+[e = _menu_selected . `E6857 1 ]
+"505
+[; ;fs_menu_controller.c: 505:     }
 }
 [e :U 919 ]
-"506
-[; ;fs_menu_controller.c: 506:     if ((menu_flags.menu_increase_flag == 1) && (menu_value.speed_limit < 5))
-[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> . _menu_value 2 `i -> 5 `i 920  ]
 "507
-[; ;fs_menu_controller.c: 507:     {
-{
+[; ;fs_menu_controller.c: 507:     if ((menu_flags.menu_increase_flag == 1) && (menu_value.speed_limit < 5))
+[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> . _menu_value 2 `i -> 5 `i 920  ]
 "508
-[; ;fs_menu_controller.c: 508:         menu_flags.menu_increase_flag = 0;
-[e = . _menu_flags 4 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 508:     {
+{
 "509
-[; ;fs_menu_controller.c: 509:         menu_value.speed_limit += 1;
-[e =+ . _menu_value 2 -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 509:         menu_flags.menu_increase_flag = 0;
+[e = . _menu_flags 4 -> -> 0 `i `a ]
 "510
-[; ;fs_menu_controller.c: 510:         eepromWrite(0x02,menu_value.speed_limit);
-[e ( _eepromWrite (2 , -> -> 2 `i `uc . _menu_value 2 ]
+[; ;fs_menu_controller.c: 510:         menu_value.speed_limit += 1;
+[e =+ . _menu_value 2 -> -> 1 `i `uc ]
 "511
-[; ;fs_menu_controller.c: 511:     }
+[; ;fs_menu_controller.c: 511:         eepromWrite(0x02,menu_value.speed_limit);
+[e ( _eepromWrite (2 , -> -> 2 `i `uc . _menu_value 2 ]
+"512
+[; ;fs_menu_controller.c: 512:     }
 }
 [e :U 920 ]
-"513
-[; ;fs_menu_controller.c: 513:     if ((menu_flags.menu_decrease_flag == 1) && (menu_value.speed_limit > 1))
-[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 2 `i -> 1 `i 921  ]
 "514
-[; ;fs_menu_controller.c: 514:     {
-{
+[; ;fs_menu_controller.c: 514:     if ((menu_flags.menu_decrease_flag == 1) && (menu_value.speed_limit > 1))
+[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 2 `i -> 1 `i 921  ]
 "515
-[; ;fs_menu_controller.c: 515:          menu_flags.menu_decrease_flag = 0;
-[e = . _menu_flags 5 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 515:     {
+{
 "516
-[; ;fs_menu_controller.c: 516:          menu_value.speed_limit -= 1;
-[e =- . _menu_value 2 -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 516:          menu_flags.menu_decrease_flag = 0;
+[e = . _menu_flags 5 -> -> 0 `i `a ]
 "517
-[; ;fs_menu_controller.c: 517:          eepromWrite(0x02,menu_value.speed_limit);
-[e ( _eepromWrite (2 , -> -> 2 `i `uc . _menu_value 2 ]
+[; ;fs_menu_controller.c: 517:          menu_value.speed_limit -= 1;
+[e =- . _menu_value 2 -> -> 1 `i `uc ]
 "518
-[; ;fs_menu_controller.c: 518:     }
+[; ;fs_menu_controller.c: 518:          eepromWrite(0x02,menu_value.speed_limit);
+[e ( _eepromWrite (2 , -> -> 2 `i `uc . _menu_value 2 ]
+"519
+[; ;fs_menu_controller.c: 519:     }
 }
 [e :U 921 ]
-"519
-[; ;fs_menu_controller.c: 519:     lcdSetCursor(1,1);
-[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "520
-[; ;fs_menu_controller.c: 520:     lcdWriteString("HIZ LiMiTi      ");
-[e ( _lcdWriteString (1 :s 11C ]
+[; ;fs_menu_controller.c: 520:     lcdSetCursor(1,1);
+[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "521
-[; ;fs_menu_controller.c: 521:     lcdSetCursor(2,1);
-[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 521:     lcdWriteString("HIZ LiMiTi      ");
+[e ( _lcdWriteString (1 :s 11C ]
 "522
-[; ;fs_menu_controller.c: 522:     sprintf(textCursor2,"%d               ",menu_value.speed_limit);
-[e ( _sprintf (1 , (. , &U _textCursor2 :s 12C -> . _menu_value 2 `i ]
+[; ;fs_menu_controller.c: 522:     lcdSetCursor(2,1);
+[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "523
-[; ;fs_menu_controller.c: 523:     lcdWriteString(textCursor2);
+[; ;fs_menu_controller.c: 523:     sprintf(textCursor2,"%d               ",menu_value.speed_limit);
+[e ( _sprintf (1 , (. , &U _textCursor2 :s 12C -> . _menu_value 2 `i ]
+"524
+[; ;fs_menu_controller.c: 524:     lcdWriteString(textCursor2);
 [e ( _lcdWriteString (1 &U _textCursor2 ]
-"525
-[; ;fs_menu_controller.c: 525:     if(timer_value.menu_login_delay == 100)
-[e $ ! == -> . _timer_value 4 `i -> 100 `i 922  ]
 "526
-[; ;fs_menu_controller.c: 526:     {
-{
+[; ;fs_menu_controller.c: 526:     if(timer_value.menu_login_delay == 100)
+[e $ ! == -> . _timer_value 4 `i -> 100 `i 922  ]
 "527
-[; ;fs_menu_controller.c: 527:         button_bounce_controller.menu = 0;
-[e = . _button_bounce_controller 0 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 527:     {
+{
 "528
-[; ;fs_menu_controller.c: 528:         timer_value.menu_login_delay = 0;
-[e = . _timer_value 4 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 528:         button_bounce_controller.menu = 0;
+[e = . _button_bounce_controller 0 -> -> 0 `i `a ]
 "529
-[; ;fs_menu_controller.c: 529:         menu_selected = PAUSE_MENU;
-[e = _menu_selected . `E6857 6 ]
+[; ;fs_menu_controller.c: 529:         timer_value.menu_login_delay = 0;
+[e = . _timer_value 4 -> -> 0 `i `uc ]
 "530
-[; ;fs_menu_controller.c: 530:     }
+[; ;fs_menu_controller.c: 530:         menu_selected = PAUSE_MENU;
+[e = _menu_selected . `E6857 6 ]
+"531
+[; ;fs_menu_controller.c: 531:     }
 }
 [e :U 922 ]
-"531
-[; ;fs_menu_controller.c: 531: }
+"532
+[; ;fs_menu_controller.c: 532: }
 [e :UE 918 ]
 }
-"539
-[; ;fs_menu_controller.c: 539: void stopTimeSettingMenu(void)
-[v _stopTimeSettingMenu `(v ~T0 @X0 1 ef ]
 "540
-[; ;fs_menu_controller.c: 540: {
+[; ;fs_menu_controller.c: 540: void stopTimeSettingMenu(void)
+[v _stopTimeSettingMenu `(v ~T0 @X0 1 ef ]
+"541
+[; ;fs_menu_controller.c: 541: {
 {
 [e :U _stopTimeSettingMenu ]
 [f ]
 [v F6912 `uc ~T0 @X0 -> 16 `i s ]
 [i F6912
 :U ..
-"541
-[; ;fs_menu_controller.c: 541:     char textCursor2[16] = {0};
+"542
+[; ;fs_menu_controller.c: 542:     char textCursor2[16] = {0};
 -> -> 0 `i `uc
 ..
 ]
 [v _textCursor2 `uc ~T0 @X0 -> 16 `i a ]
 [e = _textCursor2 F6912 ]
-"543
-[; ;fs_menu_controller.c: 543:     stopMotor();
+"544
+[; ;fs_menu_controller.c: 544:     stopMotor();
 [e ( _stopMotor ..  ]
-"545
-[; ;fs_menu_controller.c: 545:     if (menu_flags.menu_input_flag == 1)
-[e $ ! == -> . _menu_flags 0 `i -> 1 `i 924  ]
 "546
-[; ;fs_menu_controller.c: 546:     {
-{
+[; ;fs_menu_controller.c: 546:     if (menu_flags.menu_input_flag == 1)
+[e $ ! == -> . _menu_flags 0 `i -> 1 `i 924  ]
 "547
-[; ;fs_menu_controller.c: 547:         menu_flags.menu_input_flag = 0;
-[e = . _menu_flags 0 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 547:     {
+{
 "548
-[; ;fs_menu_controller.c: 548:         menu_selected = SPEED_LIMIT_SETTING;
-[e = _menu_selected . `E6857 3 ]
+[; ;fs_menu_controller.c: 548:         menu_flags.menu_input_flag = 0;
+[e = . _menu_flags 0 -> -> 0 `i `a ]
 "549
-[; ;fs_menu_controller.c: 549:     }
+[; ;fs_menu_controller.c: 549:         menu_selected = SPEED_LIMIT_SETTING;
+[e = _menu_selected . `E6857 3 ]
+"550
+[; ;fs_menu_controller.c: 550:     }
 }
 [e :U 924 ]
-"551
-[; ;fs_menu_controller.c: 551:     if ((menu_flags.menu_increase_flag == 1) && (menu_value.stop_time < 250))
-[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> . _menu_value 1 `i -> 250 `i 925  ]
 "552
-[; ;fs_menu_controller.c: 552:     {
-{
+[; ;fs_menu_controller.c: 552:     if ((menu_flags.menu_increase_flag == 1) && (menu_value.stop_time < 250))
+[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> . _menu_value 1 `i -> 250 `i 925  ]
 "553
-[; ;fs_menu_controller.c: 553:         menu_flags.menu_increase_flag = 0;
-[e = . _menu_flags 4 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 553:     {
+{
 "554
-[; ;fs_menu_controller.c: 554:         menu_value.stop_time += 10;
-[e =+ . _menu_value 1 -> -> 10 `i `uc ]
+[; ;fs_menu_controller.c: 554:         menu_flags.menu_increase_flag = 0;
+[e = . _menu_flags 4 -> -> 0 `i `a ]
 "555
-[; ;fs_menu_controller.c: 555:         eepromWrite(0x01,(uint8_t)menu_value.stop_time);
-[e ( _eepromWrite (2 , -> -> 1 `i `uc . _menu_value 1 ]
+[; ;fs_menu_controller.c: 555:         menu_value.stop_time += 10;
+[e =+ . _menu_value 1 -> -> 10 `i `uc ]
 "556
-[; ;fs_menu_controller.c: 556:     }
+[; ;fs_menu_controller.c: 556:         eepromWrite(0x01,(uint8_t)menu_value.stop_time);
+[e ( _eepromWrite (2 , -> -> 1 `i `uc . _menu_value 1 ]
+"557
+[; ;fs_menu_controller.c: 557:     }
 }
 [e :U 925 ]
-"558
-[; ;fs_menu_controller.c: 558:     if ((menu_flags.menu_decrease_flag == 1) && (menu_value.stop_time > 10))
-[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 1 `i -> 10 `i 926  ]
 "559
-[; ;fs_menu_controller.c: 559:     {
-{
+[; ;fs_menu_controller.c: 559:     if ((menu_flags.menu_decrease_flag == 1) && (menu_value.stop_time > 10))
+[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 1 `i -> 10 `i 926  ]
 "560
-[; ;fs_menu_controller.c: 560:          menu_flags.menu_decrease_flag = 0;
-[e = . _menu_flags 5 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 560:     {
+{
 "561
-[; ;fs_menu_controller.c: 561:          menu_value.stop_time -= 10;
-[e =- . _menu_value 1 -> -> 10 `i `uc ]
+[; ;fs_menu_controller.c: 561:          menu_flags.menu_decrease_flag = 0;
+[e = . _menu_flags 5 -> -> 0 `i `a ]
 "562
-[; ;fs_menu_controller.c: 562:          eepromWrite(0x01,(uint8_t)menu_value.stop_time);
-[e ( _eepromWrite (2 , -> -> 1 `i `uc . _menu_value 1 ]
+[; ;fs_menu_controller.c: 562:          menu_value.stop_time -= 10;
+[e =- . _menu_value 1 -> -> 10 `i `uc ]
 "563
-[; ;fs_menu_controller.c: 563:     }
+[; ;fs_menu_controller.c: 563:          eepromWrite(0x01,(uint8_t)menu_value.stop_time);
+[e ( _eepromWrite (2 , -> -> 1 `i `uc . _menu_value 1 ]
+"564
+[; ;fs_menu_controller.c: 564:     }
 }
 [e :U 926 ]
-"564
-[; ;fs_menu_controller.c: 564:     lcdSetCursor(1,1);
-[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "565
-[; ;fs_menu_controller.c: 565:     lcdWriteString("DURMA ZAMANI  ms");
-[e ( _lcdWriteString (1 :s 13C ]
+[; ;fs_menu_controller.c: 565:     lcdSetCursor(1,1);
+[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "566
-[; ;fs_menu_controller.c: 566:     lcdSetCursor(2,1);
-[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 566:     lcdWriteString("DURMA ZAMANI  ms");
+[e ( _lcdWriteString (1 :s 13C ]
 "567
-[; ;fs_menu_controller.c: 567:     sprintf(textCursor2,"%d             ",menu_value.stop_time);
-[e ( _sprintf (1 , (. , &U _textCursor2 :s 14C -> . _menu_value 1 `i ]
+[; ;fs_menu_controller.c: 567:     lcdSetCursor(2,1);
+[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "568
-[; ;fs_menu_controller.c: 568:     lcdWriteString(textCursor2);
+[; ;fs_menu_controller.c: 568:     sprintf(textCursor2,"%d             ",menu_value.stop_time);
+[e ( _sprintf (1 , (. , &U _textCursor2 :s 14C -> . _menu_value 1 `i ]
+"569
+[; ;fs_menu_controller.c: 569:     lcdWriteString(textCursor2);
 [e ( _lcdWriteString (1 &U _textCursor2 ]
-"570
-[; ;fs_menu_controller.c: 570:     if(timer_value.menu_login_delay == 100)
-[e $ ! == -> . _timer_value 4 `i -> 100 `i 927  ]
 "571
-[; ;fs_menu_controller.c: 571:     {
-{
+[; ;fs_menu_controller.c: 571:     if(timer_value.menu_login_delay == 100)
+[e $ ! == -> . _timer_value 4 `i -> 100 `i 927  ]
 "572
-[; ;fs_menu_controller.c: 572:         button_bounce_controller.menu = 0;
-[e = . _button_bounce_controller 0 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 572:     {
+{
 "573
-[; ;fs_menu_controller.c: 573:         timer_value.menu_login_delay = 0;
-[e = . _timer_value 4 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 573:         button_bounce_controller.menu = 0;
+[e = . _button_bounce_controller 0 -> -> 0 `i `a ]
 "574
-[; ;fs_menu_controller.c: 574:         menu_selected = PAUSE_MENU;
-[e = _menu_selected . `E6857 6 ]
+[; ;fs_menu_controller.c: 574:         timer_value.menu_login_delay = 0;
+[e = . _timer_value 4 -> -> 0 `i `uc ]
 "575
-[; ;fs_menu_controller.c: 575:     }
+[; ;fs_menu_controller.c: 575:         menu_selected = PAUSE_MENU;
+[e = _menu_selected . `E6857 6 ]
+"576
+[; ;fs_menu_controller.c: 576:     }
 }
 [e :U 927 ]
-"576
-[; ;fs_menu_controller.c: 576: }
+"577
+[; ;fs_menu_controller.c: 577: }
 [e :UE 923 ]
 }
-"585
-[; ;fs_menu_controller.c: 585: void driverTimeSettingMenu(void)
-[v _driverTimeSettingMenu `(v ~T0 @X0 1 ef ]
 "586
-[; ;fs_menu_controller.c: 586: {
+[; ;fs_menu_controller.c: 586: void driverTimeSettingMenu(void)
+[v _driverTimeSettingMenu `(v ~T0 @X0 1 ef ]
+"587
+[; ;fs_menu_controller.c: 587: {
 {
 [e :U _driverTimeSettingMenu ]
 [f ]
 [v F6915 `uc ~T0 @X0 -> 16 `i s ]
 [i F6915
 :U ..
-"587
-[; ;fs_menu_controller.c: 587:     char textCursor2[16] = {0};
+"588
+[; ;fs_menu_controller.c: 588:     char textCursor2[16] = {0};
 -> -> 0 `i `uc
 ..
 ]
 [v _textCursor2 `uc ~T0 @X0 -> 16 `i a ]
 [e = _textCursor2 F6915 ]
-"589
-[; ;fs_menu_controller.c: 589:     stopMotor();
+"590
+[; ;fs_menu_controller.c: 590:     stopMotor();
 [e ( _stopMotor ..  ]
-"591
-[; ;fs_menu_controller.c: 591:     if (menu_flags.menu_input_flag == 1)
-[e $ ! == -> . _menu_flags 0 `i -> 1 `i 929  ]
 "592
-[; ;fs_menu_controller.c: 592:     {
-{
+[; ;fs_menu_controller.c: 592:     if (menu_flags.menu_input_flag == 1)
+[e $ ! == -> . _menu_flags 0 `i -> 1 `i 929  ]
 "593
-[; ;fs_menu_controller.c: 593:         menu_flags.menu_input_flag = 0;
-[e = . _menu_flags 0 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 593:     {
+{
 "594
-[; ;fs_menu_controller.c: 594:         menu_selected = STOP_TIME_SETTING;
-[e = _menu_selected . `E6857 2 ]
+[; ;fs_menu_controller.c: 594:         menu_flags.menu_input_flag = 0;
+[e = . _menu_flags 0 -> -> 0 `i `a ]
 "595
-[; ;fs_menu_controller.c: 595:     }
+[; ;fs_menu_controller.c: 595:         menu_selected = STOP_TIME_SETTING;
+[e = _menu_selected . `E6857 2 ]
+"596
+[; ;fs_menu_controller.c: 596:     }
 }
 [e :U 929 ]
-"597
-[; ;fs_menu_controller.c: 597:     if ((menu_flags.menu_increase_flag == 1) && (menu_value.driver_time < 30))
-[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> . _menu_value 0 `i -> 30 `i 930  ]
 "598
-[; ;fs_menu_controller.c: 598:     {
-{
+[; ;fs_menu_controller.c: 598:     if ((menu_flags.menu_increase_flag == 1) && (menu_value.driver_time < 30))
+[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> . _menu_value 0 `i -> 30 `i 930  ]
 "599
-[; ;fs_menu_controller.c: 599:         menu_flags.menu_increase_flag = 0;
-[e = . _menu_flags 4 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 599:     {
+{
 "600
-[; ;fs_menu_controller.c: 600:         menu_value.driver_time++;
-[e ++ . _menu_value 0 -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 600:         menu_flags.menu_increase_flag = 0;
+[e = . _menu_flags 4 -> -> 0 `i `a ]
 "601
-[; ;fs_menu_controller.c: 601:         eepromWrite(0x00,(uint8_t)menu_value.driver_time);
-[e ( _eepromWrite (2 , -> -> 0 `i `uc . _menu_value 0 ]
+[; ;fs_menu_controller.c: 601:         menu_value.driver_time++;
+[e ++ . _menu_value 0 -> -> 1 `i `uc ]
 "602
-[; ;fs_menu_controller.c: 602:         timer_value.minute =0 ;
-[e = . _timer_value 1 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 602:         eepromWrite(0x00,(uint8_t)menu_value.driver_time);
+[e ( _eepromWrite (2 , -> -> 0 `i `uc . _menu_value 0 ]
 "603
-[; ;fs_menu_controller.c: 603:         timer_value.second = 0;
-[e = . _timer_value 0 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 603:         timer_value.minute =0 ;
+[e = . _timer_value 1 -> -> 0 `i `uc ]
 "604
-[; ;fs_menu_controller.c: 604:         timer_value.remainingSecond = 0;
-[e = . _timer_value 2 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 604:         timer_value.second = 0;
+[e = . _timer_value 0 -> -> 0 `i `uc ]
 "605
-[; ;fs_menu_controller.c: 605:         timer_value.remainingMinute = menu_value.driver_time;
-[e = . _timer_value 3 -> . _menu_value 0 `c ]
+[; ;fs_menu_controller.c: 605:         timer_value.remainingSecond = 0;
+[e = . _timer_value 2 -> -> 0 `i `uc ]
 "606
-[; ;fs_menu_controller.c: 606:     }
+[; ;fs_menu_controller.c: 606:         timer_value.remainingMinute = menu_value.driver_time;
+[e = . _timer_value 3 -> . _menu_value 0 `c ]
+"607
+[; ;fs_menu_controller.c: 607:     }
 }
 [e :U 930 ]
-"608
-[; ;fs_menu_controller.c: 608:     if ((menu_flags.menu_decrease_flag == 1) && (menu_value.driver_time > 0))
-[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 0 `i -> 0 `i 931  ]
 "609
-[; ;fs_menu_controller.c: 609:     {
-{
+[; ;fs_menu_controller.c: 609:     if ((menu_flags.menu_decrease_flag == 1) && (menu_value.driver_time > 0))
+[e $ ! && == -> . _menu_flags 5 `i -> 1 `i > -> . _menu_value 0 `i -> 0 `i 931  ]
 "610
-[; ;fs_menu_controller.c: 610:          menu_flags.menu_decrease_flag = 0;
-[e = . _menu_flags 5 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 610:     {
+{
 "611
-[; ;fs_menu_controller.c: 611:          menu_value.driver_time--;
-[e -- . _menu_value 0 -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 611:          menu_flags.menu_decrease_flag = 0;
+[e = . _menu_flags 5 -> -> 0 `i `a ]
 "612
-[; ;fs_menu_controller.c: 612:          eepromWrite(0x00,(uint8_t)menu_value.driver_time);
-[e ( _eepromWrite (2 , -> -> 0 `i `uc . _menu_value 0 ]
+[; ;fs_menu_controller.c: 612:          menu_value.driver_time--;
+[e -- . _menu_value 0 -> -> 1 `i `uc ]
 "613
-[; ;fs_menu_controller.c: 613:          timer_value.minute =0 ;
-[e = . _timer_value 1 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 613:          eepromWrite(0x00,(uint8_t)menu_value.driver_time);
+[e ( _eepromWrite (2 , -> -> 0 `i `uc . _menu_value 0 ]
 "614
-[; ;fs_menu_controller.c: 614:          timer_value.second = 0;
-[e = . _timer_value 0 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 614:          timer_value.minute =0 ;
+[e = . _timer_value 1 -> -> 0 `i `uc ]
 "615
-[; ;fs_menu_controller.c: 615:          timer_value.remainingSecond = 0;
-[e = . _timer_value 2 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 615:          timer_value.second = 0;
+[e = . _timer_value 0 -> -> 0 `i `uc ]
 "616
-[; ;fs_menu_controller.c: 616:          timer_value.remainingMinute = menu_value.driver_time;
-[e = . _timer_value 3 -> . _menu_value 0 `c ]
+[; ;fs_menu_controller.c: 616:          timer_value.remainingSecond = 0;
+[e = . _timer_value 2 -> -> 0 `i `uc ]
 "617
-[; ;fs_menu_controller.c: 617:     }
+[; ;fs_menu_controller.c: 617:          timer_value.remainingMinute = menu_value.driver_time;
+[e = . _timer_value 3 -> . _menu_value 0 `c ]
+"618
+[; ;fs_menu_controller.c: 618:     }
 }
 [e :U 931 ]
-"618
-[; ;fs_menu_controller.c: 618:     lcdSetCursor(1,1);
-[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "619
-[; ;fs_menu_controller.c: 619:     lcdWriteString("HAREKT ZAMANI dk");
-[e ( _lcdWriteString (1 :s 15C ]
+[; ;fs_menu_controller.c: 619:     lcdSetCursor(1,1);
+[e ( _lcdSetCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "620
-[; ;fs_menu_controller.c: 620:     lcdSetCursor(2,1);
-[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;fs_menu_controller.c: 620:     lcdWriteString("HAREKT ZAMANI dk");
+[e ( _lcdWriteString (1 :s 15C ]
 "621
-[; ;fs_menu_controller.c: 621:     sprintf(textCursor2,"%d               ",menu_value.driver_time);
-[e ( _sprintf (1 , (. , &U _textCursor2 :s 16C -> . _menu_value 0 `i ]
+[; ;fs_menu_controller.c: 621:     lcdSetCursor(2,1);
+[e ( _lcdSetCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "622
-[; ;fs_menu_controller.c: 622:     lcdWriteString(textCursor2);
+[; ;fs_menu_controller.c: 622:     sprintf(textCursor2,"%d               ",menu_value.driver_time);
+[e ( _sprintf (1 , (. , &U _textCursor2 :s 16C -> . _menu_value 0 `i ]
+"623
+[; ;fs_menu_controller.c: 623:     lcdWriteString(textCursor2);
 [e ( _lcdWriteString (1 &U _textCursor2 ]
-"624
-[; ;fs_menu_controller.c: 624:     if(timer_value.menu_login_delay == 100)
-[e $ ! == -> . _timer_value 4 `i -> 100 `i 932  ]
 "625
-[; ;fs_menu_controller.c: 625:     {
-{
+[; ;fs_menu_controller.c: 625:     if(timer_value.menu_login_delay == 100)
+[e $ ! == -> . _timer_value 4 `i -> 100 `i 932  ]
 "626
-[; ;fs_menu_controller.c: 626:         button_bounce_controller.menu = 0;
-[e = . _button_bounce_controller 0 -> -> 0 `i `a ]
+[; ;fs_menu_controller.c: 626:     {
+{
 "627
-[; ;fs_menu_controller.c: 627:         timer_value.menu_login_delay = 0;
-[e = . _timer_value 4 -> -> 0 `i `uc ]
+[; ;fs_menu_controller.c: 627:         button_bounce_controller.menu = 0;
+[e = . _button_bounce_controller 0 -> -> 0 `i `a ]
 "628
-[; ;fs_menu_controller.c: 628:         menu_selected = PAUSE_MENU;
-[e = _menu_selected . `E6857 6 ]
+[; ;fs_menu_controller.c: 628:         timer_value.menu_login_delay = 0;
+[e = . _timer_value 4 -> -> 0 `i `uc ]
 "629
-[; ;fs_menu_controller.c: 629:     }
+[; ;fs_menu_controller.c: 629:         menu_selected = PAUSE_MENU;
+[e = _menu_selected . `E6857 6 ]
+"630
+[; ;fs_menu_controller.c: 630:     }
 }
 [e :U 932 ]
-"630
-[; ;fs_menu_controller.c: 630: }
+"631
+[; ;fs_menu_controller.c: 631: }
 [e :UE 928 ]
 }
-"639
-[; ;fs_menu_controller.c: 639: void exitLine(void)
-[v _exitLine `(v ~T0 @X0 1 ef ]
 "640
-[; ;fs_menu_controller.c: 640: {
+[; ;fs_menu_controller.c: 640: void exitLine(void)
+[v _exitLine `(v ~T0 @X0 1 ef ]
+"641
+[; ;fs_menu_controller.c: 641: {
 {
 [e :U _exitLine ]
 [f ]
-"642
-[; ;fs_menu_controller.c: 642: }
+"643
+[; ;fs_menu_controller.c: 643: }
 [e :UE 933 ]
 }
 [p f _sprintf 8495232 ]
