@@ -782,92 +782,105 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_timer.c: 41:         timer_value.adc_conversion_time++;
 [e ++ . _timer_value 5 -> -> 1 `i `uc ]
 "43
-[; ;fs_timer.c: 43:         if (startIsClick == 1)
-[e $ ! == -> _startIsClick `i -> 1 `i 865  ]
+[; ;fs_timer.c: 43:         if (timer_value.adc_conversion_time >8)
+[e $ ! > -> . _timer_value 5 `i -> 8 `i 865  ]
 "44
 [; ;fs_timer.c: 44:         {
 {
 "45
-[; ;fs_timer.c: 45:             timer_value.second_counter++;
-[e ++ . _timer_value 6 -> -> 1 `i `us ]
+[; ;fs_timer.c: 45:             timer_value.adc_conversion_time = 0;
+[e = . _timer_value 5 -> -> 0 `i `uc ]
 "46
 [; ;fs_timer.c: 46:         }
 }
 [e :U 865 ]
 "48
-[; ;fs_timer.c: 48:         if(button_bounce_controller.menu == 1)
-[e $ ! == -> . _button_bounce_controller 0 `i -> 1 `i 866  ]
+[; ;fs_timer.c: 48:         if (startIsClick == 1)
+[e $ ! == -> _startIsClick `i -> 1 `i 866  ]
 "49
 [; ;fs_timer.c: 49:         {
 {
 "50
-[; ;fs_timer.c: 50:              timer_value.menu_login_delay++;
-[e ++ . _timer_value 4 -> -> 1 `i `uc ]
+[; ;fs_timer.c: 50:             timer_value.second_counter++;
+[e ++ . _timer_value 6 -> -> 1 `i `us ]
 "51
 [; ;fs_timer.c: 51:         }
 }
 [e :U 866 ]
-"52
-[; ;fs_timer.c: 52:         if(button_bounce_controller.menu == 0)
-[e $ ! == -> . _button_bounce_controller 0 `i -> 0 `i 867  ]
 "53
-[; ;fs_timer.c: 53:         {
-{
+[; ;fs_timer.c: 53:         if(button_bounce_controller.menu == 1)
+[e $ ! == -> . _button_bounce_controller 0 `i -> 1 `i 867  ]
 "54
-[; ;fs_timer.c: 54:              timer_value.menu_login_delay = 0;
-[e = . _timer_value 4 -> -> 0 `i `uc ]
+[; ;fs_timer.c: 54:         {
+{
 "55
-[; ;fs_timer.c: 55:         }
+[; ;fs_timer.c: 55:              timer_value.menu_login_delay++;
+[e ++ . _timer_value 4 -> -> 1 `i `uc ]
+"56
+[; ;fs_timer.c: 56:         }
 }
 [e :U 867 ]
 "57
-[; ;fs_timer.c: 57:         if (timer_value.second_counter >= 100)
-[e $ ! >= -> . _timer_value 6 `ui -> -> 100 `i `ui 868  ]
+[; ;fs_timer.c: 57:         if(button_bounce_controller.menu == 0)
+[e $ ! == -> . _button_bounce_controller 0 `i -> 0 `i 868  ]
 "58
 [; ;fs_timer.c: 58:         {
 {
 "59
-[; ;fs_timer.c: 59:             timer_value.second_counter = 0;
-[e = . _timer_value 6 -> -> 0 `i `us ]
+[; ;fs_timer.c: 59:              timer_value.menu_login_delay = 0;
+[e = . _timer_value 4 -> -> 0 `i `uc ]
 "60
-[; ;fs_timer.c: 60:             timer_counter_flag.one_second_flag = 1;
-[e = . _timer_counter_flag 0 -> -> 1 `i `uc ]
-"61
-[; ;fs_timer.c: 61:         }
+[; ;fs_timer.c: 60:         }
 }
 [e :U 868 ]
 "62
-[; ;fs_timer.c: 62:     }
+[; ;fs_timer.c: 62:         if (timer_value.second_counter >= 100)
+[e $ ! >= -> . _timer_value 6 `ui -> -> 100 `i `ui 869  ]
+"63
+[; ;fs_timer.c: 63:         {
+{
+"64
+[; ;fs_timer.c: 64:             timer_value.second_counter = 0;
+[e = . _timer_value 6 -> -> 0 `i `us ]
+"65
+[; ;fs_timer.c: 65:             timer_counter_flag.one_second_flag = 1;
+[e = . _timer_counter_flag 0 -> -> 1 `i `uc ]
+"66
+[; ;fs_timer.c: 66:         }
+}
+[e :U 869 ]
+"67
+[; ;fs_timer.c: 67:     }
 }
 [e :U 864 ]
-"63
-[; ;fs_timer.c: 63: }
+"68
+[; ;fs_timer.c: 68: }
 [e :UE 863 ]
 }
-"72
-[; ;fs_timer.c: 72: void timer_0_init(void)
+"77
+[; ;fs_timer.c: 77: void timer_0_init(void)
 [v _timer_0_init `(v ~T0 @X0 1 ef ]
-"73
-[; ;fs_timer.c: 73: {
+"78
+[; ;fs_timer.c: 78: {
 {
 [e :U _timer_0_init ]
 [f ]
-"74
-[; ;fs_timer.c: 74:   T0CON = 0x81;
-[e = _T0CON -> -> 129 `i `uc ]
-"75
-[; ;fs_timer.c: 75:   TMR0H = 0x63;
-[e = _TMR0H -> -> 99 `i `uc ]
-"76
-[; ;fs_timer.c: 76:   TMR0L = 0xC0;
-[e = _TMR0L -> -> 192 `i `uc ]
-"77
-[; ;fs_timer.c: 77:   INTCONbits.GIE = 1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"78
-[; ;fs_timer.c: 78:   INTCONbits.TMR0IE = 1;
-[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
 "79
-[; ;fs_timer.c: 79: }
-[e :UE 869 ]
+[; ;fs_timer.c: 79:   T0CON = 0x81;
+[e = _T0CON -> -> 129 `i `uc ]
+"80
+[; ;fs_timer.c: 80:   TMR0H = 0x63;
+[e = _TMR0H -> -> 99 `i `uc ]
+"81
+[; ;fs_timer.c: 81:   TMR0L = 0xC0;
+[e = _TMR0L -> -> 192 `i `uc ]
+"82
+[; ;fs_timer.c: 82:   INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"83
+[; ;fs_timer.c: 83:   INTCONbits.TMR0IE = 1;
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
+"84
+[; ;fs_timer.c: 84: }
+[e :UE 870 ]
 }

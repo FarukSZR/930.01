@@ -10680,6 +10680,8 @@ void stopMenu(void)
 {
     char textCursor2[16] = {0};
 
+    stopMotor();
+
     startIsClick = 0;
     pauseIsClick = 0;
     stopIsClick = 1;
@@ -10712,9 +10714,9 @@ void stopMenu(void)
         timer_value.menu_login_delay = 0;
         menu_selected = DRIVER_TIME_SETTING;
     }
-stopMotor();
+
 }
-# 350 "fs_menu_controller.c"
+# 352 "fs_menu_controller.c"
 void pauseMenu(void)
 {
     char textCursor2[16] = {0};
@@ -10722,6 +10724,8 @@ void pauseMenu(void)
     startIsClick = 0;
     timer_value.remainingMinute = timer_value.remainingMinute;
     timer_value.remainingSecond = timer_value.remainingSecond;
+
+    stopMotor();
 
     lcdSetCursor(1,1);
     lcdWriteString("HAREKET DURDU   ");
@@ -10759,9 +10763,8 @@ void pauseMenu(void)
         menu_selected = SECRET_MENU;
         secretMenuCounter = 1;
     }
-    stopMotor();
 }
-# 404 "fs_menu_controller.c"
+# 407 "fs_menu_controller.c"
 void startMenu(void)
 {
     timer_value.remainingMinute = menu_value.driver_time;
@@ -10932,7 +10935,7 @@ void stopTimeSettingMenu(void)
         menu_selected = PAUSE_MENU;
     }
 }
-# 582 "fs_menu_controller.c"
+# 585 "fs_menu_controller.c"
 void driverTimeSettingMenu(void)
 {
     char textCursor2[16] = {0};
@@ -10979,7 +10982,7 @@ void driverTimeSettingMenu(void)
         menu_selected = PAUSE_MENU;
     }
 }
-# 636 "fs_menu_controller.c"
+# 639 "fs_menu_controller.c"
 void exitLine(void)
 {
 

@@ -40,6 +40,11 @@ void __interrupt (high_priority) TIMER0 (void)
         
         timer_value.adc_conversion_time++;  
         
+        if (timer_value.adc_conversion_time >8)
+        {
+            timer_value.adc_conversion_time = 0;
+        }
+        
         if (startIsClick == true)       //Start is clik second counter up.
         {
             timer_value.second_counter++;
