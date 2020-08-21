@@ -10467,6 +10467,11 @@ void __attribute__((picinterrupt(("high_priority")))) TIMER0 (void)
 
         timer_value.adc_conversion_time++;
 
+        if (timer_value.adc_conversion_time >8)
+        {
+            timer_value.adc_conversion_time = 0;
+        }
+
         if (startIsClick == 1)
         {
             timer_value.second_counter++;
@@ -10488,7 +10493,7 @@ void __attribute__((picinterrupt(("high_priority")))) TIMER0 (void)
         }
     }
 }
-# 72 "fs_timer.c"
+# 77 "fs_timer.c"
 void timer_0_init(void)
 {
   T0CON = 0x81;

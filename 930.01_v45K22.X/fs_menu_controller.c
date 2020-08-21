@@ -304,7 +304,9 @@ void mainMenu(void)
 void stopMenu(void)
 {
     char textCursor2[16] = {0};
-     
+    
+    stopMotor();
+    
     startIsClick = 0;
     pauseIsClick = 0;
     stopIsClick = 1;
@@ -337,7 +339,7 @@ void stopMenu(void)
         timer_value.menu_login_delay = 0;
         menu_selected = DRIVER_TIME_SETTING;               
     }
-stopMotor();
+    
 }
 
 
@@ -354,7 +356,9 @@ void pauseMenu(void)
     startIsClick = FALSE;
     timer_value.remainingMinute = timer_value.remainingMinute;
     timer_value.remainingSecond = timer_value.remainingSecond;   
-
+    
+    stopMotor();
+    
     lcdSetCursor(1,1);
     lcdWriteString("HAREKET DURDU   ");  
     lcdSetCursor(2,1);
@@ -390,8 +394,7 @@ void pauseMenu(void)
     {
         menu_selected = SECRET_MENU;
         secretMenuCounter = 1;
-    }
-    stopMotor();
+    }   
 }
 
 
