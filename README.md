@@ -7,7 +7,14 @@ Tırtıl Project
 1. Sensor kalibrasyonlari eklenecek.
 1. Cizgiden cikildiginda durma fonksiyonu eklenecek. 
 
+
+
 ### Yapilan degisiklikler:
+
+##### 24 Agustos 2020 @Faruk:
+1. PWM degerlerinini arttirilmasi icin DEBUG ifdef yapisi kuruldu.
+1. 4x20 LCD ekran icin gerekli #ifdef yapisi kuruldu. ADC degerlerini ekrana basiyor.
+1. KP ve KD degerlerinin artis ve azalis miktarlari 0.01 hassasiyetine indirildi.
 
 ##### 16 Agustos 2020 @Faruk:
 1. Kullanilacak donanima uygun pin ayarlamalari yapildi.
