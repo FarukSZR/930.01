@@ -26,7 +26,7 @@
 
 #include "fs_speed_controller.h"
 
-
+//#define LCD_4x20
 
 /*
  *@brief The function that loads the respective motors speeds according to the line reference read from the ADC.
@@ -97,4 +97,14 @@ void startMotor(void)
         speedControl(driver_limit.ortalama); // Bu fonksiyonun çıktıları olan leftmotorspeed ve right motor speed degerleri yüklenecek PWM degerleri.                
         PWM1_setDC(controller.leftMotorSpeed);        
         PWM2_setDC(controller.rightMotorSpeed); 
+        
+#ifdef LCD_4x20
+        
+        lcdSetCursor(3,1);
+        lcdWriteString("%d %d %d %d",convert_data.convert_channel_0,convert_data.convert_channel_1
+                                     convert_data.convert_channel_2,convert_data.convert_channel_3);
+        lcdSetCursor(4,1);
+        lcdWriteString("%d %d %d %d",convert_data.convert_channel_4,convert_data.convert_channel_5
+                                     convert_data.convert_channel_6,convert_data.convert_channel_7);
+#endif
 }

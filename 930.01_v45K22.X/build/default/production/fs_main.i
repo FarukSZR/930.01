@@ -10523,7 +10523,7 @@ tS_driver_limit driver_limit;
 
 
 __asm("\tpsect eeprom_data,class=EEDATA,noexec"); __asm("\tdb\t" "30" "," "10" "," "4" "," "0" "," "0" "," "0" "," "0" "," "0");
-# 52 "fs_main.c"
+# 54 "fs_main.c"
 void loopTaskTimeMachine(void)
 {
     if (timer_counter_flag.one_second_flag == 1)
@@ -10548,7 +10548,7 @@ void loopTaskTimeMachine(void)
         }
     }
 }
-# 84 "fs_main.c"
+# 86 "fs_main.c"
 void loopTaskInit(void)
 {
     mcuInit();
@@ -10580,6 +10580,6 @@ void main(void)
     {
         loopTaskTimeMachine();
         loopTaskMenuControl();
-# 140 "fs_main.c"
+# 142 "fs_main.c"
     }
 }

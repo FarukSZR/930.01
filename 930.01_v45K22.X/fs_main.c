@@ -37,6 +37,8 @@
 
 __EEPROM_DATA(30,10,4,0,0,0,0,0); // DriverTime,StopTime,SpeedLimit
 
+//#define DEBUG
+
 #ifdef DEBUG
 
 uint16_t i=0;

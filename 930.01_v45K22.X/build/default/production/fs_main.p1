@@ -773,152 +773,152 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_main.c: 38: __asm("\tpsect eeprom_data,class=EEDATA,noexec"); __asm("\tdb\t" "30" "," "10" "," "4" "," "0" "," "0" "," "0" "," "0" "," "0");
 [; <" 	psect eeprom_data,class=EEDATA,noexec ;# ">
 [; <" 	db	30,10,4,0,0,0,0,0 ;# ">
-"52
-[; ;fs_main.c: 52: void loopTaskTimeMachine(void)
+"54
+[; ;fs_main.c: 54: void loopTaskTimeMachine(void)
 [v _loopTaskTimeMachine `(v ~T0 @X0 1 ef ]
-"53
-[; ;fs_main.c: 53: {
+"55
+[; ;fs_main.c: 55: {
 {
 [e :U _loopTaskTimeMachine ]
 [f ]
-"54
-[; ;fs_main.c: 54:     if (timer_counter_flag.one_second_flag == 1)
-[e $ ! == -> . _timer_counter_flag 0 `i -> 1 `i 865  ]
-"55
-[; ;fs_main.c: 55:     {
-{
 "56
-[; ;fs_main.c: 56:         timer_counter_flag.one_second_flag = 0;
-[e = . _timer_counter_flag 0 -> -> 0 `i `uc ]
+[; ;fs_main.c: 56:     if (timer_counter_flag.one_second_flag == 1)
+[e $ ! == -> . _timer_counter_flag 0 `i -> 1 `i 865  ]
+"57
+[; ;fs_main.c: 57:     {
+{
 "58
-[; ;fs_main.c: 58:         if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) && (menu_selected == MAIN_MENU) )
-[e $ ! && && && == -> _startIsClick `i -> 1 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 0 `i == -> _menu_selected `ui -> . `E6957 0 `ui 866  ]
-"59
-[; ;fs_main.c: 59:         {
-{
+[; ;fs_main.c: 58:         timer_counter_flag.one_second_flag = 0;
+[e = . _timer_counter_flag 0 -> -> 0 `i `uc ]
 "60
-[; ;fs_main.c: 60:             timer_value.second++;
-[e ++ . _timer_value 0 -> -> 1 `i `uc ]
+[; ;fs_main.c: 60:         if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick == 0) && (menu_selected == MAIN_MENU) )
+[e $ ! && && && == -> _startIsClick `i -> 1 `i == -> _pauseIsClick `i -> 0 `i == -> _stopIsClick `i -> 0 `i == -> _menu_selected `ui -> . `E6957 0 `ui 866  ]
 "61
-[; ;fs_main.c: 61:             timer_value.remainingSecond = (uint8_t)60 - timer_value.second;
-[e = . _timer_value 2 -> - -> -> -> 60 `i `uc `i -> . _timer_value 0 `i `uc ]
-"63
-[; ;fs_main.c: 63:             if (timer_value.remainingSecond == 59 )
-[e $ ! == -> . _timer_value 2 `i -> 59 `i 867  ]
-"64
-[; ;fs_main.c: 64:             {
+[; ;fs_main.c: 61:         {
 {
+"62
+[; ;fs_main.c: 62:             timer_value.second++;
+[e ++ . _timer_value 0 -> -> 1 `i `uc ]
+"63
+[; ;fs_main.c: 63:             timer_value.remainingSecond = (uint8_t)60 - timer_value.second;
+[e = . _timer_value 2 -> - -> -> -> 60 `i `uc `i -> . _timer_value 0 `i `uc ]
 "65
-[; ;fs_main.c: 65:                 timer_value.minute++;
-[e ++ . _timer_value 1 -> -> 1 `i `uc ]
+[; ;fs_main.c: 65:             if (timer_value.remainingSecond == 59 )
+[e $ ! == -> . _timer_value 2 `i -> 59 `i 867  ]
 "66
-[; ;fs_main.c: 66:                 timer_value.remainingMinute = (int8_t)menu_value.driver_time - timer_value.minute;
-[e = . _timer_value 3 -> - -> -> . _menu_value 0 `c `i -> . _timer_value 1 `i `c ]
+[; ;fs_main.c: 66:             {
+{
 "67
-[; ;fs_main.c: 67:             }
+[; ;fs_main.c: 67:                 timer_value.minute++;
+[e ++ . _timer_value 1 -> -> 1 `i `uc ]
+"68
+[; ;fs_main.c: 68:                 timer_value.remainingMinute = (int8_t)menu_value.driver_time - timer_value.minute;
+[e = . _timer_value 3 -> - -> -> . _menu_value 0 `c `i -> . _timer_value 1 `i `c ]
+"69
+[; ;fs_main.c: 69:             }
 }
 [e :U 867 ]
-"69
-[; ;fs_main.c: 69:             if (timer_value.second > 59)
-[e $ ! > -> . _timer_value 0 `i -> 59 `i 868  ]
-"70
-[; ;fs_main.c: 70:             {
-{
 "71
-[; ;fs_main.c: 71:                 timer_value.second = 0;
-[e = . _timer_value 0 -> -> 0 `i `uc ]
+[; ;fs_main.c: 71:             if (timer_value.second > 59)
+[e $ ! > -> . _timer_value 0 `i -> 59 `i 868  ]
 "72
-[; ;fs_main.c: 72:             }
+[; ;fs_main.c: 72:             {
+{
+"73
+[; ;fs_main.c: 73:                 timer_value.second = 0;
+[e = . _timer_value 0 -> -> 0 `i `uc ]
+"74
+[; ;fs_main.c: 74:             }
 }
 [e :U 868 ]
-"73
-[; ;fs_main.c: 73:         }
+"75
+[; ;fs_main.c: 75:         }
 }
 [e :U 866 ]
-"74
-[; ;fs_main.c: 74:     }
+"76
+[; ;fs_main.c: 76:     }
 }
 [e :U 865 ]
-"75
-[; ;fs_main.c: 75: }
+"77
+[; ;fs_main.c: 77: }
 [e :UE 864 ]
 }
-"84
-[; ;fs_main.c: 84: void loopTaskInit(void)
+"86
+[; ;fs_main.c: 86: void loopTaskInit(void)
 [v _loopTaskInit `(v ~T0 @X0 1 ef ]
-"85
-[; ;fs_main.c: 85: {
+"87
+[; ;fs_main.c: 87: {
 {
 [e :U _loopTaskInit ]
 [f ]
-"86
-[; ;fs_main.c: 86:     mcuInit();
+"88
+[; ;fs_main.c: 88:     mcuInit();
 [e ( _mcuInit ..  ]
-"87
-[; ;fs_main.c: 87:     menuInitialize();
-[e ( _menuInitialize ..  ]
 "89
-[; ;fs_main.c: 89:     adcInit();
-[e ( _adcInit ..  ]
+[; ;fs_main.c: 89:     menuInitialize();
+[e ( _menuInitialize ..  ]
 "91
-[; ;fs_main.c: 91:     timer_0_init();
-[e ( _timer_0_init ..  ]
-"92
-[; ;fs_main.c: 92:     lcdInit();
-[e ( _lcdInit ..  ]
+[; ;fs_main.c: 91:     adcInit();
+[e ( _adcInit ..  ]
 "93
-[; ;fs_main.c: 93:     systemInit();
-[e ( _systemInit ..  ]
+[; ;fs_main.c: 93:     timer_0_init();
+[e ( _timer_0_init ..  ]
 "94
-[; ;fs_main.c: 94:     lcdClear();
-[e ( _lcdClear ..  ]
+[; ;fs_main.c: 94:     lcdInit();
+[e ( _lcdInit ..  ]
+"95
+[; ;fs_main.c: 95:     systemInit();
+[e ( _systemInit ..  ]
 "96
-[; ;fs_main.c: 96:     PWM_Init();
-[e ( _PWM_Init ..  ]
-"97
-[; ;fs_main.c: 97:     PWM1_setDC(0);
-[e ( _PWM1_setDC (1 -> -> 0 `i `s ]
+[; ;fs_main.c: 96:     lcdClear();
+[e ( _lcdClear ..  ]
 "98
-[; ;fs_main.c: 98:     PWM2_setDC(0);
-[e ( _PWM2_setDC (1 -> -> 0 `i `s ]
+[; ;fs_main.c: 98:     PWM_Init();
+[e ( _PWM_Init ..  ]
 "99
-[; ;fs_main.c: 99:     openLCD_Script();
-[e ( _openLCD_Script ..  ]
+[; ;fs_main.c: 99:     PWM1_setDC(0);
+[e ( _PWM1_setDC (1 -> -> 0 `i `s ]
 "100
-[; ;fs_main.c: 100: }
+[; ;fs_main.c: 100:     PWM2_setDC(0);
+[e ( _PWM2_setDC (1 -> -> 0 `i `s ]
+"101
+[; ;fs_main.c: 101:     openLCD_Script();
+[e ( _openLCD_Script ..  ]
+"102
+[; ;fs_main.c: 102: }
 [e :UE 869 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"107
-[; ;fs_main.c: 107: void main(void)
+"109
+[; ;fs_main.c: 109: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"108
-[; ;fs_main.c: 108: {
+"110
+[; ;fs_main.c: 110: {
 {
 [e :U _main ]
 [f ]
-"109
-[; ;fs_main.c: 109:     loopTaskInit();
-[e ( _loopTaskInit ..  ]
 "111
-[; ;fs_main.c: 111:     while(1)
-[e :U 872 ]
-"112
-[; ;fs_main.c: 112:     {
-{
+[; ;fs_main.c: 111:     loopTaskInit();
+[e ( _loopTaskInit ..  ]
 "113
-[; ;fs_main.c: 113:         loopTaskTimeMachine();
-[e ( _loopTaskTimeMachine ..  ]
+[; ;fs_main.c: 113:     while(1)
+[e :U 872 ]
 "114
-[; ;fs_main.c: 114:         loopTaskMenuControl();
+[; ;fs_main.c: 114:     {
+{
+"115
+[; ;fs_main.c: 115:         loopTaskTimeMachine();
+[e ( _loopTaskTimeMachine ..  ]
+"116
+[; ;fs_main.c: 116:         loopTaskMenuControl();
 [e ( _loopTaskMenuControl ..  ]
-"140
-[; ;fs_main.c: 140:     }
+"142
+[; ;fs_main.c: 142:     }
 }
 [e :U 871 ]
 [e $U 872  ]
 [e :U 873 ]
-"141
-[; ;fs_main.c: 141: }
+"143
+[; ;fs_main.c: 143: }
 [e :UE 870 ]
 }

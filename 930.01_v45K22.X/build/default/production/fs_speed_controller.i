@@ -10510,4 +10510,5 @@ void startMotor(void)
         speedControl(driver_limit.ortalama);
         PWM1_setDC(controller.leftMotorSpeed);
         PWM2_setDC(controller.rightMotorSpeed);
+# 110 "fs_speed_controller.c"
 }

@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Mon Aug 24 23:48:42 2020
+                                                                                               Tue Aug 25 00:01:58 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	18F45K22
@@ -1540,7 +1540,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1526 ;;
   1527 ;; *************** function _main *****************
   1528 ;; Defined at:
-  1529 ;;		line 107 in file "fs_main.c"
+  1529 ;;		line 109 in file "fs_main.c"
   1530 ;; Parameters:    Size  Location     Type
   1531 ;;		None
   1532 ;; Auto vars:     Size  Location     Type
@@ -1575,14 +1575,14 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1561  0057BE                     _main:
   1562                           	callstack 19
   1563  0057BE                     
-  1564                           ;fs_main.c: 109:     loopTaskInit();
+  1564                           ;fs_main.c: 111:     loopTaskInit();
   1565  0057BE  EC3B  F02A         	call	_loopTaskInit	;wreg free
   1566  0057C2                     l6513:
   1567                           
-  1568                           ;fs_main.c: 112:     {;fs_main.c: 113:         loopTaskTimeMachine();
+  1568                           ;fs_main.c: 114:     {;fs_main.c: 115:         loopTaskTimeMachine();
   1569  0057C2  EC90  F026         	call	_loopTaskTimeMachine	;wreg free
   1570  0057C6                     
-  1571                           ;fs_main.c: 114:         loopTaskMenuControl();
+  1571                           ;fs_main.c: 116:         loopTaskMenuControl();
   1572  0057C6  EC91  F027         	call	_loopTaskMenuControl	;wreg free
   1573  0057CA  EFE1  F02B         	goto	l6513
   1574  0057CE  EF57  F000         	goto	start
@@ -1591,7 +1591,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1577                           
   1578 ;; *************** function _loopTaskTimeMachine *****************
   1579 ;; Defined at:
-  1580 ;;		line 52 in file "fs_main.c"
+  1580 ;;		line 54 in file "fs_main.c"
   1581 ;; Parameters:    Size  Location     Type
   1582 ;;		None
   1583 ;; Auto vars:     Size  Location     Type
@@ -1625,7 +1625,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1611  004D20                     _loopTaskTimeMachine:
   1612                           	callstack 29
   1613  004D20                     
-  1614                           ;fs_main.c: 54:     if (timer_counter_flag.one_second_flag == 1)
+  1614                           ;fs_main.c: 56:     if (timer_counter_flag.one_second_flag == 1)
   1615  004D20  0100               	movlb	0	; () banked
   1616  004D22  A1FA               	btfss	_timer_counter_flag& (0+255),0,b
   1617  004D24  EF96  F026         	goto	u7811
@@ -1635,11 +1635,11 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1621  004D30                     u7810:
   1622  004D30                     
   1623                           ; BSR set to: 0
-  1624                           ;fs_main.c: 55:     {;fs_main.c: 56:         timer_counter_flag.one_second_flag = 0;
+  1624                           ;fs_main.c: 57:     {;fs_main.c: 58:         timer_counter_flag.one_second_flag = 0;
   1625  004D30  91FA               	bcf	_timer_counter_flag& (0+255),0,b
   1626  004D32                     
   1627                           ; BSR set to: 0
-  1628                           ;fs_main.c: 58:         if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick 
+  1628                           ;fs_main.c: 60:         if ( (startIsClick == 1) && (pauseIsClick == 0) && (stopIsClick 
       +                          == 0) && (menu_selected == MAIN_MENU) )
   1629  004D32  05FE               	decf	_startIsClick& (0+255),w,b
   1630  004D34  A4D8               	btfss	status,2,c
@@ -1677,19 +1677,19 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1662  004D72                     u7850:
   1663  004D72                     
   1664                           ; BSR set to: 0
-  1665                           ;fs_main.c: 59:         {;fs_main.c: 60:             timer_value.second++;
+  1665                           ;fs_main.c: 61:         {;fs_main.c: 62:             timer_value.second++;
   1666  004D72  0101               	movlb	1	; () banked
   1667  004D74  2B8F               	incf	_timer_value& (0+255),f,b
   1668  004D76                     
   1669                           ; BSR set to: 1
-  1670                           ;fs_main.c: 61:             timer_value.remainingSecond = (uint8_t)60 - timer_value.seco
+  1670                           ;fs_main.c: 63:             timer_value.remainingSecond = (uint8_t)60 - timer_value.seco
       +                          nd;
   1671  004D76  518F               	movf	_timer_value& (0+255),w,b
   1672  004D78  083C               	sublw	60
   1673  004D7A  6F91               	movwf	(_timer_value+2)& (0+255),b
   1674  004D7C                     
   1675                           ; BSR set to: 1
-  1676                           ;fs_main.c: 63:             if (timer_value.remainingSecond == 59 )
+  1676                           ;fs_main.c: 65:             if (timer_value.remainingSecond == 59 )
   1677  004D7C  0E3B               	movlw	59
   1678  004D7E  1991               	xorwf	(_timer_value+2)& (0+255),w,b
   1679  004D80  A4D8               	btfss	status,2,c
@@ -1700,11 +1700,11 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1684  004D8E                     u7860:
   1685  004D8E                     
   1686                           ; BSR set to: 1
-  1687                           ;fs_main.c: 64:             {;fs_main.c: 65:                 timer_value.minute++;
+  1687                           ;fs_main.c: 66:             {;fs_main.c: 67:                 timer_value.minute++;
   1688  004D8E  2B90               	incf	(_timer_value+1)& (0+255),f,b
   1689  004D90                     
   1690                           ; BSR set to: 1
-  1691                           ;fs_main.c: 66:                 timer_value.remainingMinute = (int8_t)menu_value.driver_
+  1691                           ;fs_main.c: 68:                 timer_value.remainingMinute = (int8_t)menu_value.driver_
       +                          time - timer_value.minute;
   1692  004D90  5190               	movf	(_timer_value+1)& (0+255),w,b
   1693  004D92  0100               	movlb	0	; () banked
@@ -1714,7 +1714,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1697  004D9A                     l6465:
   1698                           
   1699                           ; BSR set to: 1
-  1700                           ;fs_main.c: 69:             if (timer_value.second > 59)
+  1700                           ;fs_main.c: 71:             if (timer_value.second > 59)
   1701  004D9A  0E3B               	movlw	59
   1702  004D9C  658F               	cpfsgt	_timer_value& (0+255),b
   1703  004D9E  EFD3  F026         	goto	u7871
@@ -1724,7 +1724,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1707  004DAA                     u7870:
   1708  004DAA                     
   1709                           ; BSR set to: 1
-  1710                           ;fs_main.c: 70:             {;fs_main.c: 71:                 timer_value.second = 0;
+  1710                           ;fs_main.c: 72:             {;fs_main.c: 73:                 timer_value.second = 0;
   1711  004DAA  0E00               	movlw	0
   1712  004DAC  6F8F               	movwf	_timer_value& (0+255),b
   1713  004DAE                     l255:
@@ -14340,7 +14340,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14015                           
  14016 ;; *************** function _loopTaskInit *****************
  14017 ;; Defined at:
- 14018 ;;		line 84 in file "fs_main.c"
+ 14018 ;;		line 86 in file "fs_main.c"
  14019 ;; Parameters:    Size  Location     Type
  14020 ;;		None
  14021 ;; Auto vars:     Size  Location     Type
@@ -14384,45 +14384,45 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
  14059  005476                     _loopTaskInit:
  14060                           	callstack 25
  14061  005476                     
- 14062                           ;fs_main.c: 86:     mcuInit();
+ 14062                           ;fs_main.c: 88:     mcuInit();
  14063  005476  ECD4  F02B         	call	_mcuInit	;wreg free
  14064  00547A                     
- 14065                           ;fs_main.c: 87:     menuInitialize();
+ 14065                           ;fs_main.c: 89:     menuInitialize();
  14066  00547A  EC6E  F02B         	call	_menuInitialize	;wreg free
  14067  00547E                     
- 14068                           ;fs_main.c: 89:     adcInit();
+ 14068                           ;fs_main.c: 91:     adcInit();
  14069  00547E  EC5A  F02A         	call	_adcInit	;wreg free
  14070  005482                     
- 14071                           ;fs_main.c: 91:     timer_0_init();
+ 14071                           ;fs_main.c: 93:     timer_0_init();
  14072  005482  ECE9  F02B         	call	_timer_0_init	;wreg free
  14073  005486                     
- 14074                           ;fs_main.c: 92:     lcdInit();
+ 14074                           ;fs_main.c: 94:     lcdInit();
  14075  005486  EC45  F026         	call	_lcdInit	;wreg free
  14076  00548A                     
- 14077                           ;fs_main.c: 93:     systemInit();
+ 14077                           ;fs_main.c: 95:     systemInit();
  14078  00548A  ECD1  F01F         	call	_systemInit	;wreg free
  14079  00548E                     
- 14080                           ;fs_main.c: 94:     lcdClear();
+ 14080                           ;fs_main.c: 96:     lcdClear();
  14081  00548E  ECF2  F02B         	call	_lcdClear	;wreg free
  14082  005492                     
- 14083                           ;fs_main.c: 96:     PWM_Init();
+ 14083                           ;fs_main.c: 98:     PWM_Init();
  14084  005492  EC82  F02B         	call	_PWM_Init	;wreg free
  14085  005496                     
- 14086                           ;fs_main.c: 97:     PWM1_setDC(0);
+ 14086                           ;fs_main.c: 99:     PWM1_setDC(0);
  14087  005496  0E00               	movlw	0
  14088  005498  6E59               	movwf	(PWM1_setDC@dutycycle+1)^0,c
  14089  00549A  0E00               	movlw	0
  14090  00549C  6E58               	movwf	PWM1_setDC@dutycycle^0,c
  14091  00549E  EC54  F027         	call	_PWM1_setDC	;wreg free
  14092  0054A2                     
- 14093                           ;fs_main.c: 98:     PWM2_setDC(0);
+ 14093                           ;fs_main.c: 100:     PWM2_setDC(0);
  14094  0054A2  0E00               	movlw	0
  14095  0054A4  6E59               	movwf	(PWM2_setDC@dutycycle+1)^0,c
  14096  0054A6  0E00               	movlw	0
  14097  0054A8  6E58               	movwf	PWM2_setDC@dutycycle^0,c
  14098  0054AA  EC17  F027         	call	_PWM2_setDC	;wreg free
  14099  0054AE                     
- 14100                           ;fs_main.c: 99:     openLCD_Script();
+ 14100                           ;fs_main.c: 101:     openLCD_Script();
  14101  0054AE  EC70  F029         	call	_openLCD_Script	;wreg free
  14102  0054B2  0012               	return		;funcret
  14103  0054B4                     __end_of_loopTaskInit:
@@ -18994,7 +18994,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Mon Aug 24 23:48:42 2020
+Symbol Table                                                                                   Tue Aug 25 00:01:58 2020
 
                     ___fldiv@aexp 004D                      ___fldiv@bexp 004C  
               __end_of_systemInit 40C2                      ___fldiv@sign 0045  
