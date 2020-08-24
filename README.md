@@ -13,9 +13,9 @@ Tırtıl Project
 
 ##### 24 Agustos 2020 @Faruk:
 1. PWM degerlerinini arttirilmasi icin DEBUG ifdef yapisi kuruldu. PWM debug kod icerisinde acilaksa eger "loopTaskMenuControl" fonksiyonu icerisindeki 
-"stateMachine"
-fonksiyonu comment edilmelidir.
-1. 4x20 LCD ekran icin gerekli #ifdef yapisi kuruldu. ADC degerlerini ekrana basiyor.
+"stateMachine" fonksiyonu comment edilmeli ve main icerisinde bulunan #define DEBUG tanimlasi aktif edilmelidir.
+1. 4x20 LCD ekran icin gerekli #ifdef yapisi kuruldu. ADC degerlerini ekrana basiyor.Bunu aktif etmek icin "fs_speed_controller.c" icerisinde #define LCD_4x20
+tanimlamasi yapilmalidir.
 1. KP ve KD degerlerinin artis ve azalis miktarlari 0.01 hassasiyetine indirildi.
 
 ##### 16 Agustos 2020 @Faruk:
