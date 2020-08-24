@@ -1871,8 +1871,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_menu_controller.c: 450:             menu_flags.menu_increase_flag = 0;
 [e = . _menu_flags 4 -> -> 0 `i `a ]
 "451
-[; ;fs_menu_controller.c: 451:             KP += 0.1;
-[e =+ _KP -> .0.1 `f ]
+[; ;fs_menu_controller.c: 451:             KP += 0.01;
+[e =+ _KP -> .0.01 `f ]
 "452
 [; ;fs_menu_controller.c: 452:         }
 }
@@ -1887,8 +1887,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_menu_controller.c: 456:             menu_flags.menu_decrease_flag = 0;
 [e = . _menu_flags 5 -> -> 0 `i `a ]
 "457
-[; ;fs_menu_controller.c: 457:              KP -= 0.1;
-[e =- _KP -> .0.1 `f ]
+[; ;fs_menu_controller.c: 457:              KP -= 0.01;
+[e =- _KP -> .0.01 `f ]
 "458
 [; ;fs_menu_controller.c: 458:         }
 }
@@ -1928,8 +1928,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_menu_controller.c: 471:             menu_flags.menu_increase_flag = 0;
 [e = . _menu_flags 4 -> -> 0 `i `a ]
 "472
-[; ;fs_menu_controller.c: 472:             KD += 0.1;
-[e =+ _KD -> .0.1 `f ]
+[; ;fs_menu_controller.c: 472:             KD += 0.01;
+[e =+ _KD -> .0.01 `f ]
 "473
 [; ;fs_menu_controller.c: 473:         }
 }
@@ -1944,8 +1944,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_menu_controller.c: 477:             menu_flags.menu_decrease_flag = 0;
 [e = . _menu_flags 5 -> -> 0 `i `a ]
 "478
-[; ;fs_menu_controller.c: 478:              KD -= 0.1;
-[e =- _KD -> .0.1 `f ]
+[; ;fs_menu_controller.c: 478:              KD -= 0.01;
+[e =- _KD -> .0.01 `f ]
 "479
 [; ;fs_menu_controller.c: 479:         }
 }

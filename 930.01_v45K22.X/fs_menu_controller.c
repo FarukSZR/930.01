@@ -448,13 +448,13 @@ void secretMenu(void)
         if ((menu_flags.menu_increase_flag == TRUE) && (KP < 2.5))
         {
             menu_flags.menu_increase_flag = FALSE;
-            KP += 0.1;          
+            KP += 0.01;          
         }
 
         if ((menu_flags.menu_decrease_flag == TRUE) && (KP >= 0))
         {
             menu_flags.menu_decrease_flag = FALSE;
-             KP -= 0.1;               
+             KP -= 0.01;               
         }
     }
 
@@ -469,13 +469,13 @@ void secretMenu(void)
         if ((menu_flags.menu_increase_flag == TRUE) && (KD < 2.5))
         {
             menu_flags.menu_increase_flag = FALSE;
-            KD += 0.1;          
+            KD += 0.01;          
         }
 
         if ((menu_flags.menu_decrease_flag == TRUE) && (KD >= 0))
         {
             menu_flags.menu_decrease_flag = FALSE;
-             KD -= 0.1;               
+             KD -= 0.01;               
         }
     }          
 
