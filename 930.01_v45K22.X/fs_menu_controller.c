@@ -445,7 +445,7 @@ void secretMenu(void)
         sprintf(textCursor2,"Kp:%5.1f     ",KP);
         lcdWriteString(textCursor2); 
 
-        if ((menu_flags.menu_increase_flag == TRUE) && (KP < 2.5))
+        if ((menu_flags.menu_increase_flag == TRUE) && (KP < 10.0))
         {
             menu_flags.menu_increase_flag = FALSE;
             KP += 0.01;          
@@ -466,7 +466,7 @@ void secretMenu(void)
         sprintf(textCursor2,"Kd:%5.1f    ",KD);
         lcdWriteString(textCursor2);
 
-        if ((menu_flags.menu_increase_flag == TRUE) && (KD < 2.5))
+        if ((menu_flags.menu_increase_flag == TRUE) && (KD < 10.0))
         {
             menu_flags.menu_increase_flag = FALSE;
             KD += 0.01;          

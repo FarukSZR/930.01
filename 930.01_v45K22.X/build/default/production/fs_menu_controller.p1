@@ -1862,8 +1862,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_menu_controller.c: 446:         lcdWriteString(textCursor2);
 [e ( _lcdWriteString (1 &U _textCursor2 ]
 "448
-[; ;fs_menu_controller.c: 448:         if ((menu_flags.menu_increase_flag == 1) && (KP < 2.5))
-[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> _KP `d .2.5 912  ]
+[; ;fs_menu_controller.c: 448:         if ((menu_flags.menu_increase_flag == 1) && (KP < 10.0))
+[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> _KP `d .10.0 912  ]
 "449
 [; ;fs_menu_controller.c: 449:         {
 {
@@ -1919,8 +1919,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_menu_controller.c: 467:         lcdWriteString(textCursor2);
 [e ( _lcdWriteString (1 &U _textCursor2 ]
 "469
-[; ;fs_menu_controller.c: 469:         if ((menu_flags.menu_increase_flag == 1) && (KD < 2.5))
-[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> _KD `d .2.5 915  ]
+[; ;fs_menu_controller.c: 469:         if ((menu_flags.menu_increase_flag == 1) && (KD < 10.0))
+[e $ ! && == -> . _menu_flags 4 `i -> 1 `i < -> _KD `d .10.0 915  ]
 "470
 [; ;fs_menu_controller.c: 470:         {
 {

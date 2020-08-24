@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Tue Aug 25 00:01:58 2020
+                                                                                               Tue Aug 25 00:13:28 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	18F45K22
@@ -2902,8 +2902,8 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2862  002D90  6E06               	movwf	(lcdWriteString@a+1)^0,c
   2863  002D92  ECD8  F026         	call	_lcdWriteString	;wreg free
   2864  002D96                     
-  2865                           ;fs_menu_controller.c: 448:         if ((menu_flags.menu_increase_flag == 1) && (KP < 2.
-      +                          5))
+  2865                           ;fs_menu_controller.c: 448:         if ((menu_flags.menu_increase_flag == 1) && (KP < 10
+      +                          .0))
   2866  002D96  0101               	movlb	1	; () banked
   2867  002D98  059B               	decf	(_menu_flags+4)& (0+255),w,b
   2868  002D9A  A4D8               	btfss	status,2,c
@@ -2924,7 +2924,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2883  002DBE  6E3A               	movwf	(___flge@ff2+1)^0,c
   2884  002DC0  0E20               	movlw	32
   2885  002DC2  6E3B               	movwf	(___flge@ff2+2)^0,c
-  2886  002DC4  0E40               	movlw	64
+  2886  002DC4  0E41               	movlw	65
   2887  002DC6  6E3C               	movwf	(___flge@ff2+3)^0,c
   2888  002DC8  ECEE  F021         	call	___flge	;wreg free
   2889  002DCC  B0D8               	btfsc	status,0,c
@@ -3061,8 +3061,8 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3017  002ECC  6E06               	movwf	(lcdWriteString@a+1)^0,c
   3018  002ECE  ECD8  F026         	call	_lcdWriteString	;wreg free
   3019  002ED2                     
-  3020                           ;fs_menu_controller.c: 469:         if ((menu_flags.menu_increase_flag == 1) && (KD < 2.
-      +                          5))
+  3020                           ;fs_menu_controller.c: 469:         if ((menu_flags.menu_increase_flag == 1) && (KD < 10
+      +                          .0))
   3021  002ED2  0101               	movlb	1	; () banked
   3022  002ED4  059B               	decf	(_menu_flags+4)& (0+255),w,b
   3023  002ED6  A4D8               	btfss	status,2,c
@@ -3083,7 +3083,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   3038  002EFA  6E3A               	movwf	(___flge@ff2+1)^0,c
   3039  002EFC  0E20               	movlw	32
   3040  002EFE  6E3B               	movwf	(___flge@ff2+2)^0,c
-  3041  002F00  0E40               	movlw	64
+  3041  002F00  0E41               	movlw	65
   3042  002F02  6E3C               	movwf	(___flge@ff2+3)^0,c
   3043  002F04  ECEE  F021         	call	___flge	;wreg free
   3044  002F08  B0D8               	btfsc	status,0,c
@@ -18994,7 +18994,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Tue Aug 25 00:01:58 2020
+Symbol Table                                                                                   Tue Aug 25 00:13:28 2020
 
                     ___fldiv@aexp 004D                      ___fldiv@bexp 004C  
               __end_of_systemInit 40C2                      ___fldiv@sign 0045  
