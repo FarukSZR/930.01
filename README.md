@@ -12,7 +12,9 @@ Tırtıl Project
 ### Yapilan degisiklikler:
 
 ##### 24 Agustos 2020 @Faruk:
-1. PWM degerlerinini arttirilmasi icin DEBUG ifdef yapisi kuruldu.
+1. PWM degerlerinini arttirilmasi icin DEBUG ifdef yapisi kuruldu. PWM debug kod icerisinde acilaksa eger "loopTaskMenuControl" fonksiyonu icerisindeki 
+"stateMachine"
+fonksiyonu comment edilmelidir.
 1. 4x20 LCD ekran icin gerekli #ifdef yapisi kuruldu. ADC degerlerini ekrana basiyor.
 1. KP ve KD degerlerinin artis ve azalis miktarlari 0.01 hassasiyetine indirildi.
 
