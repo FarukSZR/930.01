@@ -885,7 +885,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "99
 [; ;fs_speed_controller.c: 99:         PWM2_setDC(controller.rightMotorSpeed);
 [e ( _PWM2_setDC (1 . _controller 4 ]
-"100
-[; ;fs_speed_controller.c: 100: }
+"110
+[; ;fs_speed_controller.c: 110: }
 [e :UE 869 ]
 }
