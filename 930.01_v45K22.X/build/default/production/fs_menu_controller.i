@@ -10809,13 +10809,13 @@ void secretMenu(void)
         if ((menu_flags.menu_increase_flag == 1) && (KP < 2.5))
         {
             menu_flags.menu_increase_flag = 0;
-            KP += 0.1;
+            KP += 0.01;
         }
 
         if ((menu_flags.menu_decrease_flag == 1) && (KP >= 0))
         {
             menu_flags.menu_decrease_flag = 0;
-             KP -= 0.1;
+             KP -= 0.01;
         }
     }
 
@@ -10830,13 +10830,13 @@ void secretMenu(void)
         if ((menu_flags.menu_increase_flag == 1) && (KD < 2.5))
         {
             menu_flags.menu_increase_flag = 0;
-            KD += 0.1;
+            KD += 0.01;
         }
 
         if ((menu_flags.menu_decrease_flag == 1) && (KD >= 0))
         {
             menu_flags.menu_decrease_flag = 0;
-             KD -= 0.1;
+             KD -= 0.01;
         }
     }
 
