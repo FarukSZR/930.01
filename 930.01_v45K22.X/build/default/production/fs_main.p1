@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"57 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 57: {
+"59 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 59: {
 [s S854 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
 [n S854 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
 "78 ./fs_menu_controller.h
@@ -662,20 +662,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3 = OFF ]
 "97
 [p x EBTRB = OFF ]
-"40 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 40: static float KP = 0.2;
+"42 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 42: static float KP = 0.2;
 [v _KP `f ~T0 @X0 1 s ]
 [i _KP
 -> .0.2 `f
 ]
-"41
-[; ;./fs_speed_controller.h: 41: static float KD = 1.0;
+"43
+[; ;./fs_speed_controller.h: 43: static float KD = 1.0;
 [v _KD `f ~T0 @X0 1 s ]
 [i _KD
 -> .1.0 `f
 ]
-"71
-[; ;./fs_speed_controller.h: 71: tS_controller controller;
+"73
+[; ;./fs_speed_controller.h: 73: tS_controller controller;
 [v _controller `S854 ~T0 @X0 1 e ]
 "62 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 62: _Bool pauseIsClick = 0;
@@ -912,13 +912,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "116
 [; ;fs_main.c: 116:         loopTaskMenuControl();
 [e ( _loopTaskMenuControl ..  ]
-"142
-[; ;fs_main.c: 142:     }
+"143
+[; ;fs_main.c: 143:     }
 }
 [e :U 871 ]
 [e $U 872  ]
 [e :U 873 ]
-"143
-[; ;fs_main.c: 143: }
+"144
+[; ;fs_main.c: 144: }
 [e :UE 870 ]
 }

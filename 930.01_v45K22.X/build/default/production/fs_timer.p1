@@ -15,34 +15,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./fs_adc.h: 103: {
 [s S856 `ul 1 `ul 1 `f 1 ]
 [n S856 . pay payda ortalama ]
-"57 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 57: {
-[s S857 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
-[n S857 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
+"59 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 59: {
+[s S858 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
+[n S858 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
 "78 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 78: {
-[s S859 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
-[n S859 . menu start stop pause decrease increase ]
+[s S860 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
+[n S860 . menu start stop pause decrease increase ]
 "110
 [; ;./fs_menu_controller.h: 110: tE_menu_selected menu_selected = {0};
-[c E6842 0 1 2 3 4 5 6 7 8 .. ]
-[n E6842 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
+[c E7009 0 1 2 3 4 5 6 7 8 .. ]
+[n E7009 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
 "68
 [; ;./fs_menu_controller.h: 68: {
-[s S858 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
-[n S858 . menu_input_flag menu_start_flag menu_stop_flag menu_pause_flag menu_increase_flag menu_decrease_flag ]
+[s S859 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
+[n S859 . menu_input_flag menu_start_flag menu_stop_flag menu_pause_flag menu_increase_flag menu_decrease_flag ]
 "102
 [; ;./fs_menu_controller.h: 102: {
-[s S860 `uc 1 `uc 1 `uc 1 ]
-[n S860 . driver_time stop_time speed_limit ]
+[s S861 `uc 1 `uc 1 `uc 1 ]
+[n S861 . driver_time stop_time speed_limit ]
 "43 ./fs_timer.h
 [; ;./fs_timer.h: 43: {
-[s S861 :1 `uc 1 ]
-[n S861 . one_second_flag ]
+[s S862 :1 `uc 1 ]
+[n S862 . one_second_flag ]
 "48
 [; ;./fs_timer.h: 48: {
-[s S862 `uc 1 `uc 1 `uc 1 `c 1 `uc 1 `uc 1 `us 1 ]
-[n S862 . second minute remainingSecond remainingMinute menu_login_delay adc_conversion_time second_counter ]
+[s S863 `uc 1 `uc 1 `uc 1 `c 1 `uc 1 `uc 1 `us 1 ]
+[n S863 . second minute remainingSecond remainingMinute menu_login_delay adc_conversion_time second_counter ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt high_priority ]
 "16898 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc/pic18f45k22.h
@@ -659,21 +659,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "112
 [; ;./fs_adc.h: 112: tS_driver_limit driver_limit;
 [v _driver_limit `S856 ~T0 @X0 1 e ]
-"40 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 40: static float KP = 0.2;
+"42 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 42: static float KP = 0.2;
 [v _KP `f ~T0 @X0 1 s ]
 [i _KP
 -> .0.2 `f
 ]
-"41
-[; ;./fs_speed_controller.h: 41: static float KD = 1.0;
+"43
+[; ;./fs_speed_controller.h: 43: static float KD = 1.0;
 [v _KD `f ~T0 @X0 1 s ]
 [i _KD
 -> .1.0 `f
 ]
-"71
-[; ;./fs_speed_controller.h: 71: tS_controller controller;
-[v _controller `S857 ~T0 @X0 1 e ]
+"73
+[; ;./fs_speed_controller.h: 73: tS_controller controller;
+[v _controller `S858 ~T0 @X0 1 e ]
 "62 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 62: _Bool pauseIsClick = 0;
 [v _pauseIsClick `a ~T0 @X0 1 e ]
@@ -700,7 +700,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "109
 [; ;./fs_menu_controller.h: 109: tS_button_bounce_controller button_bounce_controller = {0};
-[v _button_bounce_controller `S859 ~T0 @X0 1 e ]
+[v _button_bounce_controller `S860 ~T0 @X0 1 e ]
 [i _button_bounce_controller
 :U ..
 :U ..
@@ -710,13 +710,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "110
 [; ;./fs_menu_controller.h: 110: tE_menu_selected menu_selected = {0};
-[v _menu_selected `E6842 ~T0 @X0 1 e ]
+[v _menu_selected `E7009 ~T0 @X0 1 e ]
 [i _menu_selected
--> -> 0 `i `E6842
+-> -> 0 `i `E7009
 ]
 "111
 [; ;./fs_menu_controller.h: 111: tS_menu_flags menu_flags = {0};
-[v _menu_flags `S858 ~T0 @X0 1 e ]
+[v _menu_flags `S859 ~T0 @X0 1 e ]
 [i _menu_flags
 :U ..
 :U ..
@@ -726,7 +726,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "112
 [; ;./fs_menu_controller.h: 112: tS_menu_value menu_value = {0};
-[v _menu_value `S860 ~T0 @X0 1 e ]
+[v _menu_value `S861 ~T0 @X0 1 e ]
 [i _menu_value
 :U ..
 :U ..
@@ -736,7 +736,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "58 ./fs_timer.h
 [; ;./fs_timer.h: 58: tS_timer_counter_flag timer_counter_flag = {0};
-[v _timer_counter_flag `S861 ~T0 @X0 1 e ]
+[v _timer_counter_flag `S862 ~T0 @X0 1 e ]
 [i _timer_counter_flag
 :U ..
 :U ..
@@ -746,7 +746,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "59
 [; ;./fs_timer.h: 59: tS_timer_value timer_value = {0};
-[v _timer_value `S862 ~T0 @X0 1 e ]
+[v _timer_value `S863 ~T0 @X0 1 e ]
 [i _timer_value
 :U ..
 :U ..
@@ -765,7 +765,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "35
 [; ;fs_timer.c: 35:     if ((INTCONbits.TMR0IF)&&(INTCONbits.TMR0IE))
-[e $ ! && != -> . . _INTCONbits 0 2 `i -> 0 `i != -> . . _INTCONbits 0 5 `i -> 0 `i 864  ]
+[e $ ! && != -> . . _INTCONbits 0 2 `i -> 0 `i != -> . . _INTCONbits 0 5 `i -> 0 `i 865  ]
 "36
 [; ;fs_timer.c: 36:     {
 {
@@ -783,7 +783,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ . _timer_value 5 -> -> 1 `i `uc ]
 "43
 [; ;fs_timer.c: 43:         if (timer_value.adc_conversion_time >8)
-[e $ ! > -> . _timer_value 5 `i -> 8 `i 865  ]
+[e $ ! > -> . _timer_value 5 `i -> 8 `i 866  ]
 "44
 [; ;fs_timer.c: 44:         {
 {
@@ -793,10 +793,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "46
 [; ;fs_timer.c: 46:         }
 }
-[e :U 865 ]
+[e :U 866 ]
 "48
 [; ;fs_timer.c: 48:         if (startIsClick == 1)
-[e $ ! == -> _startIsClick `i -> 1 `i 866  ]
+[e $ ! == -> _startIsClick `i -> 1 `i 867  ]
 "49
 [; ;fs_timer.c: 49:         {
 {
@@ -806,10 +806,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "51
 [; ;fs_timer.c: 51:         }
 }
-[e :U 866 ]
+[e :U 867 ]
 "53
 [; ;fs_timer.c: 53:         if(button_bounce_controller.menu == 1)
-[e $ ! == -> . _button_bounce_controller 0 `i -> 1 `i 867  ]
+[e $ ! == -> . _button_bounce_controller 0 `i -> 1 `i 868  ]
 "54
 [; ;fs_timer.c: 54:         {
 {
@@ -819,10 +819,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "56
 [; ;fs_timer.c: 56:         }
 }
-[e :U 867 ]
+[e :U 868 ]
 "57
 [; ;fs_timer.c: 57:         if(button_bounce_controller.menu == 0)
-[e $ ! == -> . _button_bounce_controller 0 `i -> 0 `i 868  ]
+[e $ ! == -> . _button_bounce_controller 0 `i -> 0 `i 869  ]
 "58
 [; ;fs_timer.c: 58:         {
 {
@@ -832,10 +832,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "60
 [; ;fs_timer.c: 60:         }
 }
-[e :U 868 ]
+[e :U 869 ]
 "62
 [; ;fs_timer.c: 62:         if (timer_value.second_counter >= 100)
-[e $ ! >= -> . _timer_value 6 `ui -> -> 100 `i `ui 869  ]
+[e $ ! >= -> . _timer_value 6 `ui -> -> 100 `i `ui 870  ]
 "63
 [; ;fs_timer.c: 63:         {
 {
@@ -848,14 +848,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "66
 [; ;fs_timer.c: 66:         }
 }
-[e :U 869 ]
+[e :U 870 ]
 "67
 [; ;fs_timer.c: 67:     }
 }
-[e :U 864 ]
+[e :U 865 ]
 "68
 [; ;fs_timer.c: 68: }
-[e :UE 863 ]
+[e :UE 864 ]
 }
 "77
 [; ;fs_timer.c: 77: void timer_0_init(void)
@@ -882,5 +882,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
 "84
 [; ;fs_timer.c: 84: }
-[e :UE 870 ]
+[e :UE 871 ]
 }

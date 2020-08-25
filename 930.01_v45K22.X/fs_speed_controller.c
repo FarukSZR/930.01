@@ -26,7 +26,11 @@
 
 #include "fs_speed_controller.h"
 
-//#define LCD_4x20
+#define LCD_4x20
+
+#ifdef LCD_4x20
+char textCursor2[20] = {0};
+#endif
 
 /*
  *@brief The function that loads the respective motors speeds according to the line reference read from the ADC.

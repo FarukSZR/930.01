@@ -9756,6 +9756,67 @@ typedef uint32_t uint_fast32_t;
 # 139 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdint.h" 2 3
 # 35 "./fs_speed_controller.h" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 411 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 2 3
+
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+# 65 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 3
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 36 "./fs_speed_controller.h" 2
+
+# 1 "./fs_lcd.h" 1
+# 34 "./fs_lcd.h"
+# 1 "./fs_mcu.h" 1
+# 33 "./fs_mcu.h"
 # 1 "./fs_adc.h" 1
 # 37 "./fs_adc.h"
 # 1 "./fs_timer.h" 1
@@ -9846,48 +9907,13 @@ void loopTaskInit(void);
 # 38 "./fs_menu_controller.h" 2
 
 # 1 "./fs_lcd.h" 1
-# 34 "./fs_lcd.h"
-# 1 "./fs_mcu.h" 1
-# 33 "./fs_mcu.h"
-# 1 "./fs_adc.h" 1
-# 33 "./fs_mcu.h" 2
-
-# 1 "./fs_speed_controller.h" 1
-# 34 "./fs_mcu.h" 2
-
-# 1 "./fs_timer.h" 1
-# 35 "./fs_mcu.h" 2
-
-# 1 "./fs_menu_controller.h" 1
-# 36 "./fs_mcu.h" 2
+# 39 "./fs_menu_controller.h" 2
 
 # 1 "./fs_eeprom.h" 1
 # 45 "./fs_eeprom.h"
 uint8_t eepromRead(uint8_t address);
 void eepromWrite(uint8_t address, uint8_t data);
-# 37 "./fs_mcu.h" 2
-
-
-# 1 "./fs_lcd.h" 1
-# 39 "./fs_mcu.h" 2
-
-
-void mcuInit(void);
-void systemInit(void);
-void openLCD_Script(void);
-# 34 "./fs_lcd.h" 2
-# 57 "./fs_lcd.h"
-void lcdPort(char a);
-void lcdCmd(char a);
-void lcdClear(void);
-void lcdSetCursor(char a, char b);
-void lcdInit(void);
-void lcdWriteChar(char a);
-void lcdWriteString(char *a);
-void lcdShiftRight(void);
-void lcdShiftLeft(void);
-# 39 "./fs_menu_controller.h" 2
-
+# 40 "./fs_menu_controller.h" 2
 
 # 1 "./fs_speed_controller.h" 1
 # 41 "./fs_menu_controller.h" 2
@@ -10045,7 +10071,35 @@ tS_adc_raw_data adc_raw_data;
 tS_procces_data procces_data;
 tS_convert_data convert_data;
 tS_driver_limit driver_limit;
-# 36 "./fs_speed_controller.h" 2
+# 33 "./fs_mcu.h" 2
+
+# 1 "./fs_speed_controller.h" 1
+# 34 "./fs_mcu.h" 2
+
+
+
+
+
+# 1 "./fs_lcd.h" 1
+# 39 "./fs_mcu.h" 2
+
+
+void mcuInit(void);
+void systemInit(void);
+void openLCD_Script(void);
+# 34 "./fs_lcd.h" 2
+# 57 "./fs_lcd.h"
+void lcdPort(char a);
+void lcdCmd(char a);
+void lcdClear(void);
+void lcdSetCursor(char a, char b);
+void lcdInit(void);
+void lcdWriteChar(char a);
+void lcdWriteString(char *a);
+void lcdShiftRight(void);
+void lcdShiftLeft(void);
+# 37 "./fs_speed_controller.h" 2
+
 
 
 # 1 "./fs_pwm.h" 1
@@ -10431,12 +10485,12 @@ double yn(int, double);
 void PWM_Init(void);
 void PWM1_setDC(int16_t dutycycle);
 void PWM2_setDC(int16_t dutycycle);
-# 38 "./fs_speed_controller.h" 2
+# 40 "./fs_speed_controller.h" 2
 
 
 static float KP = 0.2;
 static float KD = 1.0;
-# 51 "./fs_speed_controller.h"
+# 53 "./fs_speed_controller.h"
 void speedControl(float position);
 void stopMotor(void);
 void startMotor(void);
@@ -10510,5 +10564,5 @@ void startMotor(void)
         speedControl(driver_limit.ortalama);
         PWM1_setDC(controller.leftMotorSpeed);
         PWM2_setDC(controller.rightMotorSpeed);
-# 110 "fs_speed_controller.c"
+# 113 "fs_speed_controller.c"
 }

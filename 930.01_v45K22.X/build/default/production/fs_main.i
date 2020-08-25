@@ -9906,12 +9906,15 @@ void loopTaskInit(void);
 # 33 "./fs_mcu.h" 2
 
 # 1 "./fs_speed_controller.h" 1
-# 36 "./fs_speed_controller.h"
+# 37 "./fs_speed_controller.h"
+# 1 "./fs_lcd.h" 1
+# 37 "./fs_speed_controller.h" 2
+
 # 1 "./fs_adc.h" 1
-# 36 "./fs_speed_controller.h" 2
+# 38 "./fs_speed_controller.h" 2
 
 # 1 "./fs_mcu.h" 1
-# 37 "./fs_speed_controller.h" 2
+# 39 "./fs_speed_controller.h" 2
 
 # 1 "./fs_pwm.h" 1
 # 37 "./fs_pwm.h"
@@ -10298,12 +10301,12 @@ double yn(int, double);
 void PWM_Init(void);
 void PWM1_setDC(int16_t dutycycle);
 void PWM2_setDC(int16_t dutycycle);
-# 38 "./fs_speed_controller.h" 2
+# 40 "./fs_speed_controller.h" 2
 
 
 static float KP = 0.2;
 static float KD = 1.0;
-# 51 "./fs_speed_controller.h"
+# 53 "./fs_speed_controller.h"
 void speedControl(float position);
 void stopMotor(void);
 void startMotor(void);
@@ -10580,6 +10583,6 @@ void main(void)
     {
         loopTaskTimeMachine();
         loopTaskMenuControl();
-# 142 "fs_main.c"
+# 143 "fs_main.c"
     }
 }
