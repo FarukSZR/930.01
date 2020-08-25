@@ -120,6 +120,7 @@ void main(void)
 //       {     
 //            if (timer_counter_flag.one_second_flag == 1)
 //            {
+                  timer_counter_flag.one_second_flag = 0;
 //                i += 10;
 //                PWM1_setDC(i);
 //                PWM2_setDC(i);

@@ -33,6 +33,8 @@ extern "C" {
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <string.h>
+#include "fs_lcd.h"
 #include "fs_adc.h"
 #include "fs_mcu.h"
 #include "fs_pwm.h"    
