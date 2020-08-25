@@ -116,28 +116,27 @@ void main(void)
         loopTaskMenuControl(); 
         
 #ifdef DEBUG
-//       if ( (startIsClick == TRUE) && (pauseIsClick == FALSE) && (stopIsClick == FALSE) )
-//       {     
-//            if (timer_counter_flag.one_second_flag == 1)
-//            {
+       if ( (startIsClick == TRUE) && (pauseIsClick == FALSE) && (stopIsClick == FALSE) )
+       {     
+            if (timer_counter_flag.one_second_flag == 1)
+            {
                  timer_counter_flag.one_second_flag = 0;
-//                i += 10;
-//                PWM1_setDC(i);
-//                PWM2_setDC(i);
-//                lcdSetCursor(1,1);
-//                sprintf(textCursor2,"PWM Value= %d",i);
-//                if (i>1023)
-//                {
-//                    i = 0;
-//                }
-//            }
-//       }
-//        
-//        
-//       if ( (startIsClick == FALSE) && (pauseIsClick == FALSE) && (stopIsClick == TRUE) )
-//       {
-//            stopMotor();
-//       }
+                i += 10;
+                PWM1_setDC(i);
+                PWM2_setDC(i);
+                lcdSetCursor(1,1);
+                sprintf(textCursor2,"PWM Value= %d",i);
+                if (i>1023)
+                {
+                    i = 0;
+                }
+            }
+       }
+                
+       if ( (startIsClick == FALSE) && (pauseIsClick == FALSE) && (stopIsClick == TRUE) )
+       {
+            stopMotor();
+         }
 #endif
         
     } 
