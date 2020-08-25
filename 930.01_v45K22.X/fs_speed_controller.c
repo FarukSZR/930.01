@@ -47,7 +47,7 @@ void speedControl(float position)
     controller.motorSpeed = (int16_t) (KP * controller.error + KD * (controller.error - controller.lastError));
     controller.lastError = controller.error;
 
-   controller.leftMotorSpeed  =(int16_t) (DEF_SPEED + controller.motorSpeed + 70); // Bu kısımda limitin dışına çıkabilir. Left ile right limitlerini birbirinden ayırmanız gerekebilir. Deneyip gözlemleyin.
+   controller.leftMotorSpeed  =(int16_t) (DEF_SPEED + controller.motorSpeed ); // Bu kısımda limitin dışına çıkabilir. Left ile right limitlerini birbirinden ayırmanız gerekebilir. Deneyip gözlemleyin.
    controller.rightMotorSpeed =(int16_t) (DEF_SPEED - controller.motorSpeed);
 
     if (controller.leftMotorSpeed < MIN_SPEED)      // Limitler
