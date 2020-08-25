@@ -105,12 +105,12 @@ void startMotor(void)
 #ifdef LCD_4x20
         
         lcdSetCursor(3,1);
-        sprintf (textCursor2,"%d %d %d %d",convert_data.convert_channel_0,convert_data.convert_channel_1
+        sprintf (textCursor2,"%d %d %d %d",convert_data.convert_channel_0,convert_data.convert_channel_1,
                                           convert_data.convert_channel_2,convert_data.convert_channel_3);
         lcdWriteString(textCursor2);
  
         lcdSetCursor(4,1);
-        sprintf (textCursor2,"%d %d %d %d",convert_data.convert_channel_4,convert_data.convert_channel_5
+        sprintf (textCursor2,"%d %d %d %d",convert_data.convert_channel_4,convert_data.convert_channel_5,
                                            convert_data.convert_channel_6,convert_data.convert_channel_7);
         lcdWriteString(textCursor2);
 #endif
