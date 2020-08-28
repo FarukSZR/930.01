@@ -136,6 +136,8 @@ void scanAdcConversion(void)
     }
 }
 
+
+
 /*
  * @brief  Function that holds ADC raw data and translates. The end time of all cycles is 80ms.
  * @param  none
