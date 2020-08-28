@@ -103,9 +103,7 @@ void scanAdcConversion(void)
 
         case 2:
             adc_raw_data.channel_1 = readAdcValue(AN1); // RA1 pin
-            convert_data.convert_channel_1 = (uint16_t)((adc_raw_data.channel_1*5.0)/1024.0);
-//            procces_data.channel_1 = (float)((adc_raw_data.channel_1*5.0)/1024.0);
-//            convert_data.convert_channel_1 = (uint16_t)((procces_data.channel_1*999)/5);           
+            convert_data.convert_channel_1 = (uint16_t)((adc_raw_data.channel_1*5.0)/1024.0);        
         break;
 
         case 3:
