@@ -36,15 +36,7 @@
 #include "fs_menu_controller.h"
 
 __EEPROM_DATA(30,10,4,0,0,0,0,0); // DriverTime,StopTime,SpeedLimit
-char textCursor2[25] = {0};
-//#define DEBUG
 
-#ifdef DEBUG
-
-uint16_t i=0;
-char textCursor2[16] = {0};
-
-#endif
 
 /*
  * @brief The function that controls which time state.
@@ -113,32 +105,6 @@ void main(void)
     while(1)
     {              
         loopTaskTimeMachine();   
-        loopTaskMenuControl(); 
-        
-#ifdef DEBUG
-//       if ( (startIsClick == TRUE) && (pauseIsClick == FALSE) && (stopIsClick == FALSE) )
-//       {     
-//            if (timer_counter_flag.one_second_flag == 1)
-//            {
-                  timer_counter_flag.one_second_flag = 0;
-//                i += 10;
-//                PWM1_setDC(i);
-//                PWM2_setDC(i);
-//                lcdSetCursor(1,1);
-//                sprintf(textCursor2,"PWM Value= %d",i);
-//                if (i>1023)
-//                {
-//                    i = 0;
-//                }
-//            }
-//       }
-//        
-//        
-//       if ( (startIsClick == FALSE) && (pauseIsClick == FALSE) && (stopIsClick == TRUE) )
-//       {
-//            stopMotor();
-//       }
-#endif
-        
+        loopTaskMenuControl();        
     } 
 }

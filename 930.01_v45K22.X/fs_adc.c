@@ -96,9 +96,7 @@ void scanAdcConversion(void)
     {
         case 1:
             adc_raw_data.channel_0 = readAdcValue(AN0); // RA0 pin
-            convert_data.convert_channel_0 = (uint16_t)((adc_raw_data.channel_0*5.0)/1024.0);
-//            procces_data.channel_0 = (float)((adc_raw_data.channel_0*5.0)/1024.0);
-//            convert_data.convert_channel_0 = (uint32_t)((procces_data.channel_0*999)/5);        
+            convert_data.convert_channel_0 = (uint16_t)((adc_raw_data.channel_0*5.0)/1024.0);       
         break;
 
         case 2:
@@ -109,44 +107,31 @@ void scanAdcConversion(void)
         case 3:
             adc_raw_data.channel_2 = readAdcValue(AN2); // RA2 pin
             convert_data.convert_channel_2 = (uint16_t)((adc_raw_data.channel_2*5.0)/1024.0);
-//            procces_data.channel_2 = (float)((adc_raw_data.channel_2*5.0)/1024.0);
-//            convert_data.convert_channel_2 = (uint16_t)((procces_data.channel_2*999)/5);
         break;
 
         case 4:
             adc_raw_data.channel_3 = readAdcValue(AN3); // RA3 pin
             convert_data.convert_channel_3 = (uint16_t)((adc_raw_data.channel_3*5.0)/1024.0);
-//            procces_data.channel_3 = (float)((adc_raw_data.channel_3*5.0)/1024.0);          
-//            convert_data.convert_channel_3 = (uint16_t)((procces_data.channel_3*999)/5);
         break;
 
         case 5:
             adc_raw_data.channel_4 = readAdcValue(AN4); // RA5 pin
             convert_data.convert_channel_4 = (uint16_t)((adc_raw_data.channel_4*5.0)/1024.0);
-//            procces_data.channel_4 = (float)((adc_raw_data.channel_4*5.0)/1024.0);
-//            convert_data.convert_channel_4 = (uint16_t)((procces_data.channel_4*999.0)/5.0);
         break;
 
         case 6:
            adc_raw_data.channel_5 = readAdcValue(AN5); // RE0 pin
            convert_data.convert_channel_5 = (uint16_t)((adc_raw_data.channel_5*5.0)/1024.0);
-//           procces_data.channel_5 = (float)((adc_raw_data.channel_5*5.0)/1024.0);
-//           convert_data.convert_channel_5 = (uint32_t)((procces_data.channel_5*999)/5);
         break;
 
         case 7:
             adc_raw_data.channel_6 = readAdcValue(AN6); // RE1 pin
             convert_data.convert_channel_6 = (uint16_t)((adc_raw_data.channel_6*5.0)/1024.0);
-//            procces_data.channel_6 = (float)((adc_raw_data.channel_6*5.0)/1024.0);
-//            convert_data.convert_channel_6 = (uint16_t)((procces_data.channel_6*999.0)/5.0);
         break;
         
         case 8:
             adc_raw_data.channel_7 = readAdcValue(AN7); // RE2 pin
-            convert_data.convert_channel_7 = (uint16_t)((adc_raw_data.channel_7*5.0)/1024.0);
-            //procces_data.channel_7 = (float)((adc_raw_data.channel_7*5.0)/1024.0);
-            //convert_data.convert_channel_7 = (uint16_t)((procces_data.channel_7*999.0)/5.0);
-            
+            convert_data.convert_channel_7 = (uint16_t)((adc_raw_data.channel_7*5.0)/1024.0);           
         break;
     }
 }
