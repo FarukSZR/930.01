@@ -39,8 +39,8 @@ extern "C" {
 #include "fs_mcu.h"
 #include "fs_pwm.h"    
     
-static float KP =  0.2;
-static float KD =  1.0;
+static float KP =  0.5;
+static float KD =  5.0;
     
 #define MAX_SPEED   500
 #define MIN_SPEED   300
