@@ -43,7 +43,7 @@ void speedControl(float position)
     
     pos = (float) position;
     
-    controller.error = (int16_t)(position - 3400.0);
+    controller.error = (int16_t)(position - 340.0); //3400.0
     controller.motorSpeed = (int16_t) (KP * controller.error + KD * (controller.error - controller.lastError));
     controller.lastError = controller.error;
 
