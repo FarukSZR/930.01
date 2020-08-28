@@ -94,14 +94,14 @@ cstackBANK0 BANK0 1 60 60 93 1
 temp COMRAM 1 5F 5F 1 1
 bssBANK0 BANK0 1 F3 F3 D 1
 bssBANK1 BANK1 1 100 100 BB 1
-bssBANK2 BANK2 1 200 200 B9 1
+bssBANK2 BANK2 1 200 200 A0 1
 intcode CODE 0 8 8 A6 1
 smallconst SMALLCONST 0 600 600 C8 1
 idataBANK1 CODE 0 5674 5674 40 1
 eeprom_data EEDATA 0 F00000 F00000 8 1
 dataBANK1 BANK1 1 1BB 1BB 40 1
 config CONFIG 4 300000 300000 E 1
-$C:\Users\Dell\AppData\Local\Temp\sb8c.o
+$C:\Users\Dell\AppData\Local\Temp\s24k.o
 idloc IDLOC 5 200000 200000 8 1
 init CODE 0 AE AE 4 1
 reset_vec CODE 0 0 0 4 1
@@ -113,23 +113,23 @@ config CONFIG 4 300000 300000 E 1
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
 RAM 1FB-1FF 1
-RAM 2B9-5FF 1
+RAM 2A0-5FF 1
 SFR F38-FFF 1
 BANK1 1FB-1FF 1
-BANK2 2B9-2FF 1
+BANK2 2A0-2FF 1
 BANK3 300-3FF 1
 BANK4 400-4FF 1
 BANK5 500-5FF 1
 CONST 4-7 1
 CONST B2-5FF 1
 CONST 5A74-7FFF 1
-STACK 2B9-5FF 1
+STACK 2A0-5FF 1
 SMALLCONST 5A74-7FFF 1
 CODE 4-7 1
 CODE B2-5FF 1
 CODE 5A74-7FFF 1
 BIGRAM 1FB-1FF 1
-BIGRAM 2B9-5FF 1
+BIGRAM 2A0-5FF 1
 EEDATA F00008-F000FF 1
 MEDIUMCONST 5A74-7FFF 1
 # %LINETAB Section
@@ -146,7 +146,7 @@ MEDIUMCONST 5A74-7FFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\930.01_v45K22.X.production.o
-8 intcode CODE >26359:C:\Users\Dell\AppData\Local\Temp\sb8c.s
+8 intcode CODE >26355:C:\Users\Dell\AppData\Local\Temp\s24k.s
 8 intcode CODE >33:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_timer.c
 A intcode CODE >35:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_timer.c
 26 intcode CODE >37:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_timer.c
@@ -1289,16 +1289,16 @@ FAA text24 CODE >465:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common
 4ED0 text16 CODE >28:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\__lldiv.c
 4ED0 text16 CODE >29:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\__lldiv.c
 4EE0 text16 CODE >30:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\__lldiv.c
-2642 text15 CODE >162:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-2642 text15 CODE >164:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-2654 text15 CODE >165:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-2664 text15 CODE >166:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-2674 text15 CODE >169:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-27FC text15 CODE >174:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-2984 text15 CODE >179:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-299E text15 CODE >181:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-29E6 text15 CODE >186:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-2A54 text15 CODE >187:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+2642 text15 CODE >145:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+2642 text15 CODE >147:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+2654 text15 CODE >148:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+2664 text15 CODE >149:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+2674 text15 CODE >152:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+27FC text15 CODE >157:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+2984 text15 CODE >162:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+299E text15 CODE >164:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+29E6 text15 CODE >169:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+2A54 text15 CODE >170:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
 5632 text14 CODE >34:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
 5634 text14 CODE >36:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
 5634 text14 CODE >38:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
@@ -1312,30 +1312,30 @@ FAA text24 CODE >465:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common
 1D76 text13 CODE >95:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
 1D7A text13 CODE >98:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
 1D88 text13 CODE >99:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-1DFE text13 CODE >102:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-1E02 text13 CODE >105:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-1E10 text13 CODE >106:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-1E86 text13 CODE >109:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-1E8A text13 CODE >112:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-1E98 text13 CODE >113:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-1F0E text13 CODE >116:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-1F12 text13 CODE >119:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-1F20 text13 CODE >120:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-1F96 text13 CODE >123:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-1F9A text13 CODE >126:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-1FA8 text13 CODE >127:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-201E text13 CODE >130:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-2022 text13 CODE >133:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-2030 text13 CODE >134:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-20A6 text13 CODE >137:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-20AA text13 CODE >140:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-20B8 text13 CODE >141:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-212E text13 CODE >144:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-2132 text13 CODE >147:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-2140 text13 CODE >148:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-21B6 text13 CODE >152:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-21BA text13 CODE >153:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
-2216 text13 CODE >154:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+1DFE text13 CODE >100:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+1E02 text13 CODE >103:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+1E10 text13 CODE >104:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+1E86 text13 CODE >105:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+1E8A text13 CODE >108:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+1E98 text13 CODE >109:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+1F0E text13 CODE >110:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+1F12 text13 CODE >113:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+1F20 text13 CODE >114:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+1F96 text13 CODE >115:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+1F9A text13 CODE >118:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+1FA8 text13 CODE >119:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+201E text13 CODE >120:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+2022 text13 CODE >123:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+2030 text13 CODE >124:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+20A6 text13 CODE >125:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+20AA text13 CODE >128:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+20B8 text13 CODE >129:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+212E text13 CODE >130:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+2132 text13 CODE >133:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+2140 text13 CODE >134:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+21B6 text13 CODE >135:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+21BA text13 CODE >136:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
+2216 text13 CODE >137:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_adc.c
 3942 text12 CODE >40:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_speed_controller.c
 3942 text12 CODE >42:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_speed_controller.c
 3942 text12 CODE >44:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_speed_controller.c
@@ -1600,48 +1600,48 @@ FAA text24 CODE >465:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common
 5A3C text0 CODE >111:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_main.c
 5A40 text0 CODE >115:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_main.c
 5A44 text0 CODE >116:C:\Users\Dell\Desktop\Projects\04_TIRTIL\930.01\930.01_v45K22.X\fs_main.c
-5468 cinit CODE >5261:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-5468 cinit CODE >5263:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-5468 cinit CODE >5266:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-5468 cinit CODE >5444:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-546A cinit CODE >5445:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-546C cinit CODE >5446:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-546E cinit CODE >5447:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-5470 cinit CODE >5448:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-5472 cinit CODE >5449:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-5474 cinit CODE >5450:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-5478 cinit CODE >5451:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-547C cinit CODE >5452:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-547C cinit CODE >5453:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-547E cinit CODE >5454:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-5482 cinit CODE >5455:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-5484 cinit CODE >5456:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-5486 cinit CODE >5457:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-5488 cinit CODE >5461:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-548C cinit CODE >5462:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-548E cinit CODE >5463:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-548E cinit CODE >5464:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-5490 cinit CODE >5465:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-5492 cinit CODE >5466:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-5494 cinit CODE >5469:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-5498 cinit CODE >5470:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-549A cinit CODE >5471:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-549A cinit CODE >5472:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-549C cinit CODE >5473:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-549E cinit CODE >5474:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-54A0 cinit CODE >5477:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-54A4 cinit CODE >5478:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-54A6 cinit CODE >5479:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-54A6 cinit CODE >5480:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-54A8 cinit CODE >5481:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-54AA cinit CODE >5482:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-54AC cinit CODE >5488:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-54AC cinit CODE >5490:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-54AE cinit CODE >5491:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-54B0 cinit CODE >5493:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-54B2 cinit CODE >5494:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-54B4 cinit CODE >5495:C:\Users\Dell\AppData\Local\Temp\sb8c.s
-54B6 cinit CODE >5496:C:\Users\Dell\AppData\Local\Temp\sb8c.s
+5468 cinit CODE >5261:C:\Users\Dell\AppData\Local\Temp\s24k.s
+5468 cinit CODE >5263:C:\Users\Dell\AppData\Local\Temp\s24k.s
+5468 cinit CODE >5266:C:\Users\Dell\AppData\Local\Temp\s24k.s
+5468 cinit CODE >5440:C:\Users\Dell\AppData\Local\Temp\s24k.s
+546A cinit CODE >5441:C:\Users\Dell\AppData\Local\Temp\s24k.s
+546C cinit CODE >5442:C:\Users\Dell\AppData\Local\Temp\s24k.s
+546E cinit CODE >5443:C:\Users\Dell\AppData\Local\Temp\s24k.s
+5470 cinit CODE >5444:C:\Users\Dell\AppData\Local\Temp\s24k.s
+5472 cinit CODE >5445:C:\Users\Dell\AppData\Local\Temp\s24k.s
+5474 cinit CODE >5446:C:\Users\Dell\AppData\Local\Temp\s24k.s
+5478 cinit CODE >5447:C:\Users\Dell\AppData\Local\Temp\s24k.s
+547C cinit CODE >5448:C:\Users\Dell\AppData\Local\Temp\s24k.s
+547C cinit CODE >5449:C:\Users\Dell\AppData\Local\Temp\s24k.s
+547E cinit CODE >5450:C:\Users\Dell\AppData\Local\Temp\s24k.s
+5482 cinit CODE >5451:C:\Users\Dell\AppData\Local\Temp\s24k.s
+5484 cinit CODE >5452:C:\Users\Dell\AppData\Local\Temp\s24k.s
+5486 cinit CODE >5453:C:\Users\Dell\AppData\Local\Temp\s24k.s
+5488 cinit CODE >5457:C:\Users\Dell\AppData\Local\Temp\s24k.s
+548C cinit CODE >5458:C:\Users\Dell\AppData\Local\Temp\s24k.s
+548E cinit CODE >5459:C:\Users\Dell\AppData\Local\Temp\s24k.s
+548E cinit CODE >5460:C:\Users\Dell\AppData\Local\Temp\s24k.s
+5490 cinit CODE >5461:C:\Users\Dell\AppData\Local\Temp\s24k.s
+5492 cinit CODE >5462:C:\Users\Dell\AppData\Local\Temp\s24k.s
+5494 cinit CODE >5465:C:\Users\Dell\AppData\Local\Temp\s24k.s
+5498 cinit CODE >5466:C:\Users\Dell\AppData\Local\Temp\s24k.s
+549A cinit CODE >5467:C:\Users\Dell\AppData\Local\Temp\s24k.s
+549A cinit CODE >5468:C:\Users\Dell\AppData\Local\Temp\s24k.s
+549C cinit CODE >5469:C:\Users\Dell\AppData\Local\Temp\s24k.s
+549E cinit CODE >5470:C:\Users\Dell\AppData\Local\Temp\s24k.s
+54A0 cinit CODE >5473:C:\Users\Dell\AppData\Local\Temp\s24k.s
+54A4 cinit CODE >5474:C:\Users\Dell\AppData\Local\Temp\s24k.s
+54A6 cinit CODE >5475:C:\Users\Dell\AppData\Local\Temp\s24k.s
+54A6 cinit CODE >5476:C:\Users\Dell\AppData\Local\Temp\s24k.s
+54A8 cinit CODE >5477:C:\Users\Dell\AppData\Local\Temp\s24k.s
+54AA cinit CODE >5478:C:\Users\Dell\AppData\Local\Temp\s24k.s
+54AC cinit CODE >5484:C:\Users\Dell\AppData\Local\Temp\s24k.s
+54AC cinit CODE >5486:C:\Users\Dell\AppData\Local\Temp\s24k.s
+54AE cinit CODE >5487:C:\Users\Dell\AppData\Local\Temp\s24k.s
+54B0 cinit CODE >5489:C:\Users\Dell\AppData\Local\Temp\s24k.s
+54B2 cinit CODE >5490:C:\Users\Dell\AppData\Local\Temp\s24k.s
+54B4 cinit CODE >5491:C:\Users\Dell\AppData\Local\Temp\s24k.s
+54B6 cinit CODE >5492:C:\Users\Dell\AppData\Local\Temp\s24k.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1662,7 +1662,7 @@ __LdataBANK1 0 0 ABS 0 dataBANK1 dist/default/production\930.01_v45K22.X.product
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\930.01_v45K22.X.production.o
 _stopTimeSettingMenu 4228 0 CODE 0 text4 dist/default/production\930.01_v45K22.X.production.o
 __Hspace_0 F00008 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
-__Hspace_1 2B9 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
+__Hspace_1 2A0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
 __Hspace_4 60000E 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
 __size_of_lcdInit 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
@@ -1670,11 +1670,11 @@ __size_of_lcdPort 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production
 _openLCD_Script 555E 0 CODE 0 text58 dist/default/production\930.01_v45K22.X.production.o
 __HidataBANK1 0 0 ABS 0 idataBANK1 dist/default/production\930.01_v45K22.X.production.o
 __end_of_startMotor 58C2 0 CODE 0 text11 dist/default/production\930.01_v45K22.X.production.o
-_KP@fs_speed_controller$F1856 1D7 0 BANK1 1 dataBANK1 dist/default/production\930.01_v45K22.X.production.o
+_KP@fs_speed_controller$F1855 1D7 0 BANK1 1 dataBANK1 dist/default/production\930.01_v45K22.X.production.o
 strncmp@_l 1 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 strncmp@_r 3 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\930.01_v45K22.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Dell\AppData\Local\Temp\sb8c.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Dell\AppData\Local\Temp\s24k.o
 readAdcValue@adcValue 6 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 _menu_selected FB 0 BANK0 1 bssBANK0 dist/default/production\930.01_v45K22.X.production.o
 __Heeprom_data F00008 0 EEDATA 0 eeprom_data dist/default/production\930.01_v45K22.X.production.o
@@ -1685,9 +1685,9 @@ __end_of_stateMachine 4CE4 0 CODE 0 text3 dist/default/production\930.01_v45K22.
 ?_vfprintf C7 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
 __Lsmallconst 600 0 SMALLCONST 0 smallconst dist/default/production\930.01_v45K22.X.production.o
 _TMR2 FBC 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\Dell\AppData\Local\Temp\sb8c.o
+___sp 0 0 STACK 2 stack C:\Users\Dell\AppData\Local\Temp\s24k.o
 _atoi 3C80 0 CODE 0 text48 dist/default/production\930.01_v45K22.X.production.o
-_dbuf 269 0 BANK2 1 bssBANK2 dist/default/production\930.01_v45K22.X.production.o
+_dbuf 250 0 BANK2 1 bssBANK2 dist/default/production\930.01_v45K22.X.production.o
 _dtoa 2DF0 0 CODE 0 text39 dist/default/production\930.01_v45K22.X.production.o
 _main 5A3C 0 CODE 0 text0 dist/default/production\930.01_v45K22.X.production.o
 _nout 1B7 0 BANK1 1 bssBANK1 dist/default/production\930.01_v45K22.X.production.o
@@ -1698,7 +1698,7 @@ __end_of_buttonControlFlags 378E 0 CODE 0 text53 dist/default/production\930.01_
 pad@i 18 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 pad@p 15 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 pad@w 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
-start AE 0 CODE 0 init C:\Users\Dell\AppData\Local\Temp\sb8c.o
+start AE 0 CODE 0 init C:\Users\Dell\AppData\Local\Temp\s24k.o
 ___aomod@counter 11 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 ___flmul@aexp 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 ___flmul@bexp 2E 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
@@ -1733,7 +1733,7 @@ __LidataBANK1 0 0 ABS 0 idataBANK1 dist/default/production\930.01_v45K22.X.produ
 _scanAdcConversion 1D76 0 CODE 0 text13 dist/default/production\930.01_v45K22.X.production.o
 __size_of_stopMenu 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
 __Hpowerup AE 0 CODE 0 powerup dist/default/production\930.01_v45K22.X.production.o
-_KD@fs_speed_controller$F1857 1D3 0 BANK1 1 dataBANK1 dist/default/production\930.01_v45K22.X.production.o
+_KD@fs_speed_controller$F1856 1D3 0 BANK1 1 dataBANK1 dist/default/production\930.01_v45K22.X.production.o
 __end_of_TIMER0 AE 0 CODE 0 intcode dist/default/production\930.01_v45K22.X.production.o
 __end_of_vfpfcnvrt 18B6 0 CODE 0 text22 dist/default/production\930.01_v45K22.X.production.o
 ___awmod@sign 6 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
@@ -1744,11 +1744,11 @@ ttemp7 67 0 COMRAM 1 temp dist/default/production\930.01_v45K22.X.production.o
 __size_of_vfpfcnvrt 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
 _driver_limit 120 0 BANK1 1 bssBANK1 dist/default/production\930.01_v45K22.X.production.o
 __end_of_openLCD_Script 55A8 0 CODE 0 text58 dist/default/production\930.01_v45K22.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\Dell\AppData\Local\Temp\sb8c.o
-intlevel0 0 0 CODE 0 text C:\Users\Dell\AppData\Local\Temp\sb8c.o
-intlevel1 0 0 CODE 0 text C:\Users\Dell\AppData\Local\Temp\sb8c.o
-intlevel2 0 0 CODE 0 text C:\Users\Dell\AppData\Local\Temp\sb8c.o
-intlevel3 0 0 CODE 0 text C:\Users\Dell\AppData\Local\Temp\sb8c.o
+__accesstop 60 0 ABS 0 - C:\Users\Dell\AppData\Local\Temp\s24k.o
+intlevel0 0 0 CODE 0 text C:\Users\Dell\AppData\Local\Temp\s24k.o
+intlevel1 0 0 CODE 0 text C:\Users\Dell\AppData\Local\Temp\s24k.o
+intlevel2 0 0 CODE 0 text C:\Users\Dell\AppData\Local\Temp\s24k.o
+intlevel3 0 0 CODE 0 text C:\Users\Dell\AppData\Local\Temp\s24k.o
 floorf@e 64 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
 floorf@m 60 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
 floorf@u 66 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
@@ -1777,10 +1777,10 @@ lcdWriteChar@temp 2 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K2
 __end_of_lcdInit 4F78 0 CODE 0 text65 dist/default/production\930.01_v45K22.X.production.o
 __end_of_lcdPort 5468 0 CODE 0 text67 dist/default/production\930.01_v45K22.X.production.o
 ___awdiv@dividend 1 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\Dell\AppData\Local\Temp\sb8c.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\Dell\AppData\Local\Temp\sb8c.o
-_calculatedAverageValue$3396 60 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
-_calculatedAverageValue$3397 64 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\Dell\AppData\Local\Temp\s24k.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\Dell\AppData\Local\Temp\s24k.o
+_calculatedAverageValue$3395 60 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
+_calculatedAverageValue$3396 64 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
 _EECON1bits FA6 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
 ?_tolower 7 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 __end_of_stopTimeSettingMenu 4334 0 CODE 0 text4 dist/default/production\930.01_v45K22.X.production.o
@@ -1807,9 +1807,9 @@ ___fldiv@bexp 4C 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X
 ___fldiv@sign 45 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\930.01_v45K22.X.production.o
 _speedControl 3942 0 CODE 0 text12 dist/default/production\930.01_v45K22.X.production.o
-_atoi$3065 10 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
-_atoi$3066 14 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
-_atoi$3067 12 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
+_atoi$3064 10 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
+_atoi$3065 14 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
+_atoi$3066 12 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 _systemInit 4828 0 CODE 0 text56 dist/default/production\930.01_v45K22.X.production.o
 __Hintcodelo AE 0 CODE 0 intcodelo dist/default/production\930.01_v45K22.X.production.o
 __size_of_calculatedAverageValue 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
@@ -1895,7 +1895,7 @@ efgtoa@t 7F 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.produc
 efgtoa@u A3 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
 efgtoa@w 8E 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
 __end_of_lcdCmd 5A0C 0 CODE 0 text66 dist/default/production\930.01_v45K22.X.production.o
-_tolower$3160 D 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
+_tolower$3159 D 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 __size_of_speedControl 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
 __end_of_lcdSetCursor 5350 0 CODE 0 text61 dist/default/production\930.01_v45K22.X.production.o
@@ -1944,7 +1944,7 @@ __size_of___xxtofl 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.productio
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\930.01_v45K22.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\930.01_v45K22.X.production.o
 __size_of_lcdClear 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
-__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\Dell\AppData\Local\Temp\sb8c.o
+__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\Dell\AppData\Local\Temp\s24k.o
 ___xxtofl@arg 18 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 ___xxtofl@exp 17 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 ___xxtofl@val E 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
@@ -1952,7 +1952,6 @@ efgtoa@nmode 8D 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.pr
 __end_of_sprintf 550C 0 CODE 0 text20 dist/default/production\930.01_v45K22.X.production.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\930.01_v45K22.X.production.o
 __Hconfig 30000E 0 CONFIG 4 config dist/default/production\930.01_v45K22.X.production.o
-_textCursor2 220 0 BANK2 1 bssBANK2 dist/default/production\930.01_v45K22.X.production.o
 __end_of_speedLimitSettingMenu 443C 0 CODE 0 text7 dist/default/production\930.01_v45K22.X.production.o
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\930.01_v45K22.X.production.o
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\930.01_v45K22.X.production.o
@@ -2024,7 +2023,7 @@ __end_of_exitLine 5A72 0 CODE 0 text17 dist/default/production\930.01_v45K22.X.p
 __Hirdata 0 0 CODE 0 irdata dist/default/production\930.01_v45K22.X.production.o
 _PR2 FBB 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
 __S0 F00008 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
-__S1 2B9 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
+__S1 2A0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
 __S2 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
 __S4 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
 __S5 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
@@ -2044,10 +2043,10 @@ __size_of_tolower 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production
 __end_of_loopTaskMenuControl 5280 0 CODE 0 text2 dist/default/production\930.01_v45K22.X.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\930.01_v45K22.X.production.o
 sprintf@fmt D1 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
-_dtoa$2974 2E 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
-_vfpfcnvrt$3023 B9 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
-_vfpfcnvrt$3024 BB 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
-_vfpfcnvrt$3029 BD 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
+_dtoa$2973 2E 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
+_vfpfcnvrt$3022 B9 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
+_vfpfcnvrt$3023 BB 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
+_vfpfcnvrt$3028 BD 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
 ___xxtofl 378E 0 CODE 0 text73 dist/default/production\930.01_v45K22.X.production.o
 _floorf 33AC 0 CODE 0 text28 dist/default/production\930.01_v45K22.X.production.o
 __end_of_abs 56F4 0 CODE 0 text45 dist/default/production\930.01_v45K22.X.production.o
@@ -2259,8 +2258,8 @@ ___fldiv@new_exp 46 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K2
 __size_of_lcdWriteString 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
 __size_of_vfprintf 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
 _timer_0_init 5A50 0 CODE 0 text55 dist/default/production\930.01_v45K22.X.production.o
-stackhi 5FF 0 ABS 0 - C:\Users\Dell\AppData\Local\Temp\sb8c.o
-stacklo 2B9 0 ABS 0 - C:\Users\Dell\AppData\Local\Temp\sb8c.o
+stackhi 5FF 0 ABS 0 - C:\Users\Dell\AppData\Local\Temp\s24k.o
+stacklo 2A0 0 ABS 0 - C:\Users\Dell\AppData\Local\Temp\s24k.o
 _menu_flags 19F 0 BANK1 1 bssBANK1 dist/default/production\930.01_v45K22.X.production.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\930.01_v45K22.X.production.o
 _menu_value F3 0 BANK0 1 bssBANK0 dist/default/production\930.01_v45K22.X.production.o
@@ -2416,7 +2415,7 @@ __Ltext71 0 0 ABS 0 text71 dist/default/production\930.01_v45K22.X.production.o
 __Ltext72 0 0 ABS 0 text72 dist/default/production\930.01_v45K22.X.production.o
 __Ltext73 0 0 ABS 0 text73 dist/default/production\930.01_v45K22.X.production.o
 __Ltext74 0 0 ABS 0 text74 dist/default/production\930.01_v45K22.X.production.o
-__ramtop 600 0 RAM 0 ramtop C:\Users\Dell\AppData\Local\Temp\sb8c.o
+__ramtop 600 0 RAM 0 ramtop C:\Users\Dell\AppData\Local\Temp\s24k.o
 _sprintf 54BA 0 CODE 0 text20 dist/default/production\930.01_v45K22.X.production.o
 _vfprintf 5280 0 CODE 0 text21 dist/default/production\930.01_v45K22.X.production.o
 __Lpowerup AE 0 CODE 0 powerup dist/default/production\930.01_v45K22.X.production.o
@@ -2454,7 +2453,7 @@ speedControl@position 58 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_
 __pidataBANK1 5674 0 CODE 0 idataBANK1 dist/default/production\930.01_v45K22.X.production.o
 lcdCmd@a 3 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\930.01_v45K22.X.production.o
-_isspace$3096 7 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
+_isspace$3095 7 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 _mcuInit 5A26 0 CODE 0 text64 dist/default/production\930.01_v45K22.X.production.o
 ___lldiv@quotient 9 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\930.01_v45K22.X.production.o
@@ -2506,12 +2505,12 @@ _fputs 55EE 0 CODE 0 text42 dist/default/production\930.01_v45K22.X.production.o
 fabsf@F463 1B3 0 BANK1 1 bssBANK1 dist/default/production\930.01_v45K22.X.production.o
 _putch 5A72 0 CODE 0 text44 dist/default/production\930.01_v45K22.X.production.o
 __end_of_calculatedAverageValue 2A56 0 CODE 0 text15 dist/default/production\930.01_v45K22.X.production.o
-_efgtoa$2998 73 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
-_efgtoa$2999 75 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
-_efgtoa$3003 77 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
-_efgtoa$3007 79 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
-_efgtoa$3008 7B 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
-_efgtoa$3009 7D 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
+_efgtoa$2997 73 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
+_efgtoa$2998 75 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
+_efgtoa$3002 77 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
+_efgtoa$3006 79 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
+_efgtoa$3007 7B 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
+_efgtoa$3008 7D 0 BANK0 1 cstackBANK0 dist/default/production\930.01_v45K22.X.production.o
 _width 1B9 0 BANK1 1 bssBANK1 dist/default/production\930.01_v45K22.X.production.o
 floorf@F524 1AB 0 BANK1 1 bssBANK1 dist/default/production\930.01_v45K22.X.production.o
 __size_of_loopTaskInit 0 0 ABS 0 - dist/default/production\930.01_v45K22.X.production.o
@@ -2588,7 +2587,7 @@ cstackCOMRAM 1 1 1 5F 1
 cstackBANK0 1 60 60 A0 1
 reset_vec 0 0 0 4 1
 bssBANK1 1 100 100 FB 1
-bssBANK2 1 200 200 B9 1
+bssBANK2 1 200 200 A0 1
 intcode 0 8 8 AA 1
 smallconst 0 600 600 C8 1
 eeprom_data 0 F00000 F00000 8 1

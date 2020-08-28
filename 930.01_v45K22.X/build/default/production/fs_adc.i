@@ -10574,58 +10574,41 @@ void scanAdcConversion(void)
         case 1:
             adc_raw_data.channel_0 = readAdcValue(0);
             convert_data.convert_channel_0 = (uint16_t)((adc_raw_data.channel_0*5.0)/1024.0);
-
-
         break;
 
         case 2:
             adc_raw_data.channel_1 = readAdcValue(1);
             convert_data.convert_channel_1 = (uint16_t)((adc_raw_data.channel_1*5.0)/1024.0);
-
-
         break;
 
         case 3:
             adc_raw_data.channel_2 = readAdcValue(2);
             convert_data.convert_channel_2 = (uint16_t)((adc_raw_data.channel_2*5.0)/1024.0);
-
-
         break;
 
         case 4:
             adc_raw_data.channel_3 = readAdcValue(3);
             convert_data.convert_channel_3 = (uint16_t)((adc_raw_data.channel_3*5.0)/1024.0);
-
-
         break;
 
         case 5:
             adc_raw_data.channel_4 = readAdcValue(4);
             convert_data.convert_channel_4 = (uint16_t)((adc_raw_data.channel_4*5.0)/1024.0);
-
-
         break;
 
         case 6:
            adc_raw_data.channel_5 = readAdcValue(5);
            convert_data.convert_channel_5 = (uint16_t)((adc_raw_data.channel_5*5.0)/1024.0);
-
-
         break;
 
         case 7:
             adc_raw_data.channel_6 = readAdcValue(6);
             convert_data.convert_channel_6 = (uint16_t)((adc_raw_data.channel_6*5.0)/1024.0);
-
-
         break;
 
         case 8:
             adc_raw_data.channel_7 = readAdcValue(7);
             convert_data.convert_channel_7 = (uint16_t)((adc_raw_data.channel_7*5.0)/1024.0);
-
-
-
         break;
     }
 }

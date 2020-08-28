@@ -9,7 +9,7 @@ ___fldiv@rem 41 0 COMRAM 1
 __end_of_loopTaskInit 5732 0 CODE 0
 _PR2 FBB 0 ABS 0
 __S0 F00008 0 ABS 0
-__S1 2B9 0 ABS 0
+__S1 2A0 0 ABS 0
 __S2 0 0 ABS 0
 __S4 0 0 ABS 0
 __S5 0 0 ABS 0
@@ -23,7 +23,6 @@ __end_of___awdiv 4C32 0 CODE 0
 _abs 56B4 0 CODE 0
 ___fladd@signs 41 0 COMRAM 1
 lcdSetCursor@b 4 0 COMRAM 1
-_vfpfcnvrt$3024 BB 0 BANK0 1
 _TMR2 FBC 0 ABS 0
 __end_of___fleq 4E3E 0 CODE 0
 strncmp@l 8 0 COMRAM 1
@@ -40,7 +39,7 @@ _lcdWriteChar 5854 0 CODE 0
 pad@w 1A 0 COMRAM 1
 _prec F6 0 BANK0 1
 _dtoa 2DF0 0 CODE 0
-_dbuf 269 0 BANK2 1
+_dbuf 250 0 BANK2 1
 ?_abs 13 0 COMRAM 1
 _main 5A3C 0 CODE 0
 _atoi 3C80 0 CODE 0
@@ -86,6 +85,7 @@ PWM2_setDC@dutycycle 58 0 COMRAM 1
 __end_of_menuInitialize 5982 0 CODE 0
 ?___aomod 1 0 COMRAM 1
 dtoa@d 1E 0 COMRAM 1
+_KP@fs_speed_controller$F1855 1D7 0 BANK1 1
 __size_of_speedControl 0 0 ABS 0
 ?___awmod 1 0 COMRAM 1
 dtoa@i 3E 0 COMRAM 1
@@ -114,6 +114,7 @@ _fabsf 58F8 0 CODE 0
 __Hcomram 0 0 ABS 0
 _putch 5A72 0 CODE 0
 __Lcomram 0 0 ABS 0
+_atoi$3064 10 0 COMRAM 1
 ?_atoi 8 0 COMRAM 1
 _fputc 49DE 0 CODE 0
 _width 1B9 0 BANK1 1
@@ -130,18 +131,18 @@ lcdWriteString@a 5 0 COMRAM 1
 efgtoa@ou 6F 0 BANK0 1
 ?_sprintf CF 0 BANK0 1
 _vfprintf 5280 0 CODE 0
-_atoi$3065 10 0 COMRAM 1
+_atoi$3065 14 0 COMRAM 1
 _fputs 55EE 0 CODE 0
 int$flags 5F 0 COMRAM 1
+_dtoa$2973 2E 0 COMRAM 1
 ___xxtofl 378E 0 CODE 0
 ___fleq@ff1 1 0 COMRAM 1
 __end_of_abs 56F4 0 CODE 0
 _PWM_Init 5982 0 CODE 0
-_atoi$3066 14 0 COMRAM 1
+_atoi$3066 12 0 COMRAM 1
 ___flge@ff2 39 0 COMRAM 1
 secretMenu@textCursor2 E1 0 BANK0 1
 _ADCON0 FC2 0 ABS 0
-_dtoa$2974 2E 0 COMRAM 1
 _ADCON1 FC1 0 ABS 0
 _TIMER0 8 0 CODE 0
 driverTimeSettingMenu@textCursor2 E1 0 BANK0 1
@@ -151,7 +152,6 @@ lcdSetCursor@z 6 0 COMRAM 1
 ___fpclassifyf@F463 1AF 0 BANK1 1
 ?___fltol 4E 0 COMRAM 1
 _buttonControlFlags 35C2 0 CODE 0
-_atoi$3067 12 0 COMRAM 1
 __end_of_putch 5A74 0 CODE 0
 ?_strncmp 1 0 COMRAM 1
 __Heeprom_data F00008 0 EEDATA 0
@@ -206,8 +206,8 @@ __pintcode 8 0 CODE 0
 __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0
 _ADRESL FC3 0 ABS 0
+_KD@fs_speed_controller$F1856 1D3 0 BANK1 1
 __end_of_efgtoa 1278 0 CODE 0
-_KP@fs_speed_controller$F1856 1D7 0 BANK1 1
 __size_of_tolower 0 0 ABS 0
 __size_of_fputc 0 0 ABS 0
 lcdWriteChar@a 4 0 COMRAM 1
@@ -254,12 +254,11 @@ _strlen 58C2 0 CODE 0
 ___awmod@sign 6 0 COMRAM 1
 __Htemp 60 0 COMRAM 1
 __Ltemp 5F 0 COMRAM 1
-stacklo 2B9 0 ABS 0
+stacklo 2A0 0 ABS 0
 __size_of_lcdSetCursor 0 0 ABS 0
 __Hrbit 0 0 COMRAM 1
 __Lrbit 0 0 COMRAM 1
 __size_of_pauseMenu 0 0 ABS 0
-_KD@fs_speed_controller$F1857 1D3 0 BANK1 1
 __Hinit B2 0 CODE 0
 __Linit AE 0 CODE 0
 __Hintcodelo AE 0 CODE 0
@@ -284,6 +283,7 @@ ___fldiv@sign 45 0 COMRAM 1
 ___aodiv@sign 12 0 COMRAM 1
 ___awdiv@sign 6 0 COMRAM 1
 __end_of_timer_0_init 5A62 0 CODE 0
+_isspace$3095 7 0 COMRAM 1
 __size_of_abs 0 0 ABS 0
 __end_of___flneg 581C 0 CODE 0
 _PWM1_setDC 5190 0 CODE 0
@@ -291,10 +291,12 @@ _PWM2_setDC 5116 0 CODE 0
 __size_of_buttonControlFlags 0 0 ABS 0
 ___wmul@multiplicand 3 0 COMRAM 1
 __size_of___aodiv 0 0 ABS 0
+_efgtoa$3002 77 0 BANK0 1
 __end_of___aodiv 3F98 0 CODE 0
 vfprintf@fmt C9 0 BANK0 1
 lcdWriteChar@y 3 0 COMRAM 1
 _loopTaskMenuControl 520A 0 CODE 0
+_vfpfcnvrt$3022 B9 0 BANK0 1
 __HdataBANK1 0 0 ABS 0
 __LdataBANK1 0 0 ABS 0
 __end_of_fputs 5632 0 CODE 0
@@ -317,8 +319,8 @@ _TRISEbits F96 0 ABS 0
 _startMenu 5A0C 0 CODE 0
 _PORTDbits F83 0 ABS 0
 _T2CONbits FBA 0 ABS 0
+_calculatedAverageValue$3395 60 0 BANK0 1
 ___fladd@grs 44 0 COMRAM 1
-_efgtoa$3003 77 0 BANK0 1
 __size_of_stopMenu 0 0 ABS 0
 __end_of_loopTaskMenuControl 5280 0 CODE 0
 __Hibigdata 0 0 CODE 0
@@ -336,15 +338,15 @@ __Lbank0 0 0 ABS 0
 __size_of_driverTimeSettingMenu 0 0 ABS 0
 __Hbank1 0 0 ABS 0
 __Lbank1 0 0 ABS 0
-_isspace$3096 7 0 COMRAM 1
 __Hbank2 0 0 ABS 0
 __Lbank2 0 0 ABS 0
 __Hbank3 0 0 ABS 0
 __end_of_eepromWrite 595A 0 CODE 0
 __Lbank3 0 0 ABS 0
+_vfpfcnvrt$3028 BD 0 BANK0 1
 __Hbank4 0 0 ABS 0
 __Lbank4 0 0 ABS 0
-_calculatedAverageValue$3396 60 0 BANK0 1
+_calculatedAverageValue$3396 64 0 BANK0 1
 __Hbank5 0 0 ABS 0
 __Lbank5 0 0 ABS 0
 __size_of_efgtoa 0 0 ABS 0
@@ -393,7 +395,6 @@ _vfpfcnvrt 1278 0 CODE 0
 __size_of_startMotor 0 0 ABS 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
-_calculatedAverageValue$3397 64 0 BANK0 1
 __end_of_isspace 555E 0 CODE 0
 __size_of_stopTimeSettingMenu 0 0 ABS 0
 __size_of_PWM1_setDC 0 0 ABS 0
@@ -422,6 +423,7 @@ efgtoa@i 99 0 BANK0 1
 strcpy@d 9 0 COMRAM 1
 efgtoa@l 95 0 BANK0 1
 efgtoa@m 83 0 BANK0 1
+_efgtoa$3006 79 0 BANK0 1
 __end_of_mcuInit 5A3C 0 CODE 0
 efgtoa@n A1 0 BANK0 1
 floorf@m 60 0 BANK0 1
@@ -452,7 +454,7 @@ fputs@fp C 0 COMRAM 1
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
 ___aomod 3F98 0 CODE 0
-_efgtoa$3007 79 0 BANK0 1
+_efgtoa$3007 7B 0 BANK0 1
 __end_of___lldiv 4EE2 0 CODE 0
 ___awmod 4CE4 0 CODE 0
 ___fpclassifyf@x 1 0 COMRAM 1
@@ -468,12 +470,13 @@ _menu_value F3 0 BANK0 1
 __LcstackCOMRAM 0 0 ABS 0
 efgtoa@sign 89 0 BANK0 1
 __pcstackCOMRAM 1 0 COMRAM 1
+_tolower$3159 D 0 COMRAM 1
 ?_floorf 4E 0 COMRAM 1
 pauseMenu@textCursor2 60 0 BANK0 1
 __end_of___aomod 40FC 0 CODE 0
 _sprintf 54BA 0 CODE 0
 speedControl@position 58 0 COMRAM 1
-__Hspace_1 2B9 0 ABS 0
+__Hspace_1 2A0 0 ABS 0
 __Lspace_1 0 0 ABS 0
 ?_strlen 1 0 COMRAM 1
 __Hsmallconst 6C8 0 SMALLCONST 0
@@ -510,7 +513,7 @@ _lcdPort 540C 0 CODE 0
 __size_of_main 0 0 ABS 0
 __end_of_stateMachine 4CE4 0 CODE 0
 _scanAdcConversion 1D76 0 CODE 0
-_efgtoa$3008 7B 0 BANK0 1
+_efgtoa$3008 7D 0 BANK0 1
 __end_of_fputc 4AA8 0 CODE 0
 __size_of___flmul 0 0 ABS 0
 __Hconst 0 0 CONST 0
@@ -526,7 +529,6 @@ __end_of_isdigit 5854 0 CODE 0
 __end_of_adcInit 5770 0 CODE 0
 __end_of_sprintf 550C 0 CODE 0
 __size_of_PWM2_setDC 0 0 ABS 0
-_efgtoa$3009 7D 0 BANK0 1
 __end_of_lcdPort 5468 0 CODE 0
 __end_of_pad 4B6E 0 CODE 0
 lcdWriteString@i 9 0 COMRAM 1
@@ -559,7 +561,7 @@ __Htext11 0 0 ABS 0
 __Ltext30 0 0 ABS 0
 __Ltext11 0 0 ABS 0
 __ptext20 54BA 0 CODE 0
-_vfpfcnvrt$3023 B9 0 BANK0 1
+_vfpfcnvrt$3023 BB 0 BANK0 1
 _systemInit 4828 0 CODE 0
 __Htext40 0 0 ABS 0
 __Htext21 0 0 ABS 0
@@ -780,7 +782,6 @@ __Htext69 0 0 ABS 0
 __Ltext69 0 0 ABS 0
 __ptext59 5098 0 CODE 0
 __ptext69 5982 0 CODE 0
-_vfpfcnvrt$3029 BD 0 BANK0 1
 __end_of_isupper 57E4 0 CODE 0
 ___aodiv@divisor 9 0 COMRAM 1
 ___lldiv@divisor 5 0 COMRAM 1
@@ -821,9 +822,9 @@ intlevel0 0 0 CODE 0
 intlevel1 0 0 CODE 0
 vfprintf@cfmt CD 0 BANK0 1
 __size_of_exitLine 0 0 ABS 0
-_tolower$3160 D 0 COMRAM 1
 ___xxtofl@val E 0 COMRAM 1
 intlevel2 0 0 CODE 0
+_efgtoa$2997 73 0 BANK0 1
 intlevel3 0 0 CODE 0
 __end_of_vfprintf 52EA 0 CODE 0
 __end_of_loopTaskTimeMachine 5008 0 CODE 0
@@ -835,7 +836,7 @@ lcdSetCursor@temp 8 0 COMRAM 1
 vfpfcnvrt@ll B1 0 BANK0 1
 __size_of___fltol 0 0 ABS 0
 ___fladd@aexp 42 0 COMRAM 1
-_efgtoa$2998 73 0 BANK0 1
+_efgtoa$2998 75 0 BANK0 1
 __size_of_speedLimitSettingMenu 0 0 ABS 0
 __end_of___wmul 59D0 0 CODE 0
 __end_of_fabsf 592C 0 CODE 0
@@ -856,7 +857,6 @@ ___fladd@a 39 0 COMRAM 1
 vfpfcnvrt@fp A7 0 BANK0 1
 __end_of_systemInit 4908 0 CODE 0
 _stopTimeSettingMenu 4228 0 CODE 0
-_efgtoa$2999 75 0 BANK0 1
 ___fladd@b 35 0 COMRAM 1
 __size_of_sprintf 0 0 ABS 0
 __size_of___awmod 0 0 ABS 0
@@ -895,7 +895,6 @@ ___fpclassifyf 4646 0 CODE 0
 __end_of_readAdcValue 5674 0 CODE 0
 ___fldiv@b 35 0 COMRAM 1
 lcdPort@a 1 0 COMRAM 1
-_textCursor2 220 0 BANK2 1
 ___aodiv@dividend 1 0 COMRAM 1
 ___lldiv@dividend 1 0 COMRAM 1
 lcdSetCursor@y 7 0 COMRAM 1
@@ -911,56 +910,56 @@ eeprom_data F00000 F00007 EEDATA F00000 0
 cstackCOMRAM 1 5F COMRAM 1 1
 cstackBANK0 60 FF BANK0 60 1
 bssBANK1 100 1FA BANK1 100 1
-bssBANK2 200 2B8 BANK2 200 1
+bssBANK2 200 29F BANK2 200 1
 text24 6C8 5A73 CODE 6C8 0
 %locals
 dist/default/production\930.01_v45K22.X.production.o
 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc/pic18f45k22.h
 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc/pic18f45k22.h
-C:\Users\Dell\AppData\Local\Temp\sb8c.s
+C:\Users\Dell\AppData\Local\Temp\s24k.s
 5261 5468 0 CODE 0
 5263 5468 0 CODE 0
 5266 5468 0 CODE 0
-5444 5468 0 CODE 0
-5445 546A 0 CODE 0
-5446 546C 0 CODE 0
-5447 546E 0 CODE 0
-5448 5470 0 CODE 0
-5449 5472 0 CODE 0
-5450 5474 0 CODE 0
-5451 5478 0 CODE 0
-5452 547C 0 CODE 0
-5453 547C 0 CODE 0
-5454 547E 0 CODE 0
-5455 5482 0 CODE 0
-5456 5484 0 CODE 0
-5457 5486 0 CODE 0
-5461 5488 0 CODE 0
-5462 548C 0 CODE 0
-5463 548E 0 CODE 0
-5464 548E 0 CODE 0
-5465 5490 0 CODE 0
-5466 5492 0 CODE 0
-5469 5494 0 CODE 0
-5470 5498 0 CODE 0
-5471 549A 0 CODE 0
-5472 549A 0 CODE 0
-5473 549C 0 CODE 0
-5474 549E 0 CODE 0
-5477 54A0 0 CODE 0
-5478 54A4 0 CODE 0
-5479 54A6 0 CODE 0
-5480 54A6 0 CODE 0
-5481 54A8 0 CODE 0
-5482 54AA 0 CODE 0
-5488 54AC 0 CODE 0
-5490 54AC 0 CODE 0
-5491 54AE 0 CODE 0
-5493 54B0 0 CODE 0
-5494 54B2 0 CODE 0
-5495 54B4 0 CODE 0
-5496 54B6 0 CODE 0
+5440 5468 0 CODE 0
+5441 546A 0 CODE 0
+5442 546C 0 CODE 0
+5443 546E 0 CODE 0
+5444 5470 0 CODE 0
+5445 5472 0 CODE 0
+5446 5474 0 CODE 0
+5447 5478 0 CODE 0
+5448 547C 0 CODE 0
+5449 547C 0 CODE 0
+5450 547E 0 CODE 0
+5451 5482 0 CODE 0
+5452 5484 0 CODE 0
+5453 5486 0 CODE 0
+5457 5488 0 CODE 0
+5458 548C 0 CODE 0
+5459 548E 0 CODE 0
+5460 548E 0 CODE 0
+5461 5490 0 CODE 0
+5462 5492 0 CODE 0
+5465 5494 0 CODE 0
+5466 5498 0 CODE 0
+5467 549A 0 CODE 0
+5468 549A 0 CODE 0
+5469 549C 0 CODE 0
+5470 549E 0 CODE 0
+5473 54A0 0 CODE 0
+5474 54A4 0 CODE 0
+5475 54A6 0 CODE 0
+5476 54A6 0 CODE 0
+5477 54A8 0 CODE 0
+5478 54AA 0 CODE 0
+5484 54AC 0 CODE 0
+5486 54AC 0 CODE 0
+5487 54AE 0 CODE 0
+5489 54B0 0 CODE 0
+5490 54B2 0 CODE 0
+5491 54B4 0 CODE 0
+5492 54B6 0 CODE 0
 fs_main.c
 109 5A3C 0 CODE 0
 111 5A3C 0 CODE 0
@@ -1243,30 +1242,30 @@ fs_adc.c
 95 1D76 0 CODE 0
 98 1D7A 0 CODE 0
 99 1D88 0 CODE 0
-102 1DFE 0 CODE 0
-105 1E02 0 CODE 0
-106 1E10 0 CODE 0
-109 1E86 0 CODE 0
-112 1E8A 0 CODE 0
-113 1E98 0 CODE 0
-116 1F0E 0 CODE 0
-119 1F12 0 CODE 0
-120 1F20 0 CODE 0
-123 1F96 0 CODE 0
-126 1F9A 0 CODE 0
-127 1FA8 0 CODE 0
-130 201E 0 CODE 0
-133 2022 0 CODE 0
-134 2030 0 CODE 0
-137 20A6 0 CODE 0
-140 20AA 0 CODE 0
-141 20B8 0 CODE 0
-144 212E 0 CODE 0
-147 2132 0 CODE 0
-148 2140 0 CODE 0
-152 21B6 0 CODE 0
-153 21BA 0 CODE 0
-154 2216 0 CODE 0
+100 1DFE 0 CODE 0
+103 1E02 0 CODE 0
+104 1E10 0 CODE 0
+105 1E86 0 CODE 0
+108 1E8A 0 CODE 0
+109 1E98 0 CODE 0
+110 1F0E 0 CODE 0
+113 1F12 0 CODE 0
+114 1F20 0 CODE 0
+115 1F96 0 CODE 0
+118 1F9A 0 CODE 0
+119 1FA8 0 CODE 0
+120 201E 0 CODE 0
+123 2022 0 CODE 0
+124 2030 0 CODE 0
+125 20A6 0 CODE 0
+128 20AA 0 CODE 0
+129 20B8 0 CODE 0
+130 212E 0 CODE 0
+133 2132 0 CODE 0
+134 2140 0 CODE 0
+135 21B6 0 CODE 0
+136 21BA 0 CODE 0
+137 2216 0 CODE 0
 fs_adc.c
 34 5632 0 CODE 0
 36 5634 0 CODE 0
@@ -1278,16 +1277,16 @@ fs_adc.c
 43 566A 0 CODE 0
 44 5672 0 CODE 0
 fs_adc.c
-162 2642 0 CODE 0
-164 2642 0 CODE 0
-165 2654 0 CODE 0
-166 2664 0 CODE 0
-169 2674 0 CODE 0
-174 27FC 0 CODE 0
-179 2984 0 CODE 0
-181 299E 0 CODE 0
-186 29E6 0 CODE 0
-187 2A54 0 CODE 0
+145 2642 0 CODE 0
+147 2642 0 CODE 0
+148 2654 0 CODE 0
+149 2664 0 CODE 0
+152 2674 0 CODE 0
+157 27FC 0 CODE 0
+162 2984 0 CODE 0
+164 299E 0 CODE 0
+169 29E6 0 CODE 0
+170 2A54 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\__lldiv.c
 7 4E3E 0 CODE 0
 13 4E3E 0 CODE 0
@@ -2471,8 +2470,8 @@ C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\fltol.c
 68 4520 0 CODE 0
 69 4530 0 CODE 0
 70 4540 0 CODE 0
-C:\Users\Dell\AppData\Local\Temp\sb8c.s
-26359 8 0 CODE 0
+C:\Users\Dell\AppData\Local\Temp\s24k.s
+26355 8 0 CODE 0
 fs_timer.c
 33 8 0 CODE 0
 35 A 0 CODE 0

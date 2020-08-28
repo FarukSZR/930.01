@@ -773,14 +773,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_main.c: 38: __asm("\tpsect eeprom_data,class=EEDATA,noexec"); __asm("\tdb\t" "30" "," "10" "," "4" "," "0" "," "0" "," "0" "," "0" "," "0");
 [; <" 	psect eeprom_data,class=EEDATA,noexec ;# ">
 [; <" 	db	30,10,4,0,0,0,0,0 ;# ">
-"39
-[; ;fs_main.c: 39: char textCursor2[25] = {0};
-[v _textCursor2 `uc ~T0 @X0 -> 25 `i e ]
-[i _textCursor2
-:U ..
--> -> 0 `i `uc
-..
-]
 "54
 [; ;fs_main.c: 54: void loopTaskTimeMachine(void)
 [v _loopTaskTimeMachine `(v ~T0 @X0 1 ef ]
@@ -920,13 +912,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "116
 [; ;fs_main.c: 116:         loopTaskMenuControl();
 [e ( _loopTaskMenuControl ..  ]
-"143
-[; ;fs_main.c: 143:     }
+"142
+[; ;fs_main.c: 142:     }
 }
 [e :U 871 ]
 [e $U 872  ]
 [e :U 873 ]
-"144
-[; ;fs_main.c: 144: }
+"143
+[; ;fs_main.c: 143: }
 [e :UE 870 ]
 }

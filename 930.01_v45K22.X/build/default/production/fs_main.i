@@ -10528,7 +10528,6 @@ tS_driver_limit driver_limit;
 
 
 __asm("\tpsect eeprom_data,class=EEDATA,noexec"); __asm("\tdb\t" "30" "," "10" "," "4" "," "0" "," "0" "," "0" "," "0" "," "0");
-char textCursor2[25] = {0};
 # 54 "fs_main.c"
 void loopTaskTimeMachine(void)
 {
@@ -10586,6 +10585,6 @@ void main(void)
     {
         loopTaskTimeMachine();
         loopTaskMenuControl();
-# 143 "fs_main.c"
+# 142 "fs_main.c"
     }
 }
