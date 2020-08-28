@@ -173,5 +173,5 @@ void calculatedAverageValue(void)
                                      convert_data.convert_channel_4 + convert_data.convert_channel_5 + 
                                      convert_data.convert_channel_6 + convert_data.convert_channel_7 ) ;
     
-    driver_limit.ortalama = (float)(driver_limit.pay/driver_limit.payda);
+    driver_limit.ortalama = (float) ((driver_limit.pay/driver_limit.payda)/10.0);
 }
