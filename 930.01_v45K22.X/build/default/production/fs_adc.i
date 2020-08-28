@@ -9852,63 +9852,14 @@ void loopTaskInit(void);
 
 # 1 "./fs_speed_controller.h" 1
 # 36 "./fs_speed_controller.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 1 3
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 411 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct __locale_struct * locale_t;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 2 3
-
-
-void *memcpy (void *restrict, const void *restrict, size_t);
-void *memmove (void *, const void *, size_t);
-void *memset (void *, int, size_t);
-int memcmp (const void *, const void *, size_t);
-void *memchr (const void *, int, size_t);
-
-char *strcpy (char *restrict, const char *restrict);
-char *strncpy (char *restrict, const char *restrict, size_t);
-
-char *strcat (char *restrict, const char *restrict);
-char *strncat (char *restrict, const char *restrict, size_t);
-
-int strcmp (const char *, const char *);
-int strncmp (const char *, const char *, size_t);
-
-int strcoll (const char *, const char *);
-size_t strxfrm (char *restrict, const char *restrict, size_t);
-
-char *strchr (const char *, int);
-char *strrchr (const char *, int);
-
-size_t strcspn (const char *, const char *);
-size_t strspn (const char *, const char *);
-char *strpbrk (const char *, const char *);
-char *strstr (const char *, const char *);
-char *strtok (char *restrict, const char *restrict);
-
-size_t strlen (const char *);
-
-char *strerror (int);
-# 65 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 3
-char *strtok_r (char *restrict, const char *restrict, char **restrict);
-int strerror_r (int, char *, size_t);
-char *stpcpy(char *restrict, const char *restrict);
-char *stpncpy(char *restrict, const char *restrict, size_t);
-size_t strnlen (const char *, size_t);
-char *strdup (const char *);
-char *strndup (const char *, size_t);
-char *strsignal(int);
-char *strerror_l (int, locale_t);
-int strcoll_l (const char *, const char *, locale_t);
-size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
-
-
-
-
-void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 1 "./fs_adc.h" 1
 # 36 "./fs_speed_controller.h" 2
 
+# 1 "./fs_mcu.h" 1
+# 37 "./fs_speed_controller.h" 2
+
+# 1 "./fs_pwm.h" 1
+# 37 "./fs_pwm.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\math.h" 1 3
 # 15 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\math.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -10281,19 +10232,8 @@ double jn(int, double);
 double y0(double);
 double y1(double);
 double yn(int, double);
-# 37 "./fs_speed_controller.h" 2
+# 37 "./fs_pwm.h" 2
 
-# 1 "./fs_lcd.h" 1
-# 38 "./fs_speed_controller.h" 2
-
-# 1 "./fs_adc.h" 1
-# 39 "./fs_speed_controller.h" 2
-
-# 1 "./fs_mcu.h" 1
-# 40 "./fs_speed_controller.h" 2
-
-# 1 "./fs_pwm.h" 1
-# 38 "./fs_pwm.h"
 # 1 "./fs_mcu.h" 1
 # 38 "./fs_pwm.h" 2
 
@@ -10303,12 +10243,12 @@ double yn(int, double);
 void PWM_Init(void);
 void PWM1_setDC(int16_t dutycycle);
 void PWM2_setDC(int16_t dutycycle);
-# 41 "./fs_speed_controller.h" 2
+# 38 "./fs_speed_controller.h" 2
 
 
-static float KP = 0.5;
-static float KD = 5.0;
-# 54 "./fs_speed_controller.h"
+static float KP = 0.2;
+static float KD = 1.0;
+# 51 "./fs_speed_controller.h"
 void speedControl(float position);
 void stopMotor(void);
 void startMotor(void);
@@ -10319,8 +10259,8 @@ typedef struct
     int16_t error;
     int16_t lastError;
     uint16_t motorSpeed;
-    uint16_t leftMotorSpeed;
-    uint16_t rightMotorSpeed;
+    int16_t leftMotorSpeed;
+    int16_t rightMotorSpeed;
 
     float left;
     float right;
@@ -10488,14 +10428,14 @@ typedef struct
 
 typedef struct
 {
-    uint16_t convert_channel_0;
-    uint16_t convert_channel_1;
-    uint16_t convert_channel_2;
-    uint16_t convert_channel_3;
-    uint16_t convert_channel_4;
-    uint16_t convert_channel_5;
-    uint16_t convert_channel_6;
-    uint16_t convert_channel_7;
+    uint32_t convert_channel_0;
+    uint32_t convert_channel_1;
+    uint32_t convert_channel_2;
+    uint32_t convert_channel_3;
+    uint32_t convert_channel_4;
+    uint32_t convert_channel_5;
+    uint32_t convert_channel_6;
+    uint32_t convert_channel_7;
 
     uint16_t convert_channel_0_f;
     uint16_t convert_channel_1_f;
@@ -10509,9 +10449,7 @@ typedef struct
 
 typedef struct
 {
-    uint32_t pay_1;
-    uint32_t pay_2;
-    uint32_t total_pay;
+    uint32_t pay;
     uint32_t payda;
     float ortalama;
 }tS_driver_limit;
@@ -10573,42 +10511,51 @@ void scanAdcConversion(void)
     {
         case 1:
             adc_raw_data.channel_0 = readAdcValue(0);
-            convert_data.convert_channel_0 = (uint16_t)((adc_raw_data.channel_0*5.0)/1024.0);
+            procces_data.channel_0 = (float)((adc_raw_data.channel_0*5.0)/1024.0);
+            convert_data.convert_channel_0 = (uint32_t)((procces_data.channel_0*999)/5);
         break;
 
         case 2:
             adc_raw_data.channel_1 = readAdcValue(1);
-            convert_data.convert_channel_1 = (uint16_t)((adc_raw_data.channel_1*5.0)/1024.0);
+            procces_data.channel_1 = (float)((adc_raw_data.channel_1*5.0)/1024.0);
+            convert_data.convert_channel_1 = (uint32_t)((procces_data.channel_1*999)/5);
         break;
 
         case 3:
             adc_raw_data.channel_2 = readAdcValue(2);
-            convert_data.convert_channel_2 = (uint16_t)((adc_raw_data.channel_2*5.0)/1024.0);
+            procces_data.channel_2 = (float)((adc_raw_data.channel_2*5.0)/1024.0);
+            convert_data.convert_channel_2 = (uint32_t)((procces_data.channel_2*999)/5);
+            convert_data.convert_channel_2_f = (uint16_t)((procces_data.channel_2*999)/5);
         break;
 
         case 4:
             adc_raw_data.channel_3 = readAdcValue(3);
-            convert_data.convert_channel_3 = (uint16_t)((adc_raw_data.channel_3*5.0)/1024.0);
+            procces_data.channel_3 = (float)((adc_raw_data.channel_3*5.0)/1024.0);
+            convert_data.convert_channel_3 = (uint32_t)((procces_data.channel_3*999)/5);
         break;
 
         case 5:
             adc_raw_data.channel_4 = readAdcValue(4);
-            convert_data.convert_channel_4 = (uint16_t)((adc_raw_data.channel_4*5.0)/1024.0);
+            procces_data.channel_4 = (float)((adc_raw_data.channel_4*5.0)/1024.0);
+            convert_data.convert_channel_4 = (uint32_t)((procces_data.channel_4*999)/5);
         break;
 
         case 6:
            adc_raw_data.channel_5 = readAdcValue(5);
-           convert_data.convert_channel_5 = (uint16_t)((adc_raw_data.channel_5*5.0)/1024.0);
+           procces_data.channel_5 = (float)((adc_raw_data.channel_5*5.0)/1024.0);
+           convert_data.convert_channel_5 = (uint32_t)((procces_data.channel_5*999)/5);
         break;
 
         case 7:
             adc_raw_data.channel_6 = readAdcValue(6);
-            convert_data.convert_channel_6 = (uint16_t)((adc_raw_data.channel_6*5.0)/1024.0);
+            procces_data.channel_6 = (float)((adc_raw_data.channel_6*5.0)/1024.0);
+            convert_data.convert_channel_6 = (uint32_t)((procces_data.channel_6*999)/5);
         break;
 
         case 8:
             adc_raw_data.channel_7 = readAdcValue(7);
-            convert_data.convert_channel_7 = (uint16_t)((adc_raw_data.channel_7*5.0)/1024.0);
+            procces_data.channel_7 = (float)((adc_raw_data.channel_7*5.0)/1024.0);
+            convert_data.convert_channel_7 = (uint32_t)((procces_data.channel_7*999)/5);
         break;
     }
 }
@@ -10621,27 +10568,25 @@ void scanAdcConversion(void)
 
 void calculatedAverageValue(void)
 {
-    driver_limit.pay_1 = 0;
+    driver_limit.pay = 0;
     driver_limit.payda = 0;
     driver_limit.ortalama = 0;
 
 
-   driver_limit.pay_1 =(uint32_t) ( (convert_data.convert_channel_0 *1.0) +
-                                    (convert_data.convert_channel_1 * 1000.0) +
-                                    (convert_data.convert_channel_2 * 2000.0) +
-                                    (convert_data.convert_channel_3 * 3000.0));
+   driver_limit.pay =(uint32_t) ( (convert_data.convert_channel_0 *1) +
+                                  (convert_data.convert_channel_1 * 1000) +
+                                  (convert_data.convert_channel_2 * 2000) +
+                                  (convert_data.convert_channel_3 * 3000));
 
-   driver_limit.pay_2 = (uint32_t) ( (convert_data.convert_channel_4 * 4000.0) +
-                                     (convert_data.convert_channel_5 * 5000.0) +
-                                     (convert_data.convert_channel_6 * 6000.0) +
-                                     (convert_data.convert_channel_7 * 7000.0) );
-
-   driver_limit.total_pay = (uint32_t)(driver_limit.pay_1+driver_limit.pay_2);
+   driver_limit.pay += (uint32_t)( (convert_data.convert_channel_4 * 4000) +
+                                   (convert_data.convert_channel_5 * 5000) +
+                                   (convert_data.convert_channel_6 * 6000) +
+                                   (convert_data.convert_channel_7 * 7000) );
 
     driver_limit.payda = (uint32_t) (convert_data.convert_channel_0 + convert_data.convert_channel_1 +
                                      convert_data.convert_channel_2 + convert_data.convert_channel_3 +
                                      convert_data.convert_channel_4 + convert_data.convert_channel_5 +
                                      convert_data.convert_channel_6 + convert_data.convert_channel_7 ) ;
 
-    driver_limit.ortalama = (float)((driver_limit.total_pay/driver_limit.payda)/10.0);
+    driver_limit.ortalama = (float)(driver_limit.pay/driver_limit.payda);
 }

@@ -96,45 +96,55 @@ void scanAdcConversion(void)
     {
         case 1:
             adc_raw_data.channel_0 = readAdcValue(AN0); // RA0 pin
-            convert_data.convert_channel_0 = (uint16_t)((adc_raw_data.channel_0*5.0)/1024.0);       
+            procces_data.channel_0 = (float)((adc_raw_data.channel_0*5.0)/1024.0);
+            convert_data.convert_channel_0 = (uint32_t)((procces_data.channel_0*999)/5);        
         break;
 
         case 2:
             adc_raw_data.channel_1 = readAdcValue(AN1); // RA1 pin
-            convert_data.convert_channel_1 = (uint16_t)((adc_raw_data.channel_1*5.0)/1024.0);        
+            procces_data.channel_1 = (float)((adc_raw_data.channel_1*5.0)/1024.0);
+            convert_data.convert_channel_1 = (uint32_t)((procces_data.channel_1*999)/5);           
         break;
 
         case 3:
             adc_raw_data.channel_2 = readAdcValue(AN2); // RA2 pin
-            convert_data.convert_channel_2 = (uint16_t)((adc_raw_data.channel_2*5.0)/1024.0);
+            procces_data.channel_2 = (float)((adc_raw_data.channel_2*5.0)/1024.0);
+            convert_data.convert_channel_2 = (uint32_t)((procces_data.channel_2*999)/5);
+            convert_data.convert_channel_2_f = (uint16_t)((procces_data.channel_2*999)/5);
         break;
 
         case 4:
             adc_raw_data.channel_3 = readAdcValue(AN3); // RA3 pin
-            convert_data.convert_channel_3 = (uint16_t)((adc_raw_data.channel_3*5.0)/1024.0);
+            procces_data.channel_3 = (float)((adc_raw_data.channel_3*5.0)/1024.0);          
+            convert_data.convert_channel_3 = (uint32_t)((procces_data.channel_3*999)/5);
         break;
 
         case 5:
             adc_raw_data.channel_4 = readAdcValue(AN4); // RA5 pin
-            convert_data.convert_channel_4 = (uint16_t)((adc_raw_data.channel_4*5.0)/1024.0);
+            procces_data.channel_4 = (float)((adc_raw_data.channel_4*5.0)/1024.0);
+            convert_data.convert_channel_4 = (uint32_t)((procces_data.channel_4*999)/5);
         break;
 
         case 6:
            adc_raw_data.channel_5 = readAdcValue(AN5); // RE0 pin
-           convert_data.convert_channel_5 = (uint16_t)((adc_raw_data.channel_5*5.0)/1024.0);
+           procces_data.channel_5 = (float)((adc_raw_data.channel_5*5.0)/1024.0);
+           convert_data.convert_channel_5 = (uint32_t)((procces_data.channel_5*999)/5);
         break;
 
         case 7:
             adc_raw_data.channel_6 = readAdcValue(AN6); // RE1 pin
-            convert_data.convert_channel_6 = (uint16_t)((adc_raw_data.channel_6*5.0)/1024.0);
+            procces_data.channel_6 = (float)((adc_raw_data.channel_6*5.0)/1024.0);
+            convert_data.convert_channel_6 = (uint32_t)((procces_data.channel_6*999)/5);
         break;
         
         case 8:
             adc_raw_data.channel_7 = readAdcValue(AN7); // RE2 pin
-            convert_data.convert_channel_7 = (uint16_t)((adc_raw_data.channel_7*5.0)/1024.0);           
+            procces_data.channel_7 = (float)((adc_raw_data.channel_7*5.0)/1024.0);
+            convert_data.convert_channel_7 = (uint32_t)((procces_data.channel_7*999)/5);
         break;
     }
 }
+
 
 /*
  * @brief  Function that holds ADC raw data and translates. The end time of all cycles is 80ms.
@@ -143,27 +153,25 @@ void scanAdcConversion(void)
  */
 void calculatedAverageValue(void)
 {
-    driver_limit.pay_1 = 0;
+    driver_limit.pay = 0;
     driver_limit.payda = 0;
     driver_limit.ortalama = 0;
     
-     /*Limit 27972999/7992*/
-   driver_limit.pay_1 =(uint32_t) ( (convert_data.convert_channel_0 *1.0) +  
-                                    (convert_data.convert_channel_1 * 1000.0) + 
-                                    (convert_data.convert_channel_2 * 2000.0) + 
-                                    (convert_data.convert_channel_3 * 3000.0));  
+     /*Limit 27972999/6993*/
+   driver_limit.pay =(uint32_t) ( (convert_data.convert_channel_0 *1) +  
+                                  (convert_data.convert_channel_1 * 1000) + 
+                                  (convert_data.convert_channel_2 * 2000) + 
+                                  (convert_data.convert_channel_3 * 3000));  
            
-   driver_limit.pay_2 = (uint32_t) ( (convert_data.convert_channel_4 * 4000.0) + 
-                                     (convert_data.convert_channel_5 * 5000.0) +  
-                                     (convert_data.convert_channel_6 * 6000.0) +
-                                     (convert_data.convert_channel_7 * 7000.0) );
-   
-   driver_limit.total_pay = (uint32_t)(driver_limit.pay_1+driver_limit.pay_2);
+   driver_limit.pay += (uint32_t)( (convert_data.convert_channel_4 * 4000) + 
+                                   (convert_data.convert_channel_5 * 5000) + 
+                                   (convert_data.convert_channel_6 * 6000) + 
+                                   (convert_data.convert_channel_7 * 7000) );
    
     driver_limit.payda = (uint32_t) (convert_data.convert_channel_0 + convert_data.convert_channel_1 + 
                                      convert_data.convert_channel_2 + convert_data.convert_channel_3 + 
                                      convert_data.convert_channel_4 + convert_data.convert_channel_5 + 
                                      convert_data.convert_channel_6 + convert_data.convert_channel_7 ) ;
     
-    driver_limit.ortalama = (float)((driver_limit.total_pay/driver_limit.payda)/10.0);
+    driver_limit.ortalama = (float) ((driver_limit.pay/driver_limit.payda)/10.0);
 }
