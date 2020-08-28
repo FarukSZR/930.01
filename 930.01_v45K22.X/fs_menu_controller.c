@@ -246,11 +246,11 @@ void mainMenu(void)
 {
     char textCursor2[16] = {0};
     
-//    lcdSetCursor(1,1);
-//    lcdWriteString("KALAN ZAMAN     ");    
-//    lcdSetCursor(2,1);
-//    sprintf(textCursor2,"      %d:%d   ",timer_value.remainingMinute,timer_value.remainingSecond);     
-//    lcdWriteString(textCursor2);
+    lcdSetCursor(1,1);
+    lcdWriteString("KALAN ZAMAN     ");    
+    lcdSetCursor(2,1);
+    sprintf(textCursor2,"      %d:%d   ",timer_value.remainingMinute,timer_value.remainingSecond);     
+    lcdWriteString(textCursor2);
 
     if ( timer_value.menu_login_delay == MENU_TIMEOUT)
     {
@@ -293,19 +293,6 @@ void mainMenu(void)
         COMMUNICATION_SIGNAL = 1;
         LAMB_OUTPUT = 1;
     }
-    else
-    {
-        stopMotor();
-        lcdClear();
-        convert_data.convert_channel_0 = 0;
-        convert_data.convert_channel_1 = 0;
-        convert_data.convert_channel_2 = 0;
-        convert_data.convert_channel_3 = 0;
-        convert_data.convert_channel_4 = 0;
-        convert_data.convert_channel_5 = 0;
-        convert_data.convert_channel_6 = 0;
-        convert_data.convert_channel_7 = 0;
-    }
 }
 
 
@@ -331,9 +318,9 @@ void stopMenu(void)
     timer_value.remainingSecond = 0;
     timer_value.remainingMinute = 0;
 
-//    lcdSetCursor(2,1);
-//    sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
-//    lcdWriteString(textCursor2);
+    lcdSetCursor(2,1);
+    sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
+    lcdWriteString(textCursor2);
 
     if (menu_flags.menu_start_flag == TRUE)
     {           
@@ -373,11 +360,11 @@ void pauseMenu(void)
     
     stopMotor();
     
-//    lcdSetCursor(1,1);
-//    lcdWriteString("HAREKET DURDU   ");  
-//    lcdSetCursor(2,1);
-//    sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
-//    lcdWriteString(textCursor2); 
+    lcdSetCursor(1,1);
+    lcdWriteString("HAREKET DURDU   ");  
+    lcdSetCursor(2,1);
+    sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
+    lcdWriteString(textCursor2); 
 
     if (menu_flags.menu_start_flag == TRUE) 
     {           

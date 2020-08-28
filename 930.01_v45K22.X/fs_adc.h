@@ -80,14 +80,14 @@ typedef struct
 
 typedef struct
 {
-    uint16_t convert_channel_0;
-    uint16_t convert_channel_1;
-    uint16_t convert_channel_2;
-    uint16_t convert_channel_3;
-    uint16_t convert_channel_4;
-    uint16_t convert_channel_5;
-    uint16_t convert_channel_6;
-    uint16_t convert_channel_7;
+    uint32_t convert_channel_0;
+    uint32_t convert_channel_1;
+    uint32_t convert_channel_2;
+    uint32_t convert_channel_3;
+    uint32_t convert_channel_4;
+    uint32_t convert_channel_5;
+    uint32_t convert_channel_6;
+    uint32_t convert_channel_7;
     
     uint16_t convert_channel_0_f;
     uint16_t convert_channel_1_f;
@@ -101,9 +101,7 @@ typedef struct
 
 typedef struct
 {
-    uint32_t pay_1;
-    uint32_t pay_2;
-    uint32_t total_pay;
+    uint32_t pay;
     uint32_t payda;
     float ortalama;
 }tS_driver_limit;
