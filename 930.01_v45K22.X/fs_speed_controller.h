@@ -42,9 +42,9 @@ extern "C" {
 static float KP =  0.2;
 static float KD =  1.0;
     
-#define MAX_SPEED   350
-#define MIN_SPEED   50
-#define DEF_SPEED   200
+#define MAX_SPEED   500
+#define MIN_SPEED   300
+#define DEF_SPEED   150
 
 //#define MAX_SPEED_MOTOR_RIGHT   450
 //#define MIN_SPEED_MOTOR_RIGHT   150
