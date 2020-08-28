@@ -29,7 +29,7 @@
 //#define LCD_4x20
 
 #ifdef LCD_4x20
-char textCursor2[16] = {0};
+char textCursor2[20] = {0};
 #endif
 
 /*
@@ -43,12 +43,13 @@ void speedControl(float position)
     
     pos = (float) position;
     
-    controller.error = (int16_t)(position - 340.0); //3400.0
-    controller.motorSpeed = (int16_t) (KP * controller.error + KD * (controller.error - controller.lastError));
+    controller.error = (int16_t)(position - 340.0);
+    controller.motorSpeed = (uint16_t) (KP * controller.error + KD * (controller.error - controller.lastError));
+    controller.motorSpeed = (uint16_t) controller.motorSpeed;
     controller.lastError = controller.error;
 
-   controller.leftMotorSpeed  =(int16_t) (DEF_SPEED + controller.motorSpeed ); // Bu kısımda limitin dışına çıkabilir. Left ile right limitlerini birbirinden ayırmanız gerekebilir. Deneyip gözlemleyin.
-   controller.rightMotorSpeed =(int16_t) (DEF_SPEED - controller.motorSpeed);
+   controller.leftMotorSpeed  =(uint16_t) (DEF_SPEED - (controller.motorSpeed)); // Bu kısımda limitin dışına çıkabilir. Left ile right limitlerini birbirinden ayırmanız gerekebilir. Deneyip gözlemleyin.
+   controller.rightMotorSpeed =(uint16_t) (DEF_SPEED + (controller.motorSpeed));
 
     if (controller.leftMotorSpeed < MIN_SPEED)      // Limitler
     {
@@ -104,12 +105,12 @@ void startMotor(void)
         
 #ifdef LCD_4x20
         
-        lcdSetCursor(3,1);
+        lcdSetCursor(1,1);
         sprintf (textCursor2,"%d %d %d %d",convert_data.convert_channel_0,convert_data.convert_channel_1,
                                           convert_data.convert_channel_2,convert_data.convert_channel_3);
         lcdWriteString(textCursor2);
  
-        lcdSetCursor(4,1);
+        lcdSetCursor(2,1);
         sprintf (textCursor2,"%d %d %d %d",convert_data.convert_channel_4,convert_data.convert_channel_5,
                                            convert_data.convert_channel_6,convert_data.convert_channel_7);
         lcdWriteString(textCursor2);

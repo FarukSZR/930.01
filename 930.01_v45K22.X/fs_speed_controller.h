@@ -34,6 +34,7 @@ extern "C" {
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include <math.h>
 #include "fs_lcd.h"
 #include "fs_adc.h"
 #include "fs_mcu.h"
@@ -60,8 +61,8 @@ typedef struct
     int16_t  error;
     int16_t  lastError;
     uint16_t motorSpeed;
-    int16_t leftMotorSpeed;
-    int16_t rightMotorSpeed;
+    uint16_t leftMotorSpeed;
+    uint16_t rightMotorSpeed;
     
     float left;
     float right;

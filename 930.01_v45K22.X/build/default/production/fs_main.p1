@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"57 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 57: {
-[s S854 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
+"60 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 60: {
+[s S854 `s 1 `s 1 `us 1 `us 1 `us 1 `f 1 `f 1 `uc 1 ]
 [n S854 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
 "78 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 78: {
@@ -37,12 +37,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S861 . channel_0 channel_1 channel_2 channel_3 channel_4 channel_5 channel_6 channel_7 ]
 "82
 [; ;./fs_adc.h: 82: {
-[s S862 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
+[s S862 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
 [n S862 . convert_channel_0 convert_channel_1 convert_channel_2 convert_channel_3 convert_channel_4 convert_channel_5 convert_channel_6 convert_channel_7 convert_channel_0_f convert_channel_1_f convert_channel_2_f convert_channel_3_f convert_channel_4_f convert_channel_5_f convert_channel_6_f convert_channel_7_f ]
 "103
 [; ;./fs_adc.h: 103: {
-[s S863 `ul 1 `ul 1 `f 1 ]
-[n S863 . pay payda ortalama ]
+[s S863 `ul 1 `ul 1 `ul 1 `ul 1 `f 1 ]
+[n S863 . pay_1 pay_2 total_pay payda ortalama ]
 "41 ./fs_mcu.h
 [; ;./fs_mcu.h: 41: void mcuInit(void);
 [v _mcuInit `(v ~T0 @X0 0 ef ]
@@ -662,20 +662,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3 = OFF ]
 "97
 [p x EBTRB = OFF ]
-"40 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 40: static float KP = 0.2;
+"43 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 43: static float KP = 0.5;
 [v _KP `f ~T0 @X0 1 s ]
 [i _KP
--> .0.2 `f
+-> .0.5 `f
 ]
-"41
-[; ;./fs_speed_controller.h: 41: static float KD = 1.0;
+"44
+[; ;./fs_speed_controller.h: 44: static float KD = 5.0;
 [v _KD `f ~T0 @X0 1 s ]
 [i _KD
--> .1.0 `f
+-> .5.0 `f
 ]
-"71
-[; ;./fs_speed_controller.h: 71: tS_controller controller;
+"74
+[; ;./fs_speed_controller.h: 74: tS_controller controller;
 [v _controller `S854 ~T0 @X0 1 e ]
 "62 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 62: _Bool pauseIsClick = 0;
@@ -757,17 +757,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"109 ./fs_adc.h
-[; ;./fs_adc.h: 109: tS_adc_raw_data adc_raw_data;
+"111 ./fs_adc.h
+[; ;./fs_adc.h: 111: tS_adc_raw_data adc_raw_data;
 [v _adc_raw_data `S860 ~T0 @X0 1 e ]
-"110
-[; ;./fs_adc.h: 110: tS_procces_data procces_data;
-[v _procces_data `S861 ~T0 @X0 1 e ]
-"111
-[; ;./fs_adc.h: 111: tS_convert_data convert_data;
-[v _convert_data `S862 ~T0 @X0 1 e ]
 "112
-[; ;./fs_adc.h: 112: tS_driver_limit driver_limit;
+[; ;./fs_adc.h: 112: tS_procces_data procces_data;
+[v _procces_data `S861 ~T0 @X0 1 e ]
+"113
+[; ;./fs_adc.h: 113: tS_convert_data convert_data;
+[v _convert_data `S862 ~T0 @X0 1 e ]
+"114
+[; ;./fs_adc.h: 114: tS_driver_limit driver_limit;
 [v _driver_limit `S863 ~T0 @X0 1 e ]
 "38 fs_main.c
 [; ;fs_main.c: 38: __asm("\tpsect eeprom_data,class=EEDATA,noexec"); __asm("\tdb\t" "30" "," "10" "," "4" "," "0" "," "0" "," "0" "," "0" "," "0");

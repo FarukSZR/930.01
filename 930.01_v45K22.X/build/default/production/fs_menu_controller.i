@@ -9892,14 +9892,14 @@ typedef struct
 
 typedef struct
 {
-    uint32_t convert_channel_0;
-    uint32_t convert_channel_1;
-    uint32_t convert_channel_2;
-    uint32_t convert_channel_3;
-    uint32_t convert_channel_4;
-    uint32_t convert_channel_5;
-    uint32_t convert_channel_6;
-    uint32_t convert_channel_7;
+    uint16_t convert_channel_0;
+    uint16_t convert_channel_1;
+    uint16_t convert_channel_2;
+    uint16_t convert_channel_3;
+    uint16_t convert_channel_4;
+    uint16_t convert_channel_5;
+    uint16_t convert_channel_6;
+    uint16_t convert_channel_7;
 
     uint16_t convert_channel_0_f;
     uint16_t convert_channel_1_f;
@@ -9913,7 +9913,9 @@ typedef struct
 
 typedef struct
 {
-    uint32_t pay;
+    uint32_t pay_1;
+    uint32_t pay_2;
+    uint32_t total_pay;
     uint32_t payda;
     float ortalama;
 }tS_driver_limit;
@@ -9925,12 +9927,64 @@ tS_driver_limit driver_limit;
 # 33 "./fs_mcu.h" 2
 
 # 1 "./fs_speed_controller.h" 1
-# 37 "./fs_speed_controller.h"
-# 1 "./fs_mcu.h" 1
-# 37 "./fs_speed_controller.h" 2
+# 36 "./fs_speed_controller.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 411 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 2 3
 
-# 1 "./fs_pwm.h" 1
-# 37 "./fs_pwm.h"
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+# 65 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 3
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 36 "./fs_speed_controller.h" 2
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\math.h" 1 3
 # 15 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\math.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -10303,8 +10357,17 @@ double jn(int, double);
 double y0(double);
 double y1(double);
 double yn(int, double);
-# 37 "./fs_pwm.h" 2
+# 37 "./fs_speed_controller.h" 2
 
+# 1 "./fs_lcd.h" 1
+# 38 "./fs_speed_controller.h" 2
+
+
+# 1 "./fs_mcu.h" 1
+# 40 "./fs_speed_controller.h" 2
+
+# 1 "./fs_pwm.h" 1
+# 38 "./fs_pwm.h"
 # 1 "./fs_mcu.h" 1
 # 38 "./fs_pwm.h" 2
 
@@ -10314,12 +10377,12 @@ double yn(int, double);
 void PWM_Init(void);
 void PWM1_setDC(int16_t dutycycle);
 void PWM2_setDC(int16_t dutycycle);
-# 38 "./fs_speed_controller.h" 2
+# 41 "./fs_speed_controller.h" 2
 
 
-static float KP = 0.2;
-static float KD = 1.0;
-# 51 "./fs_speed_controller.h"
+static float KP = 0.5;
+static float KD = 5.0;
+# 54 "./fs_speed_controller.h"
 void speedControl(float position);
 void stopMotor(void);
 void startMotor(void);
@@ -10330,8 +10393,8 @@ typedef struct
     int16_t error;
     int16_t lastError;
     uint16_t motorSpeed;
-    int16_t leftMotorSpeed;
-    int16_t rightMotorSpeed;
+    uint16_t leftMotorSpeed;
+    uint16_t rightMotorSpeed;
 
     float left;
     float right;
@@ -10628,11 +10691,11 @@ void mainMenu(void)
 {
     char textCursor2[16] = {0};
 
-    lcdSetCursor(1,1);
-    lcdWriteString("KALAN ZAMAN     ");
-    lcdSetCursor(2,1);
-    sprintf(textCursor2,"      %d:%d   ",timer_value.remainingMinute,timer_value.remainingSecond);
-    lcdWriteString(textCursor2);
+
+
+
+
+
 
     if ( timer_value.menu_login_delay == 100)
     {
@@ -10675,8 +10738,21 @@ void mainMenu(void)
         LATCbits.LATC5 = 1;
         LATCbits.LATC4 = 1;
     }
+    else
+    {
+        stopMotor();
+        lcdClear();
+        convert_data.convert_channel_0 = 0;
+        convert_data.convert_channel_1 = 0;
+        convert_data.convert_channel_2 = 0;
+        convert_data.convert_channel_3 = 0;
+        convert_data.convert_channel_4 = 0;
+        convert_data.convert_channel_5 = 0;
+        convert_data.convert_channel_6 = 0;
+        convert_data.convert_channel_7 = 0;
+    }
 }
-# 305 "fs_menu_controller.c"
+# 318 "fs_menu_controller.c"
 void stopMenu(void)
 {
     char textCursor2[16] = {0};
@@ -10693,9 +10769,9 @@ void stopMenu(void)
     timer_value.remainingSecond = 0;
     timer_value.remainingMinute = 0;
 
-    lcdSetCursor(2,1);
-    sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
-    lcdWriteString(textCursor2);
+
+
+
 
     if (menu_flags.menu_start_flag == 1)
     {
@@ -10717,7 +10793,7 @@ void stopMenu(void)
     }
 
 }
-# 353 "fs_menu_controller.c"
+# 366 "fs_menu_controller.c"
 void pauseMenu(void)
 {
     char textCursor2[16] = {0};
@@ -10728,11 +10804,11 @@ void pauseMenu(void)
 
     stopMotor();
 
-    lcdSetCursor(1,1);
-    lcdWriteString("HAREKET DURDU   ");
-    lcdSetCursor(2,1);
-    sprintf(textCursor2,"      %d:%d    ",timer_value.remainingMinute,timer_value.remainingSecond);
-    lcdWriteString(textCursor2);
+
+
+
+
+
 
     if (menu_flags.menu_start_flag == 1)
     {
@@ -10765,7 +10841,7 @@ void pauseMenu(void)
         secretMenuCounter = 1;
     }
 }
-# 408 "fs_menu_controller.c"
+# 421 "fs_menu_controller.c"
 void startMenu(void)
 {
     timer_value.remainingMinute = menu_value.driver_time;
@@ -10936,7 +11012,7 @@ void stopTimeSettingMenu(void)
         menu_selected = PAUSE_MENU;
     }
 }
-# 586 "fs_menu_controller.c"
+# 599 "fs_menu_controller.c"
 void driverTimeSettingMenu(void)
 {
     char textCursor2[16] = {0};
@@ -10983,7 +11059,7 @@ void driverTimeSettingMenu(void)
         menu_selected = PAUSE_MENU;
     }
 }
-# 640 "fs_menu_controller.c"
+# 653 "fs_menu_controller.c"
 void exitLine(void)
 {
 

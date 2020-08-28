@@ -1,48 +1,48 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"57 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 57: {
-[s S853 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
-[n S853 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
+"60 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 60: {
+[s S854 `s 1 `s 1 `us 1 `us 1 `us 1 `f 1 `f 1 `uc 1 ]
+[n S854 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
 "78 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 78: {
-[s S855 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
-[n S855 . menu start stop pause decrease increase ]
+[s S856 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
+[n S856 . menu start stop pause decrease increase ]
 "110
 [; ;./fs_menu_controller.h: 110: tE_menu_selected menu_selected = {0};
-[c E6772 0 1 2 3 4 5 6 7 8 .. ]
-[n E6772 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
+[c E6939 0 1 2 3 4 5 6 7 8 .. ]
+[n E6939 . MAIN_MENU DRIVER_TIME_SETTING STOP_TIME_SETTING SPEED_LIMIT_SETTING STOP_MENU START_MENU PAUSE_MENU EXIT_LINE SECRET_MENU  ]
 "68
 [; ;./fs_menu_controller.h: 68: {
-[s S854 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
-[n S854 . menu_input_flag menu_start_flag menu_stop_flag menu_pause_flag menu_increase_flag menu_decrease_flag ]
+[s S855 `a 1 `a 1 `a 1 `a 1 `a 1 `a 1 ]
+[n S855 . menu_input_flag menu_start_flag menu_stop_flag menu_pause_flag menu_increase_flag menu_decrease_flag ]
 "102
 [; ;./fs_menu_controller.h: 102: {
-[s S856 `uc 1 `uc 1 `uc 1 ]
-[n S856 . driver_time stop_time speed_limit ]
+[s S857 `uc 1 `uc 1 `uc 1 ]
+[n S857 . driver_time stop_time speed_limit ]
 "43 ./fs_timer.h
 [; ;./fs_timer.h: 43: {
-[s S857 :1 `uc 1 ]
-[n S857 . one_second_flag ]
+[s S858 :1 `uc 1 ]
+[n S858 . one_second_flag ]
 "48
 [; ;./fs_timer.h: 48: {
-[s S858 `uc 1 `uc 1 `uc 1 `c 1 `uc 1 `uc 1 `us 1 ]
-[n S858 . second minute remainingSecond remainingMinute menu_login_delay adc_conversion_time second_counter ]
+[s S859 `uc 1 `uc 1 `uc 1 `c 1 `uc 1 `uc 1 `us 1 ]
+[n S859 . second minute remainingSecond remainingMinute menu_login_delay adc_conversion_time second_counter ]
 "58 ./fs_adc.h
 [; ;./fs_adc.h: 58: {
-[s S859 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
-[n S859 . channel_0 channel_1 channel_2 channel_3 channel_4 channel_5 channel_6 channel_7 ]
+[s S860 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
+[n S860 . channel_0 channel_1 channel_2 channel_3 channel_4 channel_5 channel_6 channel_7 ]
 "70
 [; ;./fs_adc.h: 70: {
-[s S860 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 ]
-[n S860 . channel_0 channel_1 channel_2 channel_3 channel_4 channel_5 channel_6 channel_7 ]
+[s S861 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 ]
+[n S861 . channel_0 channel_1 channel_2 channel_3 channel_4 channel_5 channel_6 channel_7 ]
 "82
 [; ;./fs_adc.h: 82: {
-[s S861 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
-[n S861 . convert_channel_0 convert_channel_1 convert_channel_2 convert_channel_3 convert_channel_4 convert_channel_5 convert_channel_6 convert_channel_7 convert_channel_0_f convert_channel_1_f convert_channel_2_f convert_channel_3_f convert_channel_4_f convert_channel_5_f convert_channel_6_f convert_channel_7_f ]
+[s S862 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
+[n S862 . convert_channel_0 convert_channel_1 convert_channel_2 convert_channel_3 convert_channel_4 convert_channel_5 convert_channel_6 convert_channel_7 convert_channel_0_f convert_channel_1_f convert_channel_2_f convert_channel_3_f convert_channel_4_f convert_channel_5_f convert_channel_6_f convert_channel_7_f ]
 "103
 [; ;./fs_adc.h: 103: {
-[s S862 `ul 1 `ul 1 `f 1 ]
-[n S862 . pay payda ortalama ]
+[s S863 `ul 1 `ul 1 `ul 1 `ul 1 `f 1 ]
+[n S863 . pay_1 pay_2 total_pay payda ortalama ]
 "6571 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f45k22.h
 [s S341 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S341 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
@@ -722,21 +722,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3 = OFF ]
 "97
 [p x EBTRB = OFF ]
-"40 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 40: static float KP = 0.2;
+"43 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 43: static float KP = 0.5;
 [v _KP `f ~T0 @X0 1 s ]
 [i _KP
--> .0.2 `f
+-> .0.5 `f
 ]
-"41
-[; ;./fs_speed_controller.h: 41: static float KD = 1.0;
+"44
+[; ;./fs_speed_controller.h: 44: static float KD = 5.0;
 [v _KD `f ~T0 @X0 1 s ]
 [i _KD
--> .1.0 `f
+-> .5.0 `f
 ]
-"71
-[; ;./fs_speed_controller.h: 71: tS_controller controller;
-[v _controller `S853 ~T0 @X0 1 e ]
+"74
+[; ;./fs_speed_controller.h: 74: tS_controller controller;
+[v _controller `S854 ~T0 @X0 1 e ]
 "62 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 62: _Bool pauseIsClick = 0;
 [v _pauseIsClick `a ~T0 @X0 1 e ]
@@ -763,7 +763,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "109
 [; ;./fs_menu_controller.h: 109: tS_button_bounce_controller button_bounce_controller = {0};
-[v _button_bounce_controller `S855 ~T0 @X0 1 e ]
+[v _button_bounce_controller `S856 ~T0 @X0 1 e ]
 [i _button_bounce_controller
 :U ..
 :U ..
@@ -773,13 +773,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "110
 [; ;./fs_menu_controller.h: 110: tE_menu_selected menu_selected = {0};
-[v _menu_selected `E6772 ~T0 @X0 1 e ]
+[v _menu_selected `E6939 ~T0 @X0 1 e ]
 [i _menu_selected
--> -> 0 `i `E6772
+-> -> 0 `i `E6939
 ]
 "111
 [; ;./fs_menu_controller.h: 111: tS_menu_flags menu_flags = {0};
-[v _menu_flags `S854 ~T0 @X0 1 e ]
+[v _menu_flags `S855 ~T0 @X0 1 e ]
 [i _menu_flags
 :U ..
 :U ..
@@ -789,7 +789,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "112
 [; ;./fs_menu_controller.h: 112: tS_menu_value menu_value = {0};
-[v _menu_value `S856 ~T0 @X0 1 e ]
+[v _menu_value `S857 ~T0 @X0 1 e ]
 [i _menu_value
 :U ..
 :U ..
@@ -799,7 +799,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "58 ./fs_timer.h
 [; ;./fs_timer.h: 58: tS_timer_counter_flag timer_counter_flag = {0};
-[v _timer_counter_flag `S857 ~T0 @X0 1 e ]
+[v _timer_counter_flag `S858 ~T0 @X0 1 e ]
 [i _timer_counter_flag
 :U ..
 :U ..
@@ -809,7 +809,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "59
 [; ;./fs_timer.h: 59: tS_timer_value timer_value = {0};
-[v _timer_value `S858 ~T0 @X0 1 e ]
+[v _timer_value `S859 ~T0 @X0 1 e ]
 [i _timer_value
 :U ..
 :U ..
@@ -817,18 +817,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"109 ./fs_adc.h
-[; ;./fs_adc.h: 109: tS_adc_raw_data adc_raw_data;
-[v _adc_raw_data `S859 ~T0 @X0 1 e ]
-"110
-[; ;./fs_adc.h: 110: tS_procces_data procces_data;
-[v _procces_data `S860 ~T0 @X0 1 e ]
-"111
-[; ;./fs_adc.h: 111: tS_convert_data convert_data;
-[v _convert_data `S861 ~T0 @X0 1 e ]
+"111 ./fs_adc.h
+[; ;./fs_adc.h: 111: tS_adc_raw_data adc_raw_data;
+[v _adc_raw_data `S860 ~T0 @X0 1 e ]
 "112
-[; ;./fs_adc.h: 112: tS_driver_limit driver_limit;
-[v _driver_limit `S862 ~T0 @X0 1 e ]
+[; ;./fs_adc.h: 112: tS_procces_data procces_data;
+[v _procces_data `S861 ~T0 @X0 1 e ]
+"113
+[; ;./fs_adc.h: 113: tS_convert_data convert_data;
+[v _convert_data `S862 ~T0 @X0 1 e ]
+"114
+[; ;./fs_adc.h: 114: tS_driver_limit driver_limit;
+[v _driver_limit `S863 ~T0 @X0 1 e ]
 "33 fs_lcd.c
 [; ;fs_lcd.c: 33: void lcdPort(char a)
 [v _lcdPort `(v ~T0 @X0 1 ef1`uc ]
@@ -844,63 +844,63 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "35
 [; ;fs_lcd.c: 35:    if(a & 1) { PORTBbits.RB0 = 1;}
-[e $ ! != & -> _a `i -> 1 `i -> 0 `i 864  ]
+[e $ ! != & -> _a `i -> 1 `i -> 0 `i 865  ]
 {
 [e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
 }
-[e $U 865  ]
+[e $U 866  ]
 "36
 [; ;fs_lcd.c: 36:    else {PORTBbits.RB0 = 0;}
-[e :U 864 ]
+[e :U 865 ]
 {
 [e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
 }
-[e :U 865 ]
+[e :U 866 ]
 "38
 [; ;fs_lcd.c: 38:    if(a & 2) { PORTBbits.RB1 = 1;}
-[e $ ! != & -> _a `i -> 2 `i -> 0 `i 866  ]
+[e $ ! != & -> _a `i -> 2 `i -> 0 `i 867  ]
 {
 [e = . . _PORTBbits 0 1 -> -> 1 `i `uc ]
 }
-[e $U 867  ]
+[e $U 868  ]
 "39
 [; ;fs_lcd.c: 39:    else { PORTBbits.RB1 = 0;}
-[e :U 866 ]
+[e :U 867 ]
 {
 [e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
 }
-[e :U 867 ]
+[e :U 868 ]
 "41
 [; ;fs_lcd.c: 41:    if(a & 4) {PORTBbits.RB2 = 1;}
-[e $ ! != & -> _a `i -> 4 `i -> 0 `i 868  ]
+[e $ ! != & -> _a `i -> 4 `i -> 0 `i 869  ]
 {
 [e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
 }
-[e $U 869  ]
+[e $U 870  ]
 "42
 [; ;fs_lcd.c: 42:    else {PORTBbits.RB2 = 0;}
-[e :U 868 ]
+[e :U 869 ]
 {
 [e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
 }
-[e :U 869 ]
+[e :U 870 ]
 "44
 [; ;fs_lcd.c: 44:    if(a & 8) {PORTBbits.RB3 = 1;}
-[e $ ! != & -> _a `i -> 8 `i -> 0 `i 870  ]
+[e $ ! != & -> _a `i -> 8 `i -> 0 `i 871  ]
 {
 [e = . . _PORTBbits 0 3 -> -> 1 `i `uc ]
 }
-[e $U 871  ]
+[e $U 872  ]
 "45
 [; ;fs_lcd.c: 45:    else {PORTBbits.RB3 = 0;}
-[e :U 870 ]
+[e :U 871 ]
 {
 [e = . . _PORTBbits 0 3 -> -> 0 `i `uc ]
 }
-[e :U 871 ]
+[e :U 872 ]
 "47
 [; ;fs_lcd.c: 47: }
-[e :UE 863 ]
+[e :UE 864 ]
 }
 "56
 [; ;fs_lcd.c: 56: void lcdCmd(char a)
@@ -932,7 +932,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
 "63
 [; ;fs_lcd.c: 63: }
-[e :UE 872 ]
+[e :UE 873 ]
 }
 "72
 [; ;fs_lcd.c: 72: void lcdClear()
@@ -950,7 +950,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _lcdCmd (1 -> -> 1 `i `uc ]
 "76
 [; ;fs_lcd.c: 76: }
-[e :UE 873 ]
+[e :UE 874 ]
 }
 "83
 [; ;fs_lcd.c: 83: void lcdSetCursor(char a, char b)
@@ -973,7 +973,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _y `uc ~T0 @X0 1 a ]
 "86
 [; ;fs_lcd.c: 86:    if(a == 1)
-[e $ ! == -> _a `i -> 1 `i 875  ]
+[e $ ! == -> _a `i -> 1 `i 876  ]
 "87
 [; ;fs_lcd.c: 87:    {
 {
@@ -995,11 +995,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "93
 [; ;fs_lcd.c: 93:    }
 }
-[e $U 876  ]
+[e $U 877  ]
 "94
 [; ;fs_lcd.c: 94:    else if(a == 2)
-[e :U 875 ]
-[e $ ! == -> _a `i -> 2 `i 877  ]
+[e :U 876 ]
+[e $ ! == -> _a `i -> 2 `i 878  ]
 "95
 [; ;fs_lcd.c: 95:    {
 {
@@ -1021,11 +1021,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "101
 [; ;fs_lcd.c: 101:    }
 }
+[e :U 878 ]
 [e :U 877 ]
-[e :U 876 ]
 "102
 [; ;fs_lcd.c: 102: }
-[e :UE 874 ]
+[e :UE 875 ]
 }
 "109
 [; ;fs_lcd.c: 109: void lcdInit(void)
@@ -1115,7 +1115,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _lcdCmd (1 -> -> 6 `i `uc ]
 "144
 [; ;fs_lcd.c: 144: }
-[e :UE 878 ]
+[e :UE 879 ]
 }
 "153
 [; ;fs_lcd.c: 153: void lcdWriteChar(char a)
@@ -1169,7 +1169,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
 "167
 [; ;fs_lcd.c: 167: }
-[e :UE 879 ]
+[e :UE 880 ]
 }
 "176
 [; ;fs_lcd.c: 176: void lcdWriteString(char *a)
@@ -1191,19 +1191,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_lcd.c: 179:    for(i=0;a[i]!='\0';i++)
 {
 [e = _i -> 0 `i ]
-[e $U 884  ]
-[e :U 881 ]
+[e $U 885  ]
+[e :U 882 ]
 "180
 [; ;fs_lcd.c: 180:    lcdWriteChar(a[i]);
 [e ( _lcdWriteChar (1 *U + _a * -> _i `x -> -> # *U _a `i `x ]
 [e ++ _i -> 1 `i ]
-[e :U 884 ]
-[e $ != -> *U + _a * -> _i `x -> -> # *U _a `i `x `ui -> 0 `ui 881  ]
-[e :U 882 ]
+[e :U 885 ]
+[e $ != -> *U + _a * -> _i `x -> -> # *U _a `i `x `ui -> 0 `ui 882  ]
+[e :U 883 ]
 }
 "181
 [; ;fs_lcd.c: 181: }
-[e :UE 880 ]
+[e :UE 881 ]
 }
 "190
 [; ;fs_lcd.c: 190: void lcdShiftRight()
@@ -1221,7 +1221,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _lcdCmd (1 -> -> 12 `i `uc ]
 "194
 [; ;fs_lcd.c: 194: }
-[e :UE 885 ]
+[e :UE 886 ]
 }
 "203
 [; ;fs_lcd.c: 203: void lcdShiftLeft()
@@ -1239,5 +1239,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _lcdCmd (1 -> -> 8 `i `uc ]
 "207
 [; ;fs_lcd.c: 207: }
-[e :UE 886 ]
+[e :UE 887 ]
 }

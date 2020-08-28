@@ -9869,14 +9869,63 @@ void eepromWrite(uint8_t address, uint8_t data);
 
 # 1 "./fs_speed_controller.h" 1
 # 36 "./fs_speed_controller.h"
-# 1 "./fs_adc.h" 1
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 411 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 2 3
+
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+# 65 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\string.h" 3
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 36 "./fs_speed_controller.h" 2
 
-# 1 "./fs_mcu.h" 1
-# 37 "./fs_speed_controller.h" 2
-
-# 1 "./fs_pwm.h" 1
-# 37 "./fs_pwm.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\math.h" 1 3
 # 15 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\math.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -10249,8 +10298,17 @@ double jn(int, double);
 double y0(double);
 double y1(double);
 double yn(int, double);
-# 37 "./fs_pwm.h" 2
+# 37 "./fs_speed_controller.h" 2
 
+
+# 1 "./fs_adc.h" 1
+# 39 "./fs_speed_controller.h" 2
+
+# 1 "./fs_mcu.h" 1
+# 40 "./fs_speed_controller.h" 2
+
+# 1 "./fs_pwm.h" 1
+# 38 "./fs_pwm.h"
 # 1 "./fs_mcu.h" 1
 # 38 "./fs_pwm.h" 2
 
@@ -10260,12 +10318,12 @@ double yn(int, double);
 void PWM_Init(void);
 void PWM1_setDC(int16_t dutycycle);
 void PWM2_setDC(int16_t dutycycle);
-# 38 "./fs_speed_controller.h" 2
+# 41 "./fs_speed_controller.h" 2
 
 
-static float KP = 0.2;
-static float KD = 1.0;
-# 51 "./fs_speed_controller.h"
+static float KP = 0.5;
+static float KD = 5.0;
+# 54 "./fs_speed_controller.h"
 void speedControl(float position);
 void stopMotor(void);
 void startMotor(void);
@@ -10276,8 +10334,8 @@ typedef struct
     int16_t error;
     int16_t lastError;
     uint16_t motorSpeed;
-    int16_t leftMotorSpeed;
-    int16_t rightMotorSpeed;
+    uint16_t leftMotorSpeed;
+    uint16_t rightMotorSpeed;
 
     float left;
     float right;
@@ -10412,14 +10470,14 @@ typedef struct
 
 typedef struct
 {
-    uint32_t convert_channel_0;
-    uint32_t convert_channel_1;
-    uint32_t convert_channel_2;
-    uint32_t convert_channel_3;
-    uint32_t convert_channel_4;
-    uint32_t convert_channel_5;
-    uint32_t convert_channel_6;
-    uint32_t convert_channel_7;
+    uint16_t convert_channel_0;
+    uint16_t convert_channel_1;
+    uint16_t convert_channel_2;
+    uint16_t convert_channel_3;
+    uint16_t convert_channel_4;
+    uint16_t convert_channel_5;
+    uint16_t convert_channel_6;
+    uint16_t convert_channel_7;
 
     uint16_t convert_channel_0_f;
     uint16_t convert_channel_1_f;
@@ -10433,7 +10491,9 @@ typedef struct
 
 typedef struct
 {
-    uint32_t pay;
+    uint32_t pay_1;
+    uint32_t pay_2;
+    uint32_t total_pay;
     uint32_t payda;
     float ortalama;
 }tS_driver_limit;
@@ -10472,7 +10532,7 @@ void mcuInit(void)
 # 49 "fs_mcu.c"
 void systemInit(void)
 {
-    driver_limit.pay = 0;
+    driver_limit.pay_1 = 0;
     driver_limit.payda = 0;
     driver_limit.ortalama = 0;
     convert_data.convert_channel_0 = 0;
