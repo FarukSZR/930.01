@@ -48,7 +48,7 @@ void mcuInit(void)
  */
 void systemInit(void)
 {
-    driver_limit.pay_1 = 0;
+    driver_limit.pay = 0;
     driver_limit.payda = 0;
     driver_limit.ortalama = 0;
     convert_data.convert_channel_0 = 0;
