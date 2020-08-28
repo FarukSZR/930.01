@@ -46,9 +46,6 @@ static float KD =  5.0;
 #define MIN_SPEED   300
 #define DEF_SPEED   150
 
-//#define MAX_SPEED_MOTOR_RIGHT   450
-//#define MIN_SPEED_MOTOR_RIGHT   150
-//#define DEF_SPEED_RIGHT         300
     
 void speedControl(float position);
 void stopMotor(void);
