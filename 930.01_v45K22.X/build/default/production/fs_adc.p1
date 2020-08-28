@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"59 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 59: {
-[s S854 `s 1 `s 1 `us 1 `s 1 `s 1 `f 1 `f 1 `uc 1 ]
+"60 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 60: {
+[s S854 `s 1 `s 1 `us 1 `us 1 `us 1 `f 1 `f 1 `uc 1 ]
 [n S854 . error lastError motorSpeed leftMotorSpeed rightMotorSpeed left right driver_safety_check ]
 "78 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 78: {
@@ -37,12 +37,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S861 . channel_0 channel_1 channel_2 channel_3 channel_4 channel_5 channel_6 channel_7 ]
 "82
 [; ;./fs_adc.h: 82: {
-[s S862 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
+[s S862 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
 [n S862 . convert_channel_0 convert_channel_1 convert_channel_2 convert_channel_3 convert_channel_4 convert_channel_5 convert_channel_6 convert_channel_7 convert_channel_0_f convert_channel_1_f convert_channel_2_f convert_channel_3_f convert_channel_4_f convert_channel_5_f convert_channel_6_f convert_channel_7_f ]
 "103
 [; ;./fs_adc.h: 103: {
-[s S863 `ul 1 `ul 1 `f 1 ]
-[n S863 . pay payda ortalama ]
+[s S863 `ul 1 `ul 1 `ul 1 `ul 1 `f 1 ]
+[n S863 . pay_1 pay_2 total_pay payda ortalama ]
 "13583 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc/pic18f45k22.h
 [s S645 :1 `uc 1 :1 `uc 1 ]
 [n S645 . . GO_NOT_DONE ]
@@ -711,20 +711,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3 = OFF ]
 "97
 [p x EBTRB = OFF ]
-"42 ./fs_speed_controller.h
-[; ;./fs_speed_controller.h: 42: static float KP = 0.2;
+"43 ./fs_speed_controller.h
+[; ;./fs_speed_controller.h: 43: static float KP = 0.5;
 [v _KP `f ~T0 @X0 1 s ]
 [i _KP
--> .0.2 `f
+-> .0.5 `f
 ]
-"43
-[; ;./fs_speed_controller.h: 43: static float KD = 1.0;
+"44
+[; ;./fs_speed_controller.h: 44: static float KD = 5.0;
 [v _KD `f ~T0 @X0 1 s ]
 [i _KD
--> .1.0 `f
+-> .5.0 `f
 ]
-"73
-[; ;./fs_speed_controller.h: 73: tS_controller controller;
+"74
+[; ;./fs_speed_controller.h: 74: tS_controller controller;
 [v _controller `S854 ~T0 @X0 1 e ]
 "62 ./fs_menu_controller.h
 [; ;./fs_menu_controller.h: 62: _Bool pauseIsClick = 0;
@@ -806,17 +806,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"109 ./fs_adc.h
-[; ;./fs_adc.h: 109: tS_adc_raw_data adc_raw_data;
+"111 ./fs_adc.h
+[; ;./fs_adc.h: 111: tS_adc_raw_data adc_raw_data;
 [v _adc_raw_data `S860 ~T0 @X0 1 e ]
-"110
-[; ;./fs_adc.h: 110: tS_procces_data procces_data;
-[v _procces_data `S861 ~T0 @X0 1 e ]
-"111
-[; ;./fs_adc.h: 111: tS_convert_data convert_data;
-[v _convert_data `S862 ~T0 @X0 1 e ]
 "112
-[; ;./fs_adc.h: 112: tS_driver_limit driver_limit;
+[; ;./fs_adc.h: 112: tS_procces_data procces_data;
+[v _procces_data `S861 ~T0 @X0 1 e ]
+"113
+[; ;./fs_adc.h: 113: tS_convert_data convert_data;
+[v _convert_data `S862 ~T0 @X0 1 e ]
+"114
+[; ;./fs_adc.h: 114: tS_driver_limit driver_limit;
 [v _driver_limit `S863 ~T0 @X0 1 e ]
 "34 fs_adc.c
 [; ;fs_adc.c: 34: uint16_t readAdcValue(uint8_t adcChannel)
@@ -958,124 +958,97 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;fs_adc.c: 98:             adc_raw_data.channel_0 = readAdcValue(0);
 [e = . _adc_raw_data 0 ( _readAdcValue (1 -> -> 0 `i `uc ]
 "99
-[; ;fs_adc.c: 99:             procces_data.channel_0 = (float)((adc_raw_data.channel_0*5.0)/1024.0);
-[e = . _procces_data 0 -> / * -> -> . _adc_raw_data 0 `ui `d .5.0 .1024.0 `f ]
-"100
-[; ;fs_adc.c: 100:             convert_data.convert_channel_0 = (uint32_t)((procces_data.channel_0*999)/5);
-[e = . _convert_data 0 -> / * . _procces_data 0 -> -> 999 `i `f -> -> 5 `i `f `ul ]
-"101
-[; ;fs_adc.c: 101:         break;
+[; ;fs_adc.c: 99:             convert_data.convert_channel_0 = (uint16_t)((adc_raw_data.channel_0*5.0)/1024.0);
+[e = . _convert_data 0 -> / * -> -> . _adc_raw_data 0 `ui `d .5.0 .1024.0 `us ]
+"102
+[; ;fs_adc.c: 102:         break;
 [e $U 870  ]
-"103
-[; ;fs_adc.c: 103:         case 2:
-[e :U 873 ]
 "104
-[; ;fs_adc.c: 104:             adc_raw_data.channel_1 = readAdcValue(1);
-[e = . _adc_raw_data 1 ( _readAdcValue (1 -> -> 1 `i `uc ]
+[; ;fs_adc.c: 104:         case 2:
+[e :U 873 ]
 "105
-[; ;fs_adc.c: 105:             procces_data.channel_1 = (float)((adc_raw_data.channel_1*5.0)/1024.0);
-[e = . _procces_data 1 -> / * -> -> . _adc_raw_data 1 `ui `d .5.0 .1024.0 `f ]
+[; ;fs_adc.c: 105:             adc_raw_data.channel_1 = readAdcValue(1);
+[e = . _adc_raw_data 1 ( _readAdcValue (1 -> -> 1 `i `uc ]
 "106
-[; ;fs_adc.c: 106:             convert_data.convert_channel_1 = (uint32_t)((procces_data.channel_1*999)/5);
-[e = . _convert_data 1 -> / * . _procces_data 1 -> -> 999 `i `f -> -> 5 `i `f `ul ]
-"107
-[; ;fs_adc.c: 107:         break;
-[e $U 870  ]
+[; ;fs_adc.c: 106:             convert_data.convert_channel_1 = (uint16_t)((adc_raw_data.channel_1*5.0)/1024.0);
+[e = . _convert_data 1 -> / * -> -> . _adc_raw_data 1 `ui `d .5.0 .1024.0 `us ]
 "109
-[; ;fs_adc.c: 109:         case 3:
-[e :U 874 ]
-"110
-[; ;fs_adc.c: 110:             adc_raw_data.channel_2 = readAdcValue(2);
-[e = . _adc_raw_data 2 ( _readAdcValue (1 -> -> 2 `i `uc ]
+[; ;fs_adc.c: 109:         break;
+[e $U 870  ]
 "111
-[; ;fs_adc.c: 111:             procces_data.channel_2 = (float)((adc_raw_data.channel_2*5.0)/1024.0);
-[e = . _procces_data 2 -> / * -> -> . _adc_raw_data 2 `ui `d .5.0 .1024.0 `f ]
+[; ;fs_adc.c: 111:         case 3:
+[e :U 874 ]
 "112
-[; ;fs_adc.c: 112:             convert_data.convert_channel_2 = (uint32_t)((procces_data.channel_2*999)/5);
-[e = . _convert_data 2 -> / * . _procces_data 2 -> -> 999 `i `f -> -> 5 `i `f `ul ]
+[; ;fs_adc.c: 112:             adc_raw_data.channel_2 = readAdcValue(2);
+[e = . _adc_raw_data 2 ( _readAdcValue (1 -> -> 2 `i `uc ]
 "113
-[; ;fs_adc.c: 113:             convert_data.convert_channel_2_f = (uint16_t)((procces_data.channel_2*999)/5);
-[e = . _convert_data 10 -> / * . _procces_data 2 -> -> 999 `i `f -> -> 5 `i `f `us ]
-"114
-[; ;fs_adc.c: 114:         break;
-[e $U 870  ]
+[; ;fs_adc.c: 113:             convert_data.convert_channel_2 = (uint16_t)((adc_raw_data.channel_2*5.0)/1024.0);
+[e = . _convert_data 2 -> / * -> -> . _adc_raw_data 2 `ui `d .5.0 .1024.0 `us ]
 "116
-[; ;fs_adc.c: 116:         case 4:
-[e :U 875 ]
-"117
-[; ;fs_adc.c: 117:             adc_raw_data.channel_3 = readAdcValue(3);
-[e = . _adc_raw_data 3 ( _readAdcValue (1 -> -> 3 `i `uc ]
+[; ;fs_adc.c: 116:         break;
+[e $U 870  ]
 "118
-[; ;fs_adc.c: 118:             procces_data.channel_3 = (float)((adc_raw_data.channel_3*5.0)/1024.0);
-[e = . _procces_data 3 -> / * -> -> . _adc_raw_data 3 `ui `d .5.0 .1024.0 `f ]
+[; ;fs_adc.c: 118:         case 4:
+[e :U 875 ]
 "119
-[; ;fs_adc.c: 119:             convert_data.convert_channel_3 = (uint32_t)((procces_data.channel_3*999)/5);
-[e = . _convert_data 3 -> / * . _procces_data 3 -> -> 999 `i `f -> -> 5 `i `f `ul ]
+[; ;fs_adc.c: 119:             adc_raw_data.channel_3 = readAdcValue(3);
+[e = . _adc_raw_data 3 ( _readAdcValue (1 -> -> 3 `i `uc ]
 "120
-[; ;fs_adc.c: 120:         break;
-[e $U 870  ]
-"122
-[; ;fs_adc.c: 122:         case 5:
-[e :U 876 ]
+[; ;fs_adc.c: 120:             convert_data.convert_channel_3 = (uint16_t)((adc_raw_data.channel_3*5.0)/1024.0);
+[e = . _convert_data 3 -> / * -> -> . _adc_raw_data 3 `ui `d .5.0 .1024.0 `us ]
 "123
-[; ;fs_adc.c: 123:             adc_raw_data.channel_4 = readAdcValue(4);
-[e = . _adc_raw_data 4 ( _readAdcValue (1 -> -> 4 `i `uc ]
-"124
-[; ;fs_adc.c: 124:             procces_data.channel_4 = (float)((adc_raw_data.channel_4*5.0)/1024.0);
-[e = . _procces_data 4 -> / * -> -> . _adc_raw_data 4 `ui `d .5.0 .1024.0 `f ]
+[; ;fs_adc.c: 123:         break;
+[e $U 870  ]
 "125
-[; ;fs_adc.c: 125:             convert_data.convert_channel_4 = (uint32_t)((procces_data.channel_4*999)/5);
-[e = . _convert_data 4 -> / * . _procces_data 4 -> -> 999 `i `f -> -> 5 `i `f `ul ]
+[; ;fs_adc.c: 125:         case 5:
+[e :U 876 ]
 "126
-[; ;fs_adc.c: 126:         break;
-[e $U 870  ]
-"128
-[; ;fs_adc.c: 128:         case 6:
-[e :U 877 ]
-"129
-[; ;fs_adc.c: 129:            adc_raw_data.channel_5 = readAdcValue(5);
-[e = . _adc_raw_data 5 ( _readAdcValue (1 -> -> 5 `i `uc ]
+[; ;fs_adc.c: 126:             adc_raw_data.channel_4 = readAdcValue(4);
+[e = . _adc_raw_data 4 ( _readAdcValue (1 -> -> 4 `i `uc ]
+"127
+[; ;fs_adc.c: 127:             convert_data.convert_channel_4 = (uint16_t)((adc_raw_data.channel_4*5.0)/1024.0);
+[e = . _convert_data 4 -> / * -> -> . _adc_raw_data 4 `ui `d .5.0 .1024.0 `us ]
 "130
-[; ;fs_adc.c: 130:            procces_data.channel_5 = (float)((adc_raw_data.channel_5*5.0)/1024.0);
-[e = . _procces_data 5 -> / * -> -> . _adc_raw_data 5 `ui `d .5.0 .1024.0 `f ]
-"131
-[; ;fs_adc.c: 131:            convert_data.convert_channel_5 = (uint32_t)((procces_data.channel_5*999)/5);
-[e = . _convert_data 5 -> / * . _procces_data 5 -> -> 999 `i `f -> -> 5 `i `f `ul ]
+[; ;fs_adc.c: 130:         break;
+[e $U 870  ]
 "132
-[; ;fs_adc.c: 132:         break;
-[e $U 870  ]
+[; ;fs_adc.c: 132:         case 6:
+[e :U 877 ]
+"133
+[; ;fs_adc.c: 133:            adc_raw_data.channel_5 = readAdcValue(5);
+[e = . _adc_raw_data 5 ( _readAdcValue (1 -> -> 5 `i `uc ]
 "134
-[; ;fs_adc.c: 134:         case 7:
-[e :U 878 ]
-"135
-[; ;fs_adc.c: 135:             adc_raw_data.channel_6 = readAdcValue(6);
-[e = . _adc_raw_data 6 ( _readAdcValue (1 -> -> 6 `i `uc ]
-"136
-[; ;fs_adc.c: 136:             procces_data.channel_6 = (float)((adc_raw_data.channel_6*5.0)/1024.0);
-[e = . _procces_data 6 -> / * -> -> . _adc_raw_data 6 `ui `d .5.0 .1024.0 `f ]
+[; ;fs_adc.c: 134:            convert_data.convert_channel_5 = (uint16_t)((adc_raw_data.channel_5*5.0)/1024.0);
+[e = . _convert_data 5 -> / * -> -> . _adc_raw_data 5 `ui `d .5.0 .1024.0 `us ]
 "137
-[; ;fs_adc.c: 137:             convert_data.convert_channel_6 = (uint32_t)((procces_data.channel_6*999)/5);
-[e = . _convert_data 6 -> / * . _procces_data 6 -> -> 999 `i `f -> -> 5 `i `f `ul ]
-"138
-[; ;fs_adc.c: 138:         break;
+[; ;fs_adc.c: 137:         break;
 [e $U 870  ]
+"139
+[; ;fs_adc.c: 139:         case 7:
+[e :U 878 ]
 "140
-[; ;fs_adc.c: 140:         case 8:
-[e :U 879 ]
+[; ;fs_adc.c: 140:             adc_raw_data.channel_6 = readAdcValue(6);
+[e = . _adc_raw_data 6 ( _readAdcValue (1 -> -> 6 `i `uc ]
 "141
-[; ;fs_adc.c: 141:             adc_raw_data.channel_7 = readAdcValue(7);
-[e = . _adc_raw_data 7 ( _readAdcValue (1 -> -> 7 `i `uc ]
-"142
-[; ;fs_adc.c: 142:             procces_data.channel_7 = (float)((adc_raw_data.channel_7*5.0)/1024.0);
-[e = . _procces_data 7 -> / * -> -> . _adc_raw_data 7 `ui `d .5.0 .1024.0 `f ]
-"143
-[; ;fs_adc.c: 143:             convert_data.convert_channel_7 = (uint32_t)((procces_data.channel_7*999)/5);
-[e = . _convert_data 7 -> / * . _procces_data 7 -> -> 999 `i `f -> -> 5 `i `f `ul ]
+[; ;fs_adc.c: 141:             convert_data.convert_channel_6 = (uint16_t)((adc_raw_data.channel_6*5.0)/1024.0);
+[e = . _convert_data 6 -> / * -> -> . _adc_raw_data 6 `ui `d .5.0 .1024.0 `us ]
 "144
 [; ;fs_adc.c: 144:         break;
 [e $U 870  ]
-"145
-[; ;fs_adc.c: 145:     }
+"146
+[; ;fs_adc.c: 146:         case 8:
+[e :U 879 ]
+"147
+[; ;fs_adc.c: 147:             adc_raw_data.channel_7 = readAdcValue(7);
+[e = . _adc_raw_data 7 ( _readAdcValue (1 -> -> 7 `i `uc ]
+"148
+[; ;fs_adc.c: 148:             convert_data.convert_channel_7 = (uint16_t)((adc_raw_data.channel_7*5.0)/1024.0);
+[e = . _convert_data 7 -> / * -> -> . _adc_raw_data 7 `ui `d .5.0 .1024.0 `us ]
+"152
+[; ;fs_adc.c: 152:         break;
+[e $U 870  ]
+"153
+[; ;fs_adc.c: 153:     }
 }
 [e $U 870  ]
 [e :U 871 ]
@@ -1089,40 +1062,43 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 8 `i 879
  870 ]
 [e :U 870 ]
-"146
-[; ;fs_adc.c: 146: }
+"154
+[; ;fs_adc.c: 154: }
 [e :UE 869 ]
 }
-"154
-[; ;fs_adc.c: 154: void calculatedAverageValue(void)
+"162
+[; ;fs_adc.c: 162: void calculatedAverageValue(void)
 [v _calculatedAverageValue `(v ~T0 @X0 1 ef ]
-"155
-[; ;fs_adc.c: 155: {
+"163
+[; ;fs_adc.c: 163: {
 {
 [e :U _calculatedAverageValue ]
 [f ]
-"156
-[; ;fs_adc.c: 156:     driver_limit.pay = 0;
+"164
+[; ;fs_adc.c: 164:     driver_limit.pay_1 = 0;
 [e = . _driver_limit 0 -> -> -> 0 `i `l `ul ]
-"157
-[; ;fs_adc.c: 157:     driver_limit.payda = 0;
-[e = . _driver_limit 1 -> -> -> 0 `i `l `ul ]
-"158
-[; ;fs_adc.c: 158:     driver_limit.ortalama = 0;
-[e = . _driver_limit 2 -> -> 0 `i `f ]
-"161
-[; ;fs_adc.c: 161:    driver_limit.pay =(uint32_t) ( (convert_data.convert_channel_0 *1) +
-[e = . _driver_limit 0 + + + * . _convert_data 0 -> -> -> 1 `i `l `ul * . _convert_data 1 -> -> -> 1000 `i `l `ul * . _convert_data 2 -> -> -> 2000 `i `l `ul * . _convert_data 3 -> -> -> 3000 `i `l `ul ]
+"165
+[; ;fs_adc.c: 165:     driver_limit.payda = 0;
+[e = . _driver_limit 3 -> -> -> 0 `i `l `ul ]
 "166
-[; ;fs_adc.c: 166:    driver_limit.pay += (uint32_t)( (convert_data.convert_channel_4 * 4000) +
-[e =+ . _driver_limit 0 + + + * . _convert_data 4 -> -> -> 4000 `i `l `ul * . _convert_data 5 -> -> -> 5000 `i `l `ul * . _convert_data 6 -> -> -> 6000 `i `l `ul * . _convert_data 7 -> -> -> 7000 `i `l `ul ]
-"171
-[; ;fs_adc.c: 171:     driver_limit.payda = (uint32_t) (convert_data.convert_channel_0 + convert_data.convert_channel_1 +
-[e = . _driver_limit 1 + + + + + + + . _convert_data 0 . _convert_data 1 . _convert_data 2 . _convert_data 3 . _convert_data 4 . _convert_data 5 . _convert_data 6 . _convert_data 7 ]
-"176
-[; ;fs_adc.c: 176:     driver_limit.ortalama = (float)(driver_limit.pay/driver_limit.payda);
-[e = . _driver_limit 2 -> / . _driver_limit 0 . _driver_limit 1 `f ]
-"177
-[; ;fs_adc.c: 177: }
+[; ;fs_adc.c: 166:     driver_limit.ortalama = 0;
+[e = . _driver_limit 4 -> -> 0 `i `f ]
+"169
+[; ;fs_adc.c: 169:    driver_limit.pay_1 =(uint32_t) ( (convert_data.convert_channel_0 *1.0) +
+[e = . _driver_limit 0 -> + + + * -> -> . _convert_data 0 `ui `d .1.0 * -> -> . _convert_data 1 `ui `d .1000.0 * -> -> . _convert_data 2 `ui `d .2000.0 * -> -> . _convert_data 3 `ui `d .3000.0 `ul ]
+"174
+[; ;fs_adc.c: 174:    driver_limit.pay_2 = (uint32_t) ( (convert_data.convert_channel_4 * 4000.0) +
+[e = . _driver_limit 1 -> + + + * -> -> . _convert_data 4 `ui `d .4000.0 * -> -> . _convert_data 5 `ui `d .5000.0 * -> -> . _convert_data 6 `ui `d .6000.0 * -> -> . _convert_data 7 `ui `d .7000.0 `ul ]
+"179
+[; ;fs_adc.c: 179:    driver_limit.total_pay = (uint32_t)(driver_limit.pay_1+driver_limit.pay_2);
+[e = . _driver_limit 2 + . _driver_limit 0 . _driver_limit 1 ]
+"181
+[; ;fs_adc.c: 181:     driver_limit.payda = (uint32_t) (convert_data.convert_channel_0 + convert_data.convert_channel_1 +
+[e = . _driver_limit 3 -> + + + + + + + -> . _convert_data 0 `ui -> . _convert_data 1 `ui -> . _convert_data 2 `ui -> . _convert_data 3 `ui -> . _convert_data 4 `ui -> . _convert_data 5 `ui -> . _convert_data 6 `ui -> . _convert_data 7 `ui `ul ]
+"186
+[; ;fs_adc.c: 186:     driver_limit.ortalama = (float)((driver_limit.total_pay/driver_limit.payda)/10.0);
+[e = . _driver_limit 4 -> / -> / . _driver_limit 2 . _driver_limit 3 `d .10.0 `f ]
+"187
+[; ;fs_adc.c: 187: }
 [e :UE 880 ]
 }

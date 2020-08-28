@@ -9813,297 +9813,6 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 36 "./fs_speed_controller.h" 2
 
-# 1 "./fs_lcd.h" 1
-# 34 "./fs_lcd.h"
-# 1 "./fs_mcu.h" 1
-# 33 "./fs_mcu.h"
-# 1 "./fs_adc.h" 1
-# 37 "./fs_adc.h"
-# 1 "./fs_timer.h" 1
-# 36 "./fs_timer.h"
-# 1 "./fs_main.h" 1
-# 33 "./fs_main.h"
-#pragma warning disable 520
-
-
-
-
-#pragma config FOSC = INTIO67
-#pragma config PLLCFG = ON
-#pragma config PRICLKEN = ON
-#pragma config FCMEN = OFF
-#pragma config IESO = ON
-
-#pragma DEBUG = ON
-
-
-#pragma config PWRTEN = OFF
-#pragma config BOREN = SBORDIS
-#pragma config BORV = 190
-
-
-#pragma config WDTEN = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config CCP2MX = PORTC1
-#pragma config PBADEN = OFF
-#pragma config CCP3MX = PORTB5
-#pragma config HFOFST = ON
-#pragma config T3CMX = PORTC0
-#pragma config P2BMX = PORTD2
-#pragma config MCLRE = EXTMCLR
-
-
-#pragma config STVREN = OFF
-#pragma config LVP = ON
-#pragma config XINST = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = OFF
-
-
-
-
-
-void loopTaskTimeMachine(void);
-void loopTaskInit(void);
-# 36 "./fs_timer.h" 2
-
-# 1 "./fs_menu_controller.h" 1
-# 36 "./fs_menu_controller.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdbool.h" 1 3
-# 36 "./fs_menu_controller.h" 2
-
-
-# 1 "./fs_timer.h" 1
-# 38 "./fs_menu_controller.h" 2
-
-# 1 "./fs_lcd.h" 1
-# 39 "./fs_menu_controller.h" 2
-
-# 1 "./fs_eeprom.h" 1
-# 45 "./fs_eeprom.h"
-uint8_t eepromRead(uint8_t address);
-void eepromWrite(uint8_t address, uint8_t data);
-# 40 "./fs_menu_controller.h" 2
-
-# 1 "./fs_speed_controller.h" 1
-# 41 "./fs_menu_controller.h" 2
-# 62 "./fs_menu_controller.h"
-_Bool pauseIsClick = 0;
-_Bool startIsClick = 0;
-_Bool stopIsClick = 0;
-uint8_t secretMenuCounter = 0;
-
-typedef struct
-{
-    _Bool menu_input_flag ;
-    _Bool menu_start_flag ;
-    _Bool menu_stop_flag ;
-    _Bool menu_pause_flag ;
-    _Bool menu_increase_flag ;
-    _Bool menu_decrease_flag ;
-}tS_menu_flags;
-
-typedef struct
-{
-    _Bool menu ;
-    _Bool start ;
-    _Bool stop ;
-    _Bool pause ;
-    _Bool decrease ;
-    _Bool increase ;
-}tS_button_bounce_controller;
-
-
-typedef enum
-{
-    MAIN_MENU,
-    DRIVER_TIME_SETTING,
-    STOP_TIME_SETTING,
-    SPEED_LIMIT_SETTING,
-    STOP_MENU,
-    START_MENU,
-    PAUSE_MENU,
-    EXIT_LINE,
-    SECRET_MENU,
-}tE_menu_selected;
-
-typedef struct
-{
-    uint8_t driver_time;
-    uint8_t stop_time;
-    uint8_t speed_limit;
-}tS_menu_value;
-
-
-tS_button_bounce_controller button_bounce_controller = {0};
-tE_menu_selected menu_selected = {0};
-tS_menu_flags menu_flags = {0};
-tS_menu_value menu_value = {0};
-
-void menuInitialize(void);
-void loopTaskMenuControl(void);
-void buttonControlFlags(void);
-void stateMachine(void);
-void mainMenu(void);
-void stopMenu(void);
-void pauseMenu(void);
-void startMenu(void);
-void secretMenu(void);
-void speedLimitSettingMenu(void);
-void speedLimitSettingMenu(void);
-void stopTimeSettingMenu(void);
-void driverTimeSettingMenu(void);
-void exitLine(void);
-# 37 "./fs_timer.h" 2
-
-
-void timer_0_init(void);
-
-
-typedef struct
-{
-    uint8_t one_second_flag:1;
-}tS_timer_counter_flag;
-
-typedef struct
-{
-    uint8_t second;
-    uint8_t minute;
-    uint8_t remainingSecond;
-    int8_t remainingMinute;
-    uint8_t menu_login_delay;
-    uint8_t adc_conversion_time;
-    uint16_t second_counter;
-}tS_timer_value;
-
-tS_timer_counter_flag timer_counter_flag = {0};
-tS_timer_value timer_value = {0};
-# 37 "./fs_adc.h" 2
-# 52 "./fs_adc.h"
-void adcInit(void);
-void scanAdcConversion(void);
-uint16_t readAdcValue(uint8_t adcChannel);
-void calculatedAverageValue(void);
-
-typedef struct
-{
-    uint16_t channel_0;
-    uint16_t channel_1;
-    uint16_t channel_2;
-    uint16_t channel_3;
-    uint16_t channel_4;
-    uint16_t channel_5;
-    uint16_t channel_6;
-    uint16_t channel_7;
-}tS_adc_raw_data;
-
-typedef struct
-{
-    float channel_0;
-    float channel_1;
-    float channel_2;
-    float channel_3;
-    float channel_4;
-    float channel_5;
-    float channel_6;
-    float channel_7;
-}tS_procces_data;
-
-typedef struct
-{
-    uint32_t convert_channel_0;
-    uint32_t convert_channel_1;
-    uint32_t convert_channel_2;
-    uint32_t convert_channel_3;
-    uint32_t convert_channel_4;
-    uint32_t convert_channel_5;
-    uint32_t convert_channel_6;
-    uint32_t convert_channel_7;
-
-    uint16_t convert_channel_0_f;
-    uint16_t convert_channel_1_f;
-    uint16_t convert_channel_2_f;
-    uint16_t convert_channel_3_f;
-    uint16_t convert_channel_4_f;
-    uint16_t convert_channel_5_f;
-    uint16_t convert_channel_6_f;
-    uint16_t convert_channel_7_f;
-}tS_convert_data;
-
-typedef struct
-{
-    uint32_t pay;
-    uint32_t payda;
-    float ortalama;
-}tS_driver_limit;
-
-tS_adc_raw_data adc_raw_data;
-tS_procces_data procces_data;
-tS_convert_data convert_data;
-tS_driver_limit driver_limit;
-# 33 "./fs_mcu.h" 2
-
-# 1 "./fs_speed_controller.h" 1
-# 34 "./fs_mcu.h" 2
-
-
-
-
-
-# 1 "./fs_lcd.h" 1
-# 39 "./fs_mcu.h" 2
-
-
-void mcuInit(void);
-void systemInit(void);
-void openLCD_Script(void);
-# 34 "./fs_lcd.h" 2
-# 57 "./fs_lcd.h"
-void lcdPort(char a);
-void lcdCmd(char a);
-void lcdClear(void);
-void lcdSetCursor(char a, char b);
-void lcdInit(void);
-void lcdWriteChar(char a);
-void lcdWriteString(char *a);
-void lcdShiftRight(void);
-void lcdShiftLeft(void);
-# 37 "./fs_speed_controller.h" 2
-
-
-
-# 1 "./fs_pwm.h" 1
-# 37 "./fs_pwm.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\math.h" 1 3
 # 15 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\math.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -10476,21 +10185,310 @@ double jn(int, double);
 double y0(double);
 double y1(double);
 double yn(int, double);
-# 37 "./fs_pwm.h" 2
+# 37 "./fs_speed_controller.h" 2
+
+# 1 "./fs_lcd.h" 1
+# 34 "./fs_lcd.h"
+# 1 "./fs_mcu.h" 1
+# 33 "./fs_mcu.h"
+# 1 "./fs_adc.h" 1
+# 37 "./fs_adc.h"
+# 1 "./fs_timer.h" 1
+# 36 "./fs_timer.h"
+# 1 "./fs_main.h" 1
+# 33 "./fs_main.h"
+#pragma warning disable 520
+
+
+
+
+#pragma config FOSC = INTIO67
+#pragma config PLLCFG = ON
+#pragma config PRICLKEN = ON
+#pragma config FCMEN = OFF
+#pragma config IESO = ON
+
+#pragma DEBUG = ON
+
+
+#pragma config PWRTEN = OFF
+#pragma config BOREN = SBORDIS
+#pragma config BORV = 190
+
+
+#pragma config WDTEN = OFF
+#pragma config WDTPS = 32768
+
+
+#pragma config CCP2MX = PORTC1
+#pragma config PBADEN = OFF
+#pragma config CCP3MX = PORTB5
+#pragma config HFOFST = ON
+#pragma config T3CMX = PORTC0
+#pragma config P2BMX = PORTD2
+#pragma config MCLRE = EXTMCLR
+
+
+#pragma config STVREN = OFF
+#pragma config LVP = ON
+#pragma config XINST = OFF
+
+
+#pragma config CP0 = OFF
+#pragma config CP1 = OFF
+#pragma config CP2 = OFF
+#pragma config CP3 = OFF
+
+
+#pragma config CPB = OFF
+#pragma config CPD = OFF
+
+
+#pragma config WRT0 = OFF
+#pragma config WRT1 = OFF
+#pragma config WRT2 = OFF
+#pragma config WRT3 = OFF
+
+
+#pragma config WRTC = OFF
+#pragma config WRTB = OFF
+#pragma config WRTD = OFF
+
+
+#pragma config EBTR0 = OFF
+#pragma config EBTR1 = OFF
+#pragma config EBTR2 = OFF
+#pragma config EBTR3 = OFF
+
+
+#pragma config EBTRB = OFF
 
 
 
 
 
+void loopTaskTimeMachine(void);
+void loopTaskInit(void);
+# 36 "./fs_timer.h" 2
+
+# 1 "./fs_menu_controller.h" 1
+# 36 "./fs_menu_controller.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\stdbool.h" 1 3
+# 36 "./fs_menu_controller.h" 2
+
+
+# 1 "./fs_timer.h" 1
+# 38 "./fs_menu_controller.h" 2
+
+# 1 "./fs_lcd.h" 1
+# 39 "./fs_menu_controller.h" 2
+
+# 1 "./fs_eeprom.h" 1
+# 45 "./fs_eeprom.h"
+uint8_t eepromRead(uint8_t address);
+void eepromWrite(uint8_t address, uint8_t data);
+# 40 "./fs_menu_controller.h" 2
+
+# 1 "./fs_speed_controller.h" 1
+# 41 "./fs_menu_controller.h" 2
+# 62 "./fs_menu_controller.h"
+_Bool pauseIsClick = 0;
+_Bool startIsClick = 0;
+_Bool stopIsClick = 0;
+uint8_t secretMenuCounter = 0;
+
+typedef struct
+{
+    _Bool menu_input_flag ;
+    _Bool menu_start_flag ;
+    _Bool menu_stop_flag ;
+    _Bool menu_pause_flag ;
+    _Bool menu_increase_flag ;
+    _Bool menu_decrease_flag ;
+}tS_menu_flags;
+
+typedef struct
+{
+    _Bool menu ;
+    _Bool start ;
+    _Bool stop ;
+    _Bool pause ;
+    _Bool decrease ;
+    _Bool increase ;
+}tS_button_bounce_controller;
+
+
+typedef enum
+{
+    MAIN_MENU,
+    DRIVER_TIME_SETTING,
+    STOP_TIME_SETTING,
+    SPEED_LIMIT_SETTING,
+    STOP_MENU,
+    START_MENU,
+    PAUSE_MENU,
+    EXIT_LINE,
+    SECRET_MENU,
+}tE_menu_selected;
+
+typedef struct
+{
+    uint8_t driver_time;
+    uint8_t stop_time;
+    uint8_t speed_limit;
+}tS_menu_value;
+
+
+tS_button_bounce_controller button_bounce_controller = {0};
+tE_menu_selected menu_selected = {0};
+tS_menu_flags menu_flags = {0};
+tS_menu_value menu_value = {0};
+
+void menuInitialize(void);
+void loopTaskMenuControl(void);
+void buttonControlFlags(void);
+void stateMachine(void);
+void mainMenu(void);
+void stopMenu(void);
+void pauseMenu(void);
+void startMenu(void);
+void secretMenu(void);
+void speedLimitSettingMenu(void);
+void speedLimitSettingMenu(void);
+void stopTimeSettingMenu(void);
+void driverTimeSettingMenu(void);
+void exitLine(void);
+# 37 "./fs_timer.h" 2
+
+
+void timer_0_init(void);
+
+
+typedef struct
+{
+    uint8_t one_second_flag:1;
+}tS_timer_counter_flag;
+
+typedef struct
+{
+    uint8_t second;
+    uint8_t minute;
+    uint8_t remainingSecond;
+    int8_t remainingMinute;
+    uint8_t menu_login_delay;
+    uint8_t adc_conversion_time;
+    uint16_t second_counter;
+}tS_timer_value;
+
+tS_timer_counter_flag timer_counter_flag = {0};
+tS_timer_value timer_value = {0};
+# 37 "./fs_adc.h" 2
+# 52 "./fs_adc.h"
+void adcInit(void);
+void scanAdcConversion(void);
+uint16_t readAdcValue(uint8_t adcChannel);
+void calculatedAverageValue(void);
+
+typedef struct
+{
+    uint16_t channel_0;
+    uint16_t channel_1;
+    uint16_t channel_2;
+    uint16_t channel_3;
+    uint16_t channel_4;
+    uint16_t channel_5;
+    uint16_t channel_6;
+    uint16_t channel_7;
+}tS_adc_raw_data;
+
+typedef struct
+{
+    float channel_0;
+    float channel_1;
+    float channel_2;
+    float channel_3;
+    float channel_4;
+    float channel_5;
+    float channel_6;
+    float channel_7;
+}tS_procces_data;
+
+typedef struct
+{
+    uint16_t convert_channel_0;
+    uint16_t convert_channel_1;
+    uint16_t convert_channel_2;
+    uint16_t convert_channel_3;
+    uint16_t convert_channel_4;
+    uint16_t convert_channel_5;
+    uint16_t convert_channel_6;
+    uint16_t convert_channel_7;
+
+    uint16_t convert_channel_0_f;
+    uint16_t convert_channel_1_f;
+    uint16_t convert_channel_2_f;
+    uint16_t convert_channel_3_f;
+    uint16_t convert_channel_4_f;
+    uint16_t convert_channel_5_f;
+    uint16_t convert_channel_6_f;
+    uint16_t convert_channel_7_f;
+}tS_convert_data;
+
+typedef struct
+{
+    uint32_t pay_1;
+    uint32_t pay_2;
+    uint32_t total_pay;
+    uint32_t payda;
+    float ortalama;
+}tS_driver_limit;
+
+tS_adc_raw_data adc_raw_data;
+tS_procces_data procces_data;
+tS_convert_data convert_data;
+tS_driver_limit driver_limit;
+# 33 "./fs_mcu.h" 2
+
+# 1 "./fs_speed_controller.h" 1
+# 34 "./fs_mcu.h" 2
+
+
+
+
+
+# 1 "./fs_lcd.h" 1
+# 39 "./fs_mcu.h" 2
+
+
+void mcuInit(void);
+void systemInit(void);
+void openLCD_Script(void);
+# 34 "./fs_lcd.h" 2
+# 57 "./fs_lcd.h"
+void lcdPort(char a);
+void lcdCmd(char a);
+void lcdClear(void);
+void lcdSetCursor(char a, char b);
+void lcdInit(void);
+void lcdWriteChar(char a);
+void lcdWriteString(char *a);
+void lcdShiftRight(void);
+void lcdShiftLeft(void);
+# 38 "./fs_speed_controller.h" 2
+
+
+
+# 1 "./fs_pwm.h" 1
+# 42 "./fs_pwm.h"
 void PWM_Init(void);
 void PWM1_setDC(int16_t dutycycle);
 void PWM2_setDC(int16_t dutycycle);
-# 40 "./fs_speed_controller.h" 2
+# 41 "./fs_speed_controller.h" 2
 
 
-static float KP = 0.2;
-static float KD = 1.0;
-# 53 "./fs_speed_controller.h"
+static float KP = 0.5;
+static float KD = 5.0;
+# 54 "./fs_speed_controller.h"
 void speedControl(float position);
 void stopMotor(void);
 void startMotor(void);
@@ -10501,8 +10499,8 @@ typedef struct
     int16_t error;
     int16_t lastError;
     uint16_t motorSpeed;
-    int16_t leftMotorSpeed;
-    int16_t rightMotorSpeed;
+    uint16_t leftMotorSpeed;
+    uint16_t rightMotorSpeed;
 
     float left;
     float right;
@@ -10513,41 +10511,42 @@ typedef struct
 
 tS_controller controller;
 # 27 "fs_speed_controller.c" 2
-# 36 "fs_speed_controller.c"
+# 40 "fs_speed_controller.c"
 void speedControl(float position)
 {
     float pos = 0;
 
     pos = (float) position;
 
-    controller.error = (int16_t)(position - 3400.0);
-    controller.motorSpeed = (int16_t) (KP * controller.error + KD * (controller.error - controller.lastError));
+    controller.error = (int16_t)(position - 340.0);
+    controller.motorSpeed = (uint16_t) (KP * controller.error + KD * (controller.error - controller.lastError));
+    controller.motorSpeed = (uint16_t) controller.motorSpeed;
     controller.lastError = controller.error;
 
-   controller.leftMotorSpeed =(int16_t) (200 + controller.motorSpeed + 70);
-   controller.rightMotorSpeed =(int16_t) (200 - controller.motorSpeed);
+   controller.leftMotorSpeed =(uint16_t) (150 - (controller.motorSpeed));
+   controller.rightMotorSpeed =(uint16_t) (150 + (controller.motorSpeed));
 
-    if (controller.leftMotorSpeed < 50)
+    if (controller.leftMotorSpeed < 300)
     {
-        controller.leftMotorSpeed = 50;
+        controller.leftMotorSpeed = 300;
     }
 
-    if (controller.rightMotorSpeed < 50)
+    if (controller.rightMotorSpeed < 300)
     {
-      controller.rightMotorSpeed = 50;
+      controller.rightMotorSpeed = 300;
     }
 
-    if (controller.leftMotorSpeed > 350)
+    if (controller.leftMotorSpeed > 500)
    {
-        controller.leftMotorSpeed = 350;
+        controller.leftMotorSpeed = 500;
     }
 
-    if (controller.rightMotorSpeed > 350)
+    if (controller.rightMotorSpeed > 500)
     {
-        controller.rightMotorSpeed = 350;
+        controller.rightMotorSpeed = 500;
     }
 }
-# 77 "fs_speed_controller.c"
+# 82 "fs_speed_controller.c"
 void stopMotor(void)
 {
     controller.rightMotorSpeed = 0;
@@ -10556,7 +10555,7 @@ void stopMotor(void)
     PWM1_setDC(controller.leftMotorSpeed);
     PWM2_setDC(controller.rightMotorSpeed);
 }
-# 93 "fs_speed_controller.c"
+# 98 "fs_speed_controller.c"
 void startMotor(void)
 {
         scanAdcConversion();
@@ -10564,5 +10563,5 @@ void startMotor(void)
         speedControl(driver_limit.ortalama);
         PWM1_setDC(controller.leftMotorSpeed);
         PWM2_setDC(controller.rightMotorSpeed);
-# 113 "fs_speed_controller.c"
+# 118 "fs_speed_controller.c"
 }

@@ -36,7 +36,7 @@
 #include "fs_menu_controller.h"
 
 __EEPROM_DATA(30,10,4,0,0,0,0,0); // DriverTime,StopTime,SpeedLimit
-
+char textCursor2[25] = {0};
 //#define DEBUG
 
 #ifdef DEBUG

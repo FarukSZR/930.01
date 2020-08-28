@@ -9881,14 +9881,14 @@ typedef struct
 
 typedef struct
 {
-    uint32_t convert_channel_0;
-    uint32_t convert_channel_1;
-    uint32_t convert_channel_2;
-    uint32_t convert_channel_3;
-    uint32_t convert_channel_4;
-    uint32_t convert_channel_5;
-    uint32_t convert_channel_6;
-    uint32_t convert_channel_7;
+    uint16_t convert_channel_0;
+    uint16_t convert_channel_1;
+    uint16_t convert_channel_2;
+    uint16_t convert_channel_3;
+    uint16_t convert_channel_4;
+    uint16_t convert_channel_5;
+    uint16_t convert_channel_6;
+    uint16_t convert_channel_7;
 
     uint16_t convert_channel_0_f;
     uint16_t convert_channel_1_f;
@@ -9902,7 +9902,9 @@ typedef struct
 
 typedef struct
 {
-    uint32_t pay;
+    uint32_t pay_1;
+    uint32_t pay_2;
+    uint32_t total_pay;
     uint32_t payda;
     float ortalama;
 }tS_driver_limit;
@@ -9972,15 +9974,6 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 36 "./fs_speed_controller.h" 2
 
-# 1 "./fs_lcd.h" 1
-# 37 "./fs_speed_controller.h" 2
-
-
-# 1 "./fs_mcu.h" 1
-# 39 "./fs_speed_controller.h" 2
-
-# 1 "./fs_pwm.h" 1
-# 37 "./fs_pwm.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\math.h" 1 3
 # 15 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\math.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -10353,8 +10346,17 @@ double jn(int, double);
 double y0(double);
 double y1(double);
 double yn(int, double);
-# 37 "./fs_pwm.h" 2
+# 37 "./fs_speed_controller.h" 2
 
+# 1 "./fs_lcd.h" 1
+# 38 "./fs_speed_controller.h" 2
+
+
+# 1 "./fs_mcu.h" 1
+# 40 "./fs_speed_controller.h" 2
+
+# 1 "./fs_pwm.h" 1
+# 38 "./fs_pwm.h"
 # 1 "./fs_mcu.h" 1
 # 38 "./fs_pwm.h" 2
 
@@ -10364,12 +10366,12 @@ double yn(int, double);
 void PWM_Init(void);
 void PWM1_setDC(int16_t dutycycle);
 void PWM2_setDC(int16_t dutycycle);
-# 40 "./fs_speed_controller.h" 2
+# 41 "./fs_speed_controller.h" 2
 
 
-static float KP = 0.2;
-static float KD = 1.0;
-# 53 "./fs_speed_controller.h"
+static float KP = 0.5;
+static float KD = 5.0;
+# 54 "./fs_speed_controller.h"
 void speedControl(float position);
 void stopMotor(void);
 void startMotor(void);
@@ -10380,8 +10382,8 @@ typedef struct
     int16_t error;
     int16_t lastError;
     uint16_t motorSpeed;
-    int16_t leftMotorSpeed;
-    int16_t rightMotorSpeed;
+    uint16_t leftMotorSpeed;
+    uint16_t rightMotorSpeed;
 
     float left;
     float right;

@@ -34,17 +34,18 @@ extern "C" {
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include <math.h>
 #include "fs_lcd.h"
 #include "fs_adc.h"
 #include "fs_mcu.h"
 #include "fs_pwm.h"    
     
-static float KP =  0.2;
-static float KD =  1.0;
+static float KP =  0.5;
+static float KD =  5.0;
     
-#define MAX_SPEED   350
-#define MIN_SPEED   50
-#define DEF_SPEED   200
+#define MAX_SPEED   500
+#define MIN_SPEED   300
+#define DEF_SPEED   150
 
 //#define MAX_SPEED_MOTOR_RIGHT   450
 //#define MIN_SPEED_MOTOR_RIGHT   150
@@ -60,8 +61,8 @@ typedef struct
     int16_t  error;
     int16_t  lastError;
     uint16_t motorSpeed;
-    int16_t leftMotorSpeed;
-    int16_t rightMotorSpeed;
+    uint16_t leftMotorSpeed;
+    uint16_t rightMotorSpeed;
     
     float left;
     float right;
