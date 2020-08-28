@@ -7,7 +7,16 @@ Tırtıl Project
 1. Sensor kalibrasyonlari eklenecek.
 1. Cizgiden cikildiginda durma fonksiyonu eklenecek. 
 
+
+
 ### Yapilan degisiklikler:
+
+##### 24 Agustos 2020 @Faruk:
+1. PWM degerlerinini arttirilmasi icin DEBUG ifdef yapisi kuruldu. PWM debug kod icerisinde acilaksa eger "loopTaskMenuControl" fonksiyonu icerisindeki 
+"stateMachine" fonksiyonu comment edilmeli ve main icerisinde bulunan #define DEBUG tanimlasi aktif edilmelidir.
+1. 4x20 LCD ekran icin gerekli #ifdef yapisi kuruldu. ADC degerlerini ekrana basiyor.Bunu aktif etmek icin "fs_speed_controller.c" icerisinde #define LCD_4x20
+tanimlamasi yapilmalidir.
+1. KP ve KD degerlerinin artis ve azalis miktarlari 0.01 hassasiyetine indirildi.
 
 ##### 16 Agustos 2020 @Faruk:
 1. Kullanilacak donanima uygun pin ayarlamalari yapildi.
@@ -19,6 +28,15 @@ Tırtıl Project
 1. LCD ekranda acilis betigi eklendi.
 1. LCD okuma yazma delay eklendi. (Yaklasik 40us)
 1. ADC coversion time parametresi eklendi. Timer interrupti icerisinde 10ms'de bir adc cevrimleri kanallari gezer. 8 kanal x 10ms = 80ms Adc cevrim sureleri.
+
+##### 11 Agustos 2020 @Faruk:
+1. ADC pinleri schematic'e gore duzenlendi.
+1. LCD pinleri schematic'e gore duzenlendi.
+1. Buton pinleri schematic'e gore duzenlendi.
+1. stopMotor ve startMotor fonksiyonlari eklendi.
+1. startMotor fonksiyonu start butonuna basildinda aktiflesiyor.
+1. stopMotor menu icerisinde dolanirken ve pause-stop butonlari aktif oldugunda aktiflesiyor.
+
 
 ##### 8 Agustos 2020 @Faruk:
 1. LCD library'de bulunan birkac bug giderildi.
